@@ -5,25 +5,29 @@
 [role="arc42help"]
 .Tabla de riesgos
 |=========================================================
-| Riesgo | Explicación | Solución
+|Prioridad | Riesgo | Explicación | Solución
 
-
+|1
 | SOLID
 | Nadie del equipo ha utilizado alguna vez SOLID, por lo que todos carecemos de conocimiento sobre este framework.
 | Leer más artículos relacionados con este tema o verse alguna guía.
 
+|2
 | REACT
 | Nadie tiene experiencia con REACT, aunque todos los miembros del equipo ya conocen JavaScript
 | Adaptar el conocimiento de JavaScript a TypeScript.
 
+|3
 | Docker
 | No nos hemos centrado todavía en esto (más haya de su instalación), sin embargo también carecemos de conocimiento de como se usa.
 | Comprender como funciona aunque sea de forma básica.
 
+|4
 | MongoDB
 | Nunca hemos trabajado con esta base de datos en concreto pero todos los miembros ya han utilizado una no relacional.
 | Comprender su funcionamiento mirando documentación al respecto
 
+|5
 | GitHub
 | Aunque todo el equipo trabaja bien con GitHub falta soltura a la hora de realizar ciertas acciones.
 | Esto no supone un gran inconveniente, se resolverá a medida que nos vayan saliendo los problemas.
