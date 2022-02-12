@@ -3,7 +3,6 @@
 
 
 [role="arc42help"]
-.Tabla de riesgos
 |=========================================================
 |Prioridad | Riesgo | Explicación | Solución
 
