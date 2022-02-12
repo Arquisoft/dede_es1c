@@ -1,5 +1,5 @@
 [[section-solution-strategy]]
-== 4.Solution Strategy
+== 4 Estrategia de Solución
 
 
 [role="arc42help"]
@@ -40,6 +40,6 @@ Para lograr cumplir con los diversos objetivos de calidad hemos realizado las si
             - Develop: rama en la que se encuentra el producto en desarrollo.
                  - Nombre del miembro: dentro de develop cada miembro tiene una rama en la que pueden trabajar.
 
-Si los miembros del equipos tienen problemas en el desarrollo deben de crear un issue para que éstos le puedan ayudar a solucionarlo.
+Si los miembros del equipo tienen problemas en el desarrollo deben de crear un issue para que éstos le puedan ayudar a solucionarlo.
 
 Los miembros del equipo deben de realizar pull request antes de mergear con otra rama.
