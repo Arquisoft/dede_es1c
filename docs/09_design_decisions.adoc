@@ -7,5 +7,3 @@
 |Lenguaje de programación|Utilizar TypeScript como lenguaje principal en el desarrollo de la aplicación|Escalabilidad del código, fácil testeo.|Desconocimiento técnico sobre el lenguaje.
 |Librerias|Utilizar React para las interfaces de usuario|Es de código abierto, mucha documentación en la web.|No cuenta con documentación oficial ni con estandar de desarrollo.
 |===
-
-
