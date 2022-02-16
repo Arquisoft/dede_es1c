@@ -26,7 +26,8 @@
 [options=""header", cols="1,5"]
 |====
 |Convenciones | Descripcion
-| Arc42 | La plantilla 
+| Arc42 | La plantilla que usaremos para la documentacion es el modelo Arc42
+| Git-Flow | Usamos el patron git-flow trabajando en la rama develop principalmente
 |====
 
 
