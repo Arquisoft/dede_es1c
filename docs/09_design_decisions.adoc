@@ -1,9 +1,20 @@
 [[section-design-decisions]]
 == Design Decisions
-[options="header",cols="1,2,1,2,2"]
+[options="header",cols="1,1,1,1"]
+
+En este documento se recogerán de manera continuada las distintas decisiones de diseño que se vayan tomando en el desarrollo del proyecto.
+Se recoge a modo de tabla formada por cuatro columnas:
+
+-**Sección**: Se explicará a la sección que pertenece la decisión. P.e: Base de datos.
+
+-**Decisión**: La decisión tomada respecto a la sección. P.e: Para la sección Base de datos, la decisión es utilizar MongoDB.
+
+-**Ventajas**: Refleja las ventajas de utilizar la tecnología reflejada en decisión.
+
+-**Inconvenientes**: Dificultades tanto de miembros del equipo como de la propia tecnología.
 |===
-|Sección|Decisión|Ventajas|Inconvenientes
-|Base de datos| Utilizar MongoDB como base de datos para almacenar la información de la tienda.| Versatilidad NoSQL, buena implementación con TypeScript|Ningún miembro del equipo lo ha utilizado antes, pueden surgir problemas técnicos.
-|Lenguaje de programación|Utilizar TypeScript como lenguaje principal en el desarrollo de la aplicación|Escalabilidad del código, fácil testeo.|Desconocimiento técnico sobre el lenguaje.
-|Librerias|Utilizar React para las interfaces de usuario|Es de código abierto, mucha documentación en la web.|No cuenta con documentación oficial ni con estandar de desarrollo.
+|Sección |Decisión| Ventajas| Inconvenientes
+|Base de datos| Utilizar MongoDB como base de datos para almacenar la información de la tienda| Versatilidad NoSQL, buena implementación con TypeScript|Ningún miembro del equipo lo ha utilizado antes, pueden surgir problemas técnicos
+|Lenguaje de programación|Utilizar TypeScript como lenguaje principal en el desarrollo de la aplicación|Escalabilidad del código, fácil testeo|Desconocimiento técnico sobre el lenguaje
+|Librerias|Utilizar React para las interfaces de usuario|Es de código abierto, mucha documentación en la web|No cuenta con documentación oficial ni con estandar de desarrollo
 |===
