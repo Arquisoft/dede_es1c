@@ -1,34 +1,34 @@
 [[section-technical-risks]]
-== Riesgos y Deudas Técnicas
+== Risks and Technical Debts
 
 
 [role="arc42help"]
 |=========================================================
-|Prioridad | Riesgo | Explicación | Solución
+|Priority | Risk | Explanation | Solution
 
 |1
 | SOLID
-| Nadie del equipo ha utilizado alguna vez SOLID, por lo que todos carecemos de conocimiento sobre este framework.
-| Leer más artículos relacionados con este tema o verse alguna guía.
+| No one on the team has ever used SOLID, so we all lack knowledge of this framework.
+| Read more articles related to this topic or see a guide.
 
 |2
 | REACT
-| Nadie tiene experiencia con REACT, aunque todos los miembros del equipo ya conocen JavaScript
-| Adaptar el conocimiento de JavaScript a TypeScript.
+| No one has experience with REACT, although all team members already know JavaScript.
+| Adapt knowledge of JavaScript to TypeScript.
 
 |3
 | Docker
-| No nos hemos centrado todavía en esto (más haya de su instalación), sin embargo también carecemos de conocimiento de como se usa.
-| Comprender como funciona aunque sea de forma básica.
+| We haven't focused on this yet (beyond its installation), however we also lack knowledge of how it is used.
+| Understand how it works even in a basic way.
 
 |4
 | MongoDB
-| Nunca hemos trabajado con esta base de datos en concreto pero todos los miembros ya han utilizado una no relacional.
-| Comprender su funcionamiento mirando documentación al respecto
+| We have never worked with this particular database but all members have already used a non-relational one.
+| Understand how it works by looking at documentation about it.
 
 |5
 | GitHub
-| Aunque todo el equipo trabaja bien con GitHub falta soltura a la hora de realizar ciertas acciones.
-| Esto no supone un gran inconveniente, se resolverá a medida que nos vayan saliendo los problemas.
+| Although the entire team works well with GitHub, there is a lack of ease when performing certain actions.
+| This is not a big inconvenience, it will be resolved as problems arise.
 
 |=========================================================
