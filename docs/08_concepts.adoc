@@ -59,13 +59,24 @@ Como ya se menciono anteriormente, los datos de usuario son guardados en un POD,
 La operativa de la aplicación es sencilla, pero no por ello lo es el llevar esa idea a codigo. En nuestro caso, las operaciones básicas que se pueden realizar son:
 
 
-* Autenticación de usuario.
+[plantuml, "Quality tree",png]
+----
+left to right direction
+usuario as ac1
 
-* Registro de usuario.
-* Compra de producto.
-* Operaciones en carrito.
-* Operaciones en lista de deseos.
-* Filtrar por categorias.
-|===
+(Autenticación de usuario) as (a)
+(Registro de usuario) as (r)
+(Compra de producto) as (c)
+(Operaciones en carrito) as (o)
+(Operaciones en lista de deseos) as (op)
+(Filtrar por categorias) as (f)
+
+ac1 --> a
+ac1 --> r
+ac1 --> c
+ac1 --> o
+ac1 --> op
+ac1 --> f
+----
 
 
