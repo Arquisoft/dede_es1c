@@ -12,7 +12,7 @@
 | Leer más artículos relacionados con este tema o verse alguna guía.
 
 |2
-| REACT
+| React
 | Nadie tiene experiencia con REACT, aunque todos los miembros del equipo ya conocen JavaScript
 | Adaptar el conocimiento de JavaScript a TypeScript.
 

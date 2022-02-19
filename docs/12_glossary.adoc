@@ -1,32 +1,28 @@
 [[section-glossary]]
-== Glossary
-
-
+== Glosario
 
 [role="arc42help"]
-****
-.Contents
-The most important domain and technical terms that your stakeholders use when discussing the system.
-
-You can also see the glossary as source for translations if you work in multi-language teams.
-
-.Motivation
-You should clearly define your terms, so that all stakeholders
-
-* have an identical understanding of these terms
-* do not use synonyms and homonyms
-
-.Form
-A table with columns <Term> and <Definition>.
-
-Potentially more columns in case you need translations.
-
-****
 
 [options="header"]
 |===
 | Termino         | Definición
-| Discord   | Servicio de mensajería instantánea freeware de chat de voz VolP, video y chat por texto
-| Pod     | Almacenamiento personal de datos alojado en un servidor elegido por el usuario.
-| Github | Plataforma de desarrollo colaborativo para alojar proyectos utilizando el sistema de versiones Git.
+| Discord
+| Servicio de mensajería instantánea freeware de chat de voz VolP, video y chat por texto
+
+| Pod
+| Almacenamiento personal de datos alojado en un servidor elegido por el usuario.
+
+| Github
+| Plataforma de desarrollo colaborativo para alojar proyectos utilizando el sistema de versiones Git.
+
+| MongoDB
+| Sistema de base de datos NoSQL, orientado a documentos y de código abierto
+
+| Docker
+| Proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software
+
+| REACT
+| Biblioteca Javascript de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página
+
+
 |===
