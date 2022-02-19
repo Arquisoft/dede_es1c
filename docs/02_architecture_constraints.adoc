@@ -1,19 +1,34 @@
 [[section-architecture-constraints]]
-== Architecture Constraints
+== Restricciones de Arquitectura
 
 
-[role="arc42help"]
-****
-.Contents
-Any requirement that constrains software architects in their freedom of design and implementation decisions or decision about the development process. These constraints sometimes go beyond individual systems and are valid for whole organizations and companies.
+=== 2.1 Restricciones técnicas
+[options=""header", cols="1,5"]
+|====
+| Restriccion | Description
+| React  |  Debemos usar el framework React para desarrollo del front-end de la aplicacion
+| Typescript | Es el lenguaje de programacion principal de la aplicacion
+| SOLID | Debemos seguir el principio SOLID de descentralizacion de los datos de los clientes
+|Node.js | Entorno para la manejar la comunicacion entre el back-end y el front-end de la aplicacion 
+| Git/Github | El software de control de versiones de este proyecto es 
+|====
 
-.Motivation
-Architects should know exactly where they are free in their design decisions and where they must adhere to constraints.
-Constraints must always be dealt with; they may be negotiable, though.
+=== 2.2 Restricciones organizativas
+[options=""header", cols="1,5"]
+|====
+|Restriccion | Descripcion
+| Revisiones | Tendremos diversas presentaciones y revisiones del proyecto, hasta la entrega final
+| Equipo | El equipo cuenta con un maximo de 5 miembros
+| Reuniones continuas | El equipo esta obligado a realizar reuniones periodicas sobre el proyecto
+|====
 
-.Form
-Simple tables of constraints with explanations.
-If needed you can subdivide them into
-technical constraints, organizational and political constraints and
-conventions (e.g. programming or versioning guidelines, documentation or naming conventions)
-****
+=== 2.3 Convenios
+[options=""header", cols="1,5"]
+|====
+|Convenciones | Descripcion
+| Arc42 | La plantilla que usaremos para la documentacion es el modelo Arc42
+| Git-Flow | Usamos el patron git-flow trabajando en la rama develop principalmente
+|====
+
+
+
