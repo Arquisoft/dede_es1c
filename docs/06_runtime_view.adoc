@@ -1,6 +1,6 @@
 [[section-runtime-view]]
 == Runtime View
-Los siguientes casos de secuencias explican algunos de los escenarios que se pueden dar lugar en dede
+Los siguientes casos de secuencias explican algunos de los escenarios que se pueden dar lugar en DeDe
 
 [role="arc42help"]
 
@@ -9,17 +9,17 @@ Los siguientes casos de secuencias explican algunos de los escenarios que se pue
 ----
 @startuml
 actor Usuario 
-entity Dede
+entity DeDe
 database POD
-Usuario-> Dede: Petición de autenticación
-Dede-> POD: Comprobación de credenciales
+Usuario-> DeDe: Petición de autenticación
+DeDe-> POD: Comprobación de credenciales
 alt usuario existe
 
-    POD -> Dede:Devuelve al usuario
-    Dede->Usuario:Redirección a página principal con usuario identificado 
+    POD -> DeDe:Devuelve al usuario
+    DeDe->Usuario:Redirección a página principal con usuario identificado 
 
 else usuario ya existe
-    POD -> Dede: Mensaje de error
+    POD -> DeDe: Mensaje de error
 end
 
 @enduml
@@ -29,42 +29,46 @@ end
 ----
 @startuml
 actor Usuario
-entity Dede
+entity DeDe
 database POD
-Usuario-> Dede :Introducción de credenciales
-Dede->POD:Compración del usuario
+Usuario-> DeDe :Introducción de credenciales
+DeDe->POD:Compración del usuario
 alt usuario no existe
 
-    POD -> Dede: Usuario creado
+    POD -> DeDe: Usuario creado
 
 else usuario ya existe
-    POD -> Dede: Mensaje de error
+    POD -> DeDe: Mensaje de error
 end
 @enduml
 ----
 === Añadir un producto al carro
 [plantuml,"AñadirCarro_diagrama",png]
+----
 @startuml
 actor Usuario
-entity Dede
+entity DeDe
 database BBDD
-Usuario-> Dede: Selecciona un producto
-Dede-> BBDD: Peticion:añadir el producto al carro del usuario
-BBDD-> Dede:Petición aceptada 
-Dede->Usuario:Notificación del añadido
+Usuario-> DeDe: Selecciona un producto
+DeDe-> BBDD: Peticion:añadir el producto al carro del usuario
+BBDD-> DeDe:Petición aceptada 
+DeDe->Usuario:Notificación del añadido
 @endtuml
+----
 === Compra de los productos
 [plantuml,"Compra_diagrama",png]
+----
 @startuml
 actor Usuario
-entity Dede
+entity DeDe
 database BBDD
-Usuario-> Dede:Compra de los productos
-Dede-> BBDD: Petición guardado productos al usuario
-BBDD-> Dede: Devuelve información necesaria
-Dede-> Usuario: Pedir datos necesarios para compra
-Usuario-> Dede:Introducción datos necesarios
-Dede-> BBDD: Comprobación datos
-BBDD-> Dede:  Devuelve información necesaria
-Dede-> Usuario: Notificación de la compra
+Usuario-> DeDe:Compra de los productos
+DeDe-> BBDD: Petición guardado productos al usuario
+BBDD-> DeDe: Devuelve información necesaria
+DeDe-> Usuario: Pedir datos necesarios para compra
+Usuario-> DeDe:Introducción datos necesarios
+DeDe-> BBDD: Comprobación datos
+BBDD-> DeDe:  Devuelve información necesaria
+DeDe-> Usuario: Notificación de la compra
 @endtuml
+----
