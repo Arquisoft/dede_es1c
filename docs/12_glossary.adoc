@@ -29,4 +29,6 @@ Potentially more columns in case you need translations.
 | Discord   | Servicio de mensajería instantánea freeware de chat de voz VolP, video y chat por texto
 | Pod     | Almacenamiento personal de datos alojado en un servidor elegido por el usuario.
 | Github | Plataforma de desarrollo colaborativo para alojar proyectos utilizando el sistema de versiones Git.
+| SOLID | Principios de desarollo software que tienen como objetivo mejorar la mantebilidad, legibilidad y reutabilidad del codigo reduciendo el acomplamiento
+| POD | Unidad de alamcenamiento de datos personales asociados a un unico usuario
 |===

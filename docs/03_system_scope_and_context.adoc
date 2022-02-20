@@ -5,7 +5,7 @@
 Esta aplicacion va a consistir en una tienda online de venta de videojuegos fisicos, por lo tanto tendremos que manejar tanto datos de usuarios como los propios productos, envios etc.
 Sobre los datos de los usuarios debemos trabajar de acuerdo al principio SOLID, tendremos descentralizados los datos de los usuarios en PODs, cada usuario tendra su propio POD quedando almacenado de una forma mas segura.
 
-.3.1 Contexto empresarial
+=== 3.1 Contexto empresarial
 Veremos con este diagrama cual va a ser el contexto de la aplicacion y los PODs
 [plantuml,"Diagrama conexto emp",png]
 ----
@@ -13,19 +13,41 @@ Veremos con este diagrama cual va a ser el contexto de la aplicacion y los PODs
 skinparam actorstyle awesome
 actor Usuario
 package DeDe{ 
-    usecase "Sesion en la web" as Sesion
+    usecase "Sesion en la tienda" as Sesion
 }
-package POD {
-   usecase "Datos personales" as Datos
+database POD {
+    usecase "Datos personales"
 }
 Usuario -right--> DeDe : Accede
 DeDe -up-> POD : Guarda datos
 POD -down---> DeDe : Obtiene datos
 ----
 
-.3.2 Contexto tecnico
-Various options:
+=== 3.2 Contexto tecnico
+Nuestra tienda DeDe se debe adecuar a los principios SOLID de descentralizacion de datos personales mediante el almacenamiento de los mismos en PODs independientes para cada usuario.
+El front-end estara desarrollado mediante el framework React implementando componentes ya desarrolladas o bien creadas por nosotros mismos, ademas el lenguaje para el desarrollo del mismo sera en Typescript.
+Por la parte del back-end, nuestro SGDB es Mongo.db y mediante Node.js express realizaremos todas las transacciones a la base de datos, tanto para acceder o guardar en los PODs de los usuario como para el resto de datos de la tienda.
 
+
+[plantuml,"Diagrama tecnologias",png]
+----
+@startuml
+skinparam actorstyle awesome
+actor cliente
+cloud DeDe #palegreen;line:green;line.dashed;text:black
+component React 
+node TypeScript
+hexagon SOLID
+database Mongo.db
+queue Node.js
+DeDe <-up-> cliente
+DeDe -down-> React
+DeDe -down-> TypeScript
+DeDe -[dashed]down-> SOLID
+DeDe -down-> Mongo.db
+DeDe -down-> Node.js
+@enduml
+----
 
 
 
