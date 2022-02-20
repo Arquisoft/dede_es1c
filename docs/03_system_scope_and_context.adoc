@@ -35,6 +35,7 @@ Por la parte del back-end, nuestro SGDB es Mongo.db y mediante Node.js express r
 skinparam actorstyle awesome
 actor cliente
 cloud DeDe #palegreen;line:green;line.dashed;text:black
+rectangle Tecnologias {
 component React 
 node TypeScript
 hexagon SOLID
@@ -46,6 +47,7 @@ DeDe -down-> TypeScript
 DeDe -[dashed]down-> SOLID
 DeDe -down-> Mongo.db
 DeDe -down-> Node.js
+}
 @enduml
 ----
 
