@@ -1,7 +1,6 @@
 [[section-solution-strategy]]
 == Estrategia de Solución
 
-
 [role="arc42help"]
 
 === Decisiones Técnicas
