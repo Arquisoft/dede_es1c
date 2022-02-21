@@ -3,9 +3,6 @@
 
 == Deployment View
 
-[role="arc42help"]
-
-
 === Algunas consideraciones
 
 * Nuestra aplicación funcionará desde cualquier ordenador  a través del navegador. De esta forma los requisitos necesarios para ejecutarla
