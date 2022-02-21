@@ -21,6 +21,7 @@ database POD {
 Usuario -right--> DeDe : Accede
 DeDe -up-> POD : Guarda datos
 POD -down---> DeDe : Obtiene datos
+@enduml
 ----
 
 === 3.2 Contexto tecnico
