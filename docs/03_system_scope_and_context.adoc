@@ -6,7 +6,7 @@ Esta aplicacion va a consistir en una tienda online de venta de videojuegos fisi
 Sobre los datos de los usuarios debemos trabajar de acuerdo al principio SOLID, tendremos descentralizados los datos de los usuarios en PODs, cada usuario tendra su propio POD quedando almacenado de una forma mas segura.
 
 === Contexto empresarial
-Veremos con este diagrama cual va a ser el contexto de la aplicacion y los PODs
+Veremos con este diagrama cual va a ser el contexto de la aplicacion y los PODs.
 [plantuml,"Diagrama conexto emp",png]
 ----
 @startuml
