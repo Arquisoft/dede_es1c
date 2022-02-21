@@ -2,7 +2,7 @@
 == Restricciones de Arquitectura
 
 
-===Restricciones técnicas
+=== Restricciones técnicas
 [options=""header", cols="1,5"]
 |====
 | Restriccion | Description
