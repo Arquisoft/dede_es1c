@@ -6,7 +6,7 @@
 ==== 8.1 Conceptos de dominio
 
 |===
-Usuario | Representa un usuario de la aplicación, toda su información se guardará en un POD.
+|Usuario | Representa un usuario de la aplicación, toda su información se guardará en un POD.
 
 |Posicion actual del usuario | El objetivo es que se conozca la posicion actual para en el caso de enviar un pedido se pueda calcular el coste de envio.
 
