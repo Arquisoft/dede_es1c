@@ -1,7 +1,6 @@
 [[section-solution-strategy]]
 == Estrategia de Solución
 
-[role="arc42help"]
 
 === Decisiones Técnicas
 Para el desarrollo del proyecto se han tomado las siguientes decisiones:
