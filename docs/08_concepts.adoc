@@ -57,7 +57,7 @@ Como ya se menciono anteriormente, los datos de usuario son guardados en un POD,
 La operativa de la aplicación es sencilla, pero no por ello lo es el llevar esa idea a codigo. En nuestro caso, las operaciones básicas que se pueden realizar son:
 
 
-[plantuml, "Quality tree",png]
+[plantuml, "conceptos operativos",png]
 ----
 left to right direction
 usuario as ac1
