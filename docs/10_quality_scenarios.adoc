@@ -6,6 +6,8 @@
 [plantuml, "Quality tree",png]
 ----
 left to right direction
+
+
 (Calidad) as (Q)
 (Usabilidad) as (U)
 (Privacidad) as (Pr)
