@@ -5,7 +5,7 @@
 Esta aplicacion va a consistir en una tienda online de venta de videojuegos fisicos, por lo tanto tendremos que manejar tanto datos de usuarios como los propios productos, envios etc.
 Sobre los datos de los usuarios debemos trabajar de acuerdo al principio SOLID, tendremos descentralizados los datos de los usuarios en PODs, cada usuario tendra su propio POD quedando almacenado de una forma mas segura.
 
-=== 3.1 Contexto empresarial
+=== Contexto empresarial
 Veremos con este diagrama cual va a ser el contexto de la aplicacion y los PODs
 [plantuml,"Diagrama conexto emp",png]
 ----
@@ -24,7 +24,7 @@ POD -down---> DeDe : Obtiene datos
 @enduml
 ----
 
-=== 3.2 Contexto tecnico
+=== Contexto tecnico
 Nuestra tienda DeDe se debe adecuar a los principios SOLID de descentralizacion de datos personales mediante el almacenamiento de los mismos en PODs independientes para cada usuario.
 El front-end estara desarrollado mediante el framework React implementando componentes ya desarrolladas o bien creadas por nosotros mismos, ademas el lenguaje para el desarrollo del mismo sera en Typescript.
 Por la parte del back-end, nuestro SGDB es Mongo.db y mediante Node.js express realizaremos todas las transacciones a la base de datos, tanto para acceder o guardar en los PODs de los usuario como para el resto de datos de la tienda.
