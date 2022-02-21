@@ -1,5 +1,5 @@
 [[section-runtime-view]]
-== Runtime View
+== Vista en tiempo de ejecución
 Los siguientes casos de secuencias explican algunos de los escenarios que se pueden dar lugar en DeDe
 
 [role="arc42help"]
