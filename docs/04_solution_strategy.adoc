@@ -1,24 +1,43 @@
 [[section-solution-strategy]]
-== Solution Strategy
+== Estrategia de Solución
 
 
-[role="arc42help"]
-****
-.Contents
-A short summary and explanation of the fundamental decisions and solution strategies, that shape the system's architecture. These include
+=== Decisiones Técnicas
+Para el desarrollo del proyecto se han tomado las siguientes decisiones:
+[options="header"]
+|===
+| Nombre de la tecnológia        | Objetivo
+| TypeScript   | Lenguaje principal del proyecto
+| React     | Biblioteca que facilitará el desarrollo de la interfaz gráfica
+| MongoDB | Base de datos que permitirá guardar los datos de los usuarios,centros de distribución y diferentes productos
+| Github | Herramienta de control de versiones que mejora el trabajo en equipo
+|Docker | Proyecto de código abierto que automatiza el despliegue de la apliación
+|SOLID | Especificación que permite a las personas almacenar sus datos de forma segura en almacenes de datos descentralizados llamados Pods.
+|===
+=== Decisiones sobre la descomposición de alto nivel del sistema
 
-* technology decisions
-* decisions about the top-level decomposition of the system, e.g. usage of an architectural pattern or design pattern
-* decisions on how to achieve key quality goals
-* relevant organizational decisions, e.g. selecting a development process or delegating certain tasks to third parties.
+Se ha decidido utilizar el patrón arquitectónico MVC para desarrollar la aplicación
 
-.Motivation
-These decisions form the cornerstones for your architecture. They are the basis for many other detailed decisions or implementation rules.
+=== Decisiones para lograr objetivos de calidad
 
-.Form
-Keep the explanation of these key decisions short.
+Para lograr cumplir con los diversos objetivos de calidad hemos realizado las siguientes acciones:
 
-Motivate what you have decided and why you decided that way,
-based upon your problem statement, the quality goals and key constraints.
-Refer to details in the following sections.
-****
+    * *Privacidad:* Para asegurar la mejor privacidad a los usuarios se usará los PODs de SOLID,los cuáles nos permitirá almacenar los datos de usuario en un formato interoperable, y brindar a los usuarios controles de autorización.
+    * *Usabilidad:* Para mejorar este objetivo nuestras interfaces son lo más fluidas, simples e intuitivas posibles.
+    * *Eficiencia:* Como el uso de los Pods de SOLID ralentiza la aplicación, se usarán lo menos posible por eso se combinarán estos PODs con MongoDB.
+    * *Testeabilidad:* Se han realizado diferentes tipos de test para comprobar la robustez del proyecto.
+
+=== Decisiones para la organización
+    * *Reuniones*
+        Durante la semana se planificará una reunión presencial, en la que se expondrán los puntos que hay que realizar antes de la siguiente, además se tratarán los problemas u obstaculos encontrados, todo esto quedará reflejado a través de actas.
+        Si surge algún problema durante la realización del proyecto se podrán planificar reuniones online a través de Discord.
+
+    * *Github*
+        Para poder realizar un buen control de versiones del proyecto se utilizará Github donde se crearán diferentes ramas:
+            - Master: producto final.
+            - Develop: rama en la que se encuentra el producto en desarrollo.
+                 - Nombre del miembro: dentro de develop cada miembro tiene una rama en la que pueden trabajar.
+
+Si los miembros del equipo tienen problemas en el desarrollo deben de crear un issue para que éstos le puedan ayudar a solucionarlo.
+
+Los miembros del equipo deben de realizar pull request antes de mergear con otra rama.
