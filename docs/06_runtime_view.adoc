@@ -2,7 +2,7 @@
 == Vista en tiempo de ejecución
 Los siguientes casos de secuencias explican algunos de los escenarios que se pueden dar lugar en DeDe
 
-[role="arc42help"]
+
 
 === Login de Usuario
 [plantuml,"Login_diagrama",png]
@@ -21,7 +21,6 @@ alt usuario existe
 else usuario ya existe
     POD -> DeDe: Mensaje de error
 end
-
 @enduml
 ----
 === Registro de usuarios
