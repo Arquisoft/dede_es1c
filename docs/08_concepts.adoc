@@ -1,9 +1,7 @@
 [[section-concepts]]
-=== 8. Cross-cutting Concepts
+=== Cross-cutting Concepts
 
-
-[role="arc42help"]
-==== 8.1 Conceptos de dominio
+==== Conceptos de dominio
 
 |===
 |Usuario | Representa un usuario de la aplicación, toda su información se guardará en un POD.
@@ -13,7 +11,7 @@
 |Productos | Lista de productos disponibles con toda la información relevante.
 |===
 
-==== 8.2 Conceptos de experiencia de usuario
+==== Conceptos de experiencia de usuario
 
 La aplicación está desarrollada para que el usuario pueda interaccionar con ella de manera sencilla, no es necesario que tenga conocimientos previos, pero como es lógico
 si ya se encuentra familiarizado con plataformas de compra electrónica como Steam u Origin, siempre le será más sencillo.
@@ -24,7 +22,7 @@ No es necesario registrarse para realizar una compra, se puede crear un usuario 
 Si el usuario quiere, podrá guardar una lista con sus _"deseos"_, aquí meterá su lista de productos deseados y que guarda para una futura compra, esta función es solo para usuarios registrados.
 
 
-==== 8.3 Conceptos de seguridad y protección
+==== Conceptos de seguridad y protección
 
 En lineas generales, nuestra aplicación es segura. Hemos utilizado los principios SOLID, esto es que los datos de los usuarios serán almacenados de forma segura en almacenes de datos llamados PODS.
 Los PODS (Personal online data stores) pueden contener cualquier tipo de información, en nuestro caso contiene nombre, apellidos, dni, dirección y número de teléfono.
@@ -34,7 +32,7 @@ Se ha prestado especial atención en fortificar la base de datos, ya que muchos 
 de la aplicación.
 
 
-==== 8.4 Arquitectura y patrones de diseño
+==== Arquitectura y patrones de diseño
 
 Una de las decisones más importantes a la hora de desarrollar una aplicación es pensar en el diseño, uno de los referentes que hemos tenido en cuenta es el libro de Erich Gamma, _Design Patterns_. En esta
 obra se explican algunos de los principios más populares para el desarrollo de software mantenible y de calidad. Además tambien hemos consultado multitud de artículos donde se explican tecnicas
@@ -47,14 +45,14 @@ para un buen desarrollo y un bajo acoplamientro, con esto hemos decidido aplicar
 * MVC (Modelo vista controlador): para poder gestionar las vistas en el frontend con las peticiones en el backend.
 
 
-==== 8.5 "_Bajo el capó_" conceptos de desarrollo
+==== "_Bajo el capó_" conceptos de desarrollo
 
 La aplicación cuenta con un frontend y un backend perfectamente comunicados. La parte del frontend es la que ve el usuario y a la que tendrá acceso, aquí se incluyen todos los menus, botones y vistas de la aplicación.
 
 Tanto la lógica de la aplicación como la base de datos forman parte del backend, el frontend hará peticiones al backend y todo esta sincronizado para que así ocurra.
 Como ya se menciono anteriormente, los datos de usuario son guardados en un POD, separandose de la base de datos de productos de la aplicación para seguir los principios SOLID y aumentar la seguridad.
 
-==== 8.6 Conceptos operativos
+==== Conceptos operativos
 
 La operativa de la aplicación es sencilla, pero no por ello lo es el llevar esa idea a codigo. En nuestro caso, las operaciones básicas que se pueden realizar son:
 

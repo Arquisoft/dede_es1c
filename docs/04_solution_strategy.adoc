@@ -2,8 +2,6 @@
 == Estrategia de Solución
 
 
-
-
 === Decisiones Técnicas
 Para el desarrollo del proyecto se han tomado las siguientes decisiones:
 [options="header"]
