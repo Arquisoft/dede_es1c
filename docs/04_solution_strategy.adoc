@@ -1,10 +1,10 @@
 [[section-solution-strategy]]
-== 4 Estrategia de Solución
+== Estrategia de Solución
 
 
 [role="arc42help"]
 
-=== 4.1 Decisiones Técnicas
+=== Decisiones Técnicas
 Para el desarrollo del proyecto se han tomado las siguientes decisiones:
 [options="header"]
 |===
@@ -16,11 +16,11 @@ Para el desarrollo del proyecto se han tomado las siguientes decisiones:
 |Docker | Proyecto de código abierto que automatiza el despliegue de la apliación
 |SOLID | Especificación que permite a las personas almacenar sus datos de forma segura en almacenes de datos descentralizados llamados Pods.
 |===
-=== 4.2 Decisiones sobre la descomposición de alto nivel del sistema
+=== Decisiones sobre la descomposición de alto nivel del sistema
 
 Se ha decidido utilizar el patrón arquitectónico MVC para desarrollar la aplicación
 
-=== 4.3 Decisiones para lograr objetivos de calidad
+=== Decisiones para lograr objetivos de calidad
 
 Para lograr cumplir con los diversos objetivos de calidad hemos realizado las siguientes acciones:
 
@@ -29,7 +29,7 @@ Para lograr cumplir con los diversos objetivos de calidad hemos realizado las si
     * *Eficiencia:* Como el uso de los Pods de SOLID ralentiza la aplicación, se usarán lo menos posible por eso se combinarán estos PODs con MongoDB.
     * *Testeabilidad:* Se han realizado diferentes tipos de test para comprobar la robustez del proyecto.
 
-=== 4.4 Decisiones para la organización
+=== Decisiones para la organización
     * *Reuniones*
         Durante la semana se planificará una reunión presencial, en la que se expondrán los puntos que hay que realizar antes de la siguiente, además se tratarán los problemas u obstaculos encontrados, todo esto quedará reflejado a través de actas.
         Si surge algún problema durante la realización del proyecto se podrán planificar reuniones online a través de Discord.

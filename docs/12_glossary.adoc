@@ -9,6 +9,9 @@
 | Discord
 | Servicio de mensajería instantánea freeware de chat de voz VolP, video y chat por texto
 
+| SOLID 
+| Proyecto desarrollado por Tim Berners-Lee que busca descentralizar los datos de los usuarios del resto de datos de la aplicacion almacenandolos en POD
+
 | Pod
 | Almacenamiento personal de datos alojado en un servidor elegido por el usuario.
 
@@ -24,5 +27,9 @@
 | REACT
 | Biblioteca Javascript de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página
 
+| Whitebox
+| En diagramas, un componente que nos muestra los componentes que tiene en su interior.
 
+| Blackbox
+| En digaramas, un componente opaco que no nos permite ver las partes que tiene en el interior.
 |===
