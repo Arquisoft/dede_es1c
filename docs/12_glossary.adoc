@@ -26,4 +26,10 @@
 
 | REACT
 | Biblioteca Javascript de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página
+
+| Whitebox
+| En diagramas, un componente que nos muestra los componentes que tiene en su interior.
+
+| Blackbox
+| En digaramas, un componente opaco que no nos permite ver las partes que tiene en el interior.
 |===
