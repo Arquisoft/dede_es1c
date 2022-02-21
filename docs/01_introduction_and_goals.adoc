@@ -6,7 +6,7 @@ DeDe es un proyecto para la asignatura de Arquitectura de Software de la Univers
 
 
 - Héctor Martín Gutierrez
-- Laura Vigil
+- Laura Vigil Laruelo
 - Ivan Valle Soto
 - Álvaro López Fueyo
 

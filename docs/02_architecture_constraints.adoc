@@ -2,7 +2,7 @@
 == Restricciones de Arquitectura
 
 
-=== 2.1 Restricciones técnicas
+===Restricciones técnicas
 [options=""header", cols="1,5"]
 |====
 | Restriccion | Description
@@ -13,7 +13,7 @@
 | Git/Github | El software de control de versiones de este proyecto es 
 |====
 
-=== 2.2 Restricciones organizativas
+=== Restricciones organizativas
 [options=""header", cols="1,5"]
 |====
 |Restriccion | Descripcion
@@ -22,7 +22,7 @@
 | Reuniones continuas | El equipo esta obligado a realizar reuniones periodicas sobre el proyecto
 |====
 
-=== 2.3 Convenios
+=== Convenios
 [options=""header", cols="1,5"]
 |====
 |Convenciones | Descripcion
