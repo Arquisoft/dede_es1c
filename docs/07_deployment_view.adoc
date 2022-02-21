@@ -35,6 +35,7 @@ cuentan con soporte técnico.
 |===
 
 
+
 === 7.3 Motivación
 
 Nuestra filosofía para desarrollar esta aplicación se basa en no utilizar para nada los datos de los usuarios, puesto que no tenemos ningún interes en estos. Creemos en el código abierto
