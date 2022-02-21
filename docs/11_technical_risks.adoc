@@ -2,7 +2,7 @@
 == Riesgos y Deudas Técnicas
 
 
-[role="arc42help"]
+[options="header",cols="1,1,1,1"]
 |=========================================================
 |Prioridad | Riesgo | Explicación | Solución
 
