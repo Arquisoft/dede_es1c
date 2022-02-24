@@ -1,5 +1,5 @@
 [[section-design-decisions]]
-== Design Decisions
+== Decisiones de diseño
 [options="header",cols="1,1,1,1,1"]
 
 En este documento se recogerán de manera continuada las distintas decisiones de diseño que se vayan tomando en el desarrollo del proyecto.
