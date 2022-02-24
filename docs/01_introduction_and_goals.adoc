@@ -58,12 +58,9 @@ Se controlará el correcto funcionamiento mediante las siguientes tipos de prueb
 | Profesores del curso
 | Implementar y mostrar un proyecto que refleje lo explicado en clase.
 
-| Usuarios
+| Clientes
 | Sea intuitiva y fácil de utilizar independientemente del nivel.
 
-| Otros estudiantes
-| Se espera que proporcionen ayuda, ya sea dando consejos o probando la aplicación.
-
-| Administrador del servidor
-| Encargado de gestionar el servidor asi como de solucionar los futuros problemas.
+| Administrador
+| Encargado  de solucionar los futuros problemas.
 |===
