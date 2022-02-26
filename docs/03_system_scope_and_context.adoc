@@ -7,50 +7,20 @@ Sobre los datos de los usuarios debemos trabajar de acuerdo al principio SOLID, 
 
 === Contexto empresarial
 Veremos con este diagrama cual va a ser el contexto de la aplicacion y los PODs.
-[plantuml,"Diagrama conexto emp",png]
-----
-@startuml
-skinparam actorstyle awesome
-actor Usuario
-package DeDe{ 
-    usecase "Sesion en la tienda" as Sesion
-}
-database POD {
-    usecase "Datos personales"
-}
-Usuario -right--> DeDe : Accede
-DeDe -up-> POD : Guarda datos
-POD -down---> DeDe : Obtiene datos
-@enduml
-----
+
+:imagesdir: images/
+image:Punto 3 Diagrama de contexto empresarial.png[Punto3:DCE]
 
 === Contexto tecnico
 Nuestra tienda DeDe se debe adecuar a los principios SOLID de descentralizacion de datos personales mediante el almacenamiento de los mismos en PODs independientes para cada usuario.
 El front-end estara desarrollado mediante el framework React implementando componentes ya desarrolladas o bien creadas por nosotros mismos, ademas el lenguaje para el desarrollo del mismo sera en Typescript.
 Por la parte del back-end, nuestro SGDB es Mongo.db y mediante Node.js express realizaremos todas las transacciones a la base de datos, tanto para acceder o guardar en los PODs de los usuario como para el resto de datos de la tienda.
+La mayoria de peticiones se realizaran mediante el protocolo web HTTP.
 
+Diagrama para ilustrar en el componentes estan afectado por cada tecnologia
 
-[plantuml,"Diagrama tecnologias",png]
-----
-@startuml
-skinparam actorstyle awesome
-actor cliente
-cloud DeDe #palegreen;line:green;line.dashed;text:black
-rectangle Tecnologias {
-component React 
-node TypeScript
-hexagon SOLID
-database Mongo.db
-queue Node.js
-DeDe <-up-> cliente
-DeDe -down-> React
-DeDe -down-> TypeScript
-DeDe -[dashed]down-> SOLID
-DeDe -down-> Mongo.db
-DeDe -down-> Node.js
-}
-@enduml
-----
+:imagesdir: images/
+image:Punto 3 Diagrama tecnico.png[Punto3:DT]
 
 
 
