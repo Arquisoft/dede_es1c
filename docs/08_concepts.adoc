@@ -1,5 +1,5 @@
 [[section-concepts]]
-=== Cross-cutting Concepts
+=== Conceptos transversales
 
 ==== Conceptos de dominio
 
@@ -54,9 +54,21 @@ Como ya se menciono anteriormente, los datos de usuario son guardados en un POD,
 
 ==== Conceptos operativos
 
-La operativa de la aplicación es sencilla, pero no por ello lo es el llevar esa idea a codigo. En nuestro caso, las operaciones básicas que se pueden realizar son:
+Las operaciones básicas que se pueden realizar desde la aplicación desde el rol de usuario son:
 
+*Autenticación de usuario: Hace referencia a identificarse en la aplicación como usuario registrado.
 
+*Registro de usuario: Consiste en cambiar el rol a usuario identificado, registrando así un email y una contraseña para futuros accesos.
+
+*Compra de producto: El usuario podrá adquirir los productos que considere, como si se tratase de un comercio fisico.
+
+*Operaciones en carrito: Hace referencia a operaciones de añadir o eliminar productos dentro del carrito.
+
+*Operaciones en lista de deseos: Es posible añadir o eliminar productos de una lista de deseos. Estos productos se guardan para futuras compras.
+
+*Filtrar por categorias: Una función que consiste en que el usuario pueda ver de manera más concreta determinado tipo de productos.
+
+En el siguiente diagrama se puede apreciar de forma gráfica las operaciones que puede realizar el usuario explicadas anteriormente:
 [plantuml, "conceptos operativos",png]
 ----
 left to right direction
