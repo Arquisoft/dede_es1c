@@ -54,7 +54,7 @@ Se controlará el correcto funcionamiento mediante las siguientes tipos de prueb
 
 [options="header",cols="1,2"]
 |===
-|Role |Expectativas
+|Rol |Expectativas
 | Profesores del curso
 | Implementar y mostrar un proyecto que refleje lo explicado en clase.
 
