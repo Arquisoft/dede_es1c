@@ -68,7 +68,7 @@ Las operaciones básicas que se pueden realizar desde la aplicación desde el ro
 
 *Filtrar por categorias: Una función que consiste en que el usuario pueda ver de manera más concreta determinado tipo de productos.
 
-
+En el siguiente diagrama se puede apreciar de forma gráfica las operaciones que puede realizar el usuario explicadas anteriormente:
 [plantuml, "conceptos operativos",png]
 ----
 left to right direction
