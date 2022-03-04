@@ -14,16 +14,17 @@ import HomeIcon from '@mui/icons-material/Home';
 import { Link } from "react-router-dom";
 
 
+
 const useStyle = makeStyles({
   menu: {
     background: "linear-gradient(45deg, #000000 20%, #6ABACE 80%)",
     border: 0,
+    boxShadow:"1px 23px 23px 5px rgba(#000000,#000000,#000000, #000000)",
     borderRadius: 30,
-    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
-    color: "white",
+
     height: 70,
     padding: "0 40px",
-    marginTop:"5px",
+    marginTop:"15px",
   },
   icon: {
     marginLeft:"10px",
