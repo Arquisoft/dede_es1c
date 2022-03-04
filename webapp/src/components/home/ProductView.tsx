@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import {Card,CardMedia,CardContent,CardActions,Typography,IconButton} from "@material-ui/core";
 import { AddShoppingCart } from "@mui/icons-material";
 import { CardActionArea, Grid } from "@mui/material";
+import { text } from "node:stream/consumers";
 
 const product_card = [
   {
@@ -126,6 +127,7 @@ const useStyle = makeStyles({
   },
 
   media: {
+
     position: "absolute",
     top: 0,
     right: 0,
@@ -153,6 +155,7 @@ const useStyle = makeStyles({
     display: 'flex',
     justifyContent:'flex-end',
     paddingRight:"20px",
+
   },
   cardContent: {
     position: "relative",
@@ -179,6 +182,11 @@ const useStyle = makeStyles({
     borderRadius: "50%",
     backgroundColor:"#6ABACE",
     boxShadow: "5px 4px #000000",
+  },
+  text:{
+    textAlign: "center",
+    position: "relative",
+    marginRight:"20px",
   }
 });
 
@@ -189,10 +197,10 @@ const ProductView = () => {
   return (
     <div className={classes.container3}>
       <h3 className={classes.h3}>Productos</h3>
-      <Grid container justifyContent="center" spacing={2} paddingLeft="30px" paddingBottom="40px" paddingRight="20px">
+      <Grid container justifyContent="center" spacing={1} paddingLeft="30px" paddingBottom="50px" paddingRight="20px">
    
        {product_card.map(item=>(
-           <Grid item key={item.id}  xs={4} sm={6} md={4} lg={2} className={classes.action}>
+           <Grid item key={item.id}  xs={4} sm={6} md={4} lg={2} marginBottom="10px" className={classes.action}>
             <Card className={classes.root}>
               <CardActionArea className={classes.action}>
                <CardMedia className={classes.media} image={item.thumb} title={item.product_name} />
@@ -206,8 +214,11 @@ const ProductView = () => {
                   </Typography>
                   </div>
                   </CardContent>
-              </CardActionArea >
+            
+                   </CardActionArea >
+             
               </Card>
+              <div className={classes.text}>{item.product_name}</div>
               </Grid>
     
       ))}
