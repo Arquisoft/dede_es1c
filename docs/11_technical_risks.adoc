@@ -1,7 +1,7 @@
 [[section-technical-risks]]
 == Riesgos y Deudas Técnicas
 
-
+=== Tabla de riesgos
 [options="header",cols="1,1,1,1"]
 |=========================================================
 |Prioridad | Riesgo | Explicación | Solución
@@ -30,5 +30,13 @@
 | GitHub
 | Aunque todo el equipo trabaja bien con GitHub falta soltura a la hora de realizar ciertas acciones.
 | Esto no supone un gran inconveniente, se resolverá a medida que nos vayan saliendo los problemas.
+
+|=========================================================
+=== Tabla deuda técnica
+[options="header",cols="1,1,1"]
+|=========================================================
+| Riesgo | Explicación | Solución
+|Conflictos en gitHub | A la hora de mergear puede dar fallos | Hacer una reunión para solucionarlo
+|Robustez| Al tener poca experencia en trabajar en este tipo de proyectos en grupo puede darse la situación de que el código no quede robusto   | Tener mucha comunicación
 
 |=========================================================
