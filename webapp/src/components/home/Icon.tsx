@@ -25,10 +25,14 @@ const useStyle = makeStyles({
     li:{
       listStyle: "none",
       margin: "15px 0px",
+      "&:hover ": {
+        backgroundColor: "transparent",
+
+      },
     },
 
     icon:{
-      textDecoration:"none",
+  
       fontSize: "100px",
       lineHeight: "60px",
       transition: ".6s",
@@ -43,7 +47,7 @@ const useStyle = makeStyles({
       borderRadius: "50px",
       background:" #ffffff",
       textAlign: "center",   
-      boxShadow:"0 6px 5px rgba(0, 0, 0, .6)",
+      boxShadow:"6px 5px rgba(0, 0, 0, .6)",
     },
     
 });
@@ -56,11 +60,11 @@ const Icon = () => {
   return (
  <div className="menu-social-links">
  <ul className={classes.ul}>
-  <IconButton className={classes.li}>
+  <IconButton  className={classes.li}>
   <GitHubIcon className={classes.icon} style={{ fontSize: 40 }} onClick={event =>  window.location.href='https://github.com/Arquisoft/dede_es1c'} />
   </IconButton>
   <IconButton className={classes.li}>
-  <ArticleIcon className={classes.icon} style={{ fontSize: 40 }}  onClick={event =>  window.location.href='https://arquisoft.github.io/dede_es1c/'}  />
+  <ArticleIcon  className={classes.icon} style={{ fontSize: 40 }}  onClick={event =>  window.location.href='https://arquisoft.github.io/dede_es1c/'}  />
   </IconButton>
   <IconButton className={classes.li}>
   <HomeIcon className={classes.icon} style={{ fontSize: 40 }} />

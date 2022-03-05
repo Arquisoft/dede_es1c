@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {Card,CardMedia,CardContent,Typography} from "@material-ui/core";
+import {Card,CardMedia,CardContent,CardActions,Typography} from "@material-ui/core";
 import { CardActionArea, Grid } from "@mui/material";
 
 
@@ -145,7 +145,7 @@ const useStyle = makeStyles({
     marginTop:"3%",
     backgroundColor:"#FFFF",
     borderRadius: 30,
-    boxShadow: "7px 7px #000000",
+    boxShadow: "7px 6px rgba(0, 0, 0, .5)",
     marginLeft:"10%",
     marginRight:"12%",
    
@@ -180,7 +180,7 @@ const useStyle = makeStyles({
     height:"37px",
     borderRadius: "50%",
     backgroundColor:"#6ABACE",
-    boxShadow: "5px 4px #000000",
+    boxShadow: "5px 4px rgba(0, 0, 0, .6)",
   },
   text:{
     textAlign: "center",
