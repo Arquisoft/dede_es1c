@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {Card,CardMedia,CardContent,CardActions,Typography} from "@material-ui/core";
+import {Card,CardMedia,CardContent,Typography} from "@material-ui/core";
 import { CardActionArea, Grid } from "@mui/material";
 
 
@@ -8,99 +8,98 @@ const product_card = [
   {
     id:1,
     product_name:"Elden",
-    description:"Hola que tal",
     price:34,
     thumb:"https://storage.gra.cloud.ovh.net/v1/AUTH_296c7803aa594af69d39b970927c8fb9/media/game_avatars/x6/x6w99LoD0pbanPNO.jpeg"
   },
   {
     id:2,
     product_name:"Fifa",
-    description:"Hola que tal",
+
     price:23,
     thumb:"https://yuzu-emu.org/images/game/boxart/mario-kart-8-deluxe.png"
   },
   {
     id:3,
     product_name:"Valorant",
-    description:"Hola que tal",
+ 
     price:3,
     thumb:"https://yuzu-emu.org/images/game/boxart/animal-crossing-new-horizons.png"
   },
   {
-    id:4,
+    id:13,
     product_name:"Apex",
-    description:"Hola que tal",
+
     price:15,
     thumb:"https://static.truetrophies.com/boxart/Game_3265.png"
   },
   {
     id:4,
     product_name:"Apex",
-    description:"Hola que tal",
+ 
     price:15,
     thumb:"https://steamcdn-a.akamaihd.net/apps/csgo/blog/images/competitive_logo_large.png"
   },
   {
     id:4,
     product_name:"Apex",
-    description:"Hola que tal",
-    price:15,
+
+    price:34,
     thumb:"https://yuzu-emu.org/images/game/boxart/animal-crossing-new-horizons.png"
   },
   {
-    id:4,
+    id:5,
     product_name:"Apex",
-    description:"Hola que tal",
-    price:15,
+
+    price:365,
     thumb:"https://styles.redditmedia.com/t5_2gt9zb/styles/communityIcon_rsg25kbthbk41.png"
   },
   {
-    id:4,
+    id:6,
     product_name:"Apex",
-    description:"Hola que tal",
+
     price:15,
     thumb:"https://static.truetrophies.com/boxart/Game_1022.png"
   },
   {
-    id:4,
+    id:7,
     product_name:"Apex",
-    description:"Hola que tal",
+
     price:15,
     thumb:"https://storage.gra.cloud.ovh.net/v1/AUTH_296c7803aa594af69d39b970927c8fb9/media/game_screenshots/kC/kCp5crqMyXVivyej.jpeg"
   },
   {
-    id:4,
+    id:8,
     product_name:"Apex",
-    description:"Hola que tal",
+
     price:15,
     thumb:"https://yuzu-emu.org/images/game/boxart/mario-kart-8-deluxe.png"
   },
   {
-    id:4,
+    id:9,
     product_name:"Apex",
-    description:"Hola que tal",
+
     price:15,
     thumb:"https://as01.epimg.net/meristation/imagenes/2021/10/18/header_image/334243981634566295.jpg"
   },
   {
-    id:4,
-    product_name:"Apex",
-    description:"Hola que tal",
-    price:15,
+    id:10,
+    product_name:"Avatar",
+
+    price:61,
     thumb:"https://storage.gra.cloud.ovh.net/v1/AUTH_296c7803aa594af69d39b970927c8fb9/media/tournaments_avatars/br/bryPz47kvT8b7c3p.jpeg"
   },
   
   {
-    id:4,
+    id:11,
     product_name:"Apex",
-    description:"Hola que tal",
+
     price:15,
     thumb:"https://styles.redditmedia.com/t5_2gt9zb/styles/communityIcon_rsg25kbthbk41.png"
   },
   {
-    id:4,
-    product_name:"Apex",
-    description:"Hola que tal",
+    id:12,
+    product_name:"Animal Crossing",
+
     price:15,
     thumb:"https://static.chollometro.com/threads/raw/7jf5K/746149_1/re/300x300/qt/60/746149_1.jpg"
   },
