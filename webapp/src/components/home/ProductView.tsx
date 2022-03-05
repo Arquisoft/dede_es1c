@@ -1,9 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {Card,CardMedia,CardContent,CardActions,Typography,IconButton} from "@material-ui/core";
-import { AddShoppingCart } from "@mui/icons-material";
+import {Card,CardMedia,CardContent,Typography} from "@material-ui/core";
 import { CardActionArea, Grid } from "@mui/material";
-import { text } from "node:stream/consumers";
+
 
 const product_card = [
   {
@@ -214,9 +213,7 @@ const ProductView = () => {
                   </Typography>
                   </div>
                   </CardContent>
-            
                    </CardActionArea >
-             
               </Card>
               <div className={classes.text}>{item.product_name}</div>
               </Grid>
