@@ -1,7 +1,7 @@
 import React from "react";
-import MenuBar from "./MenuBar";
+import MenuBar from "../comun/MenuBar";
 import ProductView from "./ProductView";
-import Footer from "./Footer";
+import Footer from "../comun/Footer";
 import Icon from "./Icon";
 import { makeStyles } from "@material-ui/core/styles";
 const useStyle = makeStyles({

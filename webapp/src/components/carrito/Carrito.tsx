@@ -1,16 +1,16 @@
 
 import React from "react";
-import MenuBar from "../home/MenuBar";
-import Footer from "../home/Footer";
+import MenuBar from "../comun/MenuBar";
+import Footer from "../comun/Footer";
 import Icon from "../home/Icon";
 import CarritoView from "./CarritoView";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyle = makeStyles({
     container: {
-      display: "flex",
-      flexDirection: "column",
-      width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
     height: "100%",
     padding: "30px 50px 60px 50px",
     boxSizing:"border-box",
@@ -26,7 +26,6 @@ export const Carrito = () => {
       <MenuBar />
       <CarritoView/>
       </div>
-      <Icon/>
       <Footer/>
     </React.Fragment>
     );
