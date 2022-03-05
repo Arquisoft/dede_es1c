@@ -12,6 +12,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { makeStyles } from "@material-ui/core/styles";
 import HomeIcon from '@mui/icons-material/Home';
 import { Link } from "react-router-dom";
+import Box from '@mui/material/Box';
 
 
 
@@ -43,6 +44,7 @@ const MenuBar = () => {
   const classes = useStyle();
 
   return (
+    <Box sx={{ flexGrow: 1 }} >
       <AppBar position="static" className={classes.menu}>
         <Toolbar >
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -95,6 +97,7 @@ const MenuBar = () => {
 
         </Toolbar>
       </AppBar>
+      </Box>
   );
 };
 export default MenuBar;
