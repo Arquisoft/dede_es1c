@@ -1,7 +1,7 @@
 
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {Box,Grid,CardContent,CardMedia,Card,Container,Typography,Tooltip,IconButton} from "@material-ui/core";
+import {Button,Grid,CardContent,CardMedia,Card,Container,Typography,Tooltip,IconButton} from "@material-ui/core";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const product_card = [
@@ -51,20 +51,22 @@ const useStyle = makeStyles({
  
    
   },
-  containerIzq: {
 
+  containerIzq: {
     justifySelf: "stretch",
     minHeight: "30vh",
     borderRadius:"30px",
     position:"relative",
     background: "white",
-   
+    boxShadow: "7px 6px rgba(0, 0, 0, .5)",
   },
+
   containerDch: {
     marginBottom:"55%",
     minHeight: "20vh",
     borderRadius:"30px",
     background: "white",
+    boxShadow: "7px 6px rgba(0, 0, 0, .5)",
    
   },
   root:{
@@ -75,11 +77,12 @@ const useStyle = makeStyles({
     height:150,
     border: "none", boxShadow: "none"
   },
+
   containerCarrito1:{
     marginTop:"10",
     gridRowGap: "20%",
-
   },
+  
   containerCarrito:{
 
     marginLeft:"30px",
@@ -119,6 +122,22 @@ const useStyle = makeStyles({
     color:"white",
   },
 
+  btncomprar:{
+    postion:"relative",
+    left:"70%",
+    "&:hover ": {
+
+      boxShadow: "5px 4px rgba(0, 0, 0, .6)",
+    },
+    boxShadow: "2px 2px rgba(0, 0, 0, .6)",
+    color:"white",
+   marginBottom:"10px",
+   background: "linear-gradient(45deg, #28313b 20%, #6ABACE 80%)",
+   
+  },
+  
+  
+
 });
 const CarritoView = () => {
   const classes = useStyle();
@@ -147,7 +166,7 @@ const CarritoView = () => {
   
           <IconButton >
             <Tooltip title="Eliminar">
-              <DeleteIcon fontSize="large" sx={{ color: "black" }} />
+              <DeleteIcon   fontSize="large" sx={{ color: "black" }} />
             </Tooltip>
             </IconButton>
          
@@ -175,6 +194,7 @@ const CarritoView = () => {
                    <Typography variant="h5" gutterBottom >
                   Total
                    </Typography>
+                   <Button className={classes.btncomprar} variant="contained">Comprar</Button>
         </Container>
         </div>
     );
