@@ -8,6 +8,7 @@ import mongoose from 'mongoose';
 import {UserModel} from "./users/model";
 import ProductRouter from "./products/router";
 import jwt from "./util/token"
+import create from "./util/defaultDatabase";
 
 if (!process.env.JWT_SECRET) {
     const err = new Error('No JWT_SECRET in env variable, check instructions: https://github.com/amazingandyyy/mern#prepare-your-secret');
@@ -20,6 +21,7 @@ mongoose.connect(config.mongoose.uri).catch(err => console.error(err));
 mongoose.Promise = global.Promise;
 
 // TODO: load default values
+  create();
 
 // App Setup
 app.use(cors({
