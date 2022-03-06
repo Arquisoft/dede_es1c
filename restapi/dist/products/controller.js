@@ -24,7 +24,7 @@ exports.default = {
         }
     }),
     create: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const product = yield model_1.ProductModel.create({ name: req.body.name });
+        const product = yield model_1.ProductModel.create({ photo: req.body.url, name: req.body.name, price: req.body.price, stock: req.body.stock });
         res.json(product);
     }),
     update: (req, res) => __awaiter(void 0, void 0, void 0, function* () {

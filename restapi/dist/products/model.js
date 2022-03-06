@@ -7,7 +7,16 @@ exports.ProductModel = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 // Define the model
 const Schema = new mongoose_1.default.Schema({
+    photo: {
+        type: String,
+    },
     name: {
+        type: String,
+    },
+    price: {
+        type: String,
+    },
+    stock: {
         type: String,
     },
 });

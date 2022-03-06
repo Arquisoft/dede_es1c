@@ -1,4 +1,5 @@
 import {ProductModel} from "../products/model";
+import {ROLES, UserModel} from "../users/model";
 
 export default async function create() {
     await ProductModel.deleteMany({});
@@ -7,4 +8,8 @@ export default async function create() {
     await ProductModel.create({photo:' https://www.google.com/search?q=elden+ring&tbm=isch&ved=2ahUKEwiY07WchrL2AhUh2OAKHUa8DpoQ2-cCegQIABAA&oq=elden+ring&gs_lcp=CgNpbWcQAzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMgQIABADMgQIABADMgsIABCABBCxAxCDATILCAAQgAQQsQMQgwEyBAgAEAMyCwgAEIAEELEDEIMBMgQIABADMgQIABADOgcIABCxAxBDOgQIABBDOgUIABCABDoICAAQgAQQsQM6CAgAELEDEIMBOgoIABCxAxCDARBDUPkFWNYMYI0OaABwAHgAgAFgiAG9B5IBAjExmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=fPQkYpilEaGwgwfG-LrQCQ&bih=1280&biw=1159&client=firefox-b-d#imgrc=cjc7GoLP04wZbM', name: 'Elden ring', price:'80', stock:'4' })
     await ProductModel.create({photo:' https://www.google.com/search?q=world+of+warcraft&tbm=isch&ved=2ahUKEwi868yihrL2AhXO8LsIHQnACngQ2-cCegQIABAA&oq=world+of&gs_lcp=CgNpbWcQARgAMggIABCABBCxAzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDoKCAAQsQMQgwEQQzoLCAAQgAQQsQMQgwE6BAgAEAM6CAgAELEDEIMBOgQIABBDOgcIABCxAxBDUL0FWMINYOcVaABwAHgAgAFriAGNBpIBAzguMZgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=ifQkYvyCD87h7_UPiYCrwAc&bih=1280&biw=1159&client=firefox-b-d#imgrc=hTn3thQQPuNZfM', name: 'World of Warcraft', price:'2900', stock:'2' })
     await ProductModel.create({photo:' https://www.google.com/search?q=league+of+leguends+logo&tbm=isch&ved=2ahUKEwiz75e5hrL2AhWO_bsIHT9QBmYQ2-cCegQIABAA&oq=league+of+leguends+logo&gs_lcp=CgNpbWcQAzIFCAAQgAQyBggAEAoQGDoECAAQQzoECAAQHlCBLlizNGCzNWgAcAB4AIABZ4gBigSSAQM1LjGYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=uPQkYrOzJY777_UPv6CZsAY&bih=1280&biw=1159&client=firefox-b-d#imgrc=6XTc5saPQUmzVM', name: 'League of Leguends', price:'50', stock:'2' })
+    await UserModel.deleteMany({});
+    await UserModel.create({personal_identification:'1D', name: 'Alvaro', surname:'Lopez', password:'123', email:'a@gmail.com', role:ROLES.NORMAL, phone:'111', country:'España', province:'Asturias', city:'Mieres', zip_code:33600, street:'C/Hola', number:2, floor:1, floor_number:'A' })
+    await UserModel.create({personal_identification:'1D', name: 'Hector', surname:'Lopez', password:'123', email:'b@gmail.com', role:ROLES.ADMIN, phone:'111', country:'España', province:'Asturias', city:'Mieres', zip_code:33600, street:'C/Hola', number:2, floor:1, floor_number:'B' })
+
 }

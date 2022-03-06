@@ -13,19 +13,36 @@ var ROLES;
 })(ROLES = exports.ROLES || (exports.ROLES = {}));
 // Define the model
 const Schema = new mongoose_1.default.Schema({
+    personal_identification: {
+        type: String,
+    },
     name: {
         type: String,
     },
+    surname: {
+        type: String,
+    },
+    password: String,
     email: {
         type: String,
         unique: true,
         lowercase: true
     },
-    password: String,
     role: {
         type: Number,
         default: ROLES.NORMAL
-    }
+    },
+    phone: {
+        type: Number
+    },
+    country: String,
+    province: String,
+    city: String,
+    zip_code: Number,
+    street: String,
+    number: Number,
+    floor: Number,
+    floor_number: Number
 });
 Schema.pre('save', function (next) {
     // get access to user model, then we can use user.email, user.password

@@ -22,6 +22,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const model_1 = require("./users/model");
 const router_2 = __importDefault(require("./products/router"));
 const token_1 = __importDefault(require("./util/token"));
+const defaultDatabase_1 = __importDefault(require("./util/defaultDatabase"));
 if (!process.env.JWT_SECRET) {
     const err = new Error('No JWT_SECRET in env variable, check instructions: https://github.com/amazingandyyy/mern#prepare-your-secret');
     console.error(err);
@@ -30,6 +31,7 @@ const app = (0, express_1.default)();
 mongoose_1.default.connect(config_1.default.mongoose.uri).catch(err => console.error(err));
 mongoose_1.default.Promise = global.Promise;
 // TODO: load default values
+(0, defaultDatabase_1.default)();
 // App Setup
 app.use((0, cors_1.default)({
     origin: ['http://localhost:3000'] // Fronted URL goes here

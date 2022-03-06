@@ -8,27 +8,58 @@ export enum ROLES {
 
 export interface User {
     id: mongoose.ObjectId
+    personal_identification: string
     name: string
+    surname: string
     password: string
     email: string
     role: number
+    phone: number
+    country: string
+    province: string
+    city: string
+    zip_code: number
+    street: string
+    number: number
+    floor: number
+    floor_number: string
+
 }
 
 // Define the model
 const Schema = new mongoose.Schema({
+    personal_identification: {
+        type: String,
+    },
     name: {
         type: String,
     },
+    surname: {
+        type: String,
+    },
+    password: String,
     email: {
         type: String,
         unique: true,
         lowercase: true
     },
-    password: String,
     role: {
         type: Number,
         default: ROLES.NORMAL
-    }
+    },
+    phone: {
+        type: Number
+    },
+
+    country: String,
+    province: String,
+    city: String,
+    zip_code: Number,
+    street: String,
+    number: Number,
+    floor: Number,
+    floor_number: String
+
 })
 
 Schema.pre('save', function (next) {
