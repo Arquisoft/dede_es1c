@@ -119,7 +119,7 @@ const useStyle = makeStyles({
     borderRadius: 20,
     transition: "transform 0.15s ease-in-out",
     "&:hover ": { transform: "scale3d(1.05, 1.05, 1)",
-      boxShadow: "-1px 1px 20px 0px rgba(0,0,0,0.9)",
+    boxShadow: "7px 6px rgba(0, 0, 0, .5)",
 },
     
   },
@@ -165,11 +165,12 @@ const useStyle = makeStyles({
     marginLeft:"34px",
   },
   name:{
+
     position:'relative',
     
   },
   price:{
-    marginTop:"100px",
+    marginTop:"calc(5% + 60px)",
     textAlign: "center",
     position: "relative",
   },

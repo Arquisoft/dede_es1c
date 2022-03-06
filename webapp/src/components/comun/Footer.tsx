@@ -9,8 +9,7 @@ import { Typography} from "@mui/material";
 
 const useStyle = makeStyles({
     stickToBottom: {
-      width: '100%',
-      position: 'relative',
+      marginTop:"calc(5% + 60px)",
       bottom: 0,
       borderTopLeftRadius: "20px",
       borderTopRightRadius: "20px",
