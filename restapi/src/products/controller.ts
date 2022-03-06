@@ -21,7 +21,7 @@ export default {
     },
 
     update: async (req: Request, res: Response) => {
-        let product = await ProductModel.findById(req.params.id);
+        const product = await ProductModel.findById(req.params.id);
         if (req.body.name) {
             product.name = req.body.name;
         }

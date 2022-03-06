@@ -6,9 +6,9 @@ if (process.env.NODE_ENV != 'production') {
 }
 
 const config = {
-    jwt_secret: process.env.JWT_SECRET  'unsafe_jwt_secret',
+    jwt_secret: process.env.JWT_SECRET || 'unsafe_jwt_secret',
     mongoose: {
-        uri: process.env.MONGODB_URI  'mongodb://localhost/mern'
+        uri: process.env.MONGODB_URI || 'mongodb://localhost/mern'
     },
 }
 
