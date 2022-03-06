@@ -26,7 +26,6 @@ export const Carrito = () => {
       <MenuBar />
       <CarritoView/>
       </div>
-      <Footer/>
     </React.Fragment>
     );
 };

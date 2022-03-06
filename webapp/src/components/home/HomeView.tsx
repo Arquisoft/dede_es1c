@@ -1,7 +1,7 @@
 import React from "react";
 import MenuBar from "../comun/MenuBar";
 import ProductView from "./ProductView";
-import Footer from "../comun/Footer";
+
 import Icon from "./Icon";
 import { makeStyles } from "@material-ui/core/styles";
 const useStyle = makeStyles({
@@ -12,7 +12,6 @@ const useStyle = makeStyles({
   height: "100%",
   padding: "30px 50px 60px 50px",
   boxSizing:"border-box",
-  backgroundColor: "#6ABACE", 
   },
 
 });
@@ -25,7 +24,7 @@ export const HomeView = () => {
       <ProductView/>
       </div>
       <Icon/>
-      <Footer/>
+   
     </React.Fragment>
   );
 };
