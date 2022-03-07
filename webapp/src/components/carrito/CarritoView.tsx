@@ -3,6 +3,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {Button,Grid,CardContent,CardMedia,Card,Container,Typography,Tooltip,IconButton} from "@material-ui/core";
 import DeleteIcon from '@mui/icons-material/Delete';
+import { calcularTotal } from "../../logica/Carrito";
 
 const product_card = [
   {
@@ -189,7 +190,7 @@ const CarritoView = () => {
                   Precio de los productos: 
                    </Typography>
                    <Typography variant="h6" gutterBottom >
-                  Precio de envio
+                  Precio de envio 
                    </Typography>
                    <Typography variant="h5" gutterBottom >
                   Total
