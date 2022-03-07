@@ -218,8 +218,6 @@ const ProductView = () => {
               </Grid>
     
       ))}
-                
-
       </Grid>
     </div>
   );
