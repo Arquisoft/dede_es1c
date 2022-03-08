@@ -13,10 +13,10 @@ function App(): JSX.Element {
     <>
 <main>
      <Router>
-      <HomeView/>
+       
       <Switch>
-        <Route exact path="./HomeView" component={HomeView} />
-        <Route  path="./Carrito"render={() => <Carrito/>}/>
+        <Route exact path="/" component={HomeView} />
+        <Route  path="/Carrito"render={() => <Carrito/>}/>
       </Switch>
       </Router>
       </main>
