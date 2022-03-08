@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Card, CardMedia, CardContent, Typography,Tooltip } from "@material-ui/core";
 import { CardActionArea, Grid, IconButton ,CardActions} from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { Link } from "react-router-dom";
 
 const product_card = [
   {
@@ -166,17 +167,19 @@ const useStyle = makeStyles({
     position: "relative",
   },
   price: {
-    marginTop: "calc(5% + 60px)",
+
     textAlign: "center",
     position: "relative",
   },
   circle: {
+    position:"relative",
     marginLeft: "125px",
     width: "37px",
     height: "37px",
     borderRadius: "50%",
     backgroundColor: "#6ABACE",
     boxShadow: "5px 4px rgba(0, 0, 0, .6)",
+    marginTop: "68%",
   },
   text: {
     textAlign: "center",
@@ -220,7 +223,7 @@ const ProductView = () => {
             className={classes.action}
           >
             <Card className={classes.root}>
-              <CardActionArea className={classes.action}>
+              <CardActionArea className={classes.action}  to='/Producto' component={Link}  >
                 <CardMedia
                   className={classes.media}
                   image={item.thumb}
