@@ -1,12 +1,13 @@
 [[section-concepts]]
-=== Cross-cutting Concepts
+== Conceptos transversales
 
-==== Conceptos de dominio
-
+=== Conceptos de dominio
+[options="header",cols="1,2"]
 |===
+|Rol | Explicación
 |Usuario | Representa un usuario de la aplicación, toda su información se guardará en un POD.
 
-|Posicion actual del usuario | El objetivo es que se conozca la posicion actual para en el caso de enviar un pedido se pueda calcular el coste de envio.
+|Posición actual del usuario | El objetivo es que se conozca la posición actual para en el caso de enviar un pedido se pueda calcular el coste de envio.
 
 |Productos | Lista de productos disponibles con toda la información relevante.
 |===
@@ -24,7 +25,7 @@ Si el usuario quiere, podrá guardar una lista con sus _"deseos"_, aquí meterá
 
 ==== Conceptos de seguridad y protección
 
-En lineas generales, nuestra aplicación es segura. Hemos utilizado los principios SOLID, esto es que los datos de los usuarios serán almacenados de forma segura en almacenes de datos llamados PODS.
+En líneas generales, nuestra aplicación es segura. Hemos utilizado los principios SOLID, esto es que los datos de los usuarios serán almacenados de forma segura en almacenes de datos llamados PODS.
 Los PODS (Personal online data stores) pueden contener cualquier tipo de información, en nuestro caso contiene nombre, apellidos, dni, dirección y número de teléfono.
 El acceso a los datos de los PODS se puede restringir y controlar de manera segura, eligiendo las reglas de acceso determinadas.
 
@@ -54,9 +55,21 @@ Como ya se menciono anteriormente, los datos de usuario son guardados en un POD,
 
 ==== Conceptos operativos
 
-La operativa de la aplicación es sencilla, pero no por ello lo es el llevar esa idea a codigo. En nuestro caso, las operaciones básicas que se pueden realizar son:
+Las operaciones básicas que se pueden realizar desde la aplicación desde el rol de usuario son:
 
+* Autenticación de usuario: Hace referencia a identificarse en la aplicación como usuario registrado.
 
+* Registro de usuario: Consiste en cambiar el rol a usuario identificado, registrando así un email y una contraseña para futuros accesos.
+
+* Compra de producto: El usuario podrá adquirir los productos que considere, como si se tratase de un comercio fisico.
+
+* Operaciones en carrito: Hace referencia a operaciones de añadir o eliminar productos dentro del carrito.
+
+* Operaciones en lista de deseos: Es posible añadir o eliminar productos de una lista de deseos. Estos productos se guardan para futuras compras.
+
+* Filtrar por categorias: Una función que consiste en que el usuario pueda ver de manera más concreta determinado tipo de productos.
+
+En el siguiente diagrama se puede apreciar de forma gráfica las operaciones que puede realizar el usuario explicadas anteriormente:
 [plantuml, "conceptos operativos",png]
 ----
 left to right direction

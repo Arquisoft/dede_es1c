@@ -11,7 +11,6 @@ import { isWhiteSpaceLike } from "typescript";
 const useStyle = makeStyles({
   datosPersonales: {
     display:"grid",
-    gridAutoFlow: "[0,0]",
     font: "400 1em Tahoma,sans-serif",
     backgroundColor:"#FFFF",
     borderRadius: 30,
