@@ -1,7 +1,22 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+
+
+const useStyle = makeStyles({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+  height: "100%",
+  padding: "30px 50px 60px 50px",
+  boxSizing:"border-box",
+  backgroundColor: "#6ABACE", 
+  },
+
+});
 
 const Pedidos = () => {
-
+    const classes = useStyle();
     var direccion = "Juan Fernandez Diaz Calle React Nº1-3ºD 33015 Oviedo Asturias España "
 
     const pedidos = [

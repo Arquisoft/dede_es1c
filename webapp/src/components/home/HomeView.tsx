@@ -14,7 +14,6 @@ const useStyle = makeStyles({
   boxSizing:"border-box",
   backgroundColor: "#6ABACE", 
   },
-
 });
 export const HomeView = () => {
   const classes = useStyle();
