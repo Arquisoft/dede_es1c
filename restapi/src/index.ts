@@ -21,7 +21,7 @@ mongoose.connect(config.mongoose.uri).catch(err => console.error(err));
 mongoose.Promise = global.Promise;
 
 // TODO: load default values
-  create();
+  //create();
 
 // App Setup
 app.use(cors({

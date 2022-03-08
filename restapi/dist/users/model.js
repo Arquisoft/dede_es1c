@@ -42,7 +42,7 @@ const Schema = new mongoose_1.default.Schema({
     street: String,
     number: Number,
     floor: Number,
-    floor_number: Number
+    floor_number: String
 });
 Schema.pre('save', function (next) {
     // get access to user model, then we can use user.email, user.password
