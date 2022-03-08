@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {HomeView} from "./components/home/HomeView";
 import {Carrito} from "./components/carrito/Carrito";
-import { makeStyles } from "@material-ui/core/styles";
 import './App.css';
 
 
