@@ -1,24 +1,25 @@
-import React from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import MenuBar from "../comun/MenuBar";
 import {
   Button,
-  Grid,
-  CardContent,
   CardMedia,
   Card,
   Container,
   Typography,
-  Tooltip,
-  IconButton,
 } from "@material-ui/core";
-const product = {
+import { useParams } from "react-router-dom";
+import React, { useState, useEffect} from 'react';
+import { Product } from "../../../../restapi/src/products/model";
+import { getProducto } from "../../api/api";
+
+/**const product = {
   id: 1,
   product_name: "Elden",
   price: 34,
   thumb:
     "https://storage.gra.cloud.ovh.net/v1/AUTH_296c7803aa594af69d39b970927c8fb9/media/game_avatars/x6/x6w99LoD0pbanPNO.jpeg",
-};
+};**/
 
 const useStyle = makeStyles({
   container1: {
@@ -113,8 +114,20 @@ container3:{
     background: "linear-gradient(45deg, #28313b 20%, #6ABACE 80%)",
   },
 });
-const Producto = () => {
+
+const Producto  = () => {
   const classes = useStyle();
+  let name = useParams<string>( );
+  const [producto, setProducts] = useState<Product>({id:"",photo: "",name: "",price: "",stock: ""});
+
+  const refreshProducts = async () => {
+    let result:Product = await getProducto(name);
+
+    setProducts(result);
+  }
+  useEffect(()=>{
+    refreshProducts();
+  });
 
   return (
     <React.Fragment>
@@ -126,12 +139,12 @@ const Producto = () => {
               <CardMedia
                 component="img"
                 className={classes.media}
-                image={product.thumb}
-                title={product.product_name}
+                image={producto.photo}
+                title={producto.name}
               />
             </Card>
             <Typography variant="h4" gutterBottom>
-              {product.product_name}
+              {producto.name}
             </Typography>
             <Typography variant="h5" gutterBottom>
               Descripcion
@@ -139,7 +152,7 @@ const Producto = () => {
             <div className={classes.container3}>
               <div className={classes.circle}>
                 <Typography variant="h5" className={classes.price} gutterBottom>
-                  {product.price}€
+                  {producto.price}€
                 </Typography>
               </div>
               <Button className={classes.btncomprar} variant="contained">

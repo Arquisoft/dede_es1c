@@ -1,9 +1,11 @@
-import React from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import { Card, CardMedia, CardContent, Typography,Tooltip } from "@material-ui/core";
 import { CardActionArea, Grid, IconButton ,CardActions} from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { Link } from "react-router-dom";
+import { Product } from "../../../../restapi/src/products/model";
+
 
 const product_card = [
   {
@@ -197,8 +199,11 @@ const useStyle = makeStyles({
 
   },
 });
+type ProductsProps = {
+  products: Product[];
+}
 
-const ProductView = () => {
+const ProductView = (props: ProductsProps) => {
   const classes = useStyle();
   return (
     <div className={classes.container3}>
@@ -211,7 +216,8 @@ const ProductView = () => {
         paddingBottom="50px"
         paddingRight="20px"
       >
-        {product_card.map((item) => (
+        {props.products.map((item,i)=>{
+          return (
           <Grid
             item
             key={item.id}
@@ -222,12 +228,14 @@ const ProductView = () => {
             marginBottom="10px"
             className={classes.action}
           >
+         
             <Card className={classes.root}>
-              <CardActionArea className={classes.action}  to='/Producto' component={Link}  >
+ 
+              <CardActionArea className={classes.action}  to={`/Producto/${item.name}`} component={Link}  >
                 <CardMedia
                   className={classes.media}
-                  image={item.thumb}
-                  title={item.product_name}
+                  image={item.photo}
+                  title={item.name}
                 />
                 <CardContent className={classes.cardContent}>
 
@@ -253,12 +261,14 @@ const ProductView = () => {
                     </Tooltip>
                   </IconButton>
                   </CardActions>
-       
+         
             </Card>
-            <div className={classes.text}>{item.product_name}
+ 
+            <div className={classes.text}>{item.name}
           </div>
           </Grid>
-        ))}
+          )})}
+
       </Grid>
     </div>
   );

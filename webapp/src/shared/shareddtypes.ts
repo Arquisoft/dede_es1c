@@ -4,14 +4,10 @@ export type User = {
   }
 
 export type Producto = {
-    code: string;
-    name: string;
-    description: string;
-    price: number;
-    stock: number;
+  id: string
+  photo: string
+  name: string
+  price: string
+  stock: string
 };
 
-export type CarroProducto = {
-    producto: Producto;
-    unidad: number;
-  };

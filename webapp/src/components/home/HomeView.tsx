@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState, useEffect} from 'react';
+
 import MenuBar from "../comun/MenuBar";
 import ProductView from "./ProductView";
 import Icon from "./Icon";
+
 import { makeStyles } from "@material-ui/core/styles";
+
+import { Product } from "../../../../restapi/src/products/model";
+import  {getProductos} from '../../api/api';
+
+
 const useStyle = makeStyles({
   container: {
     display: "flex",
@@ -14,13 +21,28 @@ const useStyle = makeStyles({
   },
 
 });
+
+
+
+
+
 export const HomeView = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  const refreshProducts = async () => {
+    setProducts(await getProductos());
+  }
+  useEffect(()=>{
+    refreshProducts();
+  },[]);
+
   const classes = useStyle();
   return (
     <React.Fragment>
         <div className={classes.container}>
       <MenuBar />
-      <ProductView/>
+  
+      <ProductView products={products} />
       </div>
       <Icon/>
     </React.Fragment>
