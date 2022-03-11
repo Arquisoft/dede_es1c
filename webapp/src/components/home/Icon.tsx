@@ -4,6 +4,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import ArticleIcon from '@mui/icons-material/Article';
 import HomeIcon from '@mui/icons-material/Home';
 import IconButton from "@mui/material/IconButton";
+import { Link } from "react-router-dom";
+
 
 
 
@@ -66,8 +68,9 @@ const Icon = () => {
   <IconButton className={classes.li}>
   <ArticleIcon  className={classes.icon} style={{ fontSize: 40 }}  onClick={event =>  window.location.href='https://arquisoft.github.io/dede_es1c/'}  />
   </IconButton>
-  <IconButton className={classes.li}>
-  <HomeIcon className={classes.icon} style={{ fontSize: 40 }} />
+  <IconButton className={classes.li} to='/' component={Link}>
+  <HomeIcon   className={classes.icon} style={{ fontSize: 40 }}   />
+
   </IconButton>
   </ul>
 </div>

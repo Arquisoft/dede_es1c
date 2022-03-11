@@ -13,6 +13,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import HomeIcon from '@mui/icons-material/Home';
 import { Link } from "react-router-dom";
 
+import Box from '@mui/material/Box';
+
+
 
 
 const useStyle = makeStyles({
@@ -49,16 +52,16 @@ const MenuBar = () => {
             Logo
           </Typography>
 
-         
-            <Button to='./HomeView' component={Link} className={classes.icon}>
+
+            <Button to='/' component={Link}  className={classes.icon}>
             <Tooltip title="Home">
               <HomeIcon fontSize="large" sx={{ color: "white" }} />
             </Tooltip>
             </Button>
 
 
-          <Button to='./Carrito' component={Link} className={classes.icon}>
-       
+
+          <Button to='/Carrito' component={Link} className={classes.icon}> 
             <Tooltip title="Carrito">
               <ShoppingCartIcon   fontSize="large" sx={{ color: "white" }} />
             </Tooltip>
