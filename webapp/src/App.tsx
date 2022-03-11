@@ -3,7 +3,9 @@ import {HomeView} from "./components/home/HomeView";
 import {Carrito} from "./components/carrito/Carrito";
 import Producto from "./components/producto/Producto";
 import Footer from "./components/comun/Footer";
+import { makeStyles } from "@material-ui/core/styles";
 import './App.css';
+import Footer from "./components/comun/Footer";
 
 
 function App(): JSX.Element {
@@ -22,7 +24,6 @@ function App(): JSX.Element {
       </Switch>
       </Router>
       <Footer/>
-
       </main>
     </>
     

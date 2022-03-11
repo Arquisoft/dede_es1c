@@ -11,7 +11,6 @@ const useStyle = makeStyles({
   height: "100%",
   padding: "30px 50px 60px 50px",
   boxSizing:"border-box",
-  backgroundColor: "#6ABACE", 
   },
 
 });
