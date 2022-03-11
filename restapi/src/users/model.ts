@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
+import {ProductModel} from "../products/model";
 
 export enum ROLES {
     NORMAL = 0,
@@ -22,7 +23,8 @@ export interface User {
     street: string
     number: number
     floor: number
-    floor_number: string
+    floor_number: string,
+    products: [string]
 
 }
 
@@ -58,7 +60,8 @@ const Schema = new mongoose.Schema({
     street: String,
     number: Number,
     floor: Number,
-    floor_number: String
+    floor_number: String,
+    products: [String]
 
 })
 
