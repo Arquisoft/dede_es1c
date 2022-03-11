@@ -1,0 +1,30 @@
+import React from "react";
+import MenuBar from "../comun/MenuBar";
+import ProductView from "./ProductView";
+
+import Icon from "./Icon";
+import { makeStyles } from "@material-ui/core/styles";
+const useStyle = makeStyles({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+  height: "100%",
+  padding: "30px 50px 60px 50px",
+  boxSizing:"border-box",
+  },
+
+});
+export const HomeView = () => {
+  const classes = useStyle();
+  return (
+    <React.Fragment>
+        <div className={classes.container}>
+      <MenuBar />
+      <ProductView/>
+      </div>
+      <Icon/>
+   
+    </React.Fragment>
+  );
+};
