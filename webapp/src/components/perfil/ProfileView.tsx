@@ -23,8 +23,12 @@ export const ProfileView = () => {
         <div className={classes.container}>
       <MenuBar />
       </div>
+      <div className={classes.container}>
       <DatosPersonales/>
+      </div>
+      <div className={classes.container}>
       <Pedidos/>
+      </div>
     </React.Fragment>
   );
 };

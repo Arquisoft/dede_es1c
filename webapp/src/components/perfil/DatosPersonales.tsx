@@ -28,6 +28,9 @@ const useStyle = makeStyles({
   etiquetas: {
     textAlign: "center",
     width: "100%",
+  },
+  boton: {
+    color: "4D8AE2",
   }
 });
 
@@ -59,7 +62,7 @@ const DatosPersonales = () => {
           </div>
           <div>
             <label>
-              <button className="envio" type="submit">Actualizar</button>
+              <button className={classes.boton} type="submit">Actualizar</button>
             </label>
           </div>
         </form>

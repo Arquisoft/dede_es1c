@@ -23,6 +23,15 @@ const useStyle = makeStyles({
     textAlign: "center",
     margin: "auto",
     color: "#4D8AE2",
+  }, 
+  pedidoSup: {
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+  height: "100%",
+  padding: "30px 50px 60px 50px",
+  boxSizing:"border-box",
+  backgroundColor: "#6ABACE", 
   }
 });
 const Pedidos = () => {
@@ -49,18 +58,18 @@ const Pedidos = () => {
       ]
 
     return (
-        <div>
+        <div className={classes.pedidoSup}>
         {pedidos.map(item=>(
             <div className={classes.pedido}>
               <h1>{item.Descripcion}</h1> 
               <br></br>
-              <p>{item.id}</p>
+              <p>ID Pedido: {item.id}</p>
               <br></br>
-              <p>{item.Precio}</p>
+              <p>Precio: {item.Precio}</p>
               <br></br>
-              <p>{item.Direccion}</p>
+              <p>Enviado a: {item.Direccion}</p>
               <br></br>
-              <p>{item.Estado}</p>
+              <p>Estado del pedido: {item.Estado}</p>
             </div>
         ))};
         </div>
