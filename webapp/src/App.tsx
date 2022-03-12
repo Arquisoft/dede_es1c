@@ -4,6 +4,7 @@ import {Carrito} from "./components/carrito/Carrito";
 import { makeStyles } from "@material-ui/core/styles";
 import './App.css';
 import { ProfileView } from "./components/perfil/ProfileView";
+import { LogInView } from "./components/LogIn/LogInView";
 import Footer from "./components/comun/Footer";
 
 
@@ -15,7 +16,7 @@ function App(): JSX.Element {
     <>
     <main>
     <Router>
-       <ProfileView/>
+       <LogInView/>
      </Router>
      </main>
    </>
