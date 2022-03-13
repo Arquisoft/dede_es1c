@@ -73,6 +73,7 @@ container3:{
   },
 
   root: {
+    minWidth: 320,
     marginTop:"2%",
      marginBottom:"2%",
     maxWidth: 320,
@@ -115,19 +116,23 @@ container3:{
   },
 });
 
+type ProductoItem = {
+  name: string;
+};
+
 const Producto  = () => {
+const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",name: "Nombre",price: "Error",stock: "Error"});
+
   const classes = useStyle();
-  let name = useParams<string>( );
-  const [producto, setProducts] = useState<Product>({id:"",photo: "",name: "",price: "",stock: ""});
-
+  const {name} = useParams<ProductoItem>( );
+  
   const refreshProducts = async () => {
-    let result:Product = await getProducto(name);
-
-    setProducts(result);
+    setProducts(await getProducto(name));
   }
+  
   useEffect(()=>{
     refreshProducts();
-  });
+  },[]);
 
   return (
     <React.Fragment>

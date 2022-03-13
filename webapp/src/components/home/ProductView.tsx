@@ -123,6 +123,7 @@ const useStyle = makeStyles({
     position: "relative",
     height: "200px",
     maxWidth: "190px",
+
     borderRadius: 20,
     transition: "transform 0.15s ease-in-out",
     "&:hover ": {
@@ -137,11 +138,15 @@ const useStyle = makeStyles({
     right: 0,
     height: "220px",
     width: "200px",
+
+ 
+
   },
   action: {
     position: "relative",
     height: "220px",
     width: "200px",
+
   },
   container3: {
     marginTop: "3%",
@@ -234,6 +239,7 @@ const ProductView = (props: ProductsProps) => {
               <CardActionArea className={classes.action}  to={`/Producto/${item.name}`} component={Link}  >
                 <CardMedia
                   className={classes.media}
+                  component="img"
                   image={item.photo}
                   title={item.name}
                 />

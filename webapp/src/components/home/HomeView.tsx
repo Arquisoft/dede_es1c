@@ -41,7 +41,6 @@ export const HomeView = () => {
     <React.Fragment>
         <div className={classes.container}>
       <MenuBar />
-  
       <ProductView products={products} />
       </div>
       <Icon/>
