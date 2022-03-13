@@ -121,17 +121,16 @@ const product_card = [
 const useStyle = makeStyles({
   root: {
     position: "relative",
-    height: "200px",
     maxWidth: "190px",
-
+    height: "200px",
     borderRadius: 20,
     transition: "transform 0.15s ease-in-out",
     "&:hover ": {
       transform: "scale3d(1.05, 1.05, 1)",
       boxShadow: "7px 6px rgba(0, 0, 0, .5)",
     },
+ 
   },
-
   media: {
     position: "absolute",
     top: 0,
@@ -145,7 +144,8 @@ const useStyle = makeStyles({
   action: {
     position: "relative",
     height: "220px",
-    width: "200px",
+      width: "200px",
+
 
   },
   container3: {
@@ -226,7 +226,7 @@ const ProductView = (props: ProductsProps) => {
           <Grid
             item
             key={item.id}
-            xs={4}
+            xs={12}
             sm={6}
             md={4}
             lg={2}

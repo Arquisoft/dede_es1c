@@ -42,8 +42,10 @@ const useStyle = makeStyles({
     background: "white",
     boxShadow: "7px 6px rgba(0, 0, 0, .5)",
     borderRadius: "30px",
-    width:"50%"
-
+   
+   "@media only screen and (min-width: 1200px)":{
+      width:"50%",
+    }
   },
 
 container3:{
@@ -75,13 +77,15 @@ container3:{
   root: {
     minWidth: 320,
     marginTop:"2%",
-     marginBottom:"2%",
+    marginBottom:"2%",
     maxWidth: 320,
     color: "black",
     display: "flex",
     height: 400,
     borderRadius: "30px",
     boxShadow: "7px 6px rgba(0, 0, 0, .5)",
+   
+    
   },
 
   media: {
@@ -140,7 +144,7 @@ const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload
         <MenuBar />
    
           <Container className={classes.container2}>
-                <Card square={true} className={classes.root}>
+                <Card square={true} className={classes.root} >
               <CardMedia
                 component="img"
                 className={classes.media}
