@@ -17,7 +17,7 @@ function App(): JSX.Element {
     <>
     <main>
     <Router>
-       <PaymentView/>
+       <ProfileView/>
      </Router>
      </main>
    </>

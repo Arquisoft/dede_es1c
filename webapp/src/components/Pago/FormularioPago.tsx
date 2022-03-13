@@ -4,7 +4,6 @@ import { InputAdornment, TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import { AccountBalanceWallet, VpnKey, CalendarToday, Person} from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
-import { ClassNames } from '@emotion/react';
 
 const useStyle = makeStyles({
     formulario: {
