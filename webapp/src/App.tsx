@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import './App.css';
 import { ProfileView } from "./components/perfil/ProfileView";
 import { LogInView } from "./components/LogIn/LogInView";
+import { PaymentView } from "./components/Pago/PaymentView";
 import Footer from "./components/comun/Footer";
 
 
@@ -16,7 +17,7 @@ function App(): JSX.Element {
     <>
     <main>
     <Router>
-       <LogInView/>
+       <PaymentView/>
      </Router>
      </main>
    </>
