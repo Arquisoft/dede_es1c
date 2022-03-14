@@ -19,12 +19,7 @@ const useStyle = makeStyles({
   padding: "30px 50px 60px 50px",
   boxSizing:"border-box",
   },
-
 });
-
-
-
-
 
 export const HomeView = () => {
   const [products, setProducts] = useState<Product[]>([]);
