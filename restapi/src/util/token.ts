@@ -12,9 +12,11 @@ export default {
         }
         return jwt.encode(payload, config.jwt_secret);
     },
-    verifyToken(token: string, cb: mongoose.Callback) {
+    verifyToken(token: string) {
         const decode = jwt.decode(token, config.jwt_secret)
-        if (!decode) return cb(new Error('Token is not verified.'), null);
-        cb(null, decode);
+        if (!decode) {
+            throw new Error('Token is not verified.')
+        }
+        return decode;
     }
 }

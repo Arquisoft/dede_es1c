@@ -2,12 +2,12 @@ import express, {Request, Response} from 'express';
 import http from 'http';
 import morgan from 'morgan';
 import cors from 'cors';
-import UserRouter from './users/router'
 import config from './config'
 import mongoose from 'mongoose';
-import {UserModel} from "./users/model";
+
 import ProductRouter from "./products/router";
-import jwt from "./util/token"
+import LoginRouter from "./login/router";
+import UserRouter from "./users/router";
 import create from "./util/defaultDatabase";
 
 if (!process.env.JWT_SECRET) {
@@ -17,11 +17,8 @@ if (!process.env.JWT_SECRET) {
 
 const app = express();
 
-mongoose.connect(config.mongoose.uri).catch(err => console.error(err));
-mongoose.Promise = global.Promise;
-
 // TODO: load default values
-  //create();
+create();
 
 // App Setup
 app.use(cors({
@@ -29,34 +26,19 @@ app.use(cors({
 }));
 app.use(morgan('dev'));
 app.use(express.json()) // for parsing application/json
-app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
-
-
-app.get('/ping', (req: Request, res: Response) => res.send('pong'))
-app.get('/', (req: Request, res: Response) => {
-    res.send("Hello world");
-});
-
-app.post('/login', async (req: Request, res: Response) => {
-    const user = await UserModel.findOne({'email': req.body.email})
-    if (user) {
-        res.send({
-            'token': jwt.generateToken(user)
-        });
-    } else {
-        res.status(402);
-    }
-});
-
-app.get('/signup', (req: Request, res: Response) => {
-    res.send("Hello world");
-});
+app.use(express.urlencoded({extended: true})) // for parsing application/x-www-form-urlencoded
 
 app.use('/user', UserRouter)
 app.use('/product', ProductRouter)
+app.use('/', LoginRouter)
 
-// Server Setup
-const port = process.env.PORT || 8000
-http.createServer(app).listen(port, () => {
-    console.log(`\x1b[32m`, `Server listening on: ${port}`, `\x1b[0m`)
+mongoose.Promise = global.Promise;
+mongoose.connect(config.mongoose.uri).catch(err => console.error(err)).then(() => {
+    // Server Setup
+    const port = process.env.PORT || 8000
+    http.createServer(app).listen(port, () => {
+        console.log(`\x1b[32m`, `Server listening on: ${port}`, `\x1b[0m`)
+    });
 });
+
+
