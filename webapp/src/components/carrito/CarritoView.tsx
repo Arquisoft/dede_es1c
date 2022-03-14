@@ -125,10 +125,13 @@ const useStyle = makeStyles({
 
   btncomprar:{
     postion:"relative",
-    left:"70%",
+   
     "&:hover ": {
 
       boxShadow: "5px 4px rgba(0, 0, 0, .6)",
+    },
+    "@media only screen and (min-width: 1200px)":{
+      left:"70%",
     },
     boxShadow: "2px 2px rgba(0, 0, 0, .6)",
     color:"white",

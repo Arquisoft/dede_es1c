@@ -12,9 +12,19 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { makeStyles } from "@material-ui/core/styles";
 import HomeIcon from '@mui/icons-material/Home';
 import { Link } from "react-router-dom";
-import Box from '@mui/material/Box';
+import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import {calcularNumeroProductosCarrito} from "../../logica/Carrito";
 
 
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: '0 4px',
+  },
+}));
 
 const useStyle = makeStyles({
   menu: {
@@ -44,25 +54,26 @@ const MenuBar = () => {
   const classes = useStyle();
 
   return (
-    <Box sx={{ flexGrow: 1 }} >
       <AppBar position="static" className={classes.menu}>
         <Toolbar >
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Logo
           </Typography>
 
-         
-            <Button to='./HomeView' component={Link} className={classes.icon}>
+
+            <Button to='/' component={Link}  className={classes.icon}>
             <Tooltip title="Home">
-              <HomeIcon fontSize="large" sx={{ color: "white" }} />
+              <HomeIcon fontSize="large" sx={{ color: "white" ,flexGrow: 1}} />
             </Tooltip>
             </Button>
 
 
-          <Button to='./Carrito' component={Link} className={classes.icon}>
-       
+
+          <Button to='/Carrito' component={Link} className={classes.icon}> 
             <Tooltip title="Carrito">
-              <ShoppingCartIcon   fontSize="large" sx={{ color: "white" }} />
+            <StyledBadge  badgeContent={calcularNumeroProductosCarrito()} sx={{ color: 'white' }}>
+              <ShoppingCartIcon   fontSize="large" sx={{ color: "white" ,flexGrow: 1}} />
+              </StyledBadge >
             </Tooltip>
           </Button>
 
@@ -97,7 +108,6 @@ const MenuBar = () => {
 
         </Toolbar>
       </AppBar>
-      </Box>
   );
 };
 export default MenuBar;
