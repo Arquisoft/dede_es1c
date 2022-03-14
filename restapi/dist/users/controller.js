@@ -13,8 +13,7 @@ const model_1 = require("./model");
 const model_2 = require("../products/model");
 exports.default = {
     profile: (req, res) => {
-        // TODO
-        res.send("Profile");
+        res.json(res.locals.user);
     },
     getAll: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.json(yield model_1.UserModel.find());
@@ -27,6 +26,7 @@ exports.default = {
         const user = res.locals.user;
         user.products.push(product.id);
         yield user.save();
+        res.send('OK');
     }),
     deleteProduct: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const product = yield model_2.ProductModel.findOne({ name: req.params.name });

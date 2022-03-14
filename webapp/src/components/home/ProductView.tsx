@@ -7,117 +7,6 @@ import { Link } from "react-router-dom";
 import { Product } from "../../../../restapi/src/products/model";
 
 
-const product_card = [
-  {
-    id: 1,
-    product_name: "Elden",
-    price: 34,
-    thumb:
-      "https://storage.gra.cloud.ovh.net/v1/AUTH_296c7803aa594af69d39b970927c8fb9/media/game_avatars/x6/x6w99LoD0pbanPNO.jpeg",
-  },
-  {
-    id: 2,
-    product_name: "Fifa",
-
-    price: 23,
-    thumb: "https://yuzu-emu.org/images/game/boxart/mario-kart-8-deluxe.png",
-  },
-  {
-    id: 3,
-    product_name: "Valorant",
-
-    price: 3,
-    thumb:
-      "https://yuzu-emu.org/images/game/boxart/animal-crossing-new-horizons.png",
-  },
-  {
-    id: 13,
-    product_name: "Apex",
-
-    price: 15,
-    thumb: "https://static.truetrophies.com/boxart/Game_3265.png",
-  },
-  {
-    id: 4,
-    product_name: "Apex",
-
-    price: 15,
-    thumb:
-      "https://steamcdn-a.akamaihd.net/apps/csgo/blog/images/competitive_logo_large.png",
-  },
-  {
-    id: 4,
-    product_name: "Apex",
-
-    price: 34,
-    thumb:
-      "https://yuzu-emu.org/images/game/boxart/animal-crossing-new-horizons.png",
-  },
-  {
-    id: 5,
-    product_name: "Apex",
-
-    price: 365,
-    thumb:
-      "https://styles.redditmedia.com/t5_2gt9zb/styles/communityIcon_rsg25kbthbk41.png",
-  },
-  {
-    id: 6,
-    product_name: "Apex",
-
-    price: 15,
-    thumb: "https://static.truetrophies.com/boxart/Game_1022.png",
-  },
-  {
-    id: 7,
-    product_name: "Apex",
-
-    price: 15,
-    thumb:
-      "https://storage.gra.cloud.ovh.net/v1/AUTH_296c7803aa594af69d39b970927c8fb9/media/game_screenshots/kC/kCp5crqMyXVivyej.jpeg",
-  },
-  {
-    id: 8,
-    product_name: "Apex",
-
-    price: 15,
-    thumb: "https://yuzu-emu.org/images/game/boxart/mario-kart-8-deluxe.png",
-  },
-  {
-    id: 9,
-    product_name: "Apex",
-
-    price: 15,
-    thumb:
-      "https://as01.epimg.net/meristation/imagenes/2021/10/18/header_image/334243981634566295.jpg",
-  },
-  {
-    id: 10,
-    product_name: "Avatar",
-
-    price: 61,
-    thumb:
-      "https://storage.gra.cloud.ovh.net/v1/AUTH_296c7803aa594af69d39b970927c8fb9/media/tournaments_avatars/br/bryPz47kvT8b7c3p.jpeg",
-  },
-
-  {
-    id: 11,
-    product_name: "Apex",
-
-    price: 15,
-    thumb:
-      "https://styles.redditmedia.com/t5_2gt9zb/styles/communityIcon_rsg25kbthbk41.png",
-  },
-  {
-    id: 12,
-    product_name: "Animal Crossing",
-
-    price: 15,
-    thumb:
-      "https://static.chollometro.com/threads/raw/7jf5K/746149_1/re/300x300/qt/60/746149_1.jpg",
-  },
-];
-
 const useStyle = makeStyles({
   root: {
     position: "relative",
@@ -225,7 +114,7 @@ const ProductView = (props: ProductsProps) => {
           return (
           <Grid
             item
-            key={item.id}
+            key={item.name}
             xs={12}
             sm={6}
             md={4}

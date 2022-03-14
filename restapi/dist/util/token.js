@@ -14,11 +14,12 @@ exports.default = {
         };
         return jwt_simple_1.default.encode(payload, config_1.default.jwt_secret);
     },
-    verifyToken(token, cb) {
+    verifyToken(token) {
         const decode = jwt_simple_1.default.decode(token, config_1.default.jwt_secret);
-        if (!decode)
-            return cb(new Error('Token is not verified.'), null);
-        cb(null, decode);
+        if (!decode) {
+            throw new Error('Token is not verified.');
+        }
+        return decode;
     }
 };
 //# sourceMappingURL=token.js.map

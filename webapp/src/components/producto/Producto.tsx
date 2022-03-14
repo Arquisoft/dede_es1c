@@ -6,7 +6,7 @@ import {
   CardMedia,
   Card,
   Container,
-  Typography,CardActions,IconButton,Tooltip
+  Typography,IconButton,Tooltip
 } from "@material-ui/core";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useParams } from "react-router-dom";
@@ -116,7 +116,13 @@ container3:{
 
 
   },
+  description: {
 
+    textAlign: "center",
+  
+
+
+  },
   btncomprar: {
     marginLeft: "30px",
     postion: "relative",
@@ -135,15 +141,16 @@ type ProductoItem = {
 };
 
 const Producto  = () => {
-const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",name: "Nombre",price: "Error",stock: "Error"});
+const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",name: "Nombre",price: "Error",stock: "Error",description: "Error"});
 
   const classes = useStyle();
   const {name} = useParams<ProductoItem>( );
-  
+
+    
   const refreshProducts = async () => {
     setProducts(await getProducto(name));
   }
-  
+
   useEffect(()=>{
     refreshProducts();
   },[]);
@@ -177,8 +184,8 @@ const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload
          
             
         
-            <Typography variant="h5" gutterBottom>
-              Descripcion
+            <Typography variant="h5" gutterBottom  className={classes.description}>
+            {producto.description}
             </Typography>
             <div className={classes.container3}>
               <div className={classes.circle}>

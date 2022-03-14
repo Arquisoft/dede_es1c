@@ -18,12 +18,12 @@ exports.default = {
     login: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const user = yield model_1.UserModel.findOne({ 'email': req.body.email });
         if (user) {
-            res.send({
+            res.json({
                 'token': token_1.default.generateToken(user)
             });
         }
         else {
-            res.status(402);
+            res.status(402).json({ error: 'Invalid credentials' });
         }
     }),
 };
