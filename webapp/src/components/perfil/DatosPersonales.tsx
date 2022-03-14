@@ -8,20 +8,17 @@ import { Grid } from "@material-ui/core"
 
 const useStyle = makeStyles({
   datosPersonales: {
-    display:"grid",
-    font: "400 1em Tahoma,sans-serif",
-    backgroundColor:"#FFFF",
-    borderRadius: 30,
-    boxShadow: "7px 6px rgba(0, 0, 0, .5)",
-    marginLeft:"5%",
-    marginRight: "5%",
-    padding: "1em",
-    textAlign: "center",
-    margin: "auto",
-    color: "#4D8AE2",
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+    height: "100%",
+    padding: "30px 50px 60px 50px",
+    boxSizing:"border-box",
+    backgroundColor: "#6ABACE", 
+    borderColor: "#2B73DB"
   },
   direccion: {
-    width: "500px",
+    width: "100%",
   },
   etiquetas: {
     textAlign: "center",
@@ -38,7 +35,6 @@ const useStyle = makeStyles({
     boxShadow: "7px 6px rgba(0, 0, 0, .5)",
     marginLeft:"10%",
     marginRight: "10%",
-    marginBottom: "50%",
     textAlign: "center",
     color: "#4D8AE2",
 },

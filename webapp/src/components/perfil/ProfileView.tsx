@@ -9,10 +9,10 @@ const useStyle = makeStyles({
     display: "flex",
     flexDirection: "column",
     width: "100%",
-  height: "100%",
-  padding: "30px 50px 60px 50px",
-  boxSizing:"border-box",
-  backgroundColor: "#6ABACE", 
+    height: "100%",
+    padding: "30px 50px 60px 50px",
+    boxSizing:"border-box",
+    backgroundColor: "#6ABACE", 
   },
 
 });
