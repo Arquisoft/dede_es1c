@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
-import {ProductModel} from "../products/model";
 
 export enum ROLES {
     NORMAL = 0,
@@ -12,7 +11,7 @@ export interface User {
     password: string
     email: string
     role: number
-    products: [string]
+    products: [mongoose.ObjectId]
 }
 
 // Define the model
@@ -20,7 +19,10 @@ const Schema = new mongoose.Schema({
     personal_identification: {
         type: String,
     },
-    password: String,
+    password: {
+        type: String,
+        select: false
+    },
     email: {
         type: String,
         unique: true,
@@ -31,7 +33,7 @@ const Schema = new mongoose.Schema({
         default: ROLES.NORMAL
     },
 
-    products: [String]
+    products: [mongoose.Types.ObjectId]
 
 })
 
