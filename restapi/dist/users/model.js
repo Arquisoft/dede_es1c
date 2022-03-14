@@ -16,12 +16,6 @@ const Schema = new mongoose_1.default.Schema({
     personal_identification: {
         type: String,
     },
-    name: {
-        type: String,
-    },
-    surname: {
-        type: String,
-    },
     password: String,
     email: {
         type: String,
@@ -32,17 +26,7 @@ const Schema = new mongoose_1.default.Schema({
         type: Number,
         default: ROLES.NORMAL
     },
-    phone: {
-        type: Number
-    },
-    country: String,
-    province: String,
-    city: String,
-    zip_code: Number,
-    street: String,
-    number: Number,
-    floor: Number,
-    floor_number: String
+    products: [mongoose_1.default.Types.ObjectId]
 });
 Schema.pre('save', function (next) {
     // get access to user model, then we can use user.email, user.password
