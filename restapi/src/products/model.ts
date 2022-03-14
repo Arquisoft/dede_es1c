@@ -6,6 +6,7 @@ export interface Product {
     name: string
     price: string
     stock: string
+    description: string
 
 }
 
@@ -23,6 +24,9 @@ const Schema = new mongoose.Schema({
     stock: {
         type: String,
     },
+    description: {
+        type: String,
+    }
 
 })
 // Export the model

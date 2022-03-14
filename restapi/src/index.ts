@@ -8,6 +8,7 @@ import mongoose from 'mongoose';
 import ProductRouter from "./products/router";
 import LoginRouter from "./login/router";
 import UserRouter from "./users/router";
+import create from "./util/defaultDatabase";
 
 if (!process.env.JWT_SECRET) {
     const err = new Error('No JWT_SECRET in env variable, check instructions: https://github.com/amazingandyyy/mern#prepare-your-secret');
