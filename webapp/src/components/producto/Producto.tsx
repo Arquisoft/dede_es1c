@@ -6,8 +6,9 @@ import {
   CardMedia,
   Card,
   Container,
-  Typography,
+  Typography,CardActions,IconButton,Tooltip
 } from "@material-ui/core";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect} from 'react';
 import { Product } from "../../../../restapi/src/products/model";
@@ -106,6 +107,15 @@ container3:{
     position: "relative",
     color:"white"
   },
+  carrito: {
+    left:"10px",
+    bottom:"110px",
+    textAlign: "center",
+    position: "relative",
+    marginRight: "20px",
+
+
+  },
 
   btncomprar: {
     marginLeft: "30px",
@@ -145,16 +155,28 @@ const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload
    
           <Container className={classes.container2}>
                 <Card square={true} className={classes.root} >
+                  
               <CardMedia
                 component="img"
                 className={classes.media}
                 image={producto.photo}
-                title={producto.name}
-              />
+                title={producto.name}/>
             </Card>
             <Typography variant="h4" gutterBottom>
+            <IconButton >
+                      <Tooltip title="Añadir al carrito">
+                        <AddShoppingCartIcon
+                          fontSize="large"
+                          sx={{ color: "black" }}
+                        />
+                      </Tooltip>
+                    </IconButton>
               {producto.name}
+             
             </Typography>
+         
+            
+        
             <Typography variant="h5" gutterBottom>
               Descripcion
             </Typography>

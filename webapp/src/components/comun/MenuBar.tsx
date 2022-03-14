@@ -12,11 +12,19 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { makeStyles } from "@material-ui/core/styles";
 import HomeIcon from '@mui/icons-material/Home';
 import { Link } from "react-router-dom";
+import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import {calcularNumeroProductosCarrito} from "../../logica/Carrito";
 
-import Box from '@mui/material/Box';
 
-
-
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: '0 4px',
+  },
+}));
 
 const useStyle = makeStyles({
   menu: {
@@ -55,7 +63,7 @@ const MenuBar = () => {
 
             <Button to='/' component={Link}  className={classes.icon}>
             <Tooltip title="Home">
-              <HomeIcon fontSize="large" sx={{ color: "white" }} />
+              <HomeIcon fontSize="large" sx={{ color: "white" ,flexGrow: 1}} />
             </Tooltip>
             </Button>
 
@@ -63,7 +71,9 @@ const MenuBar = () => {
 
           <Button to='/Carrito' component={Link} className={classes.icon}> 
             <Tooltip title="Carrito">
-              <ShoppingCartIcon   fontSize="large" sx={{ color: "white" }} />
+            <StyledBadge  badgeContent={calcularNumeroProductosCarrito()} sx={{ color: 'white' }}>
+              <ShoppingCartIcon   fontSize="large" sx={{ color: "white" ,flexGrow: 1}} />
+              </StyledBadge >
             </Tooltip>
           </Button>
 

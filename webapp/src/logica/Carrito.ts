@@ -10,4 +10,8 @@ export function calcularTotal(gastoenvio: number): number {
     */
     return total;
   }
-  
+  export function calcularNumeroProductosCarrito(): number {
+    let total: number = 3;
+    
+    return total;
+  }
