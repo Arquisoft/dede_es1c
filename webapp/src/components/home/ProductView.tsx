@@ -163,6 +163,7 @@ const ProductView = (props: ProductsProps) => {
           </div>
           </Grid>
           )})}
+
       </Grid>
     </div>
   );

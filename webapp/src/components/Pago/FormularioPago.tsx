@@ -4,6 +4,7 @@ import { InputAdornment, TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import { AccountBalanceWallet, VpnKey, CalendarToday, Person} from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
 const useStyle = makeStyles({
     formulario: {
@@ -41,7 +42,7 @@ const FormularioPago = () => {
             <TextField label="CVC" margin="normal" variant="outlined" InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
             </div>
             <div style={{height: 20}}/>
-            <Button color="primary" variant="contained">Pagar</Button> 
+            <Button to='/Perfil' component={Link} color="primary" variant="contained">Pagar</Button> 
             </div>
         </Grid>
     </div>

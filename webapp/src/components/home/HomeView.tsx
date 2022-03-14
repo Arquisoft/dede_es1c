@@ -21,10 +21,6 @@ const useStyle = makeStyles({
   },
 });
 
-
-
-
-
 export const HomeView = () => {
   const [products, setProducts] = useState<Product[]>([]);
 

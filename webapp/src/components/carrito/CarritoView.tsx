@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import {Button,Grid,CardContent,CardMedia,Card,Container,Typography,Tooltip,IconButton} from "@material-ui/core";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { calcularTotal } from "../../logica/Carrito";
+import { Link } from "react-router-dom";
 
 const product_card = [
   {
@@ -198,7 +199,7 @@ const CarritoView = () => {
                    <Typography variant="h5" gutterBottom >
                   Total
                    </Typography>
-                   <Button className={classes.btncomprar} variant="contained">Comprar</Button>
+                   <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>
         </Container>
         </div>
     );

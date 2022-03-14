@@ -100,11 +100,11 @@ const MenuBar = () => {
               onClose={handleClose}
       
             >
-              <MenuItem onClick={handleClose}>Perfil</MenuItem>
-              <MenuItem onClick={handleClose}>Sign out</MenuItem>
+              <MenuItem to='/Perfil' component={Link}>Perfil</MenuItem>
+              <MenuItem >Sign out</MenuItem>
             </Menu>
           </div>
-          <Button color="inherit" >Login</Button>
+          <Button to='/LogIn' component={Link} color="inherit" >Login</Button>
 
         </Toolbar>
       </AppBar>
