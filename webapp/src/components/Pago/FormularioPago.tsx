@@ -34,12 +34,12 @@ const FormularioPago = () => {
             <Grid container justify="center">
                 <img src="https://senordescuento.com/wp-content/uploads/2019/06/tarjetas-credito-logos.png" width={200}/>    
             </Grid>
-            <TextField label="Nombre de propietario" margin="normal" InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
+            <TextField label="Nombre de propietario" margin="normal" placeholder='NOMBRE TARJETA' InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
             <div style={{height: 20, width: 50}}/>
-            <TextField label="Nº de tarjeta" margin="normal" variant="outlined" InputProps={{startAdornment: <InputAdornment position="start"><AccountBalanceWallet/></InputAdornment>}}/>
+            <TextField label="Nº de tarjeta" margin="normal" placeholder='XXXX XXXX XXXX XXXX' variant="outlined" InputProps={{startAdornment: <InputAdornment position="start"><AccountBalanceWallet/></InputAdornment>}}/>
             <div style={{ display: "flex", maxWidth: 500, minWidth: 200}}>
-            <TextField label="Fecha de caducidad" margin="normal" variant="outlined" InputProps={{startAdornment: <InputAdornment position="start"><CalendarToday/></InputAdornment>}}/>
-            <TextField label="CVC" margin="normal" variant="outlined" InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
+            <TextField label="Fecha de caducidad" margin="normal" variant="outlined" placeholder='MM/YY' InputProps={{startAdornment: <InputAdornment position="start"><CalendarToday/></InputAdornment>}}/>
+            <TextField label="CVC" margin="normal" variant="outlined" placeholder='XXX' InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
             </div>
             <div style={{height: 20}}/>
             <Button to='/Perfil' component={Link} color="primary" variant="contained">Pagar</Button> 
