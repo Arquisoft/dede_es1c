@@ -128,7 +128,6 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
   items.reduce((ack: number, item) => ack + item.amount * Number(item.price), 0);
 
 
-
   const classes = useStyle();
   const vacio =props.length
     return (

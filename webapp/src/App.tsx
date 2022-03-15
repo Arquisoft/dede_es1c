@@ -29,16 +29,49 @@ function App(): JSX.Element {
       prev.reduce((ack, item) => {
         if ( item.name === clickedItem.name) {
           if (item.amount === 1) return ack;
+          //Añdadir stock
+        addStock(clickedItem);
           return [...ack, { ...item, amount: item.amount - 1 }];
         } else {
+           //Añdadir stock
+          addStock(clickedItem);
           return [...ack, item];
         }
       }, [] as ProductCart[])
     );
   };
+ //Añadir stock local
+  const addStock = (clickedItem: ProductCart) => {
+    const existProduct = products.find(item => item.name === clickedItem.name);
+    if (existProduct) {
+    var newProduct=products.indexOf(existProduct);
+    const newTodosP = [...products];
+    const stock=Number(newTodosP[newProduct].stock)+1;
+    newTodosP[newProduct].stock=stock+"";
+    setProducts(newTodosP);}
+
+  };
+
+  
+  //Eliminar stock local
+  const removeStock = (clickedItem: Product) => {
+    //Tengo que encontrar el del producto local
+    var newProduct=products.indexOf(clickedItem);
+    const newTodosP = [...products];
+    const stock=Number(newTodosP[newProduct].stock)-1;
+    newTodosP[newProduct].stock=stock+"";
+    setProducts(newTodosP);
+  
+  };
+
+
 
   //Añadir al carrito
   const handleAddToCart = (clickedItem: Product) => {
+    //Tiene stock a cero?? pero del que devuelve no del producto de BD
+    const existProductClicked = products.find(item => item.name === clickedItem.name);
+    if(existProductClicked){
+    if(Number(existProductClicked.stock)!==0){
     const existProduct = cartItems.find(item => item.name === clickedItem.name);
      var index:number=0;
       // Hay un producto?
@@ -52,16 +85,25 @@ function App(): JSX.Element {
               newTodos[index].amount=amountt; 
               setCartItems(newTodos);
               index=index+1;
+              //Quitar stock al producto
+              removeStock(existProductClicked);
+             
             }
+
             index=index+1;
             return item;
         })
     } else {
+         //Quitar stock al producto
+      removeStock(existProductClicked);
       index=index+1;
        const {id, name, photo,description, price } = clickedItem;
        setCartItems([...cartItems, {id, name, photo, price, description,amount:1 }]);
-
+      }
   }
+  else{
+    alert("No hay más stock para "+""+ clickedItem.name);
+  }}
 }
   
   return (
