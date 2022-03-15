@@ -100,7 +100,7 @@ type Props = {
 
 };
 
-const ProductView: React.FC<Props> = ({ props , handleAddToCart}) => {
+const ProductView: React.FC<Props> = ({ props, handleAddToCart}) => {
   const classes = useStyle();
   return (
     <div className={classes.container3}>

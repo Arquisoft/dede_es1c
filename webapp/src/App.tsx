@@ -24,6 +24,18 @@ function App(): JSX.Element {
     refreshProducts();
   },[]);
 
+  const handleRemoveFromCart = (clickedItem: ProductCart) => {
+    setCartItems(prev =>
+      prev.reduce((ack, item) => {
+        if ( item.name === clickedItem.name) {
+          if (item.amount === 1) return ack;
+          return [...ack, { ...item, amount: item.amount - 1 }];
+        } else {
+          return [...ack, item];
+        }
+      }, [] as ProductCart[])
+    );
+  };
 
   //Añadir al carrito
   const handleAddToCart = (clickedItem: Product) => {
@@ -59,7 +71,7 @@ function App(): JSX.Element {
      <Router>
       <Switch>
         <Route exact path='/' render={() => <HomeView cartItems={cartItems} handleAddToCart={handleAddToCart} products={products}/>} />
-        <Route  path="/Carrito"render={() => <Carrito cartItems={cartItems}  />}/>
+        <Route  path="/Carrito"render={() => <Carrito cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart} />}/>
        <Route  path="/Producto/:name" render={() => <Producto cartItems={cartItems} handleAddToCart={handleAddToCart}/>}/>
       </Switch>
       </Router>

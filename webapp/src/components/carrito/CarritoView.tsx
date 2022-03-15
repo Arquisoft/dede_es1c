@@ -4,6 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import {Button,Grid,CardContent,CardMedia,Card,Container,Typography,Tooltip,IconButton} from "@material-ui/core";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { calcularTotal } from "../../logica/Carrito";
+import { ProductCart } from "../../shared/shareddtypes";
+import { Product } from "../../../../restapi/src/products/model";
 
 const product_card = [
   {
@@ -139,36 +141,56 @@ const useStyle = makeStyles({
    background: "linear-gradient(45deg, #28313b 20%, #6ABACE 80%)",
    
   },
-  
-  
-
 });
-const CarritoView = () => {
+
+
+type Props = {
+  props: ProductCart[];
+  handleRemoveFromCart: (clickedItem: ProductCart) => void;
+
+};
+
+const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
   const classes = useStyle();
+  const vacio =props.length
     return (
+
       <div className={classes.container} >
          <Grid container   className={classes.containerIzq} spacing={2} >
+        {(() => {
+        if (vacio===0){
+          return(
+      <Typography variant="h5" className={classes.titleCarrito} >
+      Carrito vacio
+      </Typography>)} 
+      else{
         <Typography variant="h4"className={classes.titleCarrito}  >
-                Carrito
-        </Typography>
+        Carrito
+      </Typography>
+      }
+          })()}
+  
         <Grid container  className={classes.containerCarrito1}  spacing={1}>
-        {product_card.map(item=>(  
+
+        {props.map((item:ProductCart)=>{
+
+          return (
          <Grid item key={item.id}  xs={12} className={classes.containerCarrito}>
         <Card  square={true} className={classes.root}>
-        <CardMedia component="img"  className={classes.media} image={item.thumb} title={item.product_name} />
+        <CardMedia component="img"  className={classes.media} image={item.photo} title={item.name} />
 
         <CardContent className={classes.cardContent}  >
         <Typography component="div" variant="h5">
-             {item.product_name}
+             {item.name}
           </Typography>
           <Typography >
              Descripcion del juego
           </Typography>
           <Typography variant="subtitle1" component="div">
-           Cantidad: 2
+           Cantidad:{item.amount}
           </Typography>
   
-          <IconButton >
+          <IconButton onClick={() => handleRemoveFromCart(item)}>
             <Tooltip title="Eliminar">
               <DeleteIcon   fontSize="large" sx={{ color: "black" }} />
             </Tooltip>
@@ -182,7 +204,7 @@ const CarritoView = () => {
                   </Typography>
                   </div>
         </Grid>
-        ))}
+     )})}
       </Grid>
       </Grid>
       <Container className={classes.containerDch} >
