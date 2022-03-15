@@ -41,12 +41,10 @@ const useStyle = makeStyles({
     minHeight: "30vh",
     display: "grid",
     gridTemplateColumns: "2fr 2fr",
- 
     borderRadius:"30px",
     marginTop:"3%",
     padding: 0,
     background: "black",
-    alignItems: "center",
     gridColumnGap: "20%",
     width:"90%",
     marginLeft:"5%",
@@ -62,6 +60,7 @@ const useStyle = makeStyles({
     position:"relative",
     background: "white",
     boxShadow: "7px 6px rgba(0, 0, 0, .5)",
+
   },
 
   containerDch: {

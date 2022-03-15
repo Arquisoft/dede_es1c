@@ -3,7 +3,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Card, CardMedia, CardContent, Typography,Tooltip } from "@material-ui/core";
 import { CardActionArea, Grid, IconButton ,CardActions} from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+
 import { Link } from "react-router-dom";
+
 import { Product } from "../../../../restapi/src/products/model";
 
 
@@ -26,17 +30,14 @@ const useStyle = makeStyles({
     right: 0,
     height: "220px",
     width: "200px",
-
- 
-
   },
+
   action: {
     position: "relative",
     height: "220px",
       width: "200px",
-
-
   },
+
   container3: {
     marginTop: "3%",
     backgroundColor: "#FFFF",
@@ -45,11 +46,28 @@ const useStyle = makeStyles({
     marginLeft: "10%",
     marginRight: "12%",
   },
+
+  comboBox:{
+    marginLeft:"80%",
+    boxShadow: "7px 6px rgba(0, 0, 0, .5)",
+    borderRadius: 10,
+    marginBottom:"5px",
+  },
+
+  textfield:{
+    "& .MuiAutocomplete-listbox": {
+      border: "2px solid grey",
+      minHeight: 400,
+      color: "green",
+      fontSize: 18,
+  }
+},
   cardActions: {
     display: "flex",
     justifyContent: "flex-end",
     paddingRight: "20px",
   },
+
   cardContent: {
     position: "relative",
     color: "#ffffff",
@@ -58,6 +76,7 @@ const useStyle = makeStyles({
   h3: {
     fontSize: "34px",
     marginLeft: "34px",
+    height:"20px"
   },
   name: {
     position: "relative",
@@ -102,9 +121,12 @@ type Props = {
 
 const ProductView: React.FC<Props> = ({ props, handleAddToCart}) => {
   const classes = useStyle();
+  const categorias = ['Futbol']
+  
   return (
     <div className={classes.container3}>
       <h3 className={classes.h3}>Productos</h3>
+
       <Grid
         container
         justifyContent="center"
@@ -113,6 +135,12 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart}) => {
         paddingBottom="50px"
         paddingRight="20px"
       >
+              <Autocomplete className={classes.comboBox}
+        options={categorias}
+        style={{ width: 100 }}
+        renderInput={(params) =>
+          <TextField {...params} label="Categoría" className={classes.textfield}/>}
+      />
         {props.map((item,i)=>{
           return (
           <Grid
