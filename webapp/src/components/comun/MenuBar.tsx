@@ -14,7 +14,10 @@ import HomeIcon from '@mui/icons-material/Home';
 import { Link } from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
-import {calcularNumeroProductosCarrito} from "../../logica/Carrito";
+
+
+import { Product } from "../../../../restapi/src/products/model";
+import { ProductCart } from "../../shared/shareddtypes";
 
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -42,8 +45,14 @@ const useStyle = makeStyles({
   },
 });
 
+type Props = {
+  cartItems: ProductCart[];
+};
 
-const MenuBar = () => {
+const getTotalItems = (items: Props) =>
+items.cartItems.reduce((ack: number, item) => ack + item.amount, 0);
+
+const MenuBar:React.FC<Props> = (cartItems) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -54,12 +63,12 @@ const MenuBar = () => {
   const classes = useStyle();
 
   return (
+
       <AppBar position="static" className={classes.menu}>
         <Toolbar >
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Logo
+            Logo 
           </Typography>
-
 
             <Button to='/' component={Link}  className={classes.icon}>
             <Tooltip title="Home">
@@ -71,7 +80,7 @@ const MenuBar = () => {
 
           <Button to='/Carrito' component={Link} className={classes.icon}> 
             <Tooltip title="Carrito">
-            <StyledBadge  badgeContent={calcularNumeroProductosCarrito()} sx={{ color: 'white' }}>
+            <StyledBadge  badgeContent={getTotalItems(cartItems)} sx={{ color: 'white' }}>
               <ShoppingCartIcon   fontSize="large" sx={{ color: "white" ,flexGrow: 1}} />
               </StyledBadge >
             </Tooltip>

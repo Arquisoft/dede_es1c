@@ -13,6 +13,7 @@ import { useParams } from "react-router-dom";
 import React, { useState, useEffect} from 'react';
 import { Product } from "../../../../restapi/src/products/model";
 import { getProducto } from "../../api/api";
+import { ProductCart } from "../../shared/shareddtypes";
 
 /**const product = {
   id: 1,
@@ -140,7 +141,13 @@ type ProductoItem = {
   name: string;
 };
 
-const Producto  = () => {
+type Props = {
+  cartItems:ProductCart[],
+  handleAddToCart: (clickedItem: Product) => void;
+};
+
+
+const Producto : React.FC<Props> = ({ cartItems,  handleAddToCart }) => {
 const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",name: "Nombre",price: "Error",stock: "Error",description: "Error"});
 
   const classes = useStyle();
@@ -158,7 +165,7 @@ const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload
   return (
     <React.Fragment>
       <div className={classes.container1}>
-        <MenuBar />
+        <MenuBar cartItems={cartItems} />
    
           <Container className={classes.container2}>
                 <Card square={true} className={classes.root} >
@@ -170,7 +177,7 @@ const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload
                 title={producto.name}/>
             </Card>
             <Typography variant="h4" gutterBottom>
-            <IconButton >
+            <IconButton onClick={() => handleAddToCart(producto)}>
                       <Tooltip title="Añadir al carrito">
                         <AddShoppingCartIcon
                           fontSize="large"
@@ -181,9 +188,7 @@ const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload
               {producto.name}
              
             </Typography>
-         
-            
-        
+
             <Typography variant="h5" gutterBottom  className={classes.description}>
             {producto.description}
             </Typography>
@@ -193,7 +198,7 @@ const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload
                   {producto.price}€
                 </Typography>
               </div>
-              <Button className={classes.btncomprar} variant="contained">
+              <Button className={classes.btncomprar} variant="contained"   >
                 Comprar
               </Button>
             </div>
@@ -204,3 +209,5 @@ const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload
   );
 };
 export default Producto;
+
+

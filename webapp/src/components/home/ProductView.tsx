@@ -93,11 +93,14 @@ const useStyle = makeStyles({
 
   },
 });
-type ProductsProps = {
-  products: Product[];
-}
 
-const ProductView = (props: ProductsProps) => {
+type Props = {
+  props: Product[];
+  handleAddToCart: (clickedItem: Product) => void;
+
+};
+
+const ProductView: React.FC<Props> = ({ props , handleAddToCart}) => {
   const classes = useStyle();
   return (
     <div className={classes.container3}>
@@ -110,7 +113,7 @@ const ProductView = (props: ProductsProps) => {
         paddingBottom="50px"
         paddingRight="20px"
       >
-        {props.products.map((item,i)=>{
+        {props.map((item,i)=>{
           return (
           <Grid
             item
@@ -151,7 +154,7 @@ const ProductView = (props: ProductsProps) => {
                     <Tooltip title="Añadir al carrito">
                       <AddShoppingCartIcon
                         fontSize="large"
-                        sx={{ color: "white" }}
+                        sx={{ color: "white" }} onClick={() => handleAddToCart(item)} 
                       />
                     </Tooltip>
                   </IconButton>

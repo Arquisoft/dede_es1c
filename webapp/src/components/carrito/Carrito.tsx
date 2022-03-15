@@ -1,10 +1,15 @@
 
 import React from "react";
-import MenuBar from "../comun/MenuBar";
+
 import Footer from "../comun/Footer";
 import Icon from "../home/Icon";
-import CarritoView from "./CarritoView";
+
 import { makeStyles } from "@material-ui/core/styles";
+
+import { Product } from "../../../../restapi/src/products/model";
+import CarritoView from "./CarritoView";
+import MenuBar from "../comun/MenuBar";
+import { ProductCart } from "../../shared/shareddtypes";
 
 const useStyle = makeStyles({
     container: {
@@ -18,12 +23,18 @@ const useStyle = makeStyles({
     },
   
   });
-export const Carrito = () => {
+
+  type Props = {
+    cartItems: ProductCart[];
+  
+  };
+
+export const Carrito: React.FC<Props> = ({ cartItems }) => {
     const classes = useStyle();
     return (
     <React.Fragment>
     <div className={classes.container}>
-      <MenuBar />
+      <MenuBar cartItems={cartItems}/>
       <CarritoView/>
       </div>
     </React.Fragment>

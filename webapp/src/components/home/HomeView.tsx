@@ -7,7 +7,8 @@ import Icon from "./Icon";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Product } from "../../../../restapi/src/products/model";
-import  {getProductos} from '../../api/api';
+import { ProductCart } from '../../shared/shareddtypes';
+
 
 
 const useStyle = makeStyles({
@@ -21,27 +22,23 @@ const useStyle = makeStyles({
   },
 
 });
+type Props = {
+  handleAddToCart: (clickedItem: Product) => void;
+  cartItems: ProductCart[];
+  products:Product[];
+
+};
 
 
+export const HomeView:React.FC<Props> = ({ cartItems , handleAddToCart,products})=> {
 
-
-
-export const HomeView = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-
-  const refreshProducts = async () => {
-    setProducts(await getProductos());
-  }
-  useEffect(()=>{
-    refreshProducts();
-  },[]);
 
   const classes = useStyle();
   return (
     <React.Fragment>
         <div className={classes.container}>
-      <MenuBar />
-      <ProductView products={products} />
+      <MenuBar cartItems={cartItems}/>
+      <ProductView props={products} handleAddToCart={handleAddToCart}/>
       </div>
       <Icon/>
     </React.Fragment>
