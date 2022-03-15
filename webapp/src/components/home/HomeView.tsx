@@ -32,7 +32,6 @@ type Props = {
 
 export const HomeView:React.FC<Props> = ({ cartItems , handleAddToCart,products})=> {
 
-
   const classes = useStyle();
   return (
     <React.Fragment>

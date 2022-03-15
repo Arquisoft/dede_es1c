@@ -118,11 +118,7 @@ container3:{
 
   },
   description: {
-
     textAlign: "center",
-  
-
-
   },
   btncomprar: {
     marginLeft: "30px",

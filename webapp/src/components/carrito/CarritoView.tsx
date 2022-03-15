@@ -3,37 +3,10 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {Button,Grid,CardContent,CardMedia,Card,Container,Typography,Tooltip,IconButton} from "@material-ui/core";
 import DeleteIcon from '@mui/icons-material/Delete';
-import { calcularTotal } from "../../logica/Carrito";
+
 import { ProductCart } from "../../shared/shareddtypes";
 import { Product } from "../../../../restapi/src/products/model";
 
-const product_card = [
-  {
-    id:1,
-    product_name:"Elden",
-    price:34,
-    thumb:"https://storage.gra.cloud.ovh.net/v1/AUTH_296c7803aa594af69d39b970927c8fb9/media/game_avatars/x6/x6w99LoD0pbanPNO.jpeg"
-  },
-  {
-    id:2,
-    product_name:"Fifa",
-
-    price:23,
-    thumb:"https://yuzu-emu.org/images/game/boxart/mario-kart-8-deluxe.png"
-  },
-  {
-    id:3,
-    product_name:"Valorant",
- 
-    price:3,
-    thumb:"https://yuzu-emu.org/images/game/boxart/animal-crossing-new-horizons.png"
-  },
-  
-
- 
-  
-
-]
 
 const useStyle = makeStyles({
 
@@ -41,10 +14,12 @@ const useStyle = makeStyles({
     minHeight: "30vh",
     display: "grid",
     gridTemplateColumns: "2fr 2fr",
+ 
     borderRadius:"30px",
     marginTop:"3%",
     padding: 0,
     background: "black",
+    alignItems: "center",
     gridColumnGap: "20%",
     width:"90%",
     marginLeft:"5%",
@@ -54,17 +29,17 @@ const useStyle = makeStyles({
   },
 
   containerIzq: {
+    marginBottom:"43%",
     justifySelf: "stretch",
     minHeight: "30vh",
     borderRadius:"30px",
     position:"relative",
     background: "white",
     boxShadow: "7px 6px rgba(0, 0, 0, .5)",
-
   },
 
   containerDch: {
-    marginBottom:"55%",
+    marginBottom:"50%",
     minHeight: "20vh",
     borderRadius:"30px",
     background: "white",
@@ -102,10 +77,10 @@ const useStyle = makeStyles({
 
   },
   titleCarrito:{
-    marginLeft:"20px",
+    marginLeft:"10px",
   },
   cardContent:{
-      minWidth: 300,
+      minWidth: 200,
     display: '1 0 auto' ,
 
   },
@@ -126,9 +101,7 @@ const useStyle = makeStyles({
 
   btncomprar:{
     postion:"relative",
-   
     "&:hover ": {
-
       boxShadow: "5px 4px rgba(0, 0, 0, .6)",
     },
     "@media only screen and (min-width: 1200px)":{
@@ -150,6 +123,12 @@ type Props = {
 };
 
 const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
+
+  const calculateProductTotal = (items: ProductCart[]) =>
+  items.reduce((ack: number, item) => ack + item.amount * Number(item.price), 0);
+
+
+
   const classes = useStyle();
   const vacio =props.length
     return (
@@ -162,17 +141,17 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
       <Typography variant="h5" className={classes.titleCarrito} >
       Carrito vacio
       </Typography>)} 
-      else{
+      else { 
+        return(
         <Typography variant="h4"className={classes.titleCarrito}  >
         Carrito
       </Typography>
-      }
+     )} 
           })()}
   
         <Grid container  className={classes.containerCarrito1}  spacing={1}>
 
         {props.map((item:ProductCart)=>{
-
           return (
          <Grid item key={item.id}  xs={12} className={classes.containerCarrito}>
         <Card  square={true} className={classes.root}>
@@ -181,9 +160,6 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
         <CardContent className={classes.cardContent}  >
         <Typography component="div" variant="h5">
              {item.name}
-          </Typography>
-          <Typography >
-             Descripcion del juego
           </Typography>
           <Typography variant="subtitle1" component="div">
            Cantidad:{item.amount}
@@ -206,12 +182,15 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
      )})}
       </Grid>
       </Grid>
+      {(() => {
+        if (vacio!==0){
+          return(
       <Container className={classes.containerDch} >
         <Typography variant="h4" gutterBottom>
         Precio
           </Typography>
           <Typography variant="h6" gutterBottom >
-                  Precio de los productos: 
+                  Precio de los productos: {calculateProductTotal(props)} €
                    </Typography>
                    <Typography variant="h6" gutterBottom >
                   Precio de envio 
@@ -219,8 +198,9 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
                    <Typography variant="h5" gutterBottom >
                   Total
                    </Typography>
-                   <Button className={classes.btncomprar} variant="contained">Comprar</Button>
-        </Container>
+                   <Button className={classes.btncomprar} variant="contained" >Comprar</Button>
+        </Container> 
+      )}  })()}
         </div>
     );
 
