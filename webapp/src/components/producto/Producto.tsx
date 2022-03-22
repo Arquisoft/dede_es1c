@@ -31,7 +31,7 @@ const useStyle = makeStyles({
     height: "100%",
     padding: "30px 50px 60px 50px",
     boxSizing: "border-box",
-    backgroundColor: "#6ABACE",
+    colorBackground: "transparent",
   },
 
 
@@ -42,7 +42,7 @@ const useStyle = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
     background: "white",
-    boxShadow: "7px 6px rgba(0, 0, 0, .5)",
+    boxShadow: " 18px 10px 7px 9px rgba(0, 0, 0, .5)",
     borderRadius: "30px",
    
    "@media only screen and (min-width: 1200px)":{
@@ -99,8 +99,8 @@ container3:{
     width: "90px",
     height: "50px",
     borderRadius: "30px",
-    backgroundColor: "#6ABACE",
-    boxShadow: "5px 4px rgba(0, 0, 0, .6)",
+    backgroundColor: "#8458aa",
+    boxShadow: "5px 4px 7px rgba(0, 0, 0, .7)",
   },
   price: {
     marginTop:"8px",
@@ -124,12 +124,12 @@ container3:{
     marginLeft: "30px",
     postion: "relative",
     "&:hover ": {
-      boxShadow: "5px 4px rgba(0, 0, 0, .6)",
+      boxShadow: "5px 4px 10px rgba(0, 0, 0, .8)",
     },
-    boxShadow: "2px 2px rgba(0, 0, 0, .6)",
+    boxShadow: "2px 2px 3px rgba(0, 0, 0, .6)",
     color: "white",
     marginBottom: "10px",
-    background: "linear-gradient(45deg, #28313b 20%, #6ABACE 80%)",
+    background: "linear-gradient(45deg, #19275a 30%, #cc90ff 90%)",
   },
 });
 

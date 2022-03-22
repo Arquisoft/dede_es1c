@@ -31,7 +31,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const useStyle = makeStyles({
   menu: {
-    background: "linear-gradient(45deg, #000000 20%, #6ABACE 80%)",
+    background: "linear-gradient(45deg, #19275a 10%, #3a4c8e 30% ,#cc90ff 50% ,#634280 80%)",
     border: 0,
     boxShadow:"1px 23px 23px 5px rgba(#000000,#000000,#000000, #000000)",
     borderRadius: 30,
@@ -42,6 +42,11 @@ const useStyle = makeStyles({
   icon: {
     marginLeft:"10px",
     marginRight:"20px",
+  },
+  logo: {
+   width:"10%",
+   marginTop:"30px",
+
   },
 });
 
@@ -64,10 +69,10 @@ const MenuBar:React.FC<Props> = (cartItems) => {
 
   return (
 
-      <AppBar position="static" className={classes.menu}>
+      <AppBar position="static" className={classes.menu} >
         <Toolbar >
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Logo 
+            <img src="https://i.postimg.cc/yxpLW6CX/imageedit-1-3048145247.png" alt="logo" className={classes.logo}/>
           </Typography>
 
             <Button to='/' component={Link}  className={classes.icon}>

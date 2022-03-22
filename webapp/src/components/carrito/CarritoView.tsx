@@ -23,7 +23,7 @@ const useStyle = makeStyles({
     gridColumnGap: "20%",
     width:"90%",
     marginLeft:"5%",
-    backgroundColor: "#6ABACE", 
+    backgroundColor: "transparent",  
  
    
   },
@@ -35,7 +35,7 @@ const useStyle = makeStyles({
     borderRadius:"30px",
     position:"relative",
     background: "white",
-    boxShadow: "7px 6px rgba(0, 0, 0, .5)",
+    boxShadow: " 16px 11px 9px rgba(0, 0, 0, .5)",
   },
 
   containerDch: {
@@ -43,7 +43,7 @@ const useStyle = makeStyles({
     minHeight: "20vh",
     borderRadius:"30px",
     background: "white",
-    boxShadow: "7px 6px rgba(0, 0, 0, .5)",
+    boxShadow: " 16px 11px 9px rgba(0, 0, 0, .5)",
    
   },
   root:{
@@ -89,8 +89,8 @@ const useStyle = makeStyles({
     width:"50px",
     height:"50px",
     borderRadius: "50%",
-    backgroundColor:"#6ABACE",
-    boxShadow: "5px 4px rgba(0, 0, 0, .6)",
+    backgroundColor:"#8458aa",
+    boxShadow: "5px 4px 7px rgba(0, 0, 0, .7)",
   },
   price:{
     marginTop:"5px",
@@ -102,15 +102,15 @@ const useStyle = makeStyles({
   btncomprar:{
     postion:"relative",
     "&:hover ": {
-      boxShadow: "5px 4px rgba(0, 0, 0, .6)",
+      boxShadow: "5px 4px 10px rgba(0, 0, 0, .8)",
     },
     "@media only screen and (min-width: 1200px)":{
       left:"70%",
     },
-    boxShadow: "2px 2px rgba(0, 0, 0, .6)",
+    boxShadow: "2px 2px 3px rgba(0, 0, 0, .6)",
     color:"white",
    marginBottom:"10px",
-   background: "linear-gradient(45deg, #28313b 20%, #6ABACE 80%)",
+   background: "linear-gradient(45deg, #19275a 30%, #cc90ff 90%)",
    
   },
 });
