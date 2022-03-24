@@ -15,7 +15,6 @@ const useStyle = makeStyles({
         boxShadow: "7px 6px rgba(0, 0, 0, .5)",
         marginLeft:"10%",
         marginRight: "10%",
-        marginBottom: "50%",
         textAlign: "center",
         color: "#4D8AE2",
     },
