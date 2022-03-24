@@ -1,10 +1,10 @@
-import React from 'react';
-import { Grid } from "@material-ui/core"
-import { InputAdornment, TextField } from "@mui/material";
-import { Button } from "@mui/material";
+import React, {useState} from 'react';
+import { Grid } from "@material-ui/core";
+import { InputAdornment, TextField, Button, Modal } from "@mui/material";
 import { AccountBalanceWallet, VpnKey, CalendarToday, Person} from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import { ThemeConsumer } from 'styled-components';
 
 const useStyle = makeStyles({
     formulario: {
@@ -18,13 +18,45 @@ const useStyle = makeStyles({
         textAlign: "center",
         color: "#4D8AE2",
     },
-  
+    pagoOk: {
+        position: 'absolute',
+        width: 400,
+        display: "grid",
+        font: "400 1em Tahoma,sans-serif",
+        backgroundColor:"#FFFF",
+        borderRadius: 30,
+        padding: "16px 32px 24px",
+        top: "50%",
+        left: "50%",
+        transform: 'translate(-50%,-50%)',
+        textAlign: "center",
+    }
 });
 
 const FormularioPago = () => {
     const classes = useStyle();
+
+    const[mostrar, setPagoOk]=useState(false);
+
+    const mostrarPagoOk = ()=> {
+        setPagoOk(!mostrar);
+    }
+
+    const body=(
+        <div className={classes.pagoOk}>
+            <div> 
+                <img src="https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemok_103757.png" width={50}/>
+                <h2>¡Pago realizado con exito!</h2>
+                <img src="https://orxcosmeticos.com/wp-content/uploads/2018/09/pago-seguro.jpg" width={300}/>
+            </div>
+        </div>
+    )
+
     return(
     <div className={classes.formulario}>
+        <Modal open={mostrar} onClose={mostrarPagoOk}>
+                {body}
+        </Modal>
         <Grid container alignItems="center" direction="column" justify="space-between" style={{padding: 100}}> 
             <div style={{ display: "flex", flexDirection: "column", maxWidth: 500, minWidth: 200}}>
             <Grid container justify="center">
@@ -41,7 +73,7 @@ const FormularioPago = () => {
             <TextField label="CVC" margin="normal" variant="outlined" placeholder='XXX' InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
             </div>
             <div style={{height: 20}}/>
-            <Button to='/Perfil' component={Link} color="primary" variant="contained">Pagar</Button> 
+            <Button onClick={()=>mostrarPagoOk()} color="primary" variant="contained">Pagar</Button> 
             </div>
         </Grid>
     </div>
