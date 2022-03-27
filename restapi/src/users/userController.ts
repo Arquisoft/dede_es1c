@@ -1,6 +1,6 @@
+import {ProductModel} from "../products/productModel";
 import {Request, Response} from 'express';
-import {User, UserModel} from "./model";
-import {ProductModel} from "../products/model";
+import {User, UserModel} from "./userModel";
 import {HydratedDocument} from "mongoose";
 
 export default {
@@ -21,7 +21,8 @@ export default {
         const user: HydratedDocument<User> = res.locals.user;
         user.products.push(product.id);
         await user.save();
-        res.send('OK');
+
+        res.status(200).json({status: "OK"});
     },
 
     deleteProduct: async (req: Request, res: Response) => {

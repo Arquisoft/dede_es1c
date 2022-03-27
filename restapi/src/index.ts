@@ -5,9 +5,9 @@ import cors from 'cors';
 import config from './config'
 import mongoose from 'mongoose';
 
-import ProductRouter from "./products/router";
-import LoginRouter from "./login/router";
-import UserRouter from "./users/router";
+import ProductRouter from "./products/productRouter";
+import LoginRouter from "./login/loginRouter";
+import UserRouter from "./users/userRouter";
 import create from "./util/defaultDatabase";
 
 if (!process.env.JWT_SECRET) {
@@ -17,8 +17,6 @@ if (!process.env.JWT_SECRET) {
 
 const app = express();
 
-// TODO: load default values
-//create();
 
 // App Setup
 app.use(cors({
@@ -33,7 +31,10 @@ app.use('/product', ProductRouter)
 app.use('/', LoginRouter)
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.mongoose.uri).catch(err => console.error(err)).then(() => {
+mongoose.connect(config.mongoose.uri)
+    .catch(err => console.error(err))
+    .then(() => create())
+    .then(() => {
     // Server Setup
     const port = process.env.PORT || 8000
     http.createServer(app).listen(port, () => {

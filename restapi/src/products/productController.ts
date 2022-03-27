@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-import {ProductModel} from "./model";
+import {ProductModel} from "./productModel";
 
 export default {
     getAll: async (req: Request, res: Response) => {
