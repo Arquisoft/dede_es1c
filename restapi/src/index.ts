@@ -18,7 +18,7 @@ if (!process.env.JWT_SECRET) {
 const app = express();
 
 // TODO: load default values
-create();
+//create();
 
 // App Setup
 app.use(cors({

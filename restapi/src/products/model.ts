@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 export interface Product {
-    id: string
+    id: mongoose.ObjectId
     photo: string
     name: string
     price: string
