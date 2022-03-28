@@ -34,5 +34,6 @@ export default {
         const user: HydratedDocument<User> = res.locals.user;
         user.products.filter(id => id != product.id);
         await user.save();
+        res.status(200).json({status: "OK"});
     },
 }
