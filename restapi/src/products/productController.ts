@@ -78,4 +78,13 @@ export default {
         await product.save();
         res.status(200).json({result: 'OK'});
     },
+
+    updatePhoto: async (req: Request, res: Response) => {
+        const product = await ProductModel.findById(req.params.id);
+        if (req.body.photo) {
+            product.photo = req.body.photo;
+        }
+        await product.save();
+        res.status(200).json({result: 'OK'});
+    },
 }

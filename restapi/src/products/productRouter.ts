@@ -14,4 +14,5 @@ ProductRouter.get('/filter/:category', ProductController.filter);
 ProductRouter.put('/stock/:id', loginRequired(ROLES.ADMIN), ProductController.updateStock);
 ProductRouter.put('/price/:id', loginRequired(ROLES.ADMIN), ProductController.updatePrice);
 ProductRouter.put('/description/:id', loginRequired(ROLES.ADMIN), ProductController.updateDescription);
+ProductRouter.put('/photo/:id', loginRequired(ROLES.ADMIN), ProductController.updatePhoto);
 export default ProductRouter;
