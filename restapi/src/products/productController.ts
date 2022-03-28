@@ -51,4 +51,13 @@ export default {
         res.json( array);
 
     },
+
+    updateStock: async (req: Request, res: Response) => {
+        const product = await ProductModel.findById(req.params.id);
+        if (req.body.stock) {
+            product.stock = req.body.stock;
+        }
+        await product.save();
+        res.status(200).json({result: 'OK'});
+    },
 }
