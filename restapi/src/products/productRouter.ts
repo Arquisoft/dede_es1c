@@ -10,5 +10,6 @@ ProductRouter.get('/:name', ProductController.get);
 ProductRouter.post('/',loginRequired(ROLES.ADMIN), ProductController.create);
 ProductRouter.put('/:id', loginRequired(ROLES.ADMIN), ProductController.update);
 ProductRouter.delete('/:id', loginRequired(ROLES.ADMIN), ProductController.delete);
+ProductRouter.get('/filter/:category', ProductController.filter);
 
 export default ProductRouter;
