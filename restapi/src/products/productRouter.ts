@@ -13,4 +13,5 @@ ProductRouter.delete('/:id', loginRequired(ROLES.ADMIN), ProductController.delet
 ProductRouter.get('/filter/:category', ProductController.filter);
 ProductRouter.put('/stock/:id', loginRequired(ROLES.ADMIN), ProductController.updateStock);
 ProductRouter.put('/price/:id', loginRequired(ROLES.ADMIN), ProductController.updatePrice);
+ProductRouter.put('/stock/:id', loginRequired(ROLES.ADMIN), ProductController.updateDescription);
 export default ProductRouter;

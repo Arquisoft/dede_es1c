@@ -69,4 +69,13 @@ export default {
         await product.save();
         res.status(200).json({result: 'OK'});
     },
+
+    updateDescription: async (req: Request, res: Response) => {
+        const product = await ProductModel.findById(req.params.id);
+        if (req.body.description) {
+            product.description = req.body.description;
+        }
+        await product.save();
+        res.status(200).json({result: 'OK'});
+    },
 }
