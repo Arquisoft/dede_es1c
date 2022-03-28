@@ -37,8 +37,4 @@ export default {
         await user.save();
         res.status(200).json({status: "OK"});
     },
-
-    getAllSelectProducts: async (req: Request, res: Response) => {
-        res.json(await UserModel.find());
-    }
 }
