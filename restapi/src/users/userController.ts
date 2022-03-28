@@ -1,7 +1,7 @@
 import {ProductModel} from "../products/productModel";
 import {Request, Response} from 'express';
 import {User, UserModel} from "./userModel";
-import {HydratedDocument} from "mongoose";
+import {HydratedDocument, Schema} from "mongoose";
 
 export default {
     profile: (req: Request, res: Response) => {
@@ -34,6 +34,9 @@ export default {
 
         const user: HydratedDocument<User> = res.locals.user;
         user.products.filter(id => id != product.id);
+
+        let pos = user.products.indexOf(product.id)
+        user.products.splice(pos, 1)
         await user.save();
         res.status(200).json({status: "OK"});
     },

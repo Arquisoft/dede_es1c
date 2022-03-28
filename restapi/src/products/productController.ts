@@ -36,5 +36,14 @@ export default {
         } else {
             res.status(404).json({error: "The product does not exist"});
         }
-    }
+    },
+
+    filter: async (req: Request, res: Response) => {
+        const product = await ProductModel.findOne({name: req.params.name});
+        if (product) {
+            res.json(product);
+        } else {
+            res.status(404).json({error: "The product does not exist"});
+        }
+    },
 }
