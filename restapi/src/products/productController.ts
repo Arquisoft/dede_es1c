@@ -39,9 +39,8 @@ export default {
     },
 
     filter: async (req: Request, res: Response) => {
-            let productos = await ProductModel.find();
+        let productos = await ProductModel.find();
         let array =[];
-        console.log(req.params.category);
         for (let numero of productos) {
             for (let numero2 of numero.categories) {
                 if(numero2 == req.params.category) {
@@ -49,7 +48,7 @@ export default {
                 }
             }
         }
-        res.json(array);
-        res.status(200).json({result: 'OK'});
+        res.json( array);
+
     },
 }
