@@ -19,8 +19,8 @@ export default async function create() {
     await ProductModel.create({photo:' https://drive.google.com/file/d/10wG_nWYtlVgLnQFEIybwHD8l3ycTcqIk/view?usp=sharing ', name: 'World of Warcraft', price:'29', stock:'2' , description:' rol multijugador masivo en línea desarrollado por Blizzard Entertainment.',  categories:juego4 })
     await ProductModel.create({photo:' https://drive.google.com/file/d/1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R/view?usp=sharing ', name:'League of Leguends', price:'50', stock:'2', description:'Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games',  categories:juego5  })
     await ProductModel.create({photo:' https://drive.google.com/file/d/1IZA82snexAD6qpokj5jzYiML4WprAHys/view?usp=sharing ', name:'God of War', price:'30', stock:'8', description:' serie de videojuegos hack and slash creada por SCE Santa Monica Studio y distribuida por Sony Computer Entertainment',  categories:juego6  })
-    await ProductModel.create({photo:' https://s1.gaming-cdn.com/images/products/6690/orig/battlefield-2042-pc-juego-origin-cover.jpg ', name:'Battlefield 2042', price:'36', stock:'10', description:' videojuego de disparos y acción bélica en primera persona', categories:juego8  })
-    await ProductModel.create({photo:' https://cdn-products.eneba.com/resized-products/ux0dyaee3yxdxur1xu37_350x200_1x-0.jpg ', name:'Dying Light', price:'6', stock:'3', description:' serie de videojuegos de acción', categories:juego9  })
+    await ProductModel.create({photo:' https://drive.google.com/file/d/1X68RR3eLIPUna7H9H2OEmjstE_pdPwmA/view?usp=sharing ', name:'Battlefield 2042', price:'36', stock:'10', description:' videojuego de disparos y acción bélica en primera persona', categories:juego8  })
+    await ProductModel.create({photo:' https://drive.google.com/file/d/17T2Ikaoq47h4Qj-SsfRQoqlnBjRJOQFJ/view?usp=sharing ', name:'Dying Light', price:'6', stock:'3', description:' serie de videojuegos de acción', categories:juego9  })
 
     await UserModel.deleteMany({});
     await UserModel.create({password:'123', email:'a@gmail.com', role:ROLES.NORMAL})
