@@ -16,7 +16,7 @@ export default {
     },
 
     create: async (req: Request, res: Response) => {
-        const product = await ProductModel.create({photo: req.body.url, name: req.body.name, price: req.body.price, stock: req.body.stock} );
+        const product = await ProductModel.create({photo: req.body.url, name: req.body.name, price: req.body.price, stock: req.body.stock, description: req.body.description, categories: req.body.categories});
         res.json(product);
         res.status(200).json({result: 'OK'});
     },
