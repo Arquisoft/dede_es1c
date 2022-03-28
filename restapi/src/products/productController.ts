@@ -60,4 +60,13 @@ export default {
         await product.save();
         res.status(200).json({result: 'OK'});
     },
+
+    updatePrice: async (req: Request, res: Response) => {
+        const product = await ProductModel.findById(req.params.id);
+        if (req.body.price) {
+            product.price = req.body.price;
+        }
+        await product.save();
+        res.status(200).json({result: 'OK'});
+    },
 }
