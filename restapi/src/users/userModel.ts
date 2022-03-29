@@ -40,21 +40,25 @@ const Schema = new mongoose.Schema({
 Schema.pre('save', function (next) {
     // get access to user model, then we can use user.email, user.password
     const user: User = this;
-
-    bcrypt.genSalt(10, function (err: Error, salt: string) {
-        if (err) {
-            return next(err)
-        }
-
-        bcrypt.hash(user.password, salt, function (err: Error, hash: string) {
+    //console.log(user);
+    if (user.password) {
+        bcrypt.genSalt(10, function (err: Error, salt: string) {
             if (err) {
-                return next(err);
+                return next(err)
             }
 
-            user.password = hash;
-            next()
+            bcrypt.hash(user.password, salt, function (err: Error, hash: string) {
+                if (err) {
+                    return next(err);
+                }
+
+                user.password = hash;
+                next();
+            })
         })
-    })
+    } else {
+        next();
+    }
 })
 
 // Make use of methods for comparedPassword

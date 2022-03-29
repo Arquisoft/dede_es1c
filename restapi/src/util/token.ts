@@ -1,7 +1,7 @@
 import jwt from 'jwt-simple';
 import config from '../config';
 import mongoose from "mongoose";
-import {User} from "../users/model";
+import {User} from "../users/userModel";
 
 export default {
     generateToken(user: User) {

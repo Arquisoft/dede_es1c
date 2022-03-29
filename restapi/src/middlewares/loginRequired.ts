@@ -1,5 +1,5 @@
 import token from '../util/token';
-import {ROLES, User, UserModel} from '../users/model';
+import {ROLES, User, UserModel} from '../users/userModel';
 import {NextFunction, Request, Response} from 'express';
 import mongoose, {HydratedDocument} from "mongoose";
 
