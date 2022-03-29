@@ -9,19 +9,30 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const model_1 = require("../products/model");
-const model_2 = require("../users/model");
+const productModel_1 = require("../products/productModel");
+const userModel_1 = require("../users/userModel");
 function create() {
     return __awaiter(this, void 0, void 0, function* () {
-        yield model_1.ProductModel.deleteMany({});
-        yield model_1.ProductModel.create({ photo: ' https://www.google.com/search?q=fifa+20&client=firefox-b-d&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjetOqThrL2AhVOh_0HHeKKBPkQ_AUoAnoECCsQBA&biw=1159&bih=1280&dpr=1#imgrc=j9hKBXDlcRjFIM', name: 'Fifa 20', price: '20', stock: '2' });
-        yield model_1.ProductModel.create({ photo: ' https://www.google.com/search?q=fifa+19&tbm=isch&ved=2ahUKEwjvqc2UhrL2AhWNDOwKHdrlCbgQ2-cCegQIABAA&oq=fifa+19&gs_lcp=CgNpbWcQAzIICAAQgAQQsQMyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQ6BwgAELEDEEM6BAgAEEM6CwgAEIAEELEDEIMBUP8HWL4JYMELaABwAHgAgAFriAGCApIBAzIuMZgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=a_QkYq_INo2ZsAfay6fACw&bih=1280&biw=1159&client=firefox-b-d#imgrc=-EciD4C09JWvaM', name: 'Fifa 19', price: '30', stock: '67' });
-        yield model_1.ProductModel.create({ photo: ' https://www.google.com/search?q=elden+ring&tbm=isch&ved=2ahUKEwiY07WchrL2AhUh2OAKHUa8DpoQ2-cCegQIABAA&oq=elden+ring&gs_lcp=CgNpbWcQAzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMgQIABADMgQIABADMgsIABCABBCxAxCDATILCAAQgAQQsQMQgwEyBAgAEAMyCwgAEIAEELEDEIMBMgQIABADMgQIABADOgcIABCxAxBDOgQIABBDOgUIABCABDoICAAQgAQQsQM6CAgAELEDEIMBOgoIABCxAxCDARBDUPkFWNYMYI0OaABwAHgAgAFgiAG9B5IBAjExmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=fPQkYpilEaGwgwfG-LrQCQ&bih=1280&biw=1159&client=firefox-b-d#imgrc=cjc7GoLP04wZbM', name: 'Elden ring', price: '80', stock: '4' });
-        yield model_1.ProductModel.create({ photo: ' https://www.google.com/search?q=world+of+warcraft&tbm=isch&ved=2ahUKEwi868yihrL2AhXO8LsIHQnACngQ2-cCegQIABAA&oq=world+of&gs_lcp=CgNpbWcQARgAMggIABCABBCxAzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDoKCAAQsQMQgwEQQzoLCAAQgAQQsQMQgwE6BAgAEAM6CAgAELEDEIMBOgQIABBDOgcIABCxAxBDUL0FWMINYOcVaABwAHgAgAFriAGNBpIBAzguMZgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=ifQkYvyCD87h7_UPiYCrwAc&bih=1280&biw=1159&client=firefox-b-d#imgrc=hTn3thQQPuNZfM', name: 'World of Warcraft', price: '2900', stock: '2' });
-        yield model_1.ProductModel.create({ photo: ' https://www.google.com/search?q=league+of+leguends+logo&tbm=isch&ved=2ahUKEwiz75e5hrL2AhWO_bsIHT9QBmYQ2-cCegQIABAA&oq=league+of+leguends+logo&gs_lcp=CgNpbWcQAzIFCAAQgAQyBggAEAoQGDoECAAQQzoECAAQHlCBLlizNGCzNWgAcAB4AIABZ4gBigSSAQM1LjGYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=uPQkYrOzJY777_UPv6CZsAY&bih=1280&biw=1159&client=firefox-b-d#imgrc=6XTc5saPQUmzVM', name: 'League of Leguends', price: '50', stock: '2' });
-        yield model_2.UserModel.deleteMany({});
-        yield model_2.UserModel.create({ password: '123', email: 'a@gmail.com', role: model_2.ROLES.NORMAL });
-        yield model_2.UserModel.create({ password: '123', email: 'b@gmail.com', role: model_2.ROLES.ADMIN });
+        let juego1 = ["deportes"];
+        let juego2 = ["deportes"];
+        let juego3 = ["acción", "aventuras", "estrategia"];
+        let juego4 = ["acción", "aventuras", "estrategia"];
+        let juego5 = ["estrategia", "acción"];
+        let juego6 = ["estrategia", "acción"];
+        let juego8 = ["estrategia", "acción"];
+        let juego9 = ["estrategia", "acción"];
+        yield productModel_1.ProductModel.deleteMany({});
+        yield productModel_1.ProductModel.create({ photo: ' https://as01.epimg.net/meristation/imagenes/2019/08/20/cover/888153891566327582.jpg', name: 'Fifa 20', price: '20', stock: '2', description: 'publicados anualmente por Electronic Arts bajo el sello de EA Sports creado en Japón Cuando la saga comenzó a finales de 1993', categories: juego1 });
+        yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/file/d/1vLpKO1Vd9HgJ0j1NQsrvyidlxMHZPRA-/view?usp=sharing', name: 'Fifa 19', price: '30', stock: '67', description: 'publicados anualmente por Electronic Arts bajo el sello de EA Sports creado en Japón Cuando la saga comenzó a finales de 1993', categories: juego2 });
+        yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/file/d/1uPsQkxuSttWE4-_uHvOhkanlZLF-RLMb/view?usp=sharing', name: 'Elden ring', price: '80', stock: '4', description: ' rol de acción desarrollado por FromSoftware y publicado por Bandai Namco Entertainment', categories: juego3 });
+        yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/file/d/10wG_nWYtlVgLnQFEIybwHD8l3ycTcqIk/view?usp=sharing ', name: 'World of Warcraft', price: '29', stock: '2', description: ' rol multijugador masivo en línea desarrollado por Blizzard Entertainment.', categories: juego4 });
+        yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/file/d/1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R/view?usp=sharing ', name: 'League of Leguends', price: '50', stock: '2', description: 'Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games', categories: juego5 });
+        yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/file/d/1IZA82snexAD6qpokj5jzYiML4WprAHys/view?usp=sharing ', name: 'God of War', price: '30', stock: '8', description: ' serie de videojuegos hack and slash creada por SCE Santa Monica Studio y distribuida por Sony Computer Entertainment', categories: juego6 });
+        yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/file/d/1X68RR3eLIPUna7H9H2OEmjstE_pdPwmA/view?usp=sharing ', name: 'Battlefield 2042', price: '36', stock: '10', description: ' videojuego de disparos y acción bélica en primera persona', categories: juego8 });
+        yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/file/d/17T2Ikaoq47h4Qj-SsfRQoqlnBjRJOQFJ/view?usp=sharing ', name: 'Dying Light', price: '6', stock: '3', description: ' serie de videojuegos de acción', categories: juego9 });
+        yield userModel_1.UserModel.deleteMany({});
+        yield userModel_1.UserModel.create({ password: '123', email: 'a@gmail.com', role: userModel_1.ROLES.NORMAL });
+        yield userModel_1.UserModel.create({ password: '123', email: 'b@gmail.com', role: userModel_1.ROLES.ADMIN });
     });
 }
 exports.default = create;

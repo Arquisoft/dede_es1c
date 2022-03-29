@@ -19,6 +19,9 @@ const Schema = new mongoose_1.default.Schema({
     stock: {
         type: String,
     },
+    description: {
+        type: String,
+    }
 });
 // Export the model
 exports.ProductModel = mongoose_1.default.model('Product', Schema);

@@ -16,7 +16,10 @@ const Schema = new mongoose_1.default.Schema({
     personal_identification: {
         type: String,
     },
-    password: String,
+    password: {
+        type: String,
+        select: false
+    },
     email: {
         type: String,
         unique: true,
