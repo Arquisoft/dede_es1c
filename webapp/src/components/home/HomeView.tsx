@@ -6,7 +6,7 @@ import Icon from "./Icon";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import { Product } from "../../../../restapi/src/products/model";
+import { Product } from "../../../../restapi/src/products/productModel";
 import  {getProductos} from '../../api/api';
 
 

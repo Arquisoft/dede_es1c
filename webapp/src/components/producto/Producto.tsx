@@ -11,7 +11,7 @@ import {
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect} from 'react';
-import { Product } from "../../../../restapi/src/products/model";
+import { Product } from "../../../../restapi/src/products/productModel";
 import { getProducto } from "../../api/api";
 
 /**const product = {
@@ -141,7 +141,8 @@ type ProductoItem = {
 };
 
 const Producto  = () => {
-const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",name: "Nombre",price: "Error",stock: "Error",description: "Error"});
+  // @ts-ignore
+  const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",name: "Nombre",price: "Error",stock: "Error",description: "Error", categories: [""]});
 
   const classes = useStyle();
   const {name} = useParams<ProductoItem>( );

@@ -4,7 +4,7 @@ import { Card, CardMedia, CardContent, Typography,Tooltip } from "@material-ui/c
 import { CardActionArea, Grid, IconButton ,CardActions} from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { Link } from "react-router-dom";
-import { Product } from "../../../../restapi/src/products/model";
+import { Product } from "../../../../restapi/src/products/productModel";
 
 
 const useStyle = makeStyles({
