@@ -6,19 +6,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 import { calcularTotal } from "../../logica/Carrito";
 import { Link } from "react-router-dom";
-
-const product_card = [
-  {
-    id:1,
-    product_name:"Elden",
-    price:34,
-    thumb:"https://storage.gra.cloud.ovh.net/v1/AUTH_296c7803aa594af69d39b970927c8fb9/media/game_avatars/x6/x6w99LoD0pbanPNO.jpeg"
-  },
-  {
-    id:2,
-    product_name:"Fifa",
-
-
 import { ProductCart } from "../../shared/shareddtypes";
 import { Product } from "../../../../restapi/src/products/productModel";
 
@@ -199,25 +186,24 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
       {(() => {
         if (vacio!==0){
           return(
-      <Container className={classes.containerDch} >
-        <Typography variant="h4" gutterBottom>
-        Precio
-          </Typography>
-          <Typography variant="h6" gutterBottom >
-                  Precio de los productos: {calculateProductTotal(props)} €
-                   </Typography>
-                   <Typography variant="h6" gutterBottom >
-                  Precio de envio 
-                   </Typography>
-                   <Typography variant="h5" gutterBottom >
-                  Total
-                   </Typography>
-
-                   <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>
-        </Container>
-
-                   <Button className={classes.btncomprar} variant="contained" >Comprar</Button>
-        </Container> 
+            <Container className={classes.containerDch} >
+            <Typography variant="h4" gutterBottom>
+            Precio
+              </Typography>
+              <Typography variant="h6" gutterBottom >
+                      Precio de los productos: {calculateProductTotal(props)} €
+                       </Typography>
+                       <Typography variant="h6" gutterBottom >
+                      Precio de envio 
+                       </Typography>
+                       <Typography variant="h5" gutterBottom >
+                      Total
+                       </Typography>
+    
+                       <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>
+    
+                       <Button className={classes.btncomprar} variant="contained" >Comprar</Button>
+            </Container> 
       )}  })()}
 
         </div>

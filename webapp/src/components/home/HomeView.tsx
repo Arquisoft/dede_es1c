@@ -26,20 +26,18 @@ const useStyle = makeStyles({
 type Props = {
   handleAddToCart: (clickedItem: Product) => void;
   cartItems: ProductCart[];
-  products:Product[];
+  products:Product[];}
 
+  export const HomeView:React.FC<Props> = ({ cartItems , handleAddToCart,products})=> {
 
-export const HomeView:React.FC<Props> = ({ cartItems , handleAddToCart,products})=> {
-
-
-  const classes = useStyle();
-  return (
-    <React.Fragment>
-        <div className={classes.container}>
-      <MenuBar cartItems={cartItems}/>
-      <ProductView props={products} handleAddToCart={handleAddToCart}/>
-      </div>
-      <Icon/>
-    </React.Fragment>
-  );
-};
+    const classes = useStyle();
+    return (
+      <React.Fragment>
+          <div className={classes.container}>
+        <MenuBar cartItems={cartItems}/>
+        <ProductView props={products} handleAddToCart={handleAddToCart}/>
+        </div>
+        <Icon/>
+      </React.Fragment>
+    );
+  };
