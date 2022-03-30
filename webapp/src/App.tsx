@@ -8,6 +8,9 @@ import './App.css';
 
 import {HomeView} from "./components/home/HomeView";
 import {Carrito} from "./components/carrito/Carrito";
+import {ProfileView} from "./components/perfil/ProfileView"
+import {LogInView} from "./components/LogIn/LogInView";
+import { PaymentView } from "./components/Pago/PaymentView";
 import Producto from "./components/producto/Producto";
 import Footer from "./components/comun/Footer";
 import { ProductCart } from "./shared/shareddtypes";
@@ -64,8 +67,6 @@ function App(): JSX.Element {
   
   };
 
-
-
   //Añadir al carrito
   const handleAddToCart = (clickedItem: Product) => {
     //Tiene stock a cero?? pero del que devuelve no del producto de BD
@@ -108,19 +109,23 @@ function App(): JSX.Element {
   
   return (
 
+
     <>
 <main>
      <Router>
       <Switch>
-        <Route exact path='/' render={() => <HomeView cartItems={cartItems} handleAddToCart={handleAddToCart} products={products}/>} />
-        <Route  path="/Carrito"render={() => <Carrito cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart} />}/>
-       <Route  path="/Producto/:name" render={() => <Producto cartItems={cartItems} handleAddToCart={handleAddToCart}/>}/>
+
+        <Route exact path='/' component={HomeView} />
+        <Route  path="/Carrito"render={() => <Carrito/>}/>
+        <Route  path="/Pago"render={() => <PaymentView/>}/>
+        <Route  path="/Perfil"render={() => <ProfileView/>}/>
+        <Route  path="/LogIn"render={() => <LogInView/>}/>
+        <Route  path="/Producto/:name" render={() => <Producto/>}/>
+
       </Switch>
       </Router>
-      <Footer/>
       </main>
     </>
-    
   );
 }
 

@@ -4,8 +4,23 @@ import { makeStyles } from "@material-ui/core/styles";
 import {Button,Grid,CardContent,CardMedia,Card,Container,Typography,Tooltip,IconButton} from "@material-ui/core";
 import DeleteIcon from '@mui/icons-material/Delete';
 
+import { calcularTotal } from "../../logica/Carrito";
+import { Link } from "react-router-dom";
+
+const product_card = [
+  {
+    id:1,
+    product_name:"Elden",
+    price:34,
+    thumb:"https://storage.gra.cloud.ovh.net/v1/AUTH_296c7803aa594af69d39b970927c8fb9/media/game_avatars/x6/x6w99LoD0pbanPNO.jpeg"
+  },
+  {
+    id:2,
+    product_name:"Fifa",
+
+
 import { ProductCart } from "../../shared/shareddtypes";
-import { Product } from "../../../../restapi/src/products/model";
+import { Product } from "../../../../restapi/src/products/productModel";
 
 
 const useStyle = makeStyles({
@@ -197,9 +212,14 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
                    <Typography variant="h5" gutterBottom >
                   Total
                    </Typography>
+
+                   <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>
+        </Container>
+
                    <Button className={classes.btncomprar} variant="contained" >Comprar</Button>
         </Container> 
       )}  })()}
+
         </div>
     );
 

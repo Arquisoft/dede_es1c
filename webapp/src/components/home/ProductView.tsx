@@ -8,7 +8,8 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 
 import { Link } from "react-router-dom";
 
-import { Product } from "../../../../restapi/src/products/model";
+import { Product } from "../../../../restapi/src/products/productModel";
+
 
 
 const useStyle = makeStyles({
