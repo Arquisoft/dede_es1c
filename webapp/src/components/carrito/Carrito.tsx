@@ -6,7 +6,7 @@ import Icon from "../home/Icon";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import { Product } from "../../../../restapi/src/products/model";
+
 import CarritoView from "./CarritoView";
 import MenuBar from "../comun/MenuBar";
 import { ProductCart } from "../../shared/shareddtypes";

@@ -21,7 +21,7 @@ export const PaymentView = () => {
     return(
     <React.Fragment>
         <div className={classes.container}>
-            <MenuBar />
+       
         </div>
         <div>
             <FormularioPago/>

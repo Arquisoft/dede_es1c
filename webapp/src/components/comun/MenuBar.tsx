@@ -15,8 +15,6 @@ import { Link } from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 
-
-import { Product } from "../../../../restapi/src/products/model";
 import { ProductCart } from "../../shared/shareddtypes";
 
 

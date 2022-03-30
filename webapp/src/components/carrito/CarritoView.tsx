@@ -154,7 +154,7 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
 
         {props.map((item:ProductCart)=>{
           return (
-         <Grid item key={item.id}  xs={12} className={classes.containerCarrito}>
+         <Grid item key={item.name}  xs={12} className={classes.containerCarrito}>
         <Card  square={true} className={classes.root}>
         <CardMedia component="img"  className={classes.media} image={item.photo} title={item.name} />
 

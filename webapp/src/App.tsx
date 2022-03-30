@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import React, { useState, useEffect} from 'react';
 
-import { Product } from "../../restapi/src/products/model";
+import { Product } from "../../restapi/src/products/productModel";
 import  {getProductos} from './api/api';
 import './App.css';
 
@@ -12,7 +12,7 @@ import {ProfileView} from "./components/perfil/ProfileView"
 import {LogInView} from "./components/LogIn/LogInView";
 import { PaymentView } from "./components/Pago/PaymentView";
 import Producto from "./components/producto/Producto";
-import Footer from "./components/comun/Footer";
+
 import { ProductCart } from "./shared/shareddtypes";
 
 function App(): JSX.Element {
@@ -115,12 +115,13 @@ function App(): JSX.Element {
      <Router>
       <Switch>
 
-        <Route exact path='/' component={HomeView} />
-        <Route  path="/Carrito"render={() => <Carrito/>}/>
+      <Route exact path='/' render={() => <HomeView cartItems={cartItems} handleAddToCart={handleAddToCart} products={products}/>} />
+        <Route  path="/Carrito"render={() => <Carrito cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart} />}/>
+       <Route  path="/Producto/:name" render={() => <Producto cartItems={cartItems} handleAddToCart={handleAddToCart}/>}/>
         <Route  path="/Pago"render={() => <PaymentView/>}/>
         <Route  path="/Perfil"render={() => <ProfileView/>}/>
         <Route  path="/LogIn"render={() => <LogInView/>}/>
-        <Route  path="/Producto/:name" render={() => <Producto/>}/>
+ 
 
       </Switch>
       </Router>

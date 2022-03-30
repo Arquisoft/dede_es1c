@@ -1,10 +1,13 @@
 
+import React, { useState, useEffect} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { Card, CardMedia, CardContent, Typography,Tooltip } from "@material-ui/core";
 import { CardActionArea, Grid, IconButton ,CardActions} from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import  {getProductos} from '../../api/api';
+
 
 import { Link } from "react-router-dom";
 
@@ -117,13 +120,31 @@ const useStyle = makeStyles({
 type Props = {
   props: Product[];
   handleAddToCart: (clickedItem: Product) => void;
-
+  
 };
 
+
 const ProductView: React.FC<Props> = ({ props, handleAddToCart}) => {
+  const [productos, setProductos]=useState<Product[]>(props);
   const classes = useStyle();
-  const categorias = ['Futbol']
-  
+  const categorias = ['','deportes','acción','aventuras','estrategia'];
+  const [category, setCategory]=React.useState<string | null>(categorias[0]);
+  const filterFunction = (text: any)=>{
+    var  filter;
+      if(text===""){
+        filter=props;
+      }
+      else{
+        filter=props.filter( (prop)=>  prop.categories[0] ===text);}
+        setProductos(filter);
+        refreshProducts(filter);
+      }
+
+  const refreshProducts = async (productos:Product[]) => {
+        setProductos(productos);
+        props=productos;
+      }
+
   return (
     <div className={classes.container3}>
       <h3 className={classes.h3}>Productos</h3>
@@ -136,13 +157,19 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart}) => {
         paddingBottom="50px"
         paddingRight="20px"
       >
-              <Autocomplete className={classes.comboBox}
+      <Autocomplete className={classes.comboBox}
+       value={category}
         options={categorias}
-        style={{ width: 100 }}
+        onInputChange={(event: any, newValue: string | null) => {
+          setCategory(newValue);
+          filterFunction(newValue);
+        }}
+        style={{ width: 200 }}
         renderInput={(params) =>
           <TextField {...params} label="Categoría" className={classes.textfield}/>}
       />
-        {props.map((item,i)=>{
+
+        {productos.map((item,i)=>{
           return (
           <Grid
             item
@@ -195,7 +222,6 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart}) => {
           </div>
           </Grid>
           )})}
-
       </Grid>
     </div>
   );
