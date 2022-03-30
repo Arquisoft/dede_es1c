@@ -9,6 +9,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import  {getProductos} from '../../api/api';
 
 
+
 import { Link } from "react-router-dom";
 
 import { Product } from "../../../../restapi/src/products/productModel";
@@ -141,10 +142,21 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart}) => {
       }
 
   const refreshProducts = async (productos:Product[]) => {
+      
         setProductos(productos);
-        props=productos;
+      
+       
       }
+  const refreshTotalProducts = async () => {
+    setProductos(await  getProductos());
+  }
+  useEffect(()=>{
+    refreshTotalProducts();
+    setCategory(categorias[0]);
+  },[]);
+        
 
+    
   return (
     <div className={classes.container3}>
       <h3 className={classes.h3}>Productos</h3>
