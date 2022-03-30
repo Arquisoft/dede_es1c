@@ -44,7 +44,7 @@ const useStyle = makeStyles({
     marginRight:"20px",
   },
   logo: {
-   width:"10%",
+    width:"10%",
    marginTop:"30px",
 
   },
