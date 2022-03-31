@@ -23,6 +23,8 @@ const Schema = new mongoose_1.default.Schema({
         type: String,
     },
     categories: [String]
+       
+    
 });
 // Export the model
 exports.ProductModel = mongoose_1.default.model('Product', Schema);

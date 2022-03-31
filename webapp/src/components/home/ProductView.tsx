@@ -13,6 +13,8 @@ import  {getProductos} from '../../api/api';
 import { Link } from "react-router-dom";
 
 import { Product } from "../../../../restapi/src/products/productModel";
+import { getEnabledCategories } from 'trace_events';
+import { FilterAltRounded } from '@mui/icons-material';
 
 
 
@@ -136,11 +138,18 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart}) => {
         filter=props;
       }
       else{
-        filter=props.filter( (prop)=>  prop.categories[0] ===text);}
+        filter=props.filter( (prop)=> filtrar(prop,text));
         setProductos(filter);
         refreshProducts(filter);
       }
-
+    }
+      
+    function  filtrar (prop: Product,text:any) {
+      for(let  i=0;i<prop.categories.length;i++){
+      if(prop.categories[i] === text )
+        return true}
+        return false
+    }
   const refreshProducts = async (productos:Product[]) => {
       
         setProductos(productos);
