@@ -138,10 +138,10 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart}) => {
         filter=props;
       }
       else{
-        filter=props.filter( (prop)=> filtrar(prop,text));
+        filter=props.filter( (prop)=> filtrar(prop,text)); }
         setProductos(filter);
         refreshProducts(filter);
-      }
+     
     }
       
     function  filtrar (prop: Product,text:any) {

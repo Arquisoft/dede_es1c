@@ -9,11 +9,16 @@ import { Typography} from "@mui/material";
 
 const useStyle = makeStyles({
     stickToBottom: {
-      marginTop:"calc(5% + 60px)",
-      bottom: 0,
-      borderTopLeftRadius: "20px",
-      borderTopRightRadius: "20px",
-      textAlign: "center",
+      position:"fixed",
+      bottom:"0",
+      width:"100%",
+      height:"60px",   /* Height of the footer */
+      background:"#6cf",
+      "@media (max-width:560px)":{
+        position:"fixed",
+        width: "100%",
+        marginTop: "30px",
+      }
     },
 });
 

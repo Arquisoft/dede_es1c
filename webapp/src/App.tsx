@@ -7,6 +7,7 @@ import  {getProductos} from './api/api';
 import './App.css';
 
 import {HomeView} from "./components/home/HomeView";
+import Footer from "./components/comun/Footer";
 import {Carrito} from "./components/carrito/Carrito";
 import {ProfileView} from "./components/perfil/ProfileView"
 import {LogInView} from "./components/LogIn/LogInView";
@@ -25,6 +26,7 @@ function App(): JSX.Element {
   }
   useEffect(()=>{
     refreshProducts();
+    
   },[]);
 
   const handleRemoveFromCart = (clickedItem: ProductCart) => {
@@ -125,6 +127,7 @@ function App(): JSX.Element {
 
       </Switch>
       </Router>
+      <Footer/>
       </main>
     </>
   );

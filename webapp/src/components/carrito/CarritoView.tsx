@@ -201,8 +201,7 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
                        </Typography>
     
                        <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>
-    
-                       <Button className={classes.btncomprar} variant="contained" >Comprar</Button>
+
             </Container> 
       )}  })()}
 
