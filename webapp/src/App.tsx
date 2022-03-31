@@ -123,8 +123,6 @@ function App(): JSX.Element {
         <Route  path="/Pago"render={() => <PaymentView/>}/>
         <Route  path="/Perfil"render={() => <ProfileView/>}/>
         <Route  path="/LogIn"render={() => <LogInView/>}/>
- 
-
       </Switch>
       </Router>
       <Footer/>

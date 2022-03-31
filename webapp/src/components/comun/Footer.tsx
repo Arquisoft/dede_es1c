@@ -14,10 +14,13 @@ const useStyle = makeStyles({
       width:"100%",
       height:"60px",   /* Height of the footer */
       background:"#6cf",
+      borderTopLeftRadius: 20,
+      borderTopRightRadius:20,
       "@media (max-width:560px)":{
         position:"fixed",
         width: "100%",
         marginTop: "30px",
+       
       }
     },
 });
