@@ -133,12 +133,11 @@ type Props = {
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
 
-  borderRadius: theme.shape.borderRadius,
+  borderRadius:"30px",
+  borderStyle: "solid",
+  borderColor:"#ffffff",
+  borderBottomColor:"#8458aa",
 
-  backgroundColor: "#FFFFFFFF",
-  "&:hover": {
-    backgroundColor: "#FFFFFFFF",
-  },
   marginRight: "70%",
   marginLeft: "40px",
   width: "30%",
@@ -160,7 +159,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
-  borderBottomColor: "#000000",
+  
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
