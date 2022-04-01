@@ -31,6 +31,7 @@ const useStyle = makeStyles({
 
 export const Carrito: React.FC<Props> = ({ cartItems, handleRemoveFromCart }) => {
     const classes = useStyle();
+    
     return (
     <React.Fragment>
     <div className={classes.container}>

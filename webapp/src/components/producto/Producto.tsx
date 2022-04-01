@@ -163,10 +163,7 @@ type Props = {
 const Producto : React.FC<Props> = ({ cartItems,  handleAddToCart }) => {
 
   const categorias = ['fisico','digital'];
-  const [category, setCategory]=React.useState<string | null>(categorias[0]);
-  const filterFunction = (text: any)=>{
-    var  filter;
-    }
+
   // @ts-ignore
   const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",name: "Nombre",price: "Error",stock: "Error",description: "Error", categories: [""]});
 
@@ -198,7 +195,7 @@ const Producto : React.FC<Props> = ({ cartItems,  handleAddToCart }) => {
             </Card>
             
             <Typography variant="h4" gutterBottom>
-            <IconButton onClick={() => handleAddToCart(producto)}>
+            <IconButton aria-label="Añadir carrito" onClick={() => handleAddToCart(producto)}>
                       <Tooltip title="Añadir al carrito">
                         <AddShoppingCartIcon
                           fontSize="large"

@@ -166,9 +166,10 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
            Cantidad:{item.amount}
           </Typography>
   
-          <IconButton onClick={() => handleRemoveFromCart(item)}>
+          <IconButton aria-label="Eliminar" onClick={() => handleRemoveFromCart(item)}>
             <Tooltip title="Eliminar">
-              <DeleteIcon   fontSize="large" sx={{ color: "black" }} />
+              <DeleteIcon  fontSize="large" sx={{ color: "black" }} />
+     
             </Tooltip>
             </IconButton>
          

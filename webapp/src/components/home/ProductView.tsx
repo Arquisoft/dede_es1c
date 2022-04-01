@@ -343,6 +343,7 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart }) => {
             >
               <Card className={classes.root}>
                 <CardActionArea
+                  id={item.name}
                   className={classes.action}
                   to={`/Producto/${item.name}`}
                   component={Link}
@@ -366,12 +367,12 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart }) => {
                   </CardContent>
                 </CardActionArea>
                 <CardActions className={classes.carrito}>
-                  <IconButton sx={{backgroundColor: "rgba(79, 84, 138 , .3)"}}>
+                  <IconButton name="Añadir Carrito" sx={{backgroundColor: "rgba(79, 84, 138 , .3)"}}   onClick={() => handleAddToCart(item)}>
                     <Tooltip title="Añadir al carrito">
                       <AddShoppingCartIcon
                         fontSize="large"
                         sx={{ color: "white" }}
-                        onClick={() => handleAddToCart(item)}
+                      
                       />
                     </Tooltip>
                   </IconButton>
