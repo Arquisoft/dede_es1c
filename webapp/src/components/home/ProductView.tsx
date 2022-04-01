@@ -19,7 +19,7 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { getProductos } from "../../api/api";
 
-import { styled, alpha } from "@mui/material/styles";
+import { styled} from "@mui/material/styles";
 
 import { Link } from "react-router-dom";
 
@@ -63,10 +63,19 @@ const useStyle = makeStyles({
   },
 
   comboBox: {
-    marginLeft: "80%",
+    position:"relative",
+    marginTop:"0px",
     boxShadow: "7px 6px rgba(0, 0, 0, .5)",
     borderRadius: 10,
-    marginBottom: "5px",
+    marginBottom: "15px",
+    marginLeft:"60%",
+
+    "@media (max-width:768px)":{
+      marginLeft:"0%",
+     
+    },
+
+
   },
 
   textfield: {
@@ -123,6 +132,10 @@ const useStyle = makeStyles({
     position: "relative",
     marginRight: "20px",
   },
+  filtros: {
+    gridTemplateColumns:"1fr 1fr",
+    marginBottom:"15px"
+  },
 });
 
 type Props = {
@@ -132,13 +145,12 @@ type Props = {
 //SEARCH
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
-
   borderRadius:"30px",
   borderStyle: "solid",
   borderColor:"#ffffff",
   borderBottomColor:"#8458aa",
+  marginBottom:"17px",
 
-  marginRight: "70%",
   marginLeft: "40px",
   width: "30%",
   [theme.breakpoints.up("sm")]: {
@@ -198,7 +210,7 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart }) => {
       }
     } else {
       if (text === "") {
-        filter = props.filter((prop) => prop.name.startsWith(busqueda));
+        filter = props.filter((prop) => prop.name.toLocaleLowerCase().startsWith(busqueda.toLocaleLowerCase()));
         setFiltrosActivosCategoria(false);
       } else {
         filter = props.filter((prop) =>
@@ -221,7 +233,7 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart }) => {
         filter = props;
         setFiltrosActivosNombre(false);
       } else {
-        filter = props.filter((prop) => prop.name.startsWith(text));
+        filter = props.filter((prop) => prop.name.toLocaleLowerCase().startsWith(text.toLocaleLowerCase()));
         setFiltrosActivosNombre(true);
       }
     } else {
@@ -241,7 +253,7 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart }) => {
   //Filtro por categoría de lo produtos
   function filtrarCategoriaNombre(prop: Product, text: any, categoria: any) {
     for (let i = 0; i < prop.categories.length; i++) {
-      if (prop.categories[i] === categoria && prop.name.startsWith(text))
+      if (prop.categories[i] === categoria && prop.name.toLocaleLowerCase().startsWith(text.toLocaleLowerCase()))
         return true;
     }
     return false;
@@ -272,7 +284,10 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart }) => {
 
   return (
     <div className={classes.container3}>
+      
       <h3 className={classes.h3}>Productos</h3>
+      <Grid container  className={classes.filtros}
+        >
       <Search>
         <SearchIconWrapper>
           <SearchIcon />
@@ -286,15 +301,7 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart }) => {
           inputProps={{ "aria-label": "search" }}
         />
       </Search>
-      <Grid
-        container
-        justifyContent="center"
-        spacing={1}
-        paddingLeft="30px"
-        paddingBottom="50px"
-        paddingRight="20px"
-      >
-        <Autocomplete
+      <Autocomplete
           className={classes.comboBox}
           value={category}
           options={categorias}
@@ -311,6 +318,16 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart }) => {
             />
           )}
         />
+        </Grid>
+      <Grid
+        container
+        justifyContent="center"
+        spacing={1}
+        paddingLeft="30px"
+        paddingBottom="50px"
+        paddingRight="20px"
+      >
+
 
         {productos.map((item, i) => {
           return (
@@ -349,7 +366,7 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart }) => {
                   </CardContent>
                 </CardActionArea>
                 <CardActions className={classes.carrito}>
-                  <IconButton>
+                  <IconButton sx={{backgroundColor: "rgba(79, 84, 138 , .3)"}}>
                     <Tooltip title="Añadir al carrito">
                       <AddShoppingCartIcon
                         fontSize="large"
