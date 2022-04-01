@@ -78,10 +78,10 @@ container3:{
   },
 
   root: {
-    minWidth: 320,
+
     marginTop:"2%",
     marginBottom:"2%",
-    maxWidth: 320,
+
     color: "black",
     display: "flex",
     height: 400,
