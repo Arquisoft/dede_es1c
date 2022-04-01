@@ -1,10 +1,11 @@
-import request, { Response } from "supertest";
-import express, { Application, RequestHandler } from "express";
+import request, {Response} from "supertest";
+import express, {Application, RequestHandler} from "express";
 import cors from "cors";
 import bp from "body-parser";
 import promBundle from "express-prom-bundle";
 import apiUser from "../src/users/userRouter";
 import apiProduct from "../src/products/productRouter";
+import apiLogin from "../src/login/loginRouter";
 import {beforeAll, afterAll, describe, it, expect} from "@jest/globals";
 
 
@@ -17,18 +18,20 @@ const mongoose = require("mongoose");
 let token;
 
 
-beforeAll(async (done) => {
+beforeAll(async () => {
 
-    const metricsMiddleware: RequestHandler = promBundle({ includeMethod: true });
+    const metricsMiddleware: RequestHandler = promBundle({includeMethod: true});
     app.use(metricsMiddleware);
 
     app.use(cors());
     app.use(bp.json());
 
-    app.use(bp.urlencoded({ extended: false }));
+    app.use(bp.urlencoded({extended: false}));
 
-    app.use(apiUser);
-    app.use(apiProduct);
+    app.use('/user', apiUser)
+    app.use('/product', apiProduct)
+    app.use('/', apiLogin)
+
     app.listen(5000);
 
     app.use("/uploads", express.static(path.resolve("uploads")));
@@ -40,16 +43,12 @@ beforeAll(async (done) => {
             useUnifiedTopology: true
         });
 
-    request(app)
-        .post('/login')
-        .send({
-            email: "b@gmail.com",
-            password: "123"
+    const response = await request(app)
+        .post('/login').send({
+            email: 'b@gmail.com',
+            password: '123'
         })
-        .end((err, response) => {
-            token = response.body.token; // save the token!
-            done();
-        });
+    token = response.body.token;
 });
 
 
@@ -70,12 +69,12 @@ describe("user ", () => {
      */
     it("Puedo conseguir un usuario", async () => {
 
-        const response: Response = await request(app).get(
-            "/user/a@gmail.com"
-        ).set('Authorization', `Bearer ${token}`).then((response) => {
-            expect(response.statusCode).toBe(200);
-            expect(response.type).toBe('application/json');
-        });
+        const response: Response = await request(app)
+            .get("/user/a@gmail.com")
+            .set('Authorization', `Bearer ${token}`);
+
+        expect(response.statusCode).toBe(200);
+        expect(response.type).toBe('application/json');
 
         expect(response.statusCode).toBe(200);
         expect(response.body).toEqual(
@@ -94,10 +93,9 @@ describe("user ", () => {
     it("Get usuario que no existe", async () => {
         const response: Response = await request(app).get(
             "/user/noExiste@gmail.com"
-        ).set('Authorization', `Bearer ${token}`).then((response) => {
-            expect(response.statusCode).toBe(404);
+        ).set('Authorization', `Bearer ${token}`)
+        expect(response.statusCode).toBe(404);
 
-        });
 
     });
 
@@ -107,10 +105,10 @@ describe("user ", () => {
     it("Puedo listar a todos los usuarios", async () => {
         const response: Response = await request(app).get(
             "/user"
-        ).set('Authorization', `Bearer ${token}`).then((response) => {
-            expect(response.statusCode).toBe(404);
+        ).set('Authorization', `Bearer ${token}`)
+        expect(response.statusCode).toBe(404);
 
-        });
+
     });
 
 
