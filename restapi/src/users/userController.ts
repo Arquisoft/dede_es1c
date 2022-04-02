@@ -10,7 +10,7 @@ export default {
     },
 
     get: async (req: Request, res: Response) => {
-        const user = await UserModel.findOne({name: req.params.name});
+        const user = await UserModel.findOne({email: req.params.name});
         if (user) {
             res.status(200).json(user);
         } else {
