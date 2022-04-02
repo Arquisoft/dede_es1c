@@ -2,16 +2,13 @@ import {Router} from "express";
 import UserController from "./userController";
 import loginRequired from "../middlewares/loginRequired";
 import {ROLES} from "./userModel";
-import ProductController from "../products/productController";
 
 const UserRouter = Router()
 
-UserRouter.use(loginRequired(ROLES.NORMAL))
-
-UserRouter.get('/profile', UserController.profile);
-UserRouter.get('/:name', UserController.get);
-UserRouter.get('/', UserController.getAll);
-UserRouter.post('/product/:name', UserController.addProduct);
-UserRouter.delete('/product/:name', UserController.deleteProduct);
+UserRouter.get('/profile',loginRequired(ROLES.NORMAL), UserController.profile);
+UserRouter.get('/:name',loginRequired(ROLES.ADMIN), UserController.get);
+UserRouter.get('/',loginRequired(ROLES.ADMIN), UserController.getAll);
+UserRouter.post('/product/:name',loginRequired(ROLES.NORMAL), UserController.addProduct);
+UserRouter.delete('/product/:name',loginRequired(ROLES.NORMAL), UserController.deleteProduct);
 
 export default UserRouter;

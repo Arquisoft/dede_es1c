@@ -61,9 +61,21 @@ afterAll(async () => {
 });
 
 
-/******* USUARIOS *******/
+/****USUARIOS ****/
 
-describe("user ", () => {
+describe("USUARIOS ", () => {
+
+    /**
+     * Get usuario que no existe
+     */
+    it("Get usuario que no existe", async () => {
+        const response: Response = await request(app)
+            .get("/user/noExiste@gmail.com")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response.statusCode).toBe(404);
+    });
+
     /**
      * Consigo un usuario
      */
@@ -74,29 +86,15 @@ describe("user ", () => {
             .set('Authorization', `Bearer ${token}`);
 
         expect(response.statusCode).toBe(200);
-        expect(response.type).toBe('application/json');
 
-        expect(response.statusCode).toBe(200);
         expect(response.body).toEqual(
             expect.objectContaining({
-                name: "User",
-                email: "user@uniovi.es",
-                role: "0",
-                products: [mongoose.ObjectId]
+                email: "a@gmail.com",
+                products: [],
+                role: 0,
+
             })
         );
-    });
-
-    /**
-     * Get usuario que no existe
-     */
-    it("Get usuario que no existe", async () => {
-        const response: Response = await request(app).get(
-            "/user/noExiste@gmail.com"
-        ).set('Authorization', `Bearer ${token}`)
-        expect(response.statusCode).toBe(404);
-
-
     });
 
     /**
@@ -106,8 +104,25 @@ describe("user ", () => {
         const response: Response = await request(app).get(
             "/user"
         ).set('Authorization', `Bearer ${token}`)
-        expect(response.statusCode).toBe(404);
+        expect(response.statusCode).toBe(200);
 
+    });
+
+    /**
+     * Obtener usuario registrado
+     */
+    it("Obtener usuario registrado", async () => {
+        const response: Response = await request(app).get(
+            "/user/profile"
+        ).set('Authorization', `Bearer ${token}`)
+        expect(response.statusCode).toBe(200);
+
+        expect(response.body).toEqual(
+            expect.objectContaining({
+                email: "b@gmail.com",
+                role: 10,
+            })
+        );
 
     });
 

@@ -6,7 +6,7 @@ import {HydratedDocument, Schema} from "mongoose";
 
 export default {
     profile: (req: Request, res: Response) => {
-        res.json(res.locals.user);
+        res.status(200).json(res.locals.user);
     },
 
     get: async (req: Request, res: Response) => {
@@ -14,13 +14,13 @@ export default {
         if (user) {
             res.status(200).json(user);
         } else {
-            res.status(404).json({error: "The product does not exist"});
+            res.status(404).json({error: "The user does not exist"});
         }
     },
 
     getAll: async (req: Request, res: Response) => {
-        res.json(await UserModel.find());
-        res.status(200).json({status: "OK"});
+        res.status(200).json(await UserModel.find());
+
     },
 
     addProduct: async (req: Request, res: Response) => {
