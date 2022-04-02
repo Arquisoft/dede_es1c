@@ -9,6 +9,7 @@ import {ProfileView} from "./components/perfil/ProfileView"
 import {LogInView} from "./components/LogIn/LogInView";
 import { PaymentView } from "./components/Pago/PaymentView";
 import Producto from "./components/producto/Producto";
+import SOLID from "./components/LogIn/SOLID/SOLIDView"
 import Footer from "./components/comun/Footer";
 
 function App(): JSX.Element {
@@ -24,7 +25,8 @@ function App(): JSX.Element {
         <Route  path="/Carrito"render={() => <Carrito/>}/>
         <Route  path="/Pago"render={() => <PaymentView/>}/>
         <Route  path="/Perfil"render={() => <ProfileView/>}/>
-        <Route  path="/LogIn"render={() => <LogInView/>}/>
+        <Route  path="/LogIn" render={() => <LogInView/>}/>
+        <Route  path="/Inrupt" render={() => <SOLID/>}/>
         <Route  path="/Producto/:name" render={() => <Producto/>}/>
       </Switch>
       </Router>
