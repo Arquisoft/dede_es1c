@@ -56,8 +56,11 @@ export default {
         const user: HydratedDocument<User> = res.locals.user;
 
         for (let numero2 of user.products) {
+
             user.products.pop();
+
         }
+        user.products.pop();
         await user.save();
         res.status(200).json({status: "OK"});
     },

@@ -130,6 +130,13 @@ describe("USUARIOS ", () => {
      * Usuario añade producto al carrito
      */
     it("Usuario añade producto al carrito", async () => {
+
+        const responseDelete: Response = await request(app).delete(
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`)
+        expect(responseDelete.statusCode).toBe(200);
+
+
         const response: Response = await request(app).post(
             "/user/product"
         ).set('Authorization', `Bearer ${token}`).send({
@@ -141,18 +148,174 @@ describe("USUARIOS ", () => {
         const response2: Response = await request(app).get(
             "/user/profile"
         ).set('Authorization', `Bearer ${token}`)
+
+        expect(response2.statusCode).toBe(200);
+
+
+
+
+
+        expect(response2.body).toEqual(
+            expect.objectContaining({
+                email: "b@gmail.com",
+                products: [response2.body.products[0]],
+            })
+        );
+
+    });
+
+    /**
+     * Usuario borra producto al carrito
+     */
+    it("Usuario borra producto al carrito", async () => {
+
+        const responseDelete: Response = await request(app).delete(
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`)
+        expect(responseDelete.statusCode).toBe(200);
+
+
+        const response: Response = await request(app).post(
+            "/user/product"
+        ).set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        })
+        expect(response.statusCode).toBe(200);
+
+
+        const response2: Response = await request(app).get(
+            "/user/profile"
+        ).set('Authorization', `Bearer ${token}`)
+
         expect(response2.statusCode).toBe(200);
 
         expect(response2.body).toEqual(
             expect.objectContaining({
                 email: "b@gmail.com",
-                products: ["62483c3faaf131faac74647c"],
+                products: [response2.body.products[0]],
+            })
+        );
+
+        const responseDelete2: Response = await request(app).delete(
+            "/user/product/"
+        ).set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        })
+
+        expect(responseDelete2.statusCode).toBe(200);
+
+        const response3: Response = await request(app).get(
+            "/user/profile"
+        ).set('Authorization', `Bearer ${token}`)
+
+        expect(response3.statusCode).toBe(200);
+
+        expect(response3.body).toEqual(
+            expect.objectContaining({
+                email: "b@gmail.com",
+                products: [],
+            })
+        );
+
+    });
+
+    /**
+     * Usuario borra todos los productos del carrito
+     */
+    it("Usuario añade producto al carrito", async () => {
+
+        const responseDelete: Response = await request(app).delete(
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`)
+
+        expect(responseDelete.statusCode).toBe(200);
+
+
+        const responseAdd: Response = await request(app).post(
+            "/user/product"
+        ).set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        })
+        expect(responseAdd.statusCode).toBe(200);
+
+        const responseAdd2: Response = await request(app).post(
+            "/user/product"
+        ).set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        })
+        expect(responseAdd2.statusCode).toBe(200);
+
+        const responseAdd3: Response = await request(app).post(
+            "/user/product"
+        ).set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        })
+        expect(responseAdd3.statusCode).toBe(200);
+
+
+        const response2: Response = await request(app).get(
+            "/user/profile"
+        ).set('Authorization', `Bearer ${token}`)
+
+        expect(response2.statusCode).toBe(200);
+
+        expect(response2.body).toEqual(
+            expect.objectContaining({
+                email: "b@gmail.com",
+                products: [response2.body.products[0], response2.body.products[0], response2.body.products[0]],
+            })
+        );
+
+        const responseDelete2: Response = await request(app).delete(
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`)
+
+        expect(responseDelete2.statusCode).toBe(200);
+
+        const responseDeleteAll: Response = await request(app).get(
+            "/user/profile"
+        ).set('Authorization', `Bearer ${token}`)
+
+        expect(responseDeleteAll.statusCode).toBe(200);
+
+        expect(responseDeleteAll.body).toEqual(
+            expect.objectContaining({
+                email: "b@gmail.com",
+                products: [],
             })
         );
 
     });
 
 
+});
+
+/****PRODUCTS ****/
+
+describe("PRODUCTS ", () => {
+    /**
+     * Get producto que no existe
+     */
+
+    /**
+     * Get producto que existe
+     */
+
+    /**
+     * Listar todos los productos
+     */
+
+    /**
+     * Crear producto
+     */
+
+    /**
+     * Eliminar producto
+     */
+
+    /**
+     * Actualizar stock del producto
+     */
 });
 
 
