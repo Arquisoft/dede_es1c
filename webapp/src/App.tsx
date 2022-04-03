@@ -13,17 +13,9 @@ import {ProfileView} from "./components/perfil/ProfileView"
 import {LogInView} from "./components/LogIn/LogInView";
 import { PaymentView } from "./components/Pago/PaymentView";
 import Producto from "./components/producto/Producto";
-
-
-
-
+import SOLIDView from "./components/LogIn/SOLID/SOLIDView";
 import { ProductCart } from "./shared/shareddtypes";
-
-
-
-
-
-
+import MenuBar from "./components/comun/MenuBar";
 function App(): JSX.Element {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -135,18 +127,19 @@ function App(): JSX.Element {
 
     <>
 <main>
+      
      <Router>
       <Switch>
-
       <Route exact path='/' render={() => <HomeView cartItems={cartItems} handleAddToCart={handleAddToCart} products={products}/>} />
         <Route  path="/Carrito"render={() => <Carrito cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart} />}/>
-       <Route  path="/Producto/:name" render={() => <Producto cartItems={cartItems} handleAddToCart={handleAddToCart}/>}/>
-        <Route  path="/Pago"render={() => <PaymentView/>}/>
-        <Route  path="/Perfil"render={() => <ProfileView/>}/>
-        <Route  path="/LogIn"render={() => <LogInView/>}/>
+        <Route  path="/Producto/:name" render={() => <Producto cartItems={cartItems} handleAddToCart={handleAddToCart}/>}/>
+        <Route  path="/Pago"render={() => <PaymentView cartItems={cartItems}/>}/>
+        <Route  path="/Perfil"render={() => <ProfileView cartItems={cartItems}/>}/>
+        <Route  path="/LogIn"render={() => <LogInView cartItems={cartItems}/>}/>
+        <Route path="/inrupt" render={() => <SOLIDView/>}/>
       </Switch>
       </Router>
-      <Footer/>
+      
       </main>
     </>
   );
