@@ -9,6 +9,7 @@ import ProductRouter from "./products/productRouter";
 import LoginRouter from "./login/loginRouter";
 import UserRouter from "./users/userRouter";
 import create from "./util/defaultDatabase";
+import path from "path";
 
 if (!process.env.JWT_SECRET) {
     const err = new Error('No JWT_SECRET in env variable, check instructions: https://github.com/amazingandyyy/mern#prepare-your-secret');
@@ -16,6 +17,7 @@ if (!process.env.JWT_SECRET) {
 }
 
 const app = express();
+
 
 
 // App Setup
@@ -29,6 +31,8 @@ app.use(express.urlencoded({extended: true})) // for parsing application/x-www-f
 app.use('/user', UserRouter)
 app.use('/product', ProductRouter)
 app.use('/', LoginRouter)
+
+
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.mongoose.uri)
