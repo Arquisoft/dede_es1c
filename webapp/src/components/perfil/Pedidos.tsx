@@ -14,7 +14,7 @@ const useStyle = makeStyles({
   pedido :{
     display:"grid",
     font: "400 1em Tahoma,sans-serif",
-    backgroundColor:"#A98FA3",
+    backgroundColor:"#8545A2",
     borderRadius: 30,
     boxShadow: "7px 6px rgba(0, 0, 0, .5)",
     marginLeft:"5%",
@@ -35,7 +35,7 @@ const useStyle = makeStyles({
     padding: "1em",
     textAlign: "center",
     margin: "auto",
-    color: "#4D8AE2",
+    color: "#A569BD",
   }
 });
 const Pedidos = () => {
