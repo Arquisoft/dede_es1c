@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LoginForm from "./LogInForm";
-import  { ProfileView } from "../../perfil/ProfileView";
+
 import ProfileViewer from "./ProfileViewer"
 import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
 

@@ -41,7 +41,7 @@ const useStyle = makeStyles({
       color: "#000",
       "&:hover ": {
         transform: "translate(0, -7px)",
-        background: "linear-gradient(315deg, #28313b 0%, #6ABACE  74%)",
+        background: "linear-gradient(45deg, #19275a 30%, #cc90ff 90%)",
         color: "white",
       },
       position: "relative",
