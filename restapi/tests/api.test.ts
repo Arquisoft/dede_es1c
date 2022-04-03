@@ -10,7 +10,7 @@ let server:http.Server;
 
 beforeAll(async () => {
     app = express();
-    const port: number = 5000;
+    const port = 5000;
     const options: cors.CorsOptions = {
         origin: ['http://localhost:3000']
     };
@@ -42,8 +42,8 @@ describe('user ', () => {
      * Tests that a user can be created through the productService without throwing any errors.
      */
     it('can be created correctly', async () => {
-        let username:string = 'Pablo'
-        let email:string = 'gonzalezgpablo@uniovi.es'
+        const username = 'Pablo'
+        const email = 'gonzalezgpablo@uniovi.es'
         const response:Response = await request(app).post('/api/users/add').send({name: username,email: email}).set('Accept', 'application/json')
         expect(response.statusCode).toBe(200);
     });

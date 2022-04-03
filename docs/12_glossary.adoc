@@ -1,9 +1,7 @@
 [[section-glossary]]
 == Glosario
 
-[role="arc42help"]
-
-[options="header"]
+[options="header",cols="1,1"]
 |===
 | Termino         | Definición
 | Discord
