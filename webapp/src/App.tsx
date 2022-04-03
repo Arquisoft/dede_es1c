@@ -170,7 +170,7 @@ function App(): JSX.Element {
         <Route  path="/Pago"render={() => <PaymentView cartItems={cartItems}/>}/>
         <Route  path="/Perfil"render={() => <ProfileView cartItems={cartItems}/>}/>
         <Route  path="/LogIn"render={() => <LogInView cartItems={cartItems}/>}/>
-        <Route path="/inrupt" render={() => <SOLIDView/>}/>
+        <Route path="/inrupt" render={() => <SOLIDView cartItems={cartItems} handleAddToCart={handleAddToCart} products={products}/>}/>
 
       </Switch>
       </Router>
