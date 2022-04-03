@@ -18,18 +18,34 @@ export async function getProductos():Promise<Product[]>{
   return response.json();
 }
 
-export async function addCart( p:Product):Promise<boolean>{ 
-  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:8000/product'
-  const getJSON = () => {
-    return JSON.stringify({'quantity': p.name,'id_product':p.id, 'id_order':p.id});
-  }
-    let response = fetch(apiEndPoint+'/', {
+/* export async function addCart( p:Product):Promise<boolean>{ 
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:8000/user'
+  
+  let response = await fetch(apiEndPoint+'/product', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: getJSON()
+      body: JSON.stringify({'id':p.id,
+                           })
     });
+  if (response.status===200)
+    return true;
+  else
+    return false;
 
+} */
+export async function loginUsuario(u:User):Promise<boolean>{ 
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:8000'
+  let response = await fetch(apiEndPoint+'/login', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({'email':u.email,"password":u.password,
+                         })
+  });
+  console.log(response.body);
+  if (response.status===200)
   return true;
+else
+  return false;
 }
 
 export async function removeCart():Promise<boolean>{ 
@@ -38,6 +54,41 @@ export async function removeCart():Promise<boolean>{
 
   return response.json();
 }
+
+export async function eliminarStock(p:Product):Promise<boolean>{ 
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:8000/product'
+  var id=p.id
+  let response = await fetch(`${apiEndPoint}/stock/${""+id}`, {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({'stock':Number(p.stock)-1,
+                         })
+  });
+
+  if (response.status===200)
+  return true;
+else
+  return false;
+}
+
+
+export async function anadirStock(p:Product):Promise<boolean>{ 
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:8000/product'
+  var id=p.id
+  let response = await fetch(`${apiEndPoint}/stock/${""+id}`, {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({'stock':Number(p.stock)+1,
+                         })
+  });
+
+  if (response.status===200)
+  return true;
+else
+  return false;
+}
+
+
 
 export async function getProducto(name:string):Promise<Product>{ 
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:8000/product'
