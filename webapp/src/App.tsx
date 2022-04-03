@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React, { useState, useEffect} from 'react';
 
 import { Product } from "../../restapi/src/products/productModel";
-import  {getProductos} from './api/api';
+import  {getProductos,addCart} from './api/api';
 import './App.css';
 
 import {HomeView} from "./components/home/HomeView";
@@ -14,9 +14,19 @@ import {LogInView} from "./components/LogIn/LogInView";
 import { PaymentView } from "./components/Pago/PaymentView";
 import Producto from "./components/producto/Producto";
 
+
+
 import { ProductCart } from "./shared/shareddtypes";
 
+
+
+
+
+
 function App(): JSX.Element {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const [cartItems,setCartItems]= useState<ProductCart[]>([]);
 
   const [products, setProducts] = useState<Product[]>([]);
@@ -24,12 +34,15 @@ function App(): JSX.Element {
   const refreshProducts = async () => {
     setProducts(await getProductos());
   }
+
   useEffect(()=>{
     refreshProducts();
+
     
   },[]);
-
+//CARRITO
   const handleRemoveFromCart = (clickedItem: ProductCart) => {
+  
     setCartItems(prev =>
       prev.reduce((ack, item) => {
         if ( item.name === clickedItem.name) {
@@ -44,6 +57,8 @@ function App(): JSX.Element {
         }
       }, [] as ProductCart[])
     );
+
+
   };
  //Añadir stock local
   const addStock = (clickedItem: ProductCart) => {
@@ -71,6 +86,7 @@ function App(): JSX.Element {
 
   //Añadir al carrito
   const handleAddToCart = (clickedItem: Product) => {
+
     //Tiene stock a cero?? pero del que devuelve no del producto de BD
     const existProductClicked = products.find(item => item.name === clickedItem.name);
     if(existProductClicked){
@@ -103,12 +119,16 @@ function App(): JSX.Element {
        const {id, name, photo,description, price } = clickedItem;
        setCartItems([...cartItems, {id, name, photo, price, description,amount:1 }]);
       }
+      if(isLoggedIn){
+        addCart(clickedItem);
+      }
   }
   else{
     alert("No hay más stock para "+""+ clickedItem.name);
   }}
 }
-  
+
+
   return (
 
 

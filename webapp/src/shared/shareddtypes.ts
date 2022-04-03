@@ -1,8 +1,4 @@
 import mongoose from 'mongoose';
-export type User = {
-    name:string;
-    email:string;
-  }
 
 export type ProductCart = {
   id: mongoose.ObjectId
