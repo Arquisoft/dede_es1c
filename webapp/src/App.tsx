@@ -1,35 +1,130 @@
-import React, { useState, useEffect } from 'react';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Container from '@mui/material/Container';
-import EmailForm from './components/EmailForm';
-import Welcome from './components/Welcome';
-import UserList from './components/UserList';
-import  {getUsers} from './api/api';
-import {User} from './shared/shareddtypes';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import React, { useState, useEffect} from 'react';
+
+import { Product } from "../../restapi/src/products/model";
+import  {getProductos} from './api/api';
 import './App.css';
 
+import {HomeView} from "./components/home/HomeView";
+import {Carrito} from "./components/carrito/Carrito";
+import {ProfileView} from "./components/perfil/ProfileView"
+import {LogInView} from "./components/LogIn/LogInView";
+import { PaymentView } from "./components/Pago/PaymentView";
+import Producto from "./components/producto/Producto";
+import Footer from "./components/comun/Footer";
+import { ProductCart } from "./shared/shareddtypes";
+
 function App(): JSX.Element {
+  const [cartItems,setCartItems]= useState<ProductCart[]>([]);
 
-  const [users,setUsers] = useState<User[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
-  const refreshUserList = async () => {
-    setUsers(await getUsers());
+  const refreshProducts = async () => {
+    setProducts(await getProductos());
   }
-
   useEffect(()=>{
-    refreshUserList();
+    refreshProducts();
   },[]);
 
+  const handleRemoveFromCart = (clickedItem: ProductCart) => {
+    setCartItems(prev =>
+      prev.reduce((ack, item) => {
+        if ( item.name === clickedItem.name) {
+          if (item.amount === 1) return ack;
+          //Añdadir stock
+        addStock(clickedItem);
+          return [...ack, { ...item, amount: item.amount - 1 }];
+        } else {
+           //Añdadir stock
+          addStock(clickedItem);
+          return [...ack, item];
+        }
+      }, [] as ProductCart[])
+    );
+  };
+ //Añadir stock local
+  const addStock = (clickedItem: ProductCart) => {
+    const existProduct = products.find(item => item.name === clickedItem.name);
+    if (existProduct) {
+    var newProduct=products.indexOf(existProduct);
+    const newTodosP = [...products];
+    const stock=Number(newTodosP[newProduct].stock)+1;
+    newTodosP[newProduct].stock=stock+"";
+    setProducts(newTodosP);}
+
+  };
+
+  
+  //Eliminar stock local
+  const removeStock = (clickedItem: Product) => {
+    //Tengo que encontrar el del producto local
+    var newProduct=products.indexOf(clickedItem);
+    const newTodosP = [...products];
+    const stock=Number(newTodosP[newProduct].stock)-1;
+    newTodosP[newProduct].stock=stock+"";
+    setProducts(newTodosP);
+  
+  };
+
+  //Añadir al carrito
+  const handleAddToCart = (clickedItem: Product) => {
+    //Tiene stock a cero?? pero del que devuelve no del producto de BD
+    const existProductClicked = products.find(item => item.name === clickedItem.name);
+    if(existProductClicked){
+    if(Number(existProductClicked.stock)!==0){
+    const existProduct = cartItems.find(item => item.name === clickedItem.name);
+     var index:number=0;
+      // Hay un producto?
+      if (existProduct) {
+
+        return cartItems.map(item => {
+       
+            if ( item.name === clickedItem.name) {
+              const newTodos = [...cartItems];
+              const amountt= item.amount+1;
+              newTodos[index].amount=amountt; 
+              setCartItems(newTodos);
+              index=index+1;
+              //Quitar stock al producto
+              removeStock(existProductClicked);
+             
+            }
+
+            index=index+1;
+            return item;
+        })
+    } else {
+         //Quitar stock al producto
+      removeStock(existProductClicked);
+      index=index+1;
+       const {id, name, photo,description, price } = clickedItem;
+       setCartItems([...cartItems, {id, name, photo, price, description,amount:1 }]);
+      }
+  }
+  else{
+    alert("No hay más stock para "+""+ clickedItem.name);
+  }}
+}
+  
   return (
+
+
     <>
-      <Container maxWidth="sm">
-        <Welcome message="ASW students"/>
-        <Box component="div" sx={{ py: 2}}>This is a basic example of a React application using Typescript. You can add your email to the list filling the form below.</Box>
-        <EmailForm OnUserListChange={refreshUserList}/>        
-        <UserList users={users}/>
-        <Link href="https://github.com/pglez82/asw2122_0">Source code</Link>
-      </Container>
+<main>
+     <Router>
+      <Switch>
+
+        <Route exact path='/' component={HomeView} />
+        <Route  path="/Carrito"render={() => <Carrito/>}/>
+        <Route  path="/Pago"render={() => <PaymentView/>}/>
+        <Route  path="/Perfil"render={() => <ProfileView/>}/>
+        <Route  path="/LogIn"render={() => <LogInView/>}/>
+        <Route  path="/Producto/:name" render={() => <Producto/>}/>
+
+      </Switch>
+      </Router>
+      </main>
     </>
   );
 }
