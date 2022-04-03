@@ -151,10 +151,6 @@ describe("USUARIOS ", () => {
 
         expect(response2.statusCode).toBe(200);
 
-
-
-
-
         expect(response2.body).toEqual(
             expect.objectContaining({
                 email: "b@gmail.com",
@@ -305,16 +301,27 @@ describe("PRODUCTS ", () => {
     });
 
 
-
     /**
      * Get producto que existe
      */
-    it("Get producto que no existe", async () => {
+    it("Get producto que existe", async () => {
         const response: Response = await request(app)
             .get("/product/League of Leguends")
             .set('Authorization', `Bearer ${token}`)
 
         expect(response.statusCode).toBe(200);
+
+        expect(response.body).toEqual(
+            expect.objectContaining({
+                name: "League of Leguends",
+                photo: " https://drive.google.com/file/d/1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R/view?usp=sharing ",
+                price: "50",
+                stock: "2",
+                description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games",
+                categories: ["estrategia", "acción"]
+
+            })
+        );
     });
 
 
@@ -327,24 +334,80 @@ describe("PRODUCTS ", () => {
             "/product"
         );
         expect(response.statusCode).toBe(200);
-        expect(response.type).toEqual("application/json");
+
     });
 
     /**
-     * Crear producto
+     * Crear producto y elimianrlo
      */
 
-    it("Crear un producto correctamente", async () => {
+    it("Crear un producto correctamente y eliminarlo", async () => {
+
+        const responseDelete: Response = await request(app).delete(
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`)
+
+        expect(responseDelete.statusCode).toBe(200);
+
+
         let juego1: string[] = ["deportes"];
         const response: Response = await request(app).post("/product").send({
-            photo: "https://prueba.prueba.com",
+            photo: " https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R ",
             name: "ProductoNuevo1",
             price: "1",
             stock: "1",
-            description:'Description',
-            categories:juego1,
+            description: 'Description',
+            categories: juego1,
         }).set('Authorization', `Bearer ${token}`);
+
         expect(response.statusCode).toBe(200);
+
+        const response2: Response = await request(app)
+            .get("/product/ProductoNuevo1")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response2.statusCode).toBe(200);
+
+        expect(response2.body).toEqual(
+            expect.objectContaining({
+                name: "ProductoNuevo1",
+                price: "1",
+                stock: "1",
+                description: "Description",
+                categories: ["deportes"]
+
+            })
+        );
+
+        const responseAddP: Response = await request(app).post(
+            "/user/product"
+        ).set('Authorization', `Bearer ${token}`).send({
+            name: 'ProductoNuevo1'
+        })
+
+        const response3: Response = await request(app).get(
+            "/user/profile"
+        ).set('Authorization', `Bearer ${token}`)
+
+        const respons4: Response = await request(app).get(
+            "/product"
+        );
+
+        const responseDelete2: Response = await request(app)
+            .delete("/product/" + response3.body.products[0])
+            .set('Authorization', `Bearer ${token}`);
+
+        expect(responseDelete2.statusCode).toBe(200);
+
+        const respons5: Response = await request(app).get(
+            "/product"
+        );
+
+        const responseGet: Response = await request(app)
+            .get("/product/ProductoNuevo1")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(responseGet.statusCode).toBe(404);
     });
 
 
@@ -352,83 +415,67 @@ describe("PRODUCTS ", () => {
      * Actualizar stock del producto
      */
     it("Actualizar stock de producto", async () => {
-        //Elimino todos
-        const responseDeleteAll: Response = await request(app).delete(
-            "/user/product/all"
-        ).set('Authorization', `Bearer ${token}`);
-
-        expect(responseDeleteAll.statusCode).toBe(200);
-
-        //Añado un producto
-        let juego1: string[] = ["deportes"];
-        const responseAdd: Response = await request(app).post("/product").send({
-            photo: "https://prueba.prueba.com",
-            name: "ProductoNuevo1",
-            price: "1",
-            stock: "1",
-            description:'Description',
-            categories:juego1,
-        }).set('Authorization', `Bearer ${token}`);
-
-        expect(responseAdd.statusCode).toBe(200);
-
-        let id = responseAdd.body._id
-
-        //Actualizo stock
-        const responseUpdate: Response = await request(app).put(
-            "/product/stock/" + id.toString()).set('Authorization', `Bearer ${token}`).send({
-            stock: "4",
-        });
-        expect(responseUpdate.statusCode).toBe(200);
-        expect.objectContaining({
-            "result": "OK"
-        })
-    });
-
-    /**
-     * Eliminar producto
-     */
-
-    it("Borrar producto", async () => {
-        //Elimino todos
-        const responseDeleteAll: Response = await request(app).delete(
-            "/user/product/all"
-        ).set('Authorization', `Bearer ${token}`);
-
-        expect(responseDeleteAll.statusCode).toBe(200);
-
-        //Añado un producto
-        let juego1: string[] = ["deportes"];
-        const responseAdd: Response = await request(app).post("/product").send({
-            photo: "https://prueba.prueba.com",
-            name: "ProductoNuevo1",
-            price: "1",
-            stock: "1",
-            description:'Description',
-            categories:juego1,
-        }).set('Authorization', `Bearer ${token}`);
-
-        expect(responseAdd.statusCode).toBe(200);
-
-        let id = responseAdd.body._id
-
-        //Elimino ese producto
         const responseDelete: Response = await request(app).delete(
-            "/product/" + id.toString()).set('Authorization', `Bearer ${token}`);
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`)
+
         expect(responseDelete.statusCode).toBe(200);
-        expect.objectContaining({
-            "result": "OK"
+
+        const responseAdd: Response = await request(app).post(
+            "/user/product"
+        ).set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
         })
 
-        //Compruebo que se ha eliminado
-            const responseGetAllEmpty: Response = await request(app).get(
-                "/product"
-            );
-                expect.objectContaining({
-                    result: "b@gmail.com",
-                    products: [],
-                });
-        });
+        const response2: Response = await request(app).get(
+            "/user/profile"
+        ).set('Authorization', `Bearer ${token}`)
+
+
+        const responseUpdate: Response = await request(app)
+            .put("/product/stock/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                stock: "4",
+            });
+
+        expect(responseUpdate.statusCode).toBe(200);
+
+        const response: Response = await request(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response.statusCode).toBe(200);
+
+        expect(response.body).toEqual(
+            expect.objectContaining({
+                name: "League of Leguends",
+                stock: "4"
+            })
+        );
+
+        const responseUpdate2: Response = await request(app)
+            .put("/product/stock/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                stock: "2",
+            });
+
+        expect(responseUpdate2.statusCode).toBe(200);
+
+        const respons2: Response = await request(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(respons2.statusCode).toBe(200);
+
+        expect(respons2.body).toEqual(
+            expect.objectContaining({
+                name: "League of Leguends",
+                stock: "2"
+            })
+        );
+    });
 })
 
 
