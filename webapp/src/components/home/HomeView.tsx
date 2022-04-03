@@ -8,7 +8,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 
 import { Product } from "../../../../restapi/src/products/productModel";
-import  {getProductos} from '../../api/api';
 import { ProductCart } from '../../shared/shareddtypes';
 
 
@@ -23,7 +22,9 @@ const useStyle = makeStyles({
   boxSizing:"border-box",
   },
 });
+
 type Props = {
+  
   handleAddToCart: (clickedItem: Product) => void;
   cartItems: ProductCart[];
   products:Product[];}
@@ -34,7 +35,7 @@ type Props = {
     return (
       <React.Fragment>
           <div className={classes.container}>
-        <MenuBar cartItems={cartItems}/>
+        <MenuBar cartItems={cartItems}/> 
         <ProductView props={products} handleAddToCart={handleAddToCart}/>
         </div>
         <Icon/>
