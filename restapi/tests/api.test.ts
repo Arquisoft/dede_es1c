@@ -349,6 +349,43 @@ describe("PRODUCTS ", () => {
 
 
     /**
+     * Actualizar stock del producto
+     */
+    it("Actualizar stock de producto", async () => {
+        //Elimino todos
+        const responseDeleteAll: Response = await request(app).delete(
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`);
+
+        expect(responseDeleteAll.statusCode).toBe(200);
+
+        //Añado un producto
+        let juego1: string[] = ["deportes"];
+        const responseAdd: Response = await request(app).post("/product").send({
+            photo: "https://prueba.prueba.com",
+            name: "ProductoNuevo1",
+            price: "1",
+            stock: "1",
+            description:'Description',
+            categories:juego1,
+        }).set('Authorization', `Bearer ${token}`);
+
+        expect(responseAdd.statusCode).toBe(200);
+
+        let id = responseAdd.body._id
+
+        //Actualizo stock
+        const responseUpdate: Response = await request(app).put(
+            "/product/stock/" + id.toString()).set('Authorization', `Bearer ${token}`).send({
+            stock: "4",
+        });
+        expect(responseUpdate.statusCode).toBe(200);
+        expect.objectContaining({
+            "result": "OK"
+        })
+    });
+
+    /**
      * Eliminar producto
      */
 
