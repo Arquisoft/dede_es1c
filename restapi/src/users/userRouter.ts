@@ -5,11 +5,11 @@ import {ROLES} from "./userModel";
 
 const UserRouter = Router()
 
-UserRouter.use(loginRequired(ROLES.NORMAL))
-
-UserRouter.get('/profile', UserController.profile);
-UserRouter.get('/', UserController.getAll);
-UserRouter.post('/product/:name', UserController.addProduct);
-UserRouter.delete('/product/:name', UserController.deleteProduct);
+UserRouter.get('/profile',loginRequired(ROLES.NORMAL), UserController.profile);
+UserRouter.get('/:name',loginRequired(ROLES.ADMIN), UserController.get);
+UserRouter.get('/',loginRequired(ROLES.ADMIN), UserController.getAll);
+UserRouter.post('/product/',loginRequired(ROLES.NORMAL), UserController.addProduct);
+UserRouter.delete('/product/',loginRequired(ROLES.NORMAL), UserController.deleteProduct);
+UserRouter.delete('/product/all',loginRequired(ROLES.NORMAL), UserController.deleteAllProduct);
 
 export default UserRouter;
