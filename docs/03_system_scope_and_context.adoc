@@ -3,7 +3,8 @@
 
 .Objetivos
 Esta aplicacion va a consistir en una tienda online de venta de videojuegos fisicos, por lo tanto tendremos que manejar tanto datos de usuarios como los propios productos, envios etc.
-Sobre los datos de los usuarios debemos trabajar de acuerdo al principio SOLID, tendremos descentralizados los datos de los usuarios en PODs, cada usuario tendra su propio POD quedando almacenado de una forma mas segura.
+Sobre los datos de los usuarios debemos trabajar de acuerdo al principio SOLID, tendremos descentralizados los datos de los usuarios en PODs, cada usuario tendra su propio POD realizando todas las gestiones con ellos mediante
+el provedor de PODs Inrupt.
 
 === Contexto empresarial
 Veremos con este diagrama cual va a ser el contexto de la aplicacion y los PODs.
@@ -12,15 +13,12 @@ Veremos con este diagrama cual va a ser el contexto de la aplicacion y los PODs.
 image:Punto 3 Diagrama de contexto empresarial.png[Punto3:DCE]
 
 === Contexto tecnico
-Nuestra tienda DeDe se debe adecuar a los principios SOLID de descentralizacion de datos personales mediante el almacenamiento de los mismos en PODs independientes para cada usuario.
-El front-end estara desarrollado mediante el framework React implementando componentes ya desarrolladas o bien creadas por nosotros mismos, ademas el lenguaje para el desarrollo del mismo sera en Typescript.
-Por la parte del back-end, nuestro SGDB es Mongo.db y mediante Node.js express realizaremos todas las transacciones a la base de datos, tanto para acceder o guardar en los PODs de los usuario como para el resto de datos de la tienda.
+Nuestra tienda DeDe se debe adecuar a los principios SOLID de descentralizacion de datos personales mediante el almacenamiento de los mismos en PODs independientes para cada usuario, nuestro proovedor de PODs sera Inrupt.
+El front-end estara desarrollado mediante el framework React implementando componentes ya desarrolladas o bien creadas por nosotros mismos, ademas el lenguaje para el desarrollo de las diversas funcionalidades de las pantallas sera TypeScript.
+Por la parte del back-end, nuestro SGDB es Mongo.db y mediante Node.js express realizaremos todas las transacciones a la base de datos, en la misma almacenaremos los datos de los productos.
 La mayoria de peticiones se realizaran mediante el protocolo web HTTP.
 
-Diagrama para ilustrar en el componentes estan afectado por cada tecnologia
+Diagrama para ilustrar en los componentes de la aplicacion que estan afectados por cada tecnologia
 
 :imagesdir: images/
 image:Punto 3 Diagrama tecnico.png[Punto3:DT]
-
-
-
