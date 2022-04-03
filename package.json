@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "heroku-postbuild": "cd webapp && npm install --include=dev && cd ../restapi && npm install --include=dev",
+    "heroku-postbuild": "cd webapp && npm install --only=dev && npm install && cd ../restapi && npm install --only=dev && npm install",
     "start": "cd webapp && npm run start"
   },
   "engines": {
