@@ -65,9 +65,9 @@ Las operaciones básicas que se pueden realizar desde la aplicación desde el ro
 
 * Operaciones en carrito: Hace referencia a operaciones de añadir o eliminar productos dentro del carrito.
 
-* Operaciones en lista de deseos: Es posible añadir o eliminar productos de una lista de deseos. Estos productos se guardan para futuras compras.
-
 * Filtrar por categorias: Una función que consiste en que el usuario pueda ver de manera más concreta determinado tipo de productos.
+
+* Filtrar por nombre: Una función que consiste en que el usuario pueda buscar un producto por su nombre.
 
 En el siguiente diagrama se puede apreciar de forma gráfica las operaciones que puede realizar el usuario explicadas anteriormente:
 [plantuml, "conceptos operativos",png]
@@ -79,15 +79,15 @@ usuario as ac1
 (Registro de usuario) as (r)
 (Compra de producto) as (c)
 (Operaciones en carrito) as (o)
-(Operaciones en lista de deseos) as (op)
 (Filtrar por categorias) as (f)
+(Filtrar por nombre) as (n)
 
 ac1 --> a
 ac1 --> r
 ac1 --> c
 ac1 --> o
-ac1 --> op
 ac1 --> f
+ac1 --> n
 ----
 
 

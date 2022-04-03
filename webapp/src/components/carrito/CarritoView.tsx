@@ -3,36 +3,12 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {Button,Grid,CardContent,CardMedia,Card,Container,Typography,Tooltip,IconButton} from "@material-ui/core";
 import DeleteIcon from '@mui/icons-material/Delete';
+
 import { calcularTotal } from "../../logica/Carrito";
 import { Link } from "react-router-dom";
-
-const product_card = [
-  {
-    id:1,
-    product_name:"Elden",
-    price:34,
-    thumb:"https://storage.gra.cloud.ovh.net/v1/AUTH_296c7803aa594af69d39b970927c8fb9/media/game_avatars/x6/x6w99LoD0pbanPNO.jpeg"
-  },
-  {
-    id:2,
-    product_name:"Fifa",
-
-    price:23,
-    thumb:"https://yuzu-emu.org/images/game/boxart/mario-kart-8-deluxe.png"
-  },
-  {
-    id:3,
-    product_name:"Valorant",
- 
-    price:3,
-    thumb:"https://yuzu-emu.org/images/game/boxart/animal-crossing-new-horizons.png"
-  },
-  
-
- 
-  
-
-]
+import { ProductCart } from "../../shared/shareddtypes";
+import { Product } from "../../../../restapi/src/products/productModel";
+import { useSession } from "@inrupt/solid-ui-react";
 
 const useStyle = makeStyles({
 
@@ -49,26 +25,27 @@ const useStyle = makeStyles({
     gridColumnGap: "20%",
     width:"90%",
     marginLeft:"5%",
-    backgroundColor: "#6ABACE", 
+    backgroundColor: "transparent",  
  
    
   },
 
   containerIzq: {
+    marginBottom:"43%",
     justifySelf: "stretch",
     minHeight: "30vh",
     borderRadius:"30px",
     position:"relative",
     background: "white",
-    boxShadow: "7px 6px rgba(0, 0, 0, .5)",
+    boxShadow: " 16px 11px 9px rgba(0, 0, 0, .5)",
   },
 
   containerDch: {
-    marginBottom:"55%",
+    marginBottom:"50%",
     minHeight: "20vh",
     borderRadius:"30px",
     background: "white",
-    boxShadow: "7px 6px rgba(0, 0, 0, .5)",
+    boxShadow: " 16px 11px 9px rgba(0, 0, 0, .5)",
    
   },
   root:{
@@ -102,10 +79,10 @@ const useStyle = makeStyles({
 
   },
   titleCarrito:{
-    marginLeft:"20px",
+    marginLeft:"10px",
   },
   cardContent:{
-      minWidth: 300,
+      minWidth: 200,
     display: '1 0 auto' ,
 
   },
@@ -114,8 +91,8 @@ const useStyle = makeStyles({
     width:"50px",
     height:"50px",
     borderRadius: "50%",
-    backgroundColor:"#6ABACE",
-    boxShadow: "5px 4px rgba(0, 0, 0, .6)",
+    backgroundColor:"#8458aa",
+    boxShadow: "5px 4px 7px rgba(0, 0, 0, .7)",
   },
   price:{
     marginTop:"5px",
@@ -126,52 +103,73 @@ const useStyle = makeStyles({
 
   btncomprar:{
     postion:"relative",
-   
     "&:hover ": {
-
-      boxShadow: "5px 4px rgba(0, 0, 0, .6)",
+      boxShadow: "5px 4px 10px rgba(0, 0, 0, .8)",
     },
     "@media only screen and (min-width: 1200px)":{
       left:"70%",
     },
-    boxShadow: "2px 2px rgba(0, 0, 0, .6)",
+    boxShadow: "2px 2px 3px rgba(0, 0, 0, .6)",
     color:"white",
    marginBottom:"10px",
-   background: "linear-gradient(45deg, #28313b 20%, #6ABACE 80%)",
+   background: "linear-gradient(45deg, #19275a 30%, #cc90ff 90%)",
    
   },
-  
-  
-
 });
-const CarritoView = () => {
+
+
+type Props = {
+  props: ProductCart[];
+  handleRemoveFromCart: (clickedItem: ProductCart) => void;
+
+};
+
+const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
+
+  const calculateProductTotal = (items: ProductCart[]) =>
+  items.reduce((ack: number, item) => ack + item.amount * Number(item.price), 0);
+
+  const { session } = useSession();
   const classes = useStyle();
+  const vacio =props.length
     return (
+
       <div className={classes.container} >
          <Grid container   className={classes.containerIzq} spacing={2} >
+        {(() => {
+        if (vacio===0){
+          return(
+      <Typography variant="h5" className={classes.titleCarrito} >
+      Carrito vacio
+      </Typography>)} 
+      else { 
+        return(
         <Typography variant="h4"className={classes.titleCarrito}  >
-                Carrito
-        </Typography>
+        Carrito
+      </Typography>
+     )} 
+          })()}
+  
         <Grid container  className={classes.containerCarrito1}  spacing={1}>
-        {product_card.map(item=>(  
-         <Grid item key={item.id}  xs={12} className={classes.containerCarrito}>
+
+        {props.map((item:ProductCart)=>{
+          return (
+         <Grid item key={item.name}  xs={12} className={classes.containerCarrito}>
         <Card  square={true} className={classes.root}>
-        <CardMedia component="img"  className={classes.media} image={item.thumb} title={item.product_name} />
+        <CardMedia component="img"  className={classes.media} image={item.photo} title={item.name} />
 
         <CardContent className={classes.cardContent}  >
         <Typography component="div" variant="h5">
-             {item.product_name}
-          </Typography>
-          <Typography >
-             Descripcion del juego
+             {item.name}
           </Typography>
           <Typography variant="subtitle1" component="div">
-           Cantidad: 2
+           Cantidad:{item.amount}
           </Typography>
   
-          <IconButton >
+          <IconButton aria-label="Eliminar" onClick={() => handleRemoveFromCart(item)}>
             <Tooltip title="Eliminar">
-              <DeleteIcon   fontSize="large" sx={{ color: "black" }} />
+              <DeleteIcon  fontSize="large" sx={{ color: "black" }} />
+     
             </Tooltip>
             </IconButton>
          
@@ -183,24 +181,37 @@ const CarritoView = () => {
                   </Typography>
                   </div>
         </Grid>
-        ))}
+     )})}
       </Grid>
       </Grid>
-      <Container className={classes.containerDch} >
-        <Typography variant="h4" gutterBottom>
-        Precio
-          </Typography>
-          <Typography variant="h6" gutterBottom >
-                  Precio de los productos: 
-                   </Typography>
-                   <Typography variant="h6" gutterBottom >
-                  Precio de envio 
-                   </Typography>
-                   <Typography variant="h5" gutterBottom >
-                  Total
-                   </Typography>
-                   <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>
-        </Container>
+      {(() => {
+        if (vacio!==0){
+          return(
+            <Container className={classes.containerDch} >
+            <Typography variant="h4" gutterBottom>
+            Precio
+              </Typography>
+              <Typography variant="h6" gutterBottom >
+                      Precio de los productos: {calculateProductTotal(props)} €
+                       </Typography>
+                       {session.info.isLoggedIn ? (
+                       <Typography variant="h6" gutterBottom >
+                      Precio de envio 
+                       </Typography>):(
+                              <Typography variant="h6" gutterBottom >
+                              Debes logearte para ver el precio de envio
+                               </Typography>)}
+                       <Typography variant="h5" gutterBottom >
+                      Total
+                       </Typography>
+                       {session.info.isLoggedIn ? (
+                       <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>):(
+                      <Button to='/LogIn' component={Link} className={classes.btncomprar} variant="contained">LogIn</Button>)
+                       }
+
+            </Container> 
+      )}  })()}
+
         </div>
     );
 

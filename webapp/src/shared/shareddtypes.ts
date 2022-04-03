@@ -1,17 +1,10 @@
-export type User = {
-    name:string;
-    email:string;
-  }
-
-export type Producto = {
-  id: string
-  photo: string
-  name: string
-  price: string
-  stock: string
-};
+import mongoose from 'mongoose';
 
 export type ProductCart = {
-  producto:Producto
-  cantidad: number
+  id: mongoose.ObjectId
+  name: string;
+  description: string;
+  photo: string;
+  price: string;
+  amount: number;
 }

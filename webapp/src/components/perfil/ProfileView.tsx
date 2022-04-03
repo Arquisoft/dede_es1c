@@ -21,7 +21,7 @@ export const ProfileView = () => {
   return (
     <React.Fragment>
         <div className={classes.container}>
-      <MenuBar />
+   
       </div>
       <div className={classes.container}>
       <DatosPersonales/>

@@ -6,8 +6,10 @@ import Icon from "./Icon";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import { Product } from "../../../../restapi/src/products/model";
-import  {getProductos} from '../../api/api';
+
+import { Product } from "../../../../restapi/src/products/productModel";
+import { ProductCart } from '../../shared/shareddtypes';
+
 
 
 const useStyle = makeStyles({
@@ -21,24 +23,22 @@ const useStyle = makeStyles({
   },
 });
 
-export const HomeView = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+type Props = {
+  
+  handleAddToCart: (clickedItem: Product) => void;
+  cartItems: ProductCart[];
+  products:Product[];}
 
-  const refreshProducts = async () => {
-    setProducts(await getProductos());
-  }
-  useEffect(()=>{
-    refreshProducts();
-  },[]);
+  export const HomeView:React.FC<Props> = ({ cartItems , handleAddToCart,products})=> {
 
-  const classes = useStyle();
-  return (
-    <React.Fragment>
-        <div className={classes.container}>
-      <MenuBar />
-      <ProductView products={products} />
-      </div>
-      <Icon/>
-    </React.Fragment>
-  );
-};
+    const classes = useStyle();
+    return (
+      <React.Fragment>
+          <div className={classes.container}>
+        <MenuBar cartItems={cartItems}/> 
+        <ProductView props={products} handleAddToCart={handleAddToCart}/>
+        </div>
+        <Icon/>
+      </React.Fragment>
+    );
+  };
