@@ -9,7 +9,7 @@ export default {
     get: async (req: Request, res: Response) => {
         const product = await ProductModel.findOne({name: req.params.name});
         if (product) {
-            res.json(product);
+            res.status(200).json(product);
         } else {
             res.status(404).json({error: "The product does not exist"});
         }
@@ -17,8 +17,7 @@ export default {
 
     create: async (req: Request, res: Response) => {
         const product = await ProductModel.create({photo: req.body.url, name: req.body.name, price: req.body.price, stock: req.body.stock, description: req.body.description, categories: req.body.categories});
-        res.json(product);
-        res.status(200).json({result: 'OK'});
+        res.status(200).json(product);
     },
 
     update: async (req: Request, res: Response) => {
@@ -61,7 +60,7 @@ export default {
         res.status(200).json({result: 'OK'});
     },
 
-    updatePrice: async (req: Request, res: Response) => {
+     updatePrice: async (req: Request, res: Response) => {
         const product = await ProductModel.findById(req.params.id);
         if (req.body.price) {
             product.price = req.body.price;
