@@ -30,4 +30,7 @@
 
 | Blackbox
 | En digaramas, un componente opaco que no nos permite ver las partes que tiene en el interior.
+
+| Heroku
+| Es un Paas(Platform as a Service) que nos permite desplegar nuestras aplicaciones sin preocupaciones por la infraestructura.
 |===
