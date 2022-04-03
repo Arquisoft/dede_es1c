@@ -32,7 +32,14 @@ app.use('/user', UserRouter)
 app.use('/product', ProductRouter)
 app.use('/', LoginRouter)
 
+// ... other app.use middleware
+app.use(express.static(path.join(__dirname, "..", "..", "webapp", "build")))
 
+// ...
+// Right before your app.listen(), add this:
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.mongoose.uri)
