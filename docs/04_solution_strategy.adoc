@@ -14,6 +14,7 @@ Para el desarrollo del proyecto se han tomado las siguientes decisiones:
 |Docker | Proyecto de código abierto que automatiza el despliegue de la apliación
 |SOLID | Especificación que permite a las personas almacenar sus datos de forma segura en almacenes de datos descentralizados llamados Pods.
 |Heroku | Utilizaremos Heroku para desplegar nuestra aplicación, de este modo no habrá preocupación por la infraestructura.
+
 |===
 === Decisiones sobre la descomposición de alto nivel del sistema
 

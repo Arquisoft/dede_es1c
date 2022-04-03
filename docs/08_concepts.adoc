@@ -63,6 +63,8 @@ Las operaciones básicas que se pueden realizar desde la aplicación desde el ro
 
 * Filtrar por categorias: Una función que consiste en que el usuario pueda ver de manera más concreta determinado tipo de productos.
 
+* Filtrar por nombre: Una función que consiste en que el usuario pueda buscar un producto por su nombre.
+
 En el siguiente diagrama se puede apreciar de forma gráfica las operaciones que puede realizar el usuario explicadas anteriormente:
 [plantuml, "conceptos operativos",png]
 ----
@@ -73,11 +75,13 @@ usuario as ac1
 (Compra de producto) as (c)
 (Operaciones en carrito) as (o)
 (Filtrar por categorias) as (f)
+(Filtrar por nombre) as (n)
 
 ac1 --> a
 ac1 --> c
 ac1 --> o
 ac1 --> f
+ac1 --> n
 ----
 
 

@@ -14,11 +14,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import { Link } from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
-
-
-import { Product } from "../../../../restapi/src/products/model";
 import { ProductCart } from "../../shared/shareddtypes";
-
+import { useSession } from "@inrupt/solid-ui-react";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -44,7 +41,7 @@ const useStyle = makeStyles({
     marginRight:"20px",
   },
   logo: {
-   width:"10%",
+    width:"10%",
    marginTop:"30px",
 
   },
@@ -66,6 +63,12 @@ const MenuBar:React.FC<Props> = (cartItems) => {
     setAnchorEl(null);
   };
   const classes = useStyle();
+
+
+
+  const { session } = useSession();
+  
+
 
   return (
 
@@ -90,7 +93,7 @@ const MenuBar:React.FC<Props> = (cartItems) => {
               </StyledBadge >
             </Tooltip>
           </Button>
-
+             {session.info.isLoggedIn ? (
           <div>
             <IconButton onClick={handleMenu} className={classes.icon}>
               <Tooltip title="Perfil">
@@ -118,7 +121,9 @@ const MenuBar:React.FC<Props> = (cartItems) => {
               <MenuItem >Sign out</MenuItem>
             </Menu>
           </div>
-          <Button to='/LogIn' component={Link} color="inherit" >Login</Button>
+            ):(
+   
+          <Button to='/LogIn' component={Link} color="inherit" >Login</Button>)}
 
         </Toolbar>
       </AppBar>

@@ -41,7 +41,7 @@ else usuario ya existe
 end
 @enduml
 ----
-=== Añadir un producto al carro
+=== Añadir un producto al carro usuario identificado
 [plantuml,"AñadirCarro_diagrama",png]
 ----
 @startuml
