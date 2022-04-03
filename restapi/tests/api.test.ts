@@ -296,26 +296,102 @@ describe("PRODUCTS ", () => {
     /**
      * Get producto que no existe
      */
+    it("Get producto que no existe", async () => {
+        const response: Response = await request(app)
+            .get("/product/noexiste1")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response.statusCode).toBe(404);
+    });
+
+
 
     /**
      * Get producto que existe
      */
+    it("Get producto que no existe", async () => {
+        const response: Response = await request(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response.statusCode).toBe(200);
+    });
+
 
     /**
      * Listar todos los productos
      */
 
+    it("listar todos los productos", async () => {
+        const response: Response = await request(app).get(
+            "/product"
+        );
+        expect(response.statusCode).toBe(200);
+        expect(response.type).toEqual("application/json");
+    });
+
     /**
      * Crear producto
      */
+
+    it("Crear un producto correctamente", async () => {
+        let juego1: string[] = ["deportes"];
+        const response: Response = await request(app).post("/product").send({
+            photo: "https://prueba.prueba.com",
+            name: "ProductoNuevo1",
+            price: "1",
+            stock: "1",
+            description:'Description',
+            categories:juego1,
+        }).set('Authorization', `Bearer ${token}`);
+        expect(response.statusCode).toBe(200);
+    });
+
 
     /**
      * Eliminar producto
      */
 
-    /**
-     * Actualizar stock del producto
-     */
-});
+    it("Borrar producto", async () => {
+        //Elimino todos
+        const responseDeleteAll: Response = await request(app).delete(
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`);
+
+        expect(responseDeleteAll.statusCode).toBe(200);
+
+        //Añado un producto
+        let juego1: string[] = ["deportes"];
+        const responseAdd: Response = await request(app).post("/product").send({
+            photo: "https://prueba.prueba.com",
+            name: "ProductoNuevo1",
+            price: "1",
+            stock: "1",
+            description:'Description',
+            categories:juego1,
+        }).set('Authorization', `Bearer ${token}`);
+
+        expect(responseAdd.statusCode).toBe(200);
+
+        let id = responseAdd.body._id
+
+        //Elimino ese producto
+        const responseDelete: Response = await request(app).delete(
+            "/product/" + id.toString()).set('Authorization', `Bearer ${token}`);
+        expect(responseDelete.statusCode).toBe(200);
+        expect.objectContaining({
+            "result": "OK"
+        })
+
+        //Compruebo que se ha eliminado
+            const responseGetAllEmpty: Response = await request(app).get(
+                "/product"
+            );
+                expect.objectContaining({
+                    result: "b@gmail.com",
+                    products: [],
+                });
+        });
+})
 
 
