@@ -18,14 +18,11 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { getProductos } from "../../api/api";
-
 import { styled} from "@mui/material/styles";
-
 import { Link } from "react-router-dom";
-
 import { Product } from "../../../../restapi/src/products/productModel";
-
 import SearchIcon from "@mui/icons-material/Search";
+
 
 const useStyle = makeStyles({
   root: {
@@ -61,7 +58,6 @@ const useStyle = makeStyles({
     marginLeft: "10%",
     marginRight: "12%",
   },
-
   comboBox: {
     position:"relative",
     marginTop:"0px",
@@ -281,7 +277,6 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart }) => {
     refreshTotalProducts();
     setCategory(categorias[0]);
   }, []);
-
   return (
     <div className={classes.container3}>
       
@@ -327,8 +322,6 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart }) => {
         paddingBottom="50px"
         paddingRight="20px"
       >
-
-
         {productos.map((item, i) => {
           return (
             <Grid
@@ -372,7 +365,6 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart }) => {
                       <AddShoppingCartIcon
                         fontSize="large"
                         sx={{ color: "white" }}
-                      
                       />
                     </Tooltip>
                   </IconButton>

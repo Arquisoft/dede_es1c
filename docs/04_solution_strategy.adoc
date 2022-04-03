@@ -11,8 +11,10 @@ Para el desarrollo del proyecto se han tomado las siguientes decisiones:
 | React     | Biblioteca que facilitará el desarrollo de la interfaz gráfica
 | MongoDB | Base de datos que permitirá guardar los datos de los usuarios,centros de distribución y diferentes productos
 | Github | Herramienta de control de versiones que mejora el trabajo en equipo
-| Docker | Proyecto de código abierto que automatiza el despliegue de la apliación
-| SOLID | Especificación que permite a las personas almacenar sus datos de forma segura en almacenes de datos descentralizados llamados Pods.
+|Docker | Proyecto de código abierto que automatiza el despliegue de la apliación
+|SOLID | Especificación que permite a las personas almacenar sus datos de forma segura en almacenes de datos descentralizados llamados Pods.
+|Heroku | Utilizaremos Heroku para desplegar nuestra aplicación, de este modo no habrá preocupación por la infraestructura.
+
 |===
 === Decisiones sobre la descomposición de alto nivel del sistema
 
@@ -37,6 +39,10 @@ Para lograr cumplir con los diversos objetivos de calidad hemos realizado las si
             - Master: producto final.
             - Develop: rama en la que se encuentra el producto en desarrollo.
                  - Nombre del miembro: dentro de develop cada miembro tiene una rama en la que pueden trabajar.
+            - Hotfix: rama para hacer cambios rápidos a la rama principal sin tener que pasar por otras de más bajo nivel.
+            - Backend: en esta rama se trabaja todo el código del Backend de manera conjunta.
+            - Nombre/documentacion: aquí cada miembro del equipo subirá las partes de la documentación que vaya desarrollando.
+
 
 Si los miembros del equipo tienen problemas en el desarrollo deben de crear un issue para que éstos le puedan ayudar a solucionarlo.
 

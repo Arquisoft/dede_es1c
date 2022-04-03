@@ -5,8 +5,6 @@ import Footer from "../comun/Footer";
 import Icon from "../home/Icon";
 
 import { makeStyles } from "@material-ui/core/styles";
-
-
 import CarritoView from "./CarritoView";
 import MenuBar from "../comun/MenuBar";
 import { ProductCart } from "../../shared/shareddtypes";

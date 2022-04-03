@@ -14,7 +14,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import { Link } from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
-
 import { ProductCart } from "../../shared/shareddtypes";
 import { useSession } from "@inrupt/solid-ui-react";
 

@@ -13,16 +13,8 @@ import {ProfileView} from "./components/perfil/ProfileView"
 import {LogInView} from "./components/LogIn/LogInView";
 import { PaymentView } from "./components/Pago/PaymentView";
 import Producto from "./components/producto/Producto";
-
 import SOLIDView from "./components/LogIn/SOLID/SOLIDView";
-
-
 import { ProductCart } from "./shared/shareddtypes";
-
-
-
-
-
 
 
 function App(): JSX.Element {
@@ -80,9 +72,6 @@ function App(): JSX.Element {
         }
       }, [] as ProductCart[])
     );
-
-
-
   };
  //Añadir stock local
   const addStock = (clickedItem: ProductCart) => {
@@ -112,9 +101,7 @@ function App(): JSX.Element {
     setProducts(newTodosP);
     var d=clickedItem.id;
     //Quitar de la BD tb
-    eliminarStock(clickedItem);
-
-  
+    eliminarStock(clickedItem); 
   };
 
   //Añadir al carrito
@@ -159,10 +146,35 @@ function App(): JSX.Element {
     alert("No hay más stock para "+""+ clickedItem.name);
   }}
 }
+        return cartItems.map(item => {
+       
+            if ( item.name === clickedItem.name) {
+              const newTodos = [...cartItems];
+              const amountt= item.amount+1;
+              newTodos[index].amount=amountt; 
+              setCartItems(newTodos);
+              index=index+1;
+              //Quitar stock al producto
+              removeStock(existProductClicked);
+             
+            }
 
-
-
-
+            index=index+1;
+            return item;
+        })
+    } else {
+         //Quitar stock al producto
+      removeStock(existProductClicked);
+      index=index+1;
+       const {id, name, photo,description, price } = clickedItem;
+       setCartItems([...cartItems, {id, name, photo, price, description,amount:1 }]);
+      }
+  }
+  else{
+    alert("No hay más stock para "+""+ clickedItem.name);
+  }}
+}
+  
   return (
 
 
@@ -177,7 +189,6 @@ function App(): JSX.Element {
         <Route  path="/Pago"render={() => <PaymentView/>}/>
         <Route  path="/Perfil"render={() => <ProfileView/>}/>
            <Route  path="/LogIn"render={() => <LogInView/>}/>  
-    
       </Switch>
       </Router>
       <Footer/>

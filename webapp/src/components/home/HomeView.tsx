@@ -22,7 +22,10 @@ const useStyle = makeStyles({
   boxSizing:"border-box",
   },
 });
-
+type Props = {
+  handleAddToCart: (clickedItem: Product) => void;
+  cartItems: ProductCart[];
+  products:Product[];
 type Props = {
   
   handleAddToCart: (clickedItem: Product) => void;
