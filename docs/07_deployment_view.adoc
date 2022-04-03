@@ -1,12 +1,9 @@
 [[section-deployment-view]]
 
 
-== 7. Deployment View
+== Vista de implementación
 
-[role="arc42help"]
-
-
-=== 7.1 Algunas consideraciones
+=== Algunas consideraciones
 
 * Nuestra aplicación funcionará desde cualquier ordenador  a través del navegador. De esta forma los requisitos necesarios para ejecutarla
 se ven reducidos, haciendo la aplicación más accesible para personas con equipos menos potentes.
@@ -22,8 +19,8 @@ separadas y que no se tiene acceso a los datos de clientes.
 * La aplicación se podrá visualizar también desde el navegador de un dispositivo móvil, para ello simplemente bastará con meter la dirección url donde se encuentre alojada la tienda. Se recomienda
 el uso de las aplicaciones de navegador móvil mencionadas anteriormente.
 
-=== 7.2 Infraestructura técnica
-==== 7.2.1 Despliegue
+=== Infraestructura técnica
+==== Despliegue
 A la hora de desplegar el proyecto se dan dos opciones, desplegarlo de manera local o mediante un servicio de hosting web.
 
 
@@ -36,7 +33,7 @@ cuentan con soporte técnico.
 
 
 
-=== 7.3 Motivación
+=== Motivación
 
 Nuestra filosofía para desarrollar esta aplicación se basa en no utilizar para nada los datos de los usuarios, puesto que no tenemos ningún interes en estos. Creemos en el código abierto
 y en los principios SOLID de desarrollo de software, donde cada usuario es el dueño de sus datos. La técnica utilizada durante el desarrollo es ponerse desde la vista de usuario  haciendo la aplicación
