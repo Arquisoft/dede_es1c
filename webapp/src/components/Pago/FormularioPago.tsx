@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Grid } from "@material-ui/core";
-import { InputAdornment, TextField, Button, Modal } from "@mui/material";
+import { InputAdornment, TextField, Button, Modal, FormControl, Input } from "@mui/material";
 import { AccountBalanceWallet, VpnKey, CalendarToday, Person} from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
@@ -30,8 +30,10 @@ const useStyle = makeStyles({
         left: "50%",
         transform: 'translate(-50%,-50%)',
         textAlign: "center",
+        button: "center"
     }
 });
+
 
 const FormularioPago = () => {
     const classes = useStyle();
@@ -46,8 +48,11 @@ const FormularioPago = () => {
         <div className={classes.pagoOk}>
             <div> 
                 <img src="https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemok_103757.png" width={50}/>
-                <h2>¡Pago realizado con exito!</h2>
+                <h2>Tarjeta valida, haga click para aceptar el pago</h2>
                 <img src="https://orxcosmeticos.com/wp-content/uploads/2018/09/pago-seguro.jpg" width={300}/>
+                <Grid>
+                    <Button to='/Perfil' component={Link} color="primary" variant="contained">Aceptar</Button> 
+                </Grid>
             </div>
         </div>
     )
@@ -57,6 +62,7 @@ const FormularioPago = () => {
         <Modal open={mostrar} onClose={mostrarPagoOk}>
                 {body}
         </Modal>
+        
         <Grid container alignItems="center" direction="column" justify="space-between" style={{padding: 100}}> 
             <div style={{ display: "flex", flexDirection: "column", maxWidth: 500, minWidth: 200}}>
             <Grid container justify="center">
@@ -65,12 +71,12 @@ const FormularioPago = () => {
             <Grid container justify="center">
                 <img src="https://senordescuento.com/wp-content/uploads/2019/06/tarjetas-credito-logos.png" width={200}/>    
             </Grid>
-            <TextField label="Nombre de propietario" margin="normal" placeholder='NOMBRE TARJETA' InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
+            <TextField id="nombre" label="Nombre de propietario"  margin="normal" placeholder='NOMBRE TARJETA' InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
             <div style={{height: 20, width: 50}}/>
-            <TextField label="Nº de tarjeta" margin="normal" placeholder='XXXX XXXX XXXX XXXX' variant="outlined" InputProps={{startAdornment: <InputAdornment position="start"><AccountBalanceWallet/></InputAdornment>}}/>
+            <TextField id="numero" label="Nº de tarjeta" margin="normal" placeholder='XXXX XXXX XXXX XXXX' variant="outlined" InputProps={{startAdornment: <InputAdornment position="start"><AccountBalanceWallet/></InputAdornment>}}/>
             <div style={{ display: "flex", maxWidth: 500, minWidth: 200}}>
-            <TextField label="Fecha de caducidad" margin="normal" variant="outlined" placeholder='MM/YY' InputProps={{startAdornment: <InputAdornment position="start"><CalendarToday/></InputAdornment>}}/>
-            <TextField label="CVC" margin="normal" variant="outlined" placeholder='XXX' InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
+            <TextField  id="fecha" label="Fecha de caducidad" margin="normal" variant="outlined" placeholder='MM/YY' InputProps={{startAdornment: <InputAdornment position="start"><CalendarToday/></InputAdornment>}}/>
+            <TextField  id="cvc" label="CVC" margin="normal" variant="outlined" placeholder='XXX' InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
             </div>
             <div style={{height: 20}}/>
             <Button onClick={()=>mostrarPagoOk()} color="primary" variant="contained">Pagar</Button> 

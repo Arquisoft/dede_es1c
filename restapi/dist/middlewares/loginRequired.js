@@ -13,8 +13,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const token_1 = __importDefault(require("../util/token"));
-const model_1 = require("../users/model");
-function loginRequired(minLevel = model_1.ROLES.NORMAL) {
+const userModel_1 = require("../users/userModel");
+function loginRequired(minLevel = userModel_1.ROLES.NORMAL) {
     return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
         if (!req.header('Authorization')) {
             return res.status(401).send({ message: 'Please make sure your request has an Authorization header.' });
@@ -22,7 +22,7 @@ function loginRequired(minLevel = model_1.ROLES.NORMAL) {
         // Validate jwt
         const try_token = req.header('Authorization').split(' ')[1];
         const payload = token_1.default.verifyToken(try_token);
-        const user = yield model_1.UserModel.findById(payload.sub).select('+password');
+        const user = yield userModel_1.UserModel.findById(payload.sub).select('+password');
         if (!user) {
             return res.status(404).send({
                 error: 'middleware User not found!!!'
@@ -31,7 +31,7 @@ function loginRequired(minLevel = model_1.ROLES.NORMAL) {
         if (user.role < minLevel) {
             return res.status(401).send({ error: 'Invalid role' });
         }
-        res.locals.user = yield model_1.UserModel.findById(payload.sub);
+        res.locals.user = yield userModel_1.UserModel.findById(payload.sub);
         next();
     });
 }
