@@ -12,6 +12,10 @@ export type Producto = {
 };
 
 export type ProductCart = {
-  producto:Producto
-  cantidad: number
+  id: string;
+  name: string;
+  description: string;
+  photo: string;
+  price: string;
+  amount: number;
 }
