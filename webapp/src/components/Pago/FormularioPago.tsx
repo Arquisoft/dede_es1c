@@ -5,6 +5,7 @@ import { AccountBalanceWallet, VpnKey, CalendarToday, Person} from "@material-ui
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import { ThemeConsumer } from 'styled-components';
+import { SettingsPhoneTwoTone } from '@mui/icons-material';
 
 const useStyle = makeStyles({
     formulario: {
@@ -79,7 +80,19 @@ const FormularioPago = () => {
             </div>
         </div>
     )
+    
+    const [name, setName] = React.useState<string>();
+    const [errorsName,setErrorsName] = React.useState<{name: string}>();
 
+    const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const {target: {value}} = event;
+        setErrorsName({name: ''})
+        setName(value);
+        let reg = new RegExp(/^[a-zA-Z\s]*$/).test(value);
+        if(!reg) {
+            setErrorsName({name: 'Nombre invalido'})
+        }
+    };
 
     return(
     <div className={classes.formulario}>
@@ -99,12 +112,35 @@ const FormularioPago = () => {
             <Grid container justify="center">
                 <img src="https://senordescuento.com/wp-content/uploads/2019/06/tarjetas-credito-logos.png" width={200}/>    
             </Grid>
-            <TextField id="nombre" label="Nombre de propietario"  margin="normal" placeholder='NOMBRE TARJETA' InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
+            <TextField 
+                id="nombre" 
+                label="Nombre de propietario"  
+                margin="normal" 
+                placeholder='NOMBRE TARJETA' 
+                required 
+                error={Boolean(errorsName?.name)} 
+                helperText={(errorsName?.name)} 
+                onChange={handleChangeName} 
+                InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
             <div style={{height: 20, width: 50}}/>
-            <TextField id="numero" label="Nº de tarjeta" margin="normal" placeholder='XXXX XXXX XXXX XXXX' variant="outlined" InputProps={{startAdornment: <InputAdornment position="start"><AccountBalanceWallet/></InputAdornment>}}/>
+            <TextField 
+                id="numero" 
+                label="Nº de tarjeta" 
+                margin="normal" 
+                placeholder='XXXX XXXX XXXX XXXX' 
+                variant="outlined" 
+                required 
+                InputProps={{startAdornment: <InputAdornment position="start"><AccountBalanceWallet/></InputAdornment>}}/>
             <div style={{ display: "flex", maxWidth: 500, minWidth: 200}}>
-            <TextField  id="fecha" label="Fecha de caducidad" margin="normal" variant="outlined" placeholder='MM/YY' InputProps={{startAdornment: <InputAdornment position="start"><CalendarToday/></InputAdornment>}}/>
-            <TextField  id="cvc" label="CVC" margin="normal" variant="outlined" placeholder='XXX' InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
+            <TextField  
+                id="fecha" 
+                label="Fecha de caducidad" 
+                margin="normal" 
+                variant="outlined" 
+                placeholder='MM/YY' 
+                required 
+                InputProps={{startAdornment: <InputAdornment position="start"><CalendarToday/></InputAdornment>}}/>
+            <TextField  id="cvc" label="CVC" margin="normal" variant="outlined" placeholder='XXX' required InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
             </div>
             <div style={{height: 20}}/>
             <Button onClick={()=>modalValidacion()} color="primary" variant="contained">Pagar</Button> 
