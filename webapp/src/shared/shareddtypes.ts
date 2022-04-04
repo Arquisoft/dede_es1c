@@ -1,7 +1,6 @@
-import mongoose from 'mongoose';
 
 export type ProductCart = {
-  id: mongoose.ObjectId
+  id: string
   name: string;
   description: string;
   photo: string;
