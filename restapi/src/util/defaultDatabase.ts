@@ -22,6 +22,7 @@ export default async function create() {
     await ProductModel.create({photo:' https://drive.google.com/uc?export=view&id=1RwYHUq0MTPV7RQCCkX1LKqpbyptVOrad ', name:'Battlefield 2042', price:'36', stock:'10', description:' videojuego de disparos y acción bélica en primera persona', categories:juego8  })
     await ProductModel.create({photo:' https://drive.google.com/uc?export=view&id=1aUIkNF0ZMJV0CAynt-TE_bFw-ySFcMXx ', name:'Dying Light', price:'6', stock:'3', description:' serie de videojuegos de acción', categories:juego9  })
 
+
     await UserModel.deleteMany({});
     await UserModel.create({password:'123', email:'a@gmail.com', role:ROLES.NORMAL})
     await UserModel.create({password:'123', email:'b@gmail.com', role:ROLES.ADMIN})

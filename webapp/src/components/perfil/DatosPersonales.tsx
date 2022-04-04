@@ -36,8 +36,8 @@ const useStyle = makeStyles({
     marginLeft:"10%",
     marginRight: "10%",
     textAlign: "center",
-    color: "#4D8AE2",
-},
+    color: "#513280",
+  }
 });
 
 const DatosPersonales = () => {
@@ -50,16 +50,15 @@ const DatosPersonales = () => {
         <Grid container alignItems="center" direction="column" justify="space-between" style={{padding: 20}}> 
             <div style={{ display: "flex", flexDirection: "column", maxWidth: 500, minWidth: 200}}>
             <Grid container justify="center">
-                <img src="https://emser.es/wp-content/uploads/2016/08/usuario-sin-foto.png" width={150}/>    
+                <img src="https://cdn4.iconfinder.com/data/icons/web-app-flat-circular-icons-set/64/Iconos_Redondos_Flat_Usuario_Icn-512.png" width={150}/>    
             </Grid>
             <Typography variant="h5">¡Bienvenido!</Typography>
-            <TextField label="Nombre" margin="normal" value={userName} InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
+            <TextField label="Nombre" margin="normal" contentEditable="false" value={userName} InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
             <div style={{height: 20, width: 500}}/>
-            <TextField label="Correo asociado" margin="normal" variant="outlined" value={userEmail} InputProps={{startAdornment: <InputAdornment position="start"><Email/></InputAdornment>}}/>
+            <TextField label="Correo asociado" margin="normal" contentEditable="false" variant="outlined" value={userEmail} InputProps={{startAdornment: <InputAdornment position="start"><Email/></InputAdornment>}}/>
             <div style={{height: 20}}/>
-            <TextField label="Direccion de envio asociada" margin="normal" variant="outlined" value={direccion} InputProps={{startAdornment: <InputAdornment position="start"><Directions/></InputAdornment>}}/>
-            <div style={{height: 20}}/>
-            <Button color="primary" variant="contained">Actualizar</Button> 
+            <TextField label="Direccion de envio asociada" margin="normal" contentEditable="false" variant="outlined" value={direccion} InputProps={{startAdornment: <InputAdornment position="start"><Directions/></InputAdornment>}}/>
+            <div style={{height: 20}}/> 
             </div>
         </Grid>
     </div>

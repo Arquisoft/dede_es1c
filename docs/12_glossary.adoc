@@ -7,7 +7,7 @@
 | Discord
 | Servicio de mensajería instantánea freeware de chat de voz VolP, video y chat por texto
 
-| SOLID 
+| SOLID
 | Proyecto desarrollado por Tim Berners-Lee que busca descentralizar los datos de los usuarios del resto de datos de la aplicacion almacenandolos en POD
 
 | Pod

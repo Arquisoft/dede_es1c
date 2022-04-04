@@ -16,7 +16,7 @@ DeDe-> inrupt.net: Comprobación de credenciales
 alt usuario existe
 
     inrupt.net -> DeDe:Devuelve al usuario
-    DeDe->Usuario:Redirección a página principal con usuario identificado 
+    DeDe->Usuario:Redirección a página principal con usuario identificado
 
 else usuario ya existe
     inrupt.net -> DeDe: Mensaje de error
@@ -41,7 +41,7 @@ else usuario ya existe
 end
 @enduml
 ----
-=== Añadir un producto al carro
+=== Añadir un producto al carro usuario identificado
 [plantuml,"AñadirCarro_diagrama",png]
 ----
 @startuml
