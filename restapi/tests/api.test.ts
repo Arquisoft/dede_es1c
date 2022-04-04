@@ -314,7 +314,7 @@ describe("PRODUCTS ", () => {
         expect(response.body).toEqual(
             expect.objectContaining({
                 name: "League of Leguends",
-                photo: " https://drive.google.com/file/d/1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R/view?usp=sharing ",
+                photo: " https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R ",
                 price: "50",
                 stock: "2",
                 description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games",
