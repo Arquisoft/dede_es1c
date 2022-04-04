@@ -38,13 +38,26 @@ const useStyle = makeStyles({
 const FormularioPago = () => {
     const classes = useStyle();
 
-    const[mostrar, setPagoOk]=useState(false);
+    const[mostrar1, setPagoOk]=useState(false);
 
+    const[mostrar2, setPagoNotOk]=useState(false);
+
+    const modalValidacion = () => {
+        if(mostrar1) {
+            setPagoOk(!mostrar1);
+        } else {
+            setPagoNotOk(!mostrar2);
+        }
+    }
     const mostrarPagoOk = ()=> {
-        setPagoOk(!mostrar);
+        setPagoOk(!mostrar1);
     }
 
-    const body=(
+    const mostrarPagoNotOk = ()=> {
+        setPagoNotOk(!mostrar2);
+    }
+
+    const modal1=(
         <div className={classes.pagoOk}>
             <div> 
                 <img src="https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemok_103757.png" width={50}/>
@@ -57,10 +70,25 @@ const FormularioPago = () => {
         </div>
     )
 
+    const modal2=(
+        <div className={classes.pagoOk}>
+            <div> 
+                <img src="https://static.thenounproject.com/png/2052102-200.png" width={150}/>
+                <h2>Tarjeta invalida, compruebe los campos</h2>
+                <img src="https://senordescuento.com/wp-content/uploads/2019/06/tarjetas-credito-logos.png" width={200}/>
+            </div>
+        </div>
+    )
+
+
     return(
     <div className={classes.formulario}>
-        <Modal open={mostrar} onClose={mostrarPagoOk}>
-                {body}
+        <Modal open={mostrar1} onClose={mostrarPagoOk}>
+                {modal1}
+        </Modal>
+
+        <Modal open={mostrar2} onClose={mostrarPagoNotOk}>
+                {modal2}
         </Modal>
         
         <Grid container alignItems="center" direction="column" justify="space-between" style={{padding: 100}}> 
@@ -79,7 +107,7 @@ const FormularioPago = () => {
             <TextField  id="cvc" label="CVC" margin="normal" variant="outlined" placeholder='XXX' InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
             </div>
             <div style={{height: 20}}/>
-            <Button onClick={()=>mostrarPagoOk()} color="primary" variant="contained">Pagar</Button> 
+            <Button onClick={()=>modalValidacion()} color="primary" variant="contained">Pagar</Button> 
             </div>
         </Grid>
     </div>
