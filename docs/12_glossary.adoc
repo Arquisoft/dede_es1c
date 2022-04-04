@@ -7,7 +7,7 @@
 | Discord
 | Servicio de mensajería instantánea freeware de chat de voz VolP, video y chat por texto
 
-| SOLID 
+| SOLID
 | Proyecto desarrollado por Tim Berners-Lee que busca descentralizar los datos de los usuarios del resto de datos de la aplicacion almacenandolos en POD
 
 | Pod
@@ -30,4 +30,7 @@
 
 | Blackbox
 | En digaramas, un componente opaco que no nos permite ver las partes que tiene en el interior.
+
+| Heroku
+| Es un Paas(Platform as a Service) que nos permite desplegar nuestras aplicaciones sin preocupaciones por la infraestructura.
 |===
