@@ -43,13 +43,19 @@ const FormularioPago = () => {
 
     const[mostrar2, setPagoNotOk]=useState(false);
 
-    const modalValidacion = () => {
-        if(mostrar1) {
-            setPagoOk(!mostrar1);
+    const[nameOk, setNameOk]=React.useState(false);
+    const[numeroOk, setNumeroOk]=React.useState(false);
+    const[fechaOk, setFechaOk]=React.useState(false);
+    const[cvcOk, setCVCOk]=React.useState(false);
+
+    const validacionTodosLosCampos = () => {
+        if(nameOk && numeroOk && fechaOk && cvcOk) {
+            mostrarPagoOk();
         } else {
-            setPagoNotOk(!mostrar2);
+            mostrarPagoNotOk();
         }
     }
+
     const mostrarPagoOk = ()=> {
         setPagoOk(!mostrar1);
     }
@@ -91,6 +97,9 @@ const FormularioPago = () => {
         let reg = new RegExp(/^[a-zA-Z\s]*$/).test(value);
         if(!reg) {
             setErrorsName({name: 'Nombre invalido'})
+            setNameOk(false);
+        } else {
+            setNameOk(true);
         }
     };
 
@@ -104,6 +113,9 @@ const FormularioPago = () => {
         let reg = new RegExp(/^(\d{4}\s?){4}$/).test(value);
         if(!reg) {
             setErrorsNum({numero: 'Numero invalido'})
+            setNumeroOk(false);
+        } else {
+            setNumeroOk(true);
         }
     };
 
@@ -117,6 +129,9 @@ const FormularioPago = () => {
         let reg = new RegExp(/^(1[0-2]|0?[1-9])[/]([0-9]?[0-9])$/).test(value);
         if(!reg) {
             setErrorsFecha({fecha: 'Fecha invalida'})
+            setFechaOk(false);
+        } else {
+            setFechaOk(true);
         }
     };
 
@@ -130,6 +145,9 @@ const FormularioPago = () => {
         let reg = new RegExp(/^\d{3}$/).test(value);
         if(!reg) {
             setErrorsCVC({cvc: 'Fecha invalida'})
+            setCVCOk(false);
+        } else {
+            setCVCOk(true);
         }
     };
 
@@ -198,7 +216,7 @@ const FormularioPago = () => {
                 InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
             </div>
             <div style={{height: 20}}/>
-            <Button onClick={()=>modalValidacion()} color="primary" variant="contained">Pagar</Button> 
+            <Button onClick={()=>validacionTodosLosCampos()} color="primary" variant="contained">Pagar</Button> 
             </div>
         </Grid>
     </div>
