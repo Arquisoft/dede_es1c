@@ -179,20 +179,118 @@ let token;
     /**
      * Get producto que no existe
      */
+    (0, globals_1.it)("Get producto que no existe", () => __awaiter(void 0, void 0, void 0, function* () {
+        const response = yield (0, supertest_1.default)(app)
+            .get("/product/noexiste1")
+            .set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(response.statusCode).toBe(404);
+    }));
     /**
      * Get producto que existe
      */
+    (0, globals_1.it)("Get producto que existe", () => __awaiter(void 0, void 0, void 0, function* () {
+        const response = yield (0, supertest_1.default)(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(response.statusCode).toBe(200);
+        (0, globals_1.expect)(response.body).toEqual(globals_1.expect.objectContaining({
+            name: "League of Leguends",
+            photo: " https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R ",
+            price: "50",
+            stock: "2",
+            description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games",
+            categories: ["estrategia", "acción"]
+        }));
+    }));
     /**
      * Listar todos los productos
      */
+    (0, globals_1.it)("listar todos los productos", () => __awaiter(void 0, void 0, void 0, function* () {
+        const response = yield (0, supertest_1.default)(app).get("/product");
+        (0, globals_1.expect)(response.statusCode).toBe(200);
+    }));
     /**
-     * Crear producto
+     * Crear producto y elimianrlo
      */
-    /**
-     * Eliminar producto
-     */
+    (0, globals_1.it)("Crear un producto correctamente y eliminarlo", () => __awaiter(void 0, void 0, void 0, function* () {
+        const responseDelete = yield (0, supertest_1.default)(app).delete("/user/product/all").set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(responseDelete.statusCode).toBe(200);
+        let juego1 = ["deportes"];
+        const response = yield (0, supertest_1.default)(app).post("/product").send({
+            photo: " https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R ",
+            name: "ProductoNuevo1",
+            price: "1",
+            stock: "1",
+            description: 'Description',
+            categories: juego1,
+        }).set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(response.statusCode).toBe(200);
+        const response2 = yield (0, supertest_1.default)(app)
+            .get("/product/ProductoNuevo1")
+            .set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(response2.statusCode).toBe(200);
+        (0, globals_1.expect)(response2.body).toEqual(globals_1.expect.objectContaining({
+            name: "ProductoNuevo1",
+            price: "1",
+            stock: "1",
+            description: "Description",
+            categories: ["deportes"]
+        }));
+        const responseAddP = yield (0, supertest_1.default)(app).post("/user/product").set('Authorization', `Bearer ${token}`).send({
+            name: 'ProductoNuevo1'
+        });
+        const response3 = yield (0, supertest_1.default)(app).get("/user/profile").set('Authorization', `Bearer ${token}`);
+        const respons4 = yield (0, supertest_1.default)(app).get("/product");
+        const responseDelete2 = yield (0, supertest_1.default)(app)
+            .delete("/product/" + response3.body.products[0])
+            .set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(responseDelete2.statusCode).toBe(200);
+        const respons5 = yield (0, supertest_1.default)(app).get("/product");
+        const responseGet = yield (0, supertest_1.default)(app)
+            .get("/product/ProductoNuevo1")
+            .set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(responseGet.statusCode).toBe(404);
+    }));
     /**
      * Actualizar stock del producto
      */
+    (0, globals_1.it)("Actualizar stock de producto", () => __awaiter(void 0, void 0, void 0, function* () {
+        const responseDelete = yield (0, supertest_1.default)(app).delete("/user/product/all").set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(responseDelete.statusCode).toBe(200);
+        const responseAdd = yield (0, supertest_1.default)(app).post("/user/product").set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        });
+        const response2 = yield (0, supertest_1.default)(app).get("/user/profile").set('Authorization', `Bearer ${token}`);
+        const responseUpdate = yield (0, supertest_1.default)(app)
+            .put("/product/stock/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+            stock: "4",
+        });
+        (0, globals_1.expect)(responseUpdate.statusCode).toBe(200);
+        const response = yield (0, supertest_1.default)(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(response.statusCode).toBe(200);
+        (0, globals_1.expect)(response.body).toEqual(globals_1.expect.objectContaining({
+            name: "League of Leguends",
+            stock: "4"
+        }));
+        const responseUpdate2 = yield (0, supertest_1.default)(app)
+            .put("/product/stock/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+            stock: "2",
+        });
+        (0, globals_1.expect)(responseUpdate2.statusCode).toBe(200);
+        const respons2 = yield (0, supertest_1.default)(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(respons2.statusCode).toBe(200);
+        (0, globals_1.expect)(respons2.body).toEqual(globals_1.expect.objectContaining({
+            name: "League of Leguends",
+            stock: "2"
+        }));
+    }));
 });
 //# sourceMappingURL=api.test.js.map

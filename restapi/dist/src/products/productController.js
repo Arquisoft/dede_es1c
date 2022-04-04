@@ -17,7 +17,7 @@ exports.default = {
     get: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const product = yield productModel_1.ProductModel.findOne({ name: req.params.name });
         if (product) {
-            res.json(product);
+            res.status(200).json(product);
         }
         else {
             res.status(404).json({ error: "The product does not exist" });
@@ -25,8 +25,7 @@ exports.default = {
     }),
     create: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const product = yield productModel_1.ProductModel.create({ photo: req.body.url, name: req.body.name, price: req.body.price, stock: req.body.stock, description: req.body.description, categories: req.body.categories });
-        res.json(product);
-        res.status(200).json({ result: 'OK' });
+        res.status(200).json(product);
     }),
     update: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const product = yield productModel_1.ProductModel.findById(req.params.id);
