@@ -107,6 +107,19 @@ const FormularioPago = () => {
         }
     };
 
+    const [fecha, setFecha] = React.useState<string>();
+    const [errorsFecha,setErrorsFecha] = React.useState<{fecha: string}>();
+
+    const handleChangeFecha = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const {target: {value}} = event;
+        setErrorsFecha({fecha: ''})
+        setNumero(value.trim());
+        let reg = new RegExp(/^(1[0-2]|0?[1-9])[/]([0-9]?[0-9])$/).test(value);
+        if(!reg) {
+            setErrorsFecha({fecha: 'Fecha invalida'})
+        }
+    };
+
     return(
     <div className={classes.formulario}>
         <Modal open={mostrar1} onClose={mostrarPagoOk}>
@@ -155,6 +168,9 @@ const FormularioPago = () => {
                 variant="outlined" 
                 placeholder='MM/YY' 
                 required 
+                error={Boolean(errorsFecha?.fecha)} 
+                helperText={(errorsFecha?.fecha)} 
+                onChange={handleChangeFecha}
                 InputProps={{startAdornment: <InputAdornment position="start"><CalendarToday/></InputAdornment>}}/>
             <TextField  id="cvc" label="CVC" margin="normal" variant="outlined" placeholder='XXX' required InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
             </div>
