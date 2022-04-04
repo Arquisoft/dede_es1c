@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "heroku-postbuild": "cd webapp && npm install --only prod && npm install --only dev && npm run build && cd ../restapi && npm install --only prod && npm install --only dev",
+    "heroku-postbuild": "cd webapp && npm install --only prod && npm install --only dev && REACT_APP_API_URI=https://secure-oasis-78684.herokuapp.com/ npm run build && cd ../restapi && npm install --only prod && npm install --only dev",
     "start": "cd restapi && npm run dev"
   },
   "engines": {
