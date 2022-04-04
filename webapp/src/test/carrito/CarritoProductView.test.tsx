@@ -5,8 +5,7 @@ import ProductView from "../../components/home/ProductView";
 import {Carrito} from "../../components/carrito/Carrito";
 import CarritoView from "../../components/carrito/CarritoView";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Product } from "../../shared/shareddtypes";
-import { ProductCart } from "../../shared/shareddtypes";
+import { ProductCart, Product } from "../../shared/shareddtypes";
 import MenuBar from "../../components/comun/MenuBar";
 import { CardActionArea } from '@mui/material';
 
@@ -60,6 +59,7 @@ test("Añadir carrito desde homeview", async () => {
         stock: "3",
         description: "Prueba del test producto renderizado producto 1",
         categories: ["acción"],
+          amount:0,
       },
     ];
     const productos: Product[] = [
