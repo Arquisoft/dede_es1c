@@ -94,6 +94,19 @@ const FormularioPago = () => {
         }
     };
 
+    const [numero, setNumero] = React.useState<string>();
+    const [errorsNum,setErrorsNum] = React.useState<{numero: string}>();
+
+    const handleChangeNum = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const {target: {value}} = event;
+        setErrorsNum({numero: ''})
+        setNumero(value.trim());
+        let reg = new RegExp(/^(?:(\d{4}\s?){4}|(\d{4,6}\s?){3})$/).test(value);
+        if(!reg) {
+            setErrorsNum({numero: 'Numero invalido'})
+        }
+    };
+
     return(
     <div className={classes.formulario}>
         <Modal open={mostrar1} onClose={mostrarPagoOk}>
@@ -130,6 +143,9 @@ const FormularioPago = () => {
                 placeholder='XXXX XXXX XXXX XXXX' 
                 variant="outlined" 
                 required 
+                error={Boolean(errorsNum?.numero)} 
+                helperText={(errorsNum?.numero)} 
+                onChange={handleChangeNum} 
                 InputProps={{startAdornment: <InputAdornment position="start"><AccountBalanceWallet/></InputAdornment>}}/>
             <div style={{ display: "flex", maxWidth: 500, minWidth: 200}}>
             <TextField  
