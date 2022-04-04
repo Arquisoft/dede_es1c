@@ -7,7 +7,7 @@
 |Rol | Explicación
 |Usuario | Representa un usuario de la aplicación, toda su información se guardará en un POD.
 
-|Posición actual del usuario | El objetivo es que se conozca la posición actual para en el caso de enviar un pedido se pueda calcular el coste de envio.
+|Posición actual del usuario | El objetivo es que se conozca la posición actual para,  en el caso de enviar un pedido, se pueda calcular el coste de envio.
 
 |Productos | Lista de productos disponibles con toda la información relevante.
 |===
@@ -17,16 +17,14 @@
 La aplicación está desarrollada para que el usuario pueda interaccionar con ella de manera sencilla, no es necesario que tenga conocimientos previos, pero como es lógico
 si ya se encuentra familiarizado con plataformas de compra electrónica como Steam u Origin, siempre le será más sencillo.
 
-El usuario podrá identificarse haciendo clic en la parte derecha del panel en el botón identificar o bien, registrarse en este mismo apartado entrando en el enlace de "No estoy registrado".
-No es necesario registrarse para realizar una compra, se puede crear un usuario sobre la marcha a la hora de realizar la compra o incluso comprar como cliente sin registro.
-
-Si el usuario quiere, podrá guardar una lista con sus _"deseos"_, aquí meterá su lista de productos deseados y que guarda para una futura compra, esta función es solo para usuarios registrados.
+El usuario podrá identificarse haciendo clic en la parte derecha del panel introduciendo su POD, o bien acceder a crear un POD en la página de SOLID, se le pone a disposición el enlace al usuario.
+La única forma de compra y acceso a la aplicación es la de usuario registrado en un POD, nos tomamos muy enserio la privacidad y creemos que esta es la mejor manera de interacción con nuestro sistema.
 
 
 ==== Conceptos de seguridad y protección
 
 En líneas generales, nuestra aplicación es segura. Hemos utilizado los principios SOLID, esto es que los datos de los usuarios serán almacenados de forma segura en almacenes de datos llamados PODS.
-Los PODS (Personal online data stores) pueden contener cualquier tipo de información, en nuestro caso contiene nombre, apellidos, dni, dirección y número de teléfono.
+Los PODS (Personal online data stores) pueden contener cualquier tipo de información, en nuestro caso contiene email que será el usuario, password, nombre, apellido, teléfono, país, provincia, ciudad, código postal, calle, número, piso y letra del piso.
 El acceso a los datos de los PODS se puede restringir y controlar de manera segura, eligiendo las reglas de acceso determinadas.
 
 Se ha prestado especial atención en fortificar la base de datos, ya que muchos de los ataques conocidos se centran en esta parte de las aplicaciones, separando los PODS de usuarios de la propia base de datos
@@ -41,7 +39,7 @@ para un buen desarrollo y un bajo acoplamientro, con esto hemos decidido aplicar
 
 * Modularidad: esto es que la aplicación se encuentra compuesta por varios componentes, que juntandose hacen una aplicación funcional. Si uno de los componentes cambia, el resto no se verá afectado.
 
-* Fachada: haciendo referencia al patrón de diseño arquitectónico, haciendo la separación e interacción necesaria con SOLID para que todo funcione y se mantenga un minimo acoplamiento.
+* Fachada: haciendo referencia al patrón de diseño arquitectónico, hacemos la separación e interacción necesaria con SOLID para que todo funcione y se mantenga un minimo acoplamiento.
 
 * MVC (Modelo vista controlador): para poder gestionar las vistas en el frontend con las peticiones en el backend.
 
@@ -57,9 +55,7 @@ Como ya se menciono anteriormente, los datos de usuario son guardados en un POD,
 
 Las operaciones básicas que se pueden realizar desde la aplicación desde el rol de usuario son:
 
-* Autenticación de usuario: Hace referencia a identificarse en la aplicación como usuario registrado.
-
-* Registro de usuario: Consiste en cambiar el rol a usuario identificado, registrando así un email y una contraseña para futuros accesos.
+* Autenticación de usuario: Hace referencia a identificarse en la aplicación como usuario registrado mediante su POD.
 
 * Compra de producto: El usuario podrá adquirir los productos que considere, como si se tratase de un comercio fisico.
 
@@ -76,14 +72,12 @@ left to right direction
 usuario as ac1
 
 (Autenticación de usuario) as (a)
-(Registro de usuario) as (r)
 (Compra de producto) as (c)
 (Operaciones en carrito) as (o)
 (Filtrar por categorias) as (f)
 (Filtrar por nombre) as (n)
 
 ac1 --> a
-ac1 --> r
 ac1 --> c
 ac1 --> o
 ac1 --> f
