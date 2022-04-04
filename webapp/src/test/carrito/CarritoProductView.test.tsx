@@ -49,6 +49,7 @@ expect(window.location.pathname).toEqual("/Producto/" + productos[0].name);
 });
 
 test("Añadir carrito desde homeview", async () => {
+
     const carrito: ProductCart[] = [
       {
         // @ts-ignore
@@ -56,6 +57,7 @@ test("Añadir carrito desde homeview", async () => {
         photo: "",
         name: "Prueba producto 1",
         price: "23",
+          // @ts-ignore
         stock: "3",
         description: "Prueba del test producto renderizado producto 1",
         categories: ["acción"],

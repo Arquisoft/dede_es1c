@@ -14,6 +14,7 @@ import { ProductCart, Product } from "../../shared/shareddtypes";
         photo: "",
         name: "Prueba producto 1",
         price: "23",
+          // @ts-ignore
         stock: "3",
         description: "Prueba del test producto renderizado producto 1",
         categories: ["acción"],
@@ -40,6 +41,7 @@ import { ProductCart, Product } from "../../shared/shareddtypes";
         photo: "",
         name: "Prueba producto 1",
         price: "23",
+          // @ts-ignore
         stock: "3",
         description: "Prueba del test producto renderizado producto 1",
         categories: ["acción"],
@@ -66,6 +68,7 @@ import { ProductCart, Product } from "../../shared/shareddtypes";
         photo: "",
         name: "Prueba producto 1",
         price: "23",
+          // @ts-ignore
         stock: "3",
         description: "Prueba del test producto renderizado producto 1",
         categories: ["acción"],
