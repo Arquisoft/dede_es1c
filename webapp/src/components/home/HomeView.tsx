@@ -7,9 +7,7 @@ import Icon from "./Icon";
 import { makeStyles } from "@material-ui/core/styles";
 
 
-import { Product } from "../../../../restapi/src/products/productModel";
-import { ProductCart } from '../../shared/shareddtypes';
-
+import { ProductCart, Product } from '../../shared/shareddtypes';
 
 
 const useStyle = makeStyles({

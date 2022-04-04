@@ -3,7 +3,7 @@ import ProductView from "../../components/home/ProductView";
 import {Carrito} from "../../components/carrito/Carrito";
 import CarritoView from "../../components/carrito/CarritoView";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Product } from "../../../../restapi/src/products/productModel";
+import { Product } from "../../shared/shareddtypes";
 import { ProductCart } from "../../shared/shareddtypes";
 
 

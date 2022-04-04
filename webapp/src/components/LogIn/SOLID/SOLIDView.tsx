@@ -4,7 +4,7 @@ import  { ProfileView } from "../../perfil/ProfileView";
 import ProfileViewer from "./ProfileViewer"
 import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
 import  {HomeView}  from "../../home/HomeView";
-import { Product } from "../../../../../restapi/src/products/productModel";
+import { Product } from "../../../shared/shareddtypes";
 import { ProductCart } from "../../../shared/shareddtypes";
 
 

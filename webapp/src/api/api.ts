@@ -1,6 +1,6 @@
 
-import { Product } from "../../../restapi/src/products/productModel";
-import { User } from "../../../restapi/src/users/userModel";
+
+import { User, Product } from "../shared/shareddtypes";
 import { ProductCart } from "../shared/shareddtypes";
 
 

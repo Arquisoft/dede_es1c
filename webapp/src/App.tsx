@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import React, { useState, useEffect} from 'react';
 
-import { Product } from "../../restapi/src/products/productModel";
+import { Product } from "./shared/shareddtypes";
 import  {anadirStock, eliminarStock, getProductos} from './api/api';
 import './App.css';
 
