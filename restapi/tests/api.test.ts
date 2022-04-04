@@ -314,7 +314,7 @@ describe("PRODUCTS ", () => {
         expect(response.body).toEqual(
             expect.objectContaining({
                 name: "League of Leguends",
-                photo: " https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R ",
+                photo: "https://drive.google.com/uc?export=view&id=16i_-Op9_aurvgDR49AOBzhp85J-GBnjE",
                 price: "50",
                 stock: "2",
                 description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games",
@@ -352,7 +352,7 @@ describe("PRODUCTS ", () => {
 
         let juego1: string[] = ["deportes"];
         const response: Response = await request(app).post("/product").send({
-            photo: " https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R ",
+            photo: "https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R",
             name: "ProductoNuevo1",
             price: "1",
             stock: "1",
