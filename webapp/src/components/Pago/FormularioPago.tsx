@@ -100,8 +100,8 @@ const FormularioPago = () => {
     const handleChangeNum = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {target: {value}} = event;
         setErrorsNum({numero: ''})
-        setNumero(value.trim());
-        let reg = new RegExp(/^(?:(\d{4}\s?){4}|(\d{4,6}\s?){3})$/).test(value);
+        setNumero(value);
+        let reg = new RegExp(/^(\d{4}\s?){4}$/).test(value);
         if(!reg) {
             setErrorsNum({numero: 'Numero invalido'})
         }
@@ -113,10 +113,23 @@ const FormularioPago = () => {
     const handleChangeFecha = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {target: {value}} = event;
         setErrorsFecha({fecha: ''})
-        setNumero(value.trim());
+        setNumero(value);
         let reg = new RegExp(/^(1[0-2]|0?[1-9])[/]([0-9]?[0-9])$/).test(value);
         if(!reg) {
             setErrorsFecha({fecha: 'Fecha invalida'})
+        }
+    };
+
+    const [cvc, setCVC] = React.useState<string>();
+    const [errorsCVC,setErrorsCVC] = React.useState<{cvc: string}>();
+
+    const handleChangeCVC = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const {target: {value}} = event;
+        setErrorsCVC({cvc: ''})
+        setNumero(value.trim());
+        let reg = new RegExp(/^\d{3}$/).test(value);
+        if(!reg) {
+            setErrorsCVC({cvc: 'Fecha invalida'})
         }
     };
 
@@ -172,7 +185,17 @@ const FormularioPago = () => {
                 helperText={(errorsFecha?.fecha)} 
                 onChange={handleChangeFecha}
                 InputProps={{startAdornment: <InputAdornment position="start"><CalendarToday/></InputAdornment>}}/>
-            <TextField  id="cvc" label="CVC" margin="normal" variant="outlined" placeholder='XXX' required InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
+            <TextField  
+                id="cvc" 
+                label="CVC" 
+                margin="normal" 
+                variant="outlined" 
+                placeholder='XXX' 
+                required 
+                error={Boolean(errorsCVC?.cvc)} 
+                helperText={(errorsCVC?.cvc)} 
+                onChange={handleChangeCVC}
+                InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
             </div>
             <div style={{height: 20}}/>
             <Button onClick={()=>modalValidacion()} color="primary" variant="contained">Pagar</Button> 
