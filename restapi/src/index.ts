@@ -27,9 +27,9 @@ app.use(morgan('dev'));
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({extended: true})) // for parsing application/x-www-form-urlencoded
 
-app.use('/user', UserRouter)
-app.use('/product', ProductRouter)
-app.use('/', LoginRouter)
+app.use('/api/user', UserRouter)
+app.use('/api/product', ProductRouter)
+app.use('/api', LoginRouter)
 
 // ... other app.use middleware
 app.use(express.static(path.join(__dirname, "..", "..", "webapp", "build")))
