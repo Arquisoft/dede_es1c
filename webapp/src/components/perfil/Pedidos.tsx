@@ -11,6 +11,23 @@ const useStyle = makeStyles({
     boxSizing:"border-box",
     backgroundColor: "#6ABACE", 
   },
+  pedidoSup: {
+    display: "grid",
+    flexDirection: "column",
+    backgroundColor:"#FFFF",
+    borderRadius: 30,
+    boxShadow: "7px 6px rgba(0, 0, 0, .5)",
+    marginLeft:"5%",
+    marginRight: "5%",
+    padding: "2em",
+    textAlign: "center",
+    margin: "auto",
+    rowGap: "2em"
+  },
+  tituloHistorico: {
+    font: "400 3em Tahoma,sans-serif",
+    color: "#A569BD"
+  },
   pedido :{
     display:"grid",
     font: "400 1em Tahoma,sans-serif",
@@ -19,24 +36,10 @@ const useStyle = makeStyles({
     boxShadow: "7px 6px rgba(0, 0, 0, .5)",
     marginLeft:"5%",
     marginRight: "5%",
-    padding: "1em",
     textAlign: "center",
     margin: "auto",
-    color: "#000",
+    color: "#FFF",
   }, 
-  pedidoSup: {
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor:"#FFFF",
-    borderRadius: 30,
-    boxShadow: "7px 6px rgba(0, 0, 0, .5)",
-    marginLeft:"5%",
-    marginRight: "5%",
-    padding: "1em",
-    textAlign: "center",
-    margin: "auto",
-    color: "#A569BD",
-  }
 });
 const Pedidos = () => {
 
@@ -63,7 +66,7 @@ const Pedidos = () => {
 
     return (
         <div className={classes.pedidoSup}>
-          <h2>Historico de pedidos:</h2>
+          <h2 className={classes.tituloHistorico}>Historico de pedidos:</h2>
         {pedidos.map(item=>(
             <div className={classes.pedido}>
               <h1>{item.Descripcion}</h1> 
@@ -76,7 +79,7 @@ const Pedidos = () => {
               <br></br>
               <p>Estado del pedido: {item.Estado}</p>
             </div>
-        ))};
+        ))}
         </div>
     )
   }
