@@ -94,7 +94,7 @@ const FormularioPago = () => {
         const {target: {value}} = event;
         setErrorsName({name: ''})
         setName(value);
-        let reg = new RegExp(/^[a-zA-Z\s]*$/).test(value);
+        let reg = new RegExp(/^[a-zA-Z\s]+$/).test(value);
         if(!reg) {
             setErrorsName({name: 'Nombre invalido'})
             setNameOk(false);
