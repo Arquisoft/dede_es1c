@@ -18,6 +18,7 @@ El front-end estara desarrollado mediante el framework React implementando compo
 Por la parte del back-end, nuestro SGDB es Mongo.db y mediante Node.js express realizaremos todas las transacciones a la base de datos, en la misma almacenaremos los datos de los productos.
 La mayoria de peticiones se realizaran mediante el protocolo web HTTP.
 
+
 Diagrama para ilustrar en los componentes de la aplicacion que estan afectados por cada tecnologia
 
 :imagesdir: images/

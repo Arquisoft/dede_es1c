@@ -12,8 +12,7 @@
 |Node.js | Entorno para la manejar la comunicacion entre el back-end y el front-end de la aplicacion 
 | Git/Github | El software de control de versiones de este proyecto es 
 | Integracion continua | La aplicacion debe estar desplegada utilizando un sistema de integracion continua, la tecnologia elegida es libre.
-
-|====
+| Git/Github | El software de control de versiones de este proyecto
 
 === Restricciones organizativas
 [options=""header", cols="1,5"]
@@ -24,6 +23,7 @@
 | Presentacion | Tenemos que presentar el proyecto a un tribunal compuesto por los profesores de al asignatura para su valoracion
 | Equipo | El equipo cuenta con un maximo de 5 miembros
 | Reuniones continuas | El equipo esta obligado a realizar reuniones periodicas sobre el proyecto
+| Fechas límites | Respetar las fechas indicadas por el profesor para la entrega de los diferentes versiones de la apliación
 |====
 
 === Convenios

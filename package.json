@@ -1,0 +1,14 @@
+{
+  "name": "dede_es1c",
+
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "heroku-postbuild": "cd webapp && npm install --only prod && npm install --only dev && REACT_APP_API_URI=https://secure-oasis-78684.herokuapp.com/api npm run build && cd ../restapi && npm install --only prod && npm install --only dev",
+    "start": "cd restapi && npm run dev"
+  },
+  "engines": {
+    "node": "16.x",
+    "npm": "6.x"
+  }
+}

@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-import {UserModel} from "../users/model";
+import {UserModel} from "../users/userModel";
 import jwt from "../util/token";
 
 export default {
