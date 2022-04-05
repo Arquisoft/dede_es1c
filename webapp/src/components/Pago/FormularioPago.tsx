@@ -32,6 +32,9 @@ const useStyle = makeStyles({
         transform: 'translate(-50%,-50%)',
         textAlign: "center",
         button: "center"
+    },
+    boton1: {
+        background: "linear-gradient(45deg, #19275a 30%, #cc90ff 90%)"
     }
 });
 
@@ -216,7 +219,7 @@ const FormularioPago = () => {
                 InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
             </div>
             <div style={{height: 20}}/>
-            <Button onClick={()=>validacionTodosLosCampos()} color="primary" variant="contained">Pagar</Button> 
+            <Button onClick={()=>validacionTodosLosCampos()} className={classes.boton1} variant="contained">Pagar</Button> 
             </div>
         </Grid>
     </div>
