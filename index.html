@@ -452,65 +452,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#section-architecture-constraints">2. Restricciones de Arquitectura</a>
 <ul class="sectlevel2">
 <li><a href="#_restricciones_técnicas">2.1. Restricciones técnicas</a></li>
-<li><a href="#_restricciones_organizativas">2.2. Restricciones organizativas</a></li>
-<li><a href="#_convenios">2.3. Convenios</a></li>
 </ul>
 </li>
-<li><a href="#section-system-scope-and-context">3. Alcance y contexto del sistema</a>
-<ul class="sectlevel2">
-<li><a href="#_contexto_empresarial">3.1. Contexto empresarial</a></li>
-<li><a href="#_contexto_tecnico">3.2. Contexto tecnico</a></li>
-</ul>
-</li>
-<li><a href="#section-solution-strategy">4. Estrategia de Solución</a>
-<ul class="sectlevel2">
-<li><a href="#_decisiones_técnicas">4.1. Decisiones Técnicas</a></li>
-<li><a href="#_decisiones_sobre_la_descomposición_de_alto_nivel_del_sistema">4.2. Decisiones sobre la descomposición de alto nivel del sistema</a></li>
-<li><a href="#_decisiones_para_lograr_objetivos_de_calidad">4.3. Decisiones para lograr objetivos de calidad</a></li>
-<li><a href="#_decisiones_para_la_organización">4.4. Decisiones para la organización</a></li>
-</ul>
-</li>
-<li><a href="#section-building-block-view">5. Vista de construccion</a>
-<ul class="sectlevel2">
-<li><a href="#_nivel_1_vista_general_del_sistema">5.1. Nivel 1: Vista general del sistema</a></li>
-<li><a href="#_nivel_2">5.2. Nivel 2</a></li>
-<li><a href="#_nivel_3">5.3. Nivel 3</a></li>
-</ul>
-</li>
-<li><a href="#section-runtime-view">6. Vista en tiempo de ejecución</a>
-<ul class="sectlevel2">
-<li><a href="#_login_de_usuario">6.1. Login de Usuario</a></li>
-<li><a href="#_registro_de_usuarios">6.2. Registro de usuarios</a></li>
-<li><a href="#_añadir_un_producto_al_carro_usuario_identificado">6.3. Añadir un producto al carro usuario identificado</a></li>
-<li><a href="#_compra_de_los_productos">6.4. Compra de los productos</a></li>
-</ul>
-</li>
-<li><a href="#section-deployment-view">7. Vista de implementación</a>
-<ul class="sectlevel2">
-<li><a href="#_algunas_consideraciones">7.1. Algunas consideraciones</a></li>
-<li><a href="#_infraestructura_técnica">7.2. Infraestructura técnica</a></li>
-<li><a href="#_motivación">7.3. Motivación</a></li>
-</ul>
-</li>
-<li><a href="#section-concepts">8. Conceptos transversales</a>
-<ul class="sectlevel2">
-<li><a href="#_conceptos_de_dominio">8.1. Conceptos de dominio</a></li>
-</ul>
-</li>
-<li><a href="#section-design-decisions">9. Decisiones de diseño</a></li>
-<li><a href="#section-quality-scenarios">10. Requerimientos de calidad</a>
-<ul class="sectlevel2">
-<li><a href="#_árbol_de_calidad">10.1. Árbol de calidad</a></li>
-<li><a href="#_escenarios_de_calidad">10.2. Escenarios de calidad</a></li>
-</ul>
-</li>
-<li><a href="#section-technical-risks">11. Riesgos y Deudas Técnicas</a>
-<ul class="sectlevel2">
-<li><a href="#_tabla_de_riesgos">11.1. Tabla de riesgos</a></li>
-<li><a href="#_tabla_deuda_técnica">11.2. Tabla deuda técnica</a></li>
-</ul>
-</li>
-<li><a href="#section-glossary">12. Glosario</a></li>
 </ul>
 </div>
 </div>
@@ -708,884 +651,868 @@ Para obtener información de otros usuarios, la aplicación consultará sus corr
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Git/Github</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">El software de control de versiones de este proyecto</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">El software de control de versiones de este proyecto es</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integracion continua</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicacion debe estar desplegada utilizando un sistema de integracion continua, la tecnologia elegida es libre.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Git/Github</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">El software de control de versiones de este proyecto</p>
+<p class="tableblock">=== Restricciones organizativas
+[options=""header", cols="1,5"]</p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>|Restriccion | Descripcion
+| Revisiones | Tendremos diversas presentaciones y revisiones del proyecto
+| Entrega final | Hay una fecha en la que debemos realizar la entrega final del proyecto
+| Presentacion | Tenemos que presentar el proyecto a un tribunal compuesto por los profesores de al asignatura para su valoracion
+| Equipo | El equipo cuenta con un maximo de 5 miembros
+| Reuniones continuas | El equipo esta obligado a realizar reuniones periodicas sobre el proyecto
+| Fechas límites | Respetar las fechas indicadas por el profesor para la entrega de los diferentes versiones de la apliación</p>
 </div>
-<div class="sect2">
-<h3 id="_restricciones_organizativas">2.2. Restricciones organizativas</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 83.3334%;">
+<col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Restriccion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Descripcion</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Revisiones</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tendremos diversas presentaciones y revisiones del proyecto, hasta la entrega final</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Equipo</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">El equipo cuenta con un maximo de 5 miembros</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Reuniones continuas</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">El equipo esta obligado a realizar reuniones periodicas sobre el proyecto</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Fechas límites</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Respetar las fechas indicadas por el profesor para la entrega de los diferentes versiones de la apliación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">=== Convenios
+[options=""header", cols="1,5"]</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect2">
-<h3 id="_convenios">2.3. Convenios</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 83.3334%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Convenciones</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Descripcion</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Arc42</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La plantilla que usaremos para la documentacion es el modelo Arc42</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Git-Flow</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Usamos el patron git-flow trabajando en la rama develop principalmente</p></td>
-</tr>
-</tbody>
-</table>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="section-system-scope-and-context">3. Alcance y contexto del sistema</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<div class="title">Objetivos</div>
-<p>Esta aplicacion va a consistir en una tienda online de venta de videojuegos fisicos, por lo tanto tendremos que manejar tanto datos de usuarios como los propios productos, envios etc.
-Sobre los datos de los usuarios debemos trabajar de acuerdo al principio SOLID, tendremos descentralizados los datos de los usuarios en PODs, cada usuario tendra su propio POD quedando almacenado de una forma mas segura.</p>
-</div>
-<div class="sect2">
-<h3 id="_contexto_empresarial">3.1. Contexto empresarial</h3>
-<div class="paragraph">
-<p>Veremos con este diagrama cual va a ser el contexto de la aplicacion y los PODs.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./images/Punto%203%20Diagrama%20de%20contexto%20empresarial.png" alt="Punto3:DCE"></span></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_contexto_tecnico">3.2. Contexto tecnico</h3>
-<div class="paragraph">
-<p>Nuestra tienda DeDe se debe adecuar a los principios SOLID de descentralizacion de datos personales mediante el almacenamiento de los mismos en PODs independientes para cada usuario.
-El front-end estara desarrollado mediante el framework React implementando componentes ya desarrolladas o bien creadas por nosotros mismos, ademas el lenguaje para el desarrollo del mismo sera en Typescript.
-Por la parte del back-end, nuestro SGDB es Mongo.db y mediante Node.js express realizaremos todas las transacciones a la base de datos, tanto para acceder o guardar en los PODs de los usuario como para el resto de datos de la tienda.
-La mayoria de peticiones se realizaran mediante el protocolo web HTTPS.</p>
-</div>
-<div class="paragraph">
-<p>Diagrama para ilustrar en el componentes estan afectado por cada tecnologia</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./images/Punto%203%20Diagrama%20tecnico.png" alt="Punto3:DT"></span></p>
-</div>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="section-solution-strategy">4. Estrategia de Solución</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_decisiones_técnicas">4.1. Decisiones Técnicas</h3>
-<div class="paragraph">
-<p>Para el desarrollo del proyecto se han tomado las siguientes decisiones:</p>
+<p>|Convenciones | Descripcion
+| Arc42 | La plantilla que usaremos para la documentacion es el modelo Arc42
+| Git-Flow | Usamos el patron git-flow trabajando en la rama develop principalmente</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 100%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Nombre de la tecnológia</th>
-<th class="tableblock halign-left valign-top">Objetivo</th>
-</tr>
-</thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&lt;&lt;
+<a id="section-system-scope-and-context"></a>
+== Alcance y contexto del sistema</p>
+<p class="tableblock">.Objetivos
+Esta aplicacion va a consistir en una tienda online de venta de videojuegos fisicos, por lo tanto tendremos que manejar tanto datos de usuarios como los propios productos, envios etc.
+Sobre los datos de los usuarios debemos trabajar de acuerdo al principio SOLID, tendremos descentralizados los datos de los usuarios en PODs, cada usuario tendra su propio POD realizando todas las gestiones con ellos mediante
+el provedor de PODs Inrupt.</p>
+<p class="tableblock">=== Contexto empresarial
+Veremos con este diagrama cual va a ser el contexto de la aplicacion y los PODs.</p>
+<p class="tableblock">:imagesdir: images/
+<span class="image"><img src="./images/Punto%203%20Diagrama%20de%20contexto%20empresarial.png" alt="Punto3:DCE"></span></p>
+<p class="tableblock">=== Contexto tecnico
+Nuestra tienda DeDe se debe adecuar a los principios SOLID de descentralizacion de datos personales mediante el almacenamiento de los mismos en PODs independientes para cada usuario, nuestro proovedor de PODs sera Inrupt.
+El front-end estara desarrollado mediante el framework React implementando componentes ya desarrolladas o bien creadas por nosotros mismos, ademas el lenguaje para el desarrollo de las diversas funcionalidades de las pantallas sera TypeScript.
+Por la parte del back-end, nuestro SGDB es Mongo.db y mediante Node.js express realizaremos todas las transacciones a la base de datos, en la misma almacenaremos los datos de los productos.
+La mayoria de peticiones se realizaran mediante el protocolo web HTTP.</p>
+<p class="tableblock">Diagrama para ilustrar en los componentes de la aplicacion que estan afectados por cada tecnologia</p>
+<p class="tableblock">:imagesdir: images/
+<span class="image"><img src="./images/Punto%203%20Diagrama%20tecnico.png" alt="Punto3:DT"></span></p>
+<p class="tableblock">&lt;&lt;&lt;&lt;
+<a id="section-solution-strategy"></a>
+== Estrategia de Solución</p>
+<p class="tableblock">=== Decisiones Técnicas
+Para el desarrollo del proyecto se han tomado las siguientes decisiones:
+[options="header"]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">===</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nombre de la tecnológia</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Objetivo</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TypeScript</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lenguaje principal del proyecto</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">React</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Biblioteca que facilitará el desarrollo de la interfaz gráfica</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MongoDB</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Base de datos que permitirá guardar los datos de los usuarios,centros de distribución y diferentes productos</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Github</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Herramienta de control de versiones que mejora el trabajo en equipo</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Docker</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Proyecto de código abierto que automatiza el despliegue de la apliación</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SOLID</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Especificación que permite a las personas almacenar sus datos de forma segura en almacenes de datos descentralizados llamados Pods.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Heroku</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Utilizaremos Heroku para desplegar nuestra aplicación, de este modo no habrá preocupación por la infraestructura.</p></td>
 </tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_decisiones_sobre_la_descomposición_de_alto_nivel_del_sistema">4.2. Decisiones sobre la descomposición de alto nivel del sistema</h3>
-<div class="paragraph">
-<p>Se ha decidido utilizar el patrón arquitectónico MVC para desarrollar la aplicación</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_decisiones_para_lograr_objetivos_de_calidad">4.3. Decisiones para lograr objetivos de calidad</h3>
-<div class="paragraph">
-<p>Para lograr cumplir con los diversos objetivos de calidad hemos realizado las siguientes acciones:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Privacidad:</strong> Para asegurar la mejor privacidad a los usuarios se usará los PODs de SOLID,los cuáles nos permitirá almacenar los datos de usuario en un formato interoperable, y brindar a los usuarios controles de autorización.</p>
-</li>
-<li>
-<p><strong>Usabilidad:</strong> Para mejorar este objetivo nuestras interfaces son lo más fluidas, simples e intuitivas posibles.</p>
-</li>
-<li>
-<p><strong>Eficiencia:</strong> Como el uso de los Pods de SOLID ralentiza la aplicación, se usarán lo menos posible por eso se combinarán estos PODs con MongoDB.</p>
-</li>
-<li>
-<p><strong>Testeabilidad:</strong> Se han realizado diferentes tipos de test para comprobar la robustez del proyecto.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_decisiones_para_la_organización">4.4. Decisiones para la organización</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Reuniones</strong>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">===
+=== Decisiones sobre la descomposición de alto nivel del sistema</p>
+<p class="tableblock">Se ha decidido utilizar el patrón arquitectónico MVC para desarrollar la aplicación</p>
+<p class="tableblock">=== Decisiones para lograr objetivos de calidad</p>
+<p class="tableblock">Para lograr cumplir con los diversos objetivos de calidad hemos realizado las siguientes acciones:</p>
+<p class="tableblock">* <strong>Privacidad:</strong> Para asegurar la mejor privacidad a los usuarios se usará los PODs de SOLID,los cuáles nos permitirá almacenar los datos de usuario en un formato interoperable, y brindar a los usuarios controles de autorización.
+* <strong>Usabilidad:</strong> Para mejorar este objetivo nuestras interfaces son lo más fluidas, simples e intuitivas posibles.
+* <strong>Eficiencia:</strong> Como el uso de los Pods de SOLID ralentiza la aplicación, se usarán lo menos posible por eso se combinarán estos PODs con MongoDB.
+* <strong>Testeabilidad:</strong> Se han realizado diferentes tipos de test para comprobar la robustez del proyecto.</p>
+<p class="tableblock">=== Decisiones para la organización
+* <strong>Reuniones</strong>
 Durante la semana se planificará una reunión presencial, en la que se expondrán los puntos que hay que realizar antes de la siguiente, además se tratarán los problemas u obstaculos encontrados, todo esto quedará reflejado a través de actas.
 Si surge algún problema durante la realización del proyecto se podrán planificar reuniones online a través de Discord.</p>
-</li>
-<li>
-<p><strong>Github</strong>
-Para poder realizar un buen control de versiones del proyecto se utilizará Github donde se crearán diferentes ramas:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Master: producto final.</p>
-</li>
-<li>
-<p>Develop: rama en la que se encuentra el producto en desarrollo.</p>
-</li>
-<li>
-<p>Nombre del miembro: dentro de develop cada miembro tiene una rama en la que pueden trabajar.</p>
-</li>
-<li>
-<p>Hotfix: rama para hacer cambios rápidos a la rama principal sin tener que pasar por otras de más bajo nivel.</p>
-</li>
-<li>
-<p>Backend: en esta rama se trabaja todo el código del Backend de manera conjunta.</p>
-</li>
-<li>
-<p>Nombre/documentacion: aquí cada miembro del equipo subirá las partes de la documentación que vaya desarrollando.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Si los miembros del equipo tienen problemas en el desarrollo deben de crear un issue para que éstos le puedan ayudar a solucionarlo.</p>
-</div>
-<div class="paragraph">
-<p>Los miembros del equipo deben de realizar pull request antes de mergear con otra rama.</p>
-</div>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="section-building-block-view">5. Vista de construccion</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><span class="image"><img src="./images/DiagramaPunto5.png" alt="vista general"></span></p>
-</div>
-<div class="sect2">
-<h3 id="_nivel_1_vista_general_del_sistema">5.1. Nivel 1: Vista general del sistema</h3>
-<div class="paragraph">
-<p><span class="image"><img src="./images/nivel1.png" alt="nivel1"></span></p>
-</div>
-<div class="paragraph">
-<div class="title">Motivacion</div>
-<p>En este diagrama podemos observar los principales agentes de la aplicacion, entraremos en detalle de los mismos mas adelante.
+<p class="tableblock">* <strong>Github</strong>
+Para poder realizar un buen control de versiones del proyecto se utilizará Github donde se crearán diferentes ramas:
+- Master: producto final.
+- Develop: rama en la que se encuentra el producto en desarrollo.
+- Nombre del miembro: dentro de develop cada miembro tiene una rama en la que pueden trabajar.
+- Hotfix: rama para hacer cambios rápidos a la rama principal sin tener que pasar por otras de más bajo nivel.
+- Backend: en esta rama se trabaja todo el código del Backend de manera conjunta.
+- Nombre/documentacion: aquí cada miembro del equipo subirá las partes de la documentación que vaya desarrollando.</p>
+<p class="tableblock">Si los miembros del equipo tienen problemas en el desarrollo deben de crear un issue para que éstos le puedan ayudar a solucionarlo.</p>
+<p class="tableblock">Los miembros del equipo deben de realizar pull request antes de mergear con otra rama.</p>
+<p class="tableblock">&lt;&lt;&lt;&lt;
+<a id="section-building-block-view"></a></p>
+<p class="tableblock">== Vista de construccion
+:imagesdir: images/
+<span class="image"><img src="./images/DiagramaPunto5.png" alt="vista general"></span></p>
+<p class="tableblock">=== Nivel 1: Vista general del sistema</p>
+<p class="tableblock">:imagesdir: images/
+<span class="image"><img src="./images/nivel1.png" alt="nivel1"></span></p>
+<p class="tableblock">.Motivacion
+En este diagrama podemos observar los principales agentes de la aplicacion, entraremos en detalle de los mismos mas adelante.
 La tienda DeDe ofrecera varios servicios al cliente algunos de los cuales implicaran manejar con datos convencionales (realizar un pedido, mostrar el catalogo de la tienda) o con los datos descentralziados de los clientes(PODs) como identificacion o registro.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Contenedores</caption>
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 83.3334%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Nombre</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Responsabilidad</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DeDe</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Es la aplicacion en si, esta contenida en ella todas las funcionalidades y servicios necesarios.</p></td>
+<p class="tableblock">.Contenedores
+[options=""header", cols="1,5"]</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect2">
-<h3 id="_nivel_2">5.2. Nivel 2</h3>
 <div class="paragraph">
-<p><span class="image"><img src="./images/nivel2.png" alt="nivel2"></span></p>
-</div>
-<div class="paragraph">
-<div class="title">Motivacion</div>
-<p>Mostrar las dos partes principales que componen la aplicacion DeDe</p>
+<p>| Nombre | Responsabilidad
+| DeDe | Es la aplicacion en si, esta contenida en ella todas las funcionalidades y servicios necesarios.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. Contenedores</caption>
 <colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 83.3334%;">
+<col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Nombre</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Responsabilidad</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Capa de servicio</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tambien conocida como front-end en ingles, es la interfaz de la aplicacion, la cara visible hacia el usuario.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Capa de datos</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tambien conocida como back-end en ingles, corresponde a las operaciones de tratamiento de datos de la aplicacion (registro, log-in).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">=== Nivel 2
+:imagesdir: images/
+<span class="image"><img src="./images/nivel2.png" alt="nivel2"></span></p>
+<p class="tableblock">.Motivacion
+Mostrar las dos partes principales que componen la aplicacion DeDe</p>
+<p class="tableblock">.Contenedores
+[options=""header", cols="1,5"]</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect2">
-<h3 id="_nivel_3">5.3. Nivel 3</h3>
 <div class="paragraph">
-<p><span class="image"><img src="./images/nivel3.png" alt="nivel3"></span></p>
-</div>
-<div class="paragraph">
-<div class="title">Motivacion</div>
-<p>Descomponer las dos partes principales vistas en el nivel anterior con detalle respecto a operaciones concretas de los usuarios y las acciones de acceso  datos que estas conllevan tanto a POD como a la BBDD.</p>
+<p>| Nombre | Responsabilidad
+| Capa de servicio | Tambien conocida como front-end en ingles, es la interfaz de la aplicacion, la cara visible hacia el usuario.
+| Capa de datos | Tambien conocida como back-end en ingles, corresponde a las operaciones de tratamiento de datos de la aplicacion (registro, log-in).</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Contenedores</caption>
 <colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 83.3334%;">
+<col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Nombre</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Responsabilidad</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vender</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Desde la tienda el administrador podra poner productos a la venta.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Catalogo</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mostrar el catalogo de productos a los usuarios</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ver perfil</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mostrar informacion del usuario segun su tipo (cliente o admin)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lista de pedidos</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mostrar los pedidos, tanto de ventas al Administrador como de compras al cliente</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Comprar</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Los clientes podran comprar juego</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">=== Nivel 3
+:imagesdir: images/
+<span class="image"><img src="./images/nivel3.png" alt="nivel3"></span></p>
+<p class="tableblock">.Motivacion
+Descomponer las dos partes principales vistas en el nivel anterior con detalle respecto a operaciones concretas de los usuarios y las acciones de acceso  datos que estas conllevan tanto a POD como a la BBDD.</p>
+<p class="tableblock">.Contenedores
+[options=""header", cols="1,5"]</p></td>
 </tr>
 </tbody>
 </table>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="section-runtime-view">6. Vista en tiempo de ejecución</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>Los siguientes casos de secuencias explican algunos de los escenarios que se pueden dar lugar en DeDe</p>
+<p>| Nombre | Responsabilidad
+| Vender | Desde la tienda el administrador podra poner productos a la venta.
+| Catalogo | Mostrar el catalogo de productos a los usuarios
+| Ver perfil | Mostrar informacion del usuario segun su tipo (cliente o admin)
+| Lista de pedidos | Mostrar los pedidos, tanto de ventas al Administrador como de compras al cliente
+| Comprar | Los clientes podran comprar juego</p>
 </div>
-<div class="sect2">
-<h3 id="_login_de_usuario">6.1. Login de Usuario</h3>
-<div class="imageblock">
-<div class="content">
-<img src="./images/Login_diagrama.png" alt="Login diagrama" width="642" height="392">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_registro_de_usuarios">6.2. Registro de usuarios</h3>
-<div class="imageblock">
-<div class="content">
-<img src="./images/Registro_diagrama.png" alt="Registro diagrama" width="443" height="361">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_añadir_un_producto_al_carro_usuario_identificado">6.3. Añadir un producto al carro usuario identificado</h3>
-<div class="imageblock">
-<div class="content">
-<img src="./images/AñadirCarro_diagrama.png" alt="AñadirCarro diagrama" width="509" height="313">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_compra_de_los_productos">6.4. Compra de los productos</h3>
-<div class="imageblock">
-<div class="content">
-<img src="./images/Compra_diagrama.png" alt="Compra diagrama" width="538" height="435">
-</div>
-</div>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="section-deployment-view">7. Vista de implementación</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_algunas_consideraciones">7.1. Algunas consideraciones</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Nuestra aplicación funcionará desde cualquier ordenador  a través del navegador. De esta forma los requisitos necesarios para ejecutarla
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&lt;&lt;
+<a id="section-runtime-view"></a>
+== Vista en tiempo de ejecución
+Los siguientes casos de secuencias explican algunos de los escenarios que se pueden dar lugar en DeDe</p>
+<p class="tableblock">=== Login de Usuario
+[plantuml,"Login_diagrama",png]
+----
+@startuml
+actor Usuario
+entity DeDe
+entity inrupt.net
+Usuario&#8594; DeDe: Petición de autenticación
+DeDe&#8594; inrupt.net: Comprobación de credenciales
+alt usuario existe</p>
+<p class="tableblock">    inrupt.net &#8594; DeDe:Devuelve al usuario
+    DeDe&#8594;Usuario:Redirección a página principal con usuario identificado</p>
+<p class="tableblock">else usuario ya existe
+    inrupt.net &#8594; DeDe: Mensaje de error
+end
+@enduml
+----
+=== Registro de usuarios
+[plantuml,"Registro_diagrama",png]
+----
+@startuml
+actor Usuario
+entity inrupt.net
+database POD
+Usuario&#8594; inrupt.net :Introducción de credenciales
+inrupt.net&#8594;POD:Compobaración del usuario
+alt usuario no existe</p>
+<p class="tableblock">    POD &#8594; inrupt.net: Usuario creado</p>
+<p class="tableblock">else usuario ya existe
+    POD &#8594; inrupt.net: Mensaje de error
+end
+@enduml
+----
+=== Añadir un producto al carro usuario identificado
+[plantuml,"AñadirCarro_diagrama",png]
+----
+@startuml
+actor Usuario
+entity DeDe
+database BBDD
+Usuario&#8594; DeDe: Selecciona un producto
+DeDe&#8594; BBDD: Peticion:añadir el producto al carro del usuario
+BBDD&#8594; DeDe:Petición aceptada
+DeDe&#8594;Usuario:Notificación del añadido
+@endtuml
+----
+=== Compra de los productos
+[plantuml,"Compra_diagrama",png]
+----
+@startuml
+actor Usuario
+entity DeDe
+database BBDD
+Usuario&#8594; DeDe:Compra de los productos
+DeDe&#8594; BBDD: Petición guardado productos al usuario
+BBDD&#8594; DeDe: Devuelve información necesaria
+DeDe&#8594; Usuario: Pedir datos necesarios para compra
+Usuario&#8594; DeDe:Introducción datos necesarios
+DeDe&#8594; BBDD: Comprobación datos
+BBDD&#8594; DeDe:  Devuelve información necesaria
+DeDe&#8594; Usuario: Notificación de la compra
+@endtuml
+----</p>
+<p class="tableblock">&lt;&lt;&lt;&lt;
+<a id="section-deployment-view"></a></p>
+<p class="tableblock">== Vista de implementación</p>
+<p class="tableblock">=== Algunas consideraciones</p>
+<p class="tableblock">* Nuestra aplicación funcionará desde cualquier ordenador  a través del navegador. De esta forma los requisitos necesarios para ejecutarla
 se ven reducidos, haciendo la aplicación más accesible para personas con equipos menos potentes.</p>
-</li>
-<li>
-<p>Se recomienda el uso de los navegadores clásicos, como son Google Chrome y Firefox. Otros navegadores como Safari, Edge  u Opera, también pueden ser utilizados aunque en determinadas
+<p class="tableblock">* Se recomienda el uso de los navegadores clásicos, como son Google Chrome y Firefox. Otros navegadores como Safari, Edge  u Opera, también pueden ser utilizados aunque en determinadas
 circustancias podrían dar algún tipo de problema debido a sus restricciones de seguridad.</p>
-</li>
-<li>
-<p>Es necesario  habilitar la ubicación en el navegador para que desde la tienda se acceda de manera más directa a la dirección donde se enviará el pedido del cliente y así poder calcular los gastos de envío asociados con mayor exactitud.</p>
-</li>
-<li>
-<p>Los datos del cliente siempre se mantendrán por separado en un POD, siguiendo los principios SOLID. De esta forma, dejamos claro que los datos de clientes y productos se encuentran
+<p class="tableblock">* Es necesario  habilitar la ubicación en el navegador para que desde la tienda se acceda de manera más directa a la dirección donde se enviará el pedido del cliente y así poder calcular los gastos de envío asociados con mayor exactitud.</p>
+<p class="tableblock">* Los datos del cliente siempre se mantendrán por separado en un POD, siguiendo los principios SOLID. De esta forma, dejamos claro que los datos de clientes y productos se encuentran
 separados y que no se tiene acceso a los datos de clientes.</p>
-</li>
-<li>
-<p>La aplicación se podrá visualizar también desde el navegador de un dispositivo móvil, para ello simplemente bastará con meter la dirección url donde se encuentre alojada la tienda. Se recomienda
+<p class="tableblock">* La aplicación se podrá visualizar también desde el navegador de un dispositivo móvil, para ello simplemente bastará con meter la dirección url donde se encuentre alojada la tienda. Se recomienda
 el uso de las aplicaciones de navegador móvil mencionadas anteriormente.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_infraestructura_técnica">7.2. Infraestructura técnica</h3>
-<div class="sect3">
-<h4 id="_despliegue">7.2.1. Despliegue</h4>
-<div class="paragraph">
-<p>A la hora de desplegar el proyecto se dan dos opciones, desplegarlo de manera local o mediante un servicio de hosting web.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
+<p class="tableblock">=== Infraestructura técnica
+==== Despliegue
+A la hora de desplegar el proyecto se dan dos opciones, desplegarlo de manera local o mediante un servicio de hosting web.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">===</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Tipo de hosting</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Características</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Local</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Se puede lanzar la aplicación mediante un servidor local en el propio ordenador, esto es una opción para los usuarios más técnicos con algun conocimiento previo.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">En servidor web</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Servicio que sirve para alojar la aplicación en un servidor remoto, pudiendo hacer accesible la aplicación para el resto de personas. Existen multitud de servicios de hosting que
 cuentan con soporte técnico.</p>
 <p class="tableblock">Se ha utilizado para el despliegue Heroku, de esta forma no es necesario preocuparse por la infraestructura, soportando además múltiples lenguajes de programación. Esto lo realiza mediante el uso de contenedores Linux llamados dynos.</p></td>
 </tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_motivación">7.3. Motivación</h3>
-<div class="paragraph">
-<p>Nuestra filosofía para desarrollar esta aplicación se basa en no utilizar para nada los datos de los usuarios, puesto que no tenemos ningún interes en estos. Creemos en el código abierto
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">===</p>
+<p class="tableblock">=== Motivación</p>
+<p class="tableblock">Nuestra filosofía para desarrollar esta aplicación se basa en no utilizar para nada los datos de los usuarios, puesto que no tenemos ningún interes en estos. Creemos en el código abierto
 y en los principios SOLID de desarrollo de software, donde cada usuario es el dueño de sus datos. La técnica utilizada durante el desarrollo es ponerse desde la vista de usuario  haciendo la aplicación
 lo más accesible posible.</p>
-</div>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="section-concepts">8. Conceptos transversales</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_conceptos_de_dominio">8.1. Conceptos de dominio</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Rol</th>
-<th class="tableblock halign-left valign-top">Explicación</th>
+<p class="tableblock">&lt;&lt;&lt;&lt;
+<a id="section-concepts"></a>
+== Conceptos transversales</p>
+<p class="tableblock">=== Conceptos de dominio
+[options="header",cols="1,2"]</p></td>
 </tr>
-</thead>
-<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">===</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rol</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Explicación</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Usuario</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Representa un usuario de la aplicación, toda su información se guardará en un POD.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Posición actual del usuario</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">El objetivo es que se conozca la posición actual para,  en el caso de enviar un pedido, se pueda calcular el coste de envio.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Productos</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lista de productos disponibles con toda la información relevante.</p></td>
 </tr>
-</tbody>
-</table>
-<div class="sect3">
-<h4 id="_conceptos_de_experiencia_de_usuario">8.1.1. Conceptos de experiencia de usuario</h4>
-<div class="paragraph">
-<p>La aplicación está desarrollada para que el usuario pueda interaccionar con ella de manera sencilla, no es necesario que tenga conocimientos previos, pero como es lógico
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">===</p>
+<p class="tableblock">==== Conceptos de experiencia de usuario</p>
+<p class="tableblock">La aplicación está desarrollada para que el usuario pueda interaccionar con ella de manera sencilla, no es necesario que tenga conocimientos previos, pero como es lógico
 si ya se encuentra familiarizado con plataformas de compra electrónica como Steam u Origin, siempre le será más sencillo.</p>
-</div>
-<div class="paragraph">
-<p>El usuario podrá identificarse haciendo clic en la parte derecha del panel introduciendo su POD, o bien acceder a crear un POD en la página de SOLID, se le pone a disposición el enlace al usuario.
+<p class="tableblock">El usuario podrá identificarse haciendo clic en la parte derecha del panel introduciendo su POD, o bien acceder a crear un POD en la página de SOLID, se le pone a disposición el enlace al usuario.
 La única forma de compra y acceso a la aplicación es la de usuario registrado en un POD, nos tomamos muy enserio la privacidad y creemos que esta es la mejor manera de interacción con nuestro sistema.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_conceptos_de_seguridad_y_protección">8.1.2. Conceptos de seguridad y protección</h4>
-<div class="paragraph">
-<p>En líneas generales, nuestra aplicación es segura. Hemos utilizado los principios SOLID, esto es que los datos de los usuarios serán almacenados de forma segura en almacenes de datos llamados PODS.
+<p class="tableblock">==== Conceptos de seguridad y protección</p>
+<p class="tableblock">En líneas generales, nuestra aplicación es segura. Hemos utilizado los principios SOLID, esto es que los datos de los usuarios serán almacenados de forma segura en almacenes de datos llamados PODS.
 Los PODS (Personal online data stores) pueden contener cualquier tipo de información, en nuestro caso contiene email que será el usuario, password, nombre, apellido, teléfono, país, provincia, ciudad, código postal, calle, número, piso y letra del piso.
 El acceso a los datos de los PODS se puede restringir y controlar de manera segura, eligiendo las reglas de acceso determinadas.</p>
-</div>
-<div class="paragraph">
-<p>Se ha prestado especial atención en fortificar la base de datos, ya que muchos de los ataques conocidos se centran en esta parte de las aplicaciones, separando los PODS de usuarios de la propia base de datos
+<p class="tableblock">Se ha prestado especial atención en fortificar la base de datos, ya que muchos de los ataques conocidos se centran en esta parte de las aplicaciones, separando los PODS de usuarios de la propia base de datos
 de la aplicación.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_arquitectura_y_patrones_de_diseño">8.1.3. Arquitectura y patrones de diseño</h4>
-<div class="paragraph">
-<p>Una de las decisones más importantes a la hora de desarrollar una aplicación es pensar en el diseño, uno de los referentes que hemos tenido en cuenta es el libro de Erich Gamma, <em>Design Patterns</em>. En esta
+<p class="tableblock">==== Arquitectura y patrones de diseño</p>
+<p class="tableblock">Una de las decisones más importantes a la hora de desarrollar una aplicación es pensar en el diseño, uno de los referentes que hemos tenido en cuenta es el libro de Erich Gamma, <em>Design Patterns</em>. En esta
 obra se explican algunos de los principios más populares para el desarrollo de software mantenible y de calidad. Además tambien hemos consultado multitud de artículos donde se explican tecnicas
 para un buen desarrollo y un bajo acoplamientro, con esto hemos decidido aplicar varias cosas:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Modularidad: esto es que la aplicación se encuentra compuesta por varios componentes, que juntandose hacen una aplicación funcional. Si uno de los componentes cambia, el resto no se verá afectado.</p>
-</li>
-<li>
-<p>Fachada: haciendo referencia al patrón de diseño arquitectónico, hacemos la separación e interacción necesaria con SOLID para que todo funcione y se mantenga un minimo acoplamiento.</p>
-</li>
-<li>
-<p>MVC (Modelo vista controlador): para poder gestionar las vistas en el frontend con las peticiones en el backend.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_bajo_el_capó_conceptos_de_desarrollo">8.1.4. "<em>Bajo el capó</em>" conceptos de desarrollo</h4>
-<div class="paragraph">
-<p>La aplicación cuenta con un frontend y un backend perfectamente comunicados. La parte del frontend es la que ve el usuario y a la que tendrá acceso, aquí se incluyen todos los menus, botones y vistas de la aplicación.</p>
-</div>
-<div class="paragraph">
-<p>Tanto la lógica de la aplicación como la base de datos forman parte del backend, el frontend hará peticiones al backend y todo esta sincronizado para que así ocurra.
+<p class="tableblock">* Modularidad: esto es que la aplicación se encuentra compuesta por varios componentes, que juntandose hacen una aplicación funcional. Si uno de los componentes cambia, el resto no se verá afectado.</p>
+<p class="tableblock">* Fachada: haciendo referencia al patrón de diseño arquitectónico, hacemos la separación e interacción necesaria con SOLID para que todo funcione y se mantenga un minimo acoplamiento.</p>
+<p class="tableblock">* MVC (Modelo vista controlador): para poder gestionar las vistas en el frontend con las peticiones en el backend.</p>
+<p class="tableblock">==== "<em>Bajo el capó</em>" conceptos de desarrollo</p>
+<p class="tableblock">La aplicación cuenta con un frontend y un backend perfectamente comunicados. La parte del frontend es la que ve el usuario y a la que tendrá acceso, aquí se incluyen todos los menus, botones y vistas de la aplicación.</p>
+<p class="tableblock">Tanto la lógica de la aplicación como la base de datos forman parte del backend, el frontend hará peticiones al backend y todo esta sincronizado para que así ocurra.
 Como ya se menciono anteriormente, los datos de usuario son guardados en un POD, separandose de la base de datos de productos de la aplicación para seguir los principios SOLID y aumentar la seguridad.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_conceptos_operativos">8.1.5. Conceptos operativos</h4>
-<div class="paragraph">
-<p>Las operaciones básicas que se pueden realizar desde la aplicación desde el rol de usuario son:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Autenticación de usuario: Hace referencia a identificarse en la aplicación como usuario registrado mediante su POD.</p>
-</li>
-<li>
-<p>Compra de producto: El usuario podrá adquirir los productos que considere, como si se tratase de un comercio fisico.</p>
-</li>
-<li>
-<p>Operaciones en carrito: Hace referencia a operaciones de añadir o eliminar productos dentro del carrito.</p>
-</li>
-<li>
-<p>Filtrar por categorias: Una función que consiste en que el usuario pueda ver de manera más concreta determinado tipo de productos.</p>
-</li>
-<li>
-<p>Filtrar por nombre: Una función que consiste en que el usuario pueda buscar un producto por su nombre.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>En el siguiente diagrama se puede apreciar de forma gráfica las operaciones que puede realizar el usuario explicadas anteriormente:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="./images/conceptos%20operativos.png" alt="conceptos operativos" width="319" height="360">
-</div>
-</div>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="section-design-decisions">9. Decisiones de diseño</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>En este documento se recogerán de manera continuada las distintas decisiones de diseño que se vayan tomando en el desarrollo del proyecto.
+<p class="tableblock">==== Conceptos operativos</p>
+<p class="tableblock">Las operaciones básicas que se pueden realizar desde la aplicación desde el rol de usuario son:</p>
+<p class="tableblock">* Autenticación de usuario: Hace referencia a identificarse en la aplicación como usuario registrado mediante su POD.</p>
+<p class="tableblock">* Compra de producto: El usuario podrá adquirir los productos que considere, como si se tratase de un comercio fisico.</p>
+<p class="tableblock">* Operaciones en carrito: Hace referencia a operaciones de añadir o eliminar productos dentro del carrito.</p>
+<p class="tableblock">* Filtrar por categorias: Una función que consiste en que el usuario pueda ver de manera más concreta determinado tipo de productos.</p>
+<p class="tableblock">* Filtrar por nombre: Una función que consiste en que el usuario pueda buscar un producto por su nombre.</p>
+<p class="tableblock">En el siguiente diagrama se puede apreciar de forma gráfica las operaciones que puede realizar el usuario explicadas anteriormente:
+[plantuml, "conceptos operativos",png]
+----
+left to right direction
+usuario as ac1</p>
+<p class="tableblock">(Autenticación de usuario) as (a)
+(Compra de producto) as (c)
+(Operaciones en carrito) as (o)
+(Filtrar por categorias) as (f)
+(Filtrar por nombre) as (n)</p>
+<p class="tableblock">ac1 -&#8594; a
+ac1 -&#8594; c
+ac1 -&#8594; o
+ac1 -&#8594; f
+ac1 -&#8594; n
+----</p>
+<p class="tableblock">&lt;&lt;&lt;&lt;
+<a id="section-design-decisions"></a>
+== Decisiones de diseño
+[options="header",cols="1,1,1,1,1"]</p>
+<p class="tableblock">En este documento se recogerán de manera continuada las distintas decisiones de diseño que se vayan tomando en el desarrollo del proyecto.
 Se recoge a modo de tabla formada por cuatro columnas:</p>
-</div>
-<div class="paragraph">
-<p>-<strong>Sección</strong>: Se explicará a la sección que pertenece la decisión. P.e: Base de datos.</p>
-</div>
-<div class="paragraph">
-<p>-<strong>Decisión</strong>: La decisión tomada respecto a la sección. P.e: Para la sección Base de datos, la decisión es utilizar MongoDB.</p>
-</div>
-<div class="paragraph">
-<p>-<strong>Ventajas</strong>: Refleja las ventajas de utilizar la tecnología reflejada en decisión.</p>
-</div>
-<div class="paragraph">
-<p>-<strong>Inconvenientes</strong>: Dificultades tanto de miembros del equipo como de la propia tecnología.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<tbody>
+<p class="tableblock">-<strong>Sección</strong>: Se explicará a la sección que pertenece la decisión. P.e: Base de datos.</p>
+<p class="tableblock">-<strong>Decisión</strong>: La decisión tomada respecto a la sección. P.e: Para la sección Base de datos, la decisión es utilizar MongoDB.</p>
+<p class="tableblock">-<strong>Ventajas</strong>: Refleja las ventajas de utilizar la tecnología reflejada en decisión.</p>
+<p class="tableblock">-<strong>Inconvenientes</strong>: Dificultades tanto de miembros del equipo como de la propia tecnología.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">===</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Orden</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sección</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Decisión</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ventajas</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Inconvenientes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Base de datos</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Utilizar MongoDB como base de datos para almacenar la información de la tienda</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Versatilidad NoSQL, buena implementación con TypeScript</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ningún miembro del equipo lo ha utilizado antes, pueden surgir problemas técnicos</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lenguaje de programación</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Utilizar TypeScript como lenguaje principal en el desarrollo de la aplicación</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Escalabilidad del código, fácil testeo</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Desconocimiento técnico sobre el lenguaje</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Librerias</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Utilizar React para las interfaces de usuario</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Es de código abierto, mucha documentación en la web</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No cuenta con documentación oficial ni con estandar de desarrollo.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Despliegue</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Utilizar Heroku para el despliegue</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No hay que preocuparse por la infraestructura, soporte de muchos lenguajes de programación</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Desconocimiento técnico, nadie del grupo lo ha utilizado nunca.</p></td>
 </tr>
-</tbody>
-</table>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="section-quality-scenarios">10. Requerimientos de calidad</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_árbol_de_calidad">10.1. Árbol de calidad</h3>
-<div class="imageblock">
-<div class="content">
-<img src="./images/Quality%20tree.png" alt="Quality tree" width="311" height="382">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_escenarios_de_calidad">10.2. Escenarios de calidad</h3>
-<div class="paragraph">
-<p>Tabla con nuestros objetivos de calidad, los escenarios y las prioridades:</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 14.2857%;">
-<col style="width: 28.5714%;">
-<col style="width: 28.5714%;">
-<col style="width: 28.5715%;">
-</colgroup>
-<thead>
 <tr>
-<th class="tableblock halign-left valign-top">Objetivos de calidad</th>
-<th class="tableblock halign-left valign-top">Escenarios</th>
-<th class="tableblock halign-left valign-top">Prioridad</th>
-<th class="tableblock halign-left valign-top">Dificultad</th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">===</p>
+<p class="tableblock">&lt;&lt;&lt;&lt;
+<a id="section-quality-scenarios"></a>
+== Requerimientos de calidad</p>
+<p class="tableblock">=== Árbol de calidad
+[plantuml, "Quality tree",png]
+----
+left to right direction</p>
+<p class="tableblock">(Calidad) as (Q)
+(Usabilidad) as (U)
+(Privacidad) as (Pr)
+(Seguridad) as (S)
+(Portabilidad) as (Po)
+(Testeabilidad) as (T)
+(Modificabilidad) as (M)</p>
+<p class="tableblock">Q -&#8594; U
+Q -&#8594; Po
+Q -&#8594; T
+Q -&#8594; S
+Q -&#8594; M
+Q -&#8594; Pr
+----</p>
+<p class="tableblock">=== Escenarios de calidad</p>
+<p class="tableblock">Tabla con nuestros objetivos de calidad, los escenarios y las prioridades:</p>
+<p class="tableblock">[options="header",cols="1,2,2,2"]</p></td>
 </tr>
-</thead>
-<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">===</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Objetivos de calidad</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Escenarios</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prioridad</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dificultad</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Usabilidad</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación debería de poder ser usada por cualquier tipo de usuario independientemente de su nivel.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alta</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alta</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Privacidad</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">La gestión de información es descentralizada. El usuario no se debe de preocupar acerca de sus datos ya que solo se le pedirá la necesaria.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alta</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Media</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Seguridad</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación debe de ser extremadamente segura para que nada referido a la información personal de los usarios pueda ser filtrada.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alta</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alta</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Portabilidad</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Que la aplicación pueda adaptarse de forma correcta a distintos dispositivos.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Media</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Media</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Testeabilidad</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Que la aplicación haya sido probada y se sepa de forma segura que no va a romper por ningún sitio.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alta</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Media</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Modificabilidad</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">En caso de tener que añadir algún mejora no nos debería de llaver tiempo (más que su implementación)</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Baja</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alta</p></td>
 </tr>
-</tbody>
-</table>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="section-technical-risks">11. Riesgos y Deudas Técnicas</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_tabla_de_riesgos">11.1. Tabla de riesgos</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
 <tr>
-<th class="tableblock halign-left valign-top">Prioridad</th>
-<th class="tableblock halign-left valign-top">Riesgo</th>
-<th class="tableblock halign-left valign-top">Explicación</th>
-<th class="tableblock halign-left valign-top">Solución</th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">===</p>
+<p class="tableblock">&lt;&lt;&lt;&lt;
+<a id="section-technical-risks"></a>
+== Riesgos y Deudas Técnicas</p>
+<p class="tableblock">=== Tabla de riesgos
+[options="header",cols="1,1,1,1"]</p></td>
 </tr>
-</thead>
-<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">=========================================================</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prioridad</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Riesgo</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Explicación</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Solución</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SOLID</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Nadie del equipo ha utilizado alguna vez SOLID, por lo que todos carecemos de conocimiento sobre este framework.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Leer más artículos relacionados con este tema o verse alguna guía.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">React</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Nadie tiene experiencia con REACT, aunque todos los miembros del equipo ya conocen JavaScript</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Adaptar el conocimiento de JavaScript a TypeScript.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Docker</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No nos hemos centrado todavía en esto (más haya de su instalación), sin embargo también carecemos de conocimiento de como se usa.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Comprender como funciona aunque sea de forma básica.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MongoDB</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Nunca hemos trabajado con esta base de datos en concreto pero todos los miembros ya han utilizado una no relacional.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Comprender su funcionamiento mirando documentación al respecto</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GitHub</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Aunque todo el equipo trabaja bien con GitHub falta soltura a la hora de realizar ciertas acciones.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Esto no supone un gran inconveniente, se resolverá a medida que nos vayan saliendo los problemas.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Heroku</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Nunca nadie del equipo ha realizado ningún despliegue con Heroku.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Los miembros del equipo se apoyarán en la documentación oficial donde se encuentra explicado..</p></td>
 </tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_tabla_deuda_técnica">11.2. Tabla deuda técnica</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
 <tr>
-<th class="tableblock halign-left valign-top">Riesgo</th>
-<th class="tableblock halign-left valign-top">Explicación</th>
-<th class="tableblock halign-left valign-top">Solución</th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">=========================================================
+=== Tabla deuda técnica
+[options="header",cols="1,1,1"]</p></td>
 </tr>
-</thead>
-<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">=========================================================</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Riesgo</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Explicación</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Solución</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Conflictos en gitHub</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A la hora de mergear puede dar fallos</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Hacer una reunión para solucionarlo</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Robustez</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Al tener poca experencia en trabajar en este tipo de proyectos en grupo puede darse la situación de que el código no quede robusto</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Tener mucha comunicación</p></td>
 </tr>
-</tbody>
-</table>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="section-glossary">12. Glosario</h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
 <tr>
-<th class="tableblock halign-left valign-top">Termino</th>
-<th class="tableblock halign-left valign-top">Definición</th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">=========================================================</p>
+<p class="tableblock">&lt;&lt;&lt;&lt;
+<a id="section-glossary"></a>
+== Glosario</p>
+<p class="tableblock">[options="header",cols="1,1"]</p></td>
 </tr>
-</thead>
-<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">===</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Termino</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Definición</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Discord</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Servicio de mensajería instantánea freeware de chat de voz VolP, video y chat por texto</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SOLID</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Proyecto desarrollado por Tim Berners-Lee que busca descentralizar los datos de los usuarios del resto de datos de la aplicacion almacenandolos en POD</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Almacenamiento personal de datos alojado en un servidor elegido por el usuario.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Github</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Plataforma de desarrollo colaborativo para alojar proyectos utilizando el sistema de versiones Git.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MongoDB</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sistema de base de datos NoSQL, orientado a documentos y de código abierto</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Docker</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">REACT</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Biblioteca Javascript de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Whitebox</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">En diagramas, un componente que nos muestra los componentes que tiene en su interior.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Blackbox</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">En digaramas, un componente opaco que no nos permite ver las partes que tiene en el interior.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inrupt</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Empresa colaboradora con el proyecto SOLID de Tim Berners-Lee ofrece un servicio de provedor de PODs, su url es Inrupt.net</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Material-UI</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Libreria de componentes para React con multiples estilos.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Protocolo de transferencia de hipertexto, es el protocolo usado para las comunicaciones entre maquinas en la web</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Videojuego</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Juego electrónico que se visualiza en una pantalla de un televisor, ordenador o otro dispositivo electronico</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Heroku</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Es un Paas(Platform as a Service) que nos permite desplegar nuestras aplicaciones sin preocupaciones por la infraestructura.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">===</p>
+<p class="tableblock">&lt;&lt;&lt;&lt;
+:homepage: <a href="http://arc42.org" class="bare">http://arc42.org</a></p>
+<p class="tableblock">:keywords: software-architecture, documentation, template, arc42</p>
+<p class="tableblock">:numbered!:
+<strong>About arc42</strong></p>
+<p class="tableblock">[role="lead"]
+arc42, the Template for documentation of
+software and system architecture.</p>
+<p class="tableblock">By Dr. Gernot Starke, Dr. Peter Hruschka and contributors.</p>
+<p class="tableblock">Template Revision: 7.0 EN (based on asciidoc), January 2017</p>
+<p class="tableblock">&#169;
+We acknowledge that this document uses material from the
+arc 42 architecture template, <a href="http://www.arc42.de" class="bare">http://www.arc42.de</a>.
+Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p></td>
 </tr>
 </tbody>
 </table>
-<div style="page-break-after: always;"></div>
-<div class="paragraph">
-<p><strong>About arc42</strong></p>
-</div>
-<div class="paragraph lead">
-<p>arc42, the Template for documentation of
-software and system architecture.</p>
-</div>
-<div class="paragraph">
-<p>By Dr. Gernot Starke, Dr. Peter Hruschka and contributors.</p>
-</div>
-<div class="paragraph">
-<p>Template Revision: 7.0 EN (based on asciidoc), January 2017</p>
-</div>
-<div class="paragraph">
-<p>&#169;
-We acknowledge that this document uses material from the
-arc 42 architecture template, <a href="http://www.arc42.de" class="bare">http://www.arc42.de</a>.
-Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
 </div>
 </div>
 </div>
