@@ -24,7 +24,7 @@ const useStyle = makeStyles({
         width: 400,
         display: "grid",
         font: "400 1em Tahoma,sans-serif",
-        backgroundColor:"#FFFF",
+        backgroundColor:"#FFFFFF",
         borderRadius: 30,
         padding: "16px 32px 24px",
         top: "50%",
@@ -33,8 +33,9 @@ const useStyle = makeStyles({
         textAlign: "center",
         button: "center"
     },
-    boton1: {
-        background: "linear-gradient(45deg, #19275a 30%, #cc90ff 90%)"
+    boton: {
+        background: "linear-gradient(45deg, #19275a 30%, #cc90ff 90%)",
+        color: "white"
     }
 });
 
@@ -74,7 +75,7 @@ const FormularioPago = () => {
                 <h2>Tarjeta valida, haga click para aceptar el pago</h2>
                 <img src="https://orxcosmeticos.com/wp-content/uploads/2018/09/pago-seguro.jpg" width={300}/>
                 <Grid>
-                    <Button to='/Perfil' component={Link} color="primary" variant="contained">Aceptar</Button> 
+                    <Button to='/Perfil' component={Link}  className={classes.boton} variant="contained">Aceptar</Button> 
                 </Grid>
             </div>
         </div>
@@ -219,7 +220,7 @@ const FormularioPago = () => {
                 InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
             </div>
             <div style={{height: 20}}/>
-            <Button onClick={()=>validacionTodosLosCampos()} className={classes.boton1} variant="contained">Pagar</Button> 
+            <Button onClick={()=>validacionTodosLosCampos()} className={classes.boton} variant="contained">Pagar</Button> 
             </div>
         </Grid>
     </div>
