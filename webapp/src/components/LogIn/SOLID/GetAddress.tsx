@@ -23,7 +23,6 @@ import React, {ChangeEvent, useEffect} from "react";
   }
 //function GetAddress(props: any): JSX.Element 
   type ReviewType = {
-    setPrecio: (precio: number)=> void;
     webID: string;
 
   }

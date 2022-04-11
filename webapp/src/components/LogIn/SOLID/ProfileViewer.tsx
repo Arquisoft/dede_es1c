@@ -13,9 +13,6 @@ const ProfileViewer = () =>{
   const { session } = useSession();
   const [addr, setAddr] = React.useState("");
 
-  let person = FOAF.birthday;
-
-
   return (
     <Container fixed>
       {session.info.webId ? (
@@ -31,7 +28,7 @@ const ProfileViewer = () =>{
               <Text property={VCARD.note.iri.value}/>
             </Typography>
             <Typography gutterBottom variant="h5" component="h2"> 
-              <Text property={VCARD.bday.iriAsString}/>
+              <GetAddress webID={session.info.webId}/>
             </Typography>
           </CardContent>
         </Card>
