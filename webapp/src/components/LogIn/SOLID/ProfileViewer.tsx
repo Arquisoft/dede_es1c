@@ -13,6 +13,7 @@ const ProfileViewer = () =>{
   const { session } = useSession();
   const [addr, setAddr] = React.useState("");
 
+  let person = FOAF.birthday;
 
 
   return (
@@ -27,8 +28,10 @@ const ProfileViewer = () =>{
               <Text property={FOAF.name.iri.value} />
             </Typography>
              <Typography gutterBottom variant="h5" component="h2"> 
-              
-
+              <Text property={VCARD.note.iri.value}/>
+            </Typography>
+            <Typography gutterBottom variant="h5" component="h2"> 
+              <Text property={VCARD.bday.iriAsString}/>
             </Typography>
           </CardContent>
         </Card>

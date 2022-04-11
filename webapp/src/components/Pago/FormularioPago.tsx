@@ -86,7 +86,7 @@ const FormularioPago = () => {
             <div> 
                 <img src="https://static.thenounproject.com/png/2052102-200.png" width={150}/>
                 <h2>Tarjeta invalida, compruebe los campos</h2>
-                <img src="https://senordescuento.com/wp-content/uploads/2019/06/tarjetas-credito-logos.png" width={200}/>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4lwno3aI3X7AI69K7hpbouaKq55IDSzbwPbG_UMFn_hVwNtYR81xJn0sLuiqG2H75g&usqp=CAU" width={200}/>
             </div>
         </div>
     )
@@ -171,7 +171,7 @@ const FormularioPago = () => {
                 <img src="https://cdn.pixabay.com/photo/2020/07/05/17/32/credit-card-5373806_960_720.png" width={200}/>    
             </Grid>
             <Grid container justify="center">
-                <img src="https://senordescuento.com/wp-content/uploads/2019/06/tarjetas-credito-logos.png" width={200}/>    
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4lwno3aI3X7AI69K7hpbouaKq55IDSzbwPbG_UMFn_hVwNtYR81xJn0sLuiqG2H75g&usqp=CAU" width={200}/>    
             </Grid>
             <TextField 
                 id="nombre" 
