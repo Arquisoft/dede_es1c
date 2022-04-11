@@ -25,7 +25,7 @@ const ProfileViewer = () =>{
         <Card style={{ maxWidth: 480 }}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              <Text property={FOAF.name.iri.value} />
+              <Text property={VCARD.fn.iriAsString} />
             </Typography>
              <Typography gutterBottom variant="h5" component="h2"> 
               <Text property={VCARD.note.iri.value}/>
