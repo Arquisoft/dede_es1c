@@ -1,12 +1,9 @@
 import { useSession, CombinedDataProvider, LogoutButton, Text  } from "@inrupt/solid-ui-react";
 import { Button, Card, CardContent, Container, Typography } from "@material-ui/core";
-import { FOAF, VCARD } from "@inrupt/lit-generated-vocab-common";
-import {getSolidDataset, getStringNoLocale, getThing, getUrl, Thing} from "@inrupt/solid-client";
+import { VCARD } from "@inrupt/lit-generated-vocab-common";
 import Box from "@mui/material/Box";
 import React, {useEffect} from "react";
 import GetAddress from "./GetAddress";
-
-import { ChangeEvent } from 'react';
 
 
 const ProfileViewer = () =>{
