@@ -50,11 +50,11 @@ async function retrievePODAddress(webID: string): Promise<string> {
   let profile = getThing(myDataSet, webID)
   let urlAddress = getUrl(profile as Thing, VCARD.hasAddress) as string
   let addressProfile = await getThing(myDataSet, urlAddress)
-  let ret= getStringNoLocale(addressProfile as Thing, VCARD.country_name) as string+" "+
-  getStringNoLocale(addressProfile as Thing, VCARD.region) as string+" "+
-  getStringNoLocale(addressProfile as Thing, VCARD.locality) as string+" "+
+  let ret= getStringNoLocale(addressProfile as Thing, VCARD.street_address) as string+" "+
   getStringNoLocale(addressProfile as Thing, VCARD.postal_code) as string+" "+
-  getStringNoLocale(addressProfile as Thing, VCARD.street_address) as string;
+  getStringNoLocale(addressProfile as Thing, VCARD.locality) as string+" "+
+  getStringNoLocale(addressProfile as Thing, VCARD.region) as string+" "+
+  getStringNoLocale(addressProfile as Thing, VCARD.country_name) as string;
   return ret
 }
 
