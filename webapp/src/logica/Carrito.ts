@@ -5,8 +5,8 @@ export function getCoordenadas(address: string) {
   return axios
     .get(
       "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
-      "Calle Dr. Francisco Grande-Covián, 33011 Oviedo, Asturias, España" +
-        ".json?access_token=" + process.env.KEY
+      address +
+        ".json?access_token=" + process.env.API_KEY
     )
     .then((response: any) => {
       return response.data;
@@ -29,7 +29,6 @@ export const getCoordenadasDeAddress = async (address: string) => {
 
 export const getDist = async (coord: number) => {
   const almacen: number = 43.35513026876176 -(-5.851290035687373);
-  //MAL
   var dist = Math.sqrt( Math.pow((almacen), 2) + Math.pow((coord), 2));
   return dist;
 }
