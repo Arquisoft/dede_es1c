@@ -7,8 +7,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { calcularTotal } from "../../logica/Carrito";
 import { Link } from "react-router-dom";
 import { ProductCart } from "../../shared/shareddtypes";
-import { Product } from "../../../../restapi/src/products/productModel";
-
+import { useSession } from "@inrupt/solid-ui-react";
 
 const useStyle = makeStyles({
 
@@ -129,7 +128,7 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
   const calculateProductTotal = (items: ProductCart[]) =>
   items.reduce((ack: number, item) => ack + item.amount * Number(item.price), 0);
 
-
+  const { session } = useSession();
   const classes = useStyle();
   const vacio =props.length
     return (
@@ -194,14 +193,20 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
               <Typography variant="h6" gutterBottom >
                       Precio de los productos: {calculateProductTotal(props)} €
                        </Typography>
+                       {session.info.isLoggedIn ? (
                        <Typography variant="h6" gutterBottom >
                       Precio de envio 
-                       </Typography>
+                       </Typography>):(
+                              <Typography variant="h6" gutterBottom >
+                              Debes logearte para ver el precio de envio
+                               </Typography>)}
                        <Typography variant="h5" gutterBottom >
                       Total
                        </Typography>
-    
-                       <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>
+                       {session.info.isLoggedIn ? (
+                       <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>):(
+                      <Button to='/LogIn' component={Link} className={classes.btncomprar} variant="contained">LogIn</Button>)
+                       }
 
             </Container> 
       )}  })()}

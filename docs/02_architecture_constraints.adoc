@@ -9,7 +9,7 @@
 | React  |  Debemos usar el framework React para desarrollo del front-end de la aplicacion
 | Typescript | Es el lenguaje de programacion principal de la aplicacion
 | SOLID | Debemos seguir el principio SOLID de descentralizacion de los datos de los clientes
-|Node.js | Entorno para la manejar la comunicacion entre el back-end y el front-end de la aplicacion 
+|Node.js | Entorno para la manejar la comunicacion entre el back-end y el front-end de la aplicacion
 | Git/Github | El software de control de versiones de este proyecto
 |====
 

@@ -11,11 +11,11 @@ import {
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect} from 'react';
-import { Product } from "../../../../restapi/src/products/productModel";
+import { Product } from "../../shared/shareddtypes";
 import { getProducto } from "../../api/api";
 import { ProductCart } from "../../shared/shareddtypes";
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+
+import { Link } from "react-router-dom";
 /**const product = {
   id: 1,
   product_name: "Elden",
@@ -219,7 +219,7 @@ const Producto : React.FC<Props> = ({ cartItems,  handleAddToCart }) => {
                   {producto.price}€
                 </Typography>
               </div>
-              <Button className={classes.btncomprar} variant="contained"   >
+              <Button  className={classes.btncomprar}    variant="contained" onClick={() => handleAddToCart(producto)} to="/Carrito" component={Link} >
                 Comprar
               </Button>
             </div>

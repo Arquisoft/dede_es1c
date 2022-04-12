@@ -16,5 +16,6 @@ Se recoge a modo de tabla formada por cuatro columnas:
 |Orden |Sección |Decisión| Ventajas| Inconvenientes
 |1|Base de datos| Utilizar MongoDB como base de datos para almacenar la información de la tienda| Versatilidad NoSQL, buena implementación con TypeScript|Ningún miembro del equipo lo ha utilizado antes, pueden surgir problemas técnicos
 |2|Lenguaje de programación|Utilizar TypeScript como lenguaje principal en el desarrollo de la aplicación|Escalabilidad del código, fácil testeo|Desconocimiento técnico sobre el lenguaje
-|3|Librerias|Utilizar React para las interfaces de usuario|Es de código abierto, mucha documentación en la web|No cuenta con documentación oficial ni con estandar de desarrollo
+|3|Librerias|Utilizar React para las interfaces de usuario|Es de código abierto, mucha documentación en la web|No cuenta con documentación oficial ni con estandar de desarrollo.
+|4|Despliegue|Utilizar Heroku para el despliegue|No hay que preocuparse por la infraestructura, soporte de muchos lenguajes de programación|Desconocimiento técnico, nadie del grupo lo ha utilizado nunca.
 |===

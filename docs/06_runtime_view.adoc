@@ -10,16 +10,16 @@ Los siguientes casos de secuencias explican algunos de los escenarios que se pue
 @startuml
 actor Usuario 
 entity DeDe
-database POD
+entity inrupt.net
 Usuario-> DeDe: Petición de autenticación
-DeDe-> POD: Comprobación de credenciales
+DeDe-> inrupt.net: Comprobación de credenciales
 alt usuario existe
 
-    POD -> DeDe:Devuelve al usuario
-    DeDe->Usuario:Redirección a página principal con usuario identificado 
+    inrupt.net -> DeDe:Devuelve al usuario
+    DeDe->Usuario:Redirección a página principal con usuario identificado
 
 else usuario ya existe
-    POD -> DeDe: Mensaje de error
+    inrupt.net -> DeDe: Mensaje de error
 end
 @enduml
 ----
@@ -28,16 +28,16 @@ end
 ----
 @startuml
 actor Usuario
-entity DeDe
+entity inrupt.net
 database POD
-Usuario-> DeDe :Introducción de credenciales
-DeDe->POD:Compración del usuario
+Usuario-> inrupt.net :Introducción de credenciales
+inrupt.net->POD:Compobaración del usuario
 alt usuario no existe
 
-    POD -> DeDe: Usuario creado
+    POD -> inrupt.net: Usuario creado
 
 else usuario ya existe
-    POD -> DeDe: Mensaje de error
+    POD -> inrupt.net: Mensaje de error
 end
 @enduml
 ----
