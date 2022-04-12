@@ -16,10 +16,11 @@ import Producto from "./components/producto/Producto";
 import SOLIDView from "./components/LogIn/SOLID/SOLIDView";
 import { ProductCart } from "./shared/shareddtypes";
 import MenuBar from "./components/comun/MenuBar";
+import { useSession } from "@inrupt/solid-ui-react";
 
 function App(): JSX.Element {
 
-
+  const { session } = useSession();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   var [cartItems,setCartItems]= useState<ProductCart[]>([]);
@@ -165,12 +166,11 @@ function App(): JSX.Element {
       <Switch>
 
       <Route exact path='/' render={() => <HomeView cartItems={cartItems} handleAddToCart={handleAddToCart} products={products}/>} />
-        <Route  path="/Carrito"render={() => <Carrito cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart} />}/>
+      <Route  path="/Carrito"render={() => <Carrito cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart}/>}/>
         <Route  path="/Producto/:name" render={() => <Producto cartItems={cartItems} handleAddToCart={handleAddToCart}/>}/>
         <Route  path="/Pago"render={() => <PaymentView cartItems={cartItems}/>}/>
         <Route  path="/Perfil"render={() => <ProfileView cartItems={cartItems}/>}/>
         <Route  path="/LogIn"render={() => <LogInView cartItems={cartItems}/>}/>
-
         <Route path="/inrupt" render={() => <SOLIDView cartItems={cartItems}/>}/>
 
       </Switch>

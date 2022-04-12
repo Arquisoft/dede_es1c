@@ -1,10 +1,10 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {Button,Grid,CardContent,CardMedia,Card,Container,Typography,Tooltip,IconButton} from "@material-ui/core";
 import DeleteIcon from '@mui/icons-material/Delete';
 
-import { calcularTotal } from "../../logica/Carrito";
+import { getCoordenadasDeAddress, shipCost } from "../../logica/Carrito";
 import { Link } from "react-router-dom";
 import { ProductCart } from "../../shared/shareddtypes";
 import { useSession } from "@inrupt/solid-ui-react";
@@ -120,11 +120,23 @@ const useStyle = makeStyles({
 type Props = {
   props: ProductCart[];
   handleRemoveFromCart: (clickedItem: ProductCart) => void;
+  address: string;
 
 };
 
-const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
 
+const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart,address}) => {
+  const [shipppinCost, setshipppinCost] = React.useState(0);
+
+  useEffect(() => {
+    shippingCost();
+  })
+  //Realizar calculo del precio de envio:
+  const shippingCost = async () => {
+
+    setshipppinCost(await shipCost(address));
+    
+  };
   const calculateProductTotal = (items: ProductCart[]) =>
   items.reduce((ack: number, item) => ack + item.amount * Number(item.price), 0);
 
@@ -195,13 +207,13 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
                        </Typography>
                        {session.info.isLoggedIn ? (
                        <Typography variant="h6" gutterBottom >
-                      Precio de envio 
+                      Precio de envio {shipppinCost}
                        </Typography>):(
                               <Typography variant="h6" gutterBottom >
                               Debes logearte para ver el precio de envio
                                </Typography>)}
                        <Typography variant="h5" gutterBottom >
-                      Total
+                      Total  
                        </Typography>
                        {session.info.isLoggedIn ? (
                        <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>):(
