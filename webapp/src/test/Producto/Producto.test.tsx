@@ -3,7 +3,7 @@ import React from 'react';
 import {fireEvent, render,screen } from "@testing-library/react";
 import Producto from "../../components/producto/Producto";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Product } from "../../../../restapi/src/products/productModel";
+import { Product } from "../../shared/shareddtypes";
 import ProductView from "../../components/home/ProductView";
 
 import MenuBar from "../../components/comun/MenuBar";

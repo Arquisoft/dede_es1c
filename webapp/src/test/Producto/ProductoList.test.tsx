@@ -3,7 +3,7 @@ import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import ProductView from "../../components/home/ProductView";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Product } from "../../../../restapi/src/products/productModel";
+import { Product } from "../../shared/shareddtypes";
 
 test("Productos renderizados homeview", async () => {
   const productos: Product[] = [

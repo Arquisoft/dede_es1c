@@ -9,6 +9,7 @@ import ProductRouter from "./products/productRouter";
 import LoginRouter from "./login/loginRouter";
 import UserRouter from "./users/userRouter";
 import create from "./util/defaultDatabase";
+import path from "path";
 
 if (!process.env.JWT_SECRET) {
     const err = new Error('No JWT_SECRET in env variable, check instructions: https://github.com/amazingandyyy/mern#prepare-your-secret');
@@ -26,9 +27,18 @@ app.use(morgan('dev'));
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({extended: true})) // for parsing application/x-www-form-urlencoded
 
-app.use('/user', UserRouter)
-app.use('/product', ProductRouter)
-app.use('/', LoginRouter)
+app.use('/api/user', UserRouter)
+app.use('/api/product', ProductRouter)
+app.use('/api', LoginRouter)
+
+// ... other app.use middleware
+app.use(express.static(path.join(__dirname, "..", "..", "webapp", "build")))
+
+// ...
+// Right before your app.listen(), add this:
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.mongoose.uri)

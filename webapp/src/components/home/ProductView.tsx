@@ -23,7 +23,7 @@ import { styled} from "@mui/material/styles";
 
 import { Link } from "react-router-dom";
 
-import { Product } from "../../../../restapi/src/products/productModel";
+import { Product } from "../../shared/shareddtypes";
 
 import SearchIcon from "@mui/icons-material/Search";
 

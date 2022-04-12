@@ -1,8 +1,9 @@
 import { useState } from "react";
 import LoginForm from "./LogInForm";
-
+import  { ProfileView } from "../../perfil/ProfileView";
 import ProfileViewer from "./ProfileViewer"
 import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
+
 import { ProductCart } from "../../../shared/shareddtypes";
 import {ProfileView} from "../../perfil/ProfileView"
 type Props = {
@@ -10,6 +11,7 @@ type Props = {
   };
 //function Authenticator(props: any): JSX.Element
 const Authenticator:React.FC<Props> = ({ cartItems}) =>
+
 
  {
     //We use this state variable
@@ -32,6 +34,7 @@ const Authenticator:React.FC<Props> = ({ cartItems}) =>
         <>
             <SessionProvider sessionId="log-in-example">
                 {(!isLoggedIn) ? <LoginForm /> : <ProfileView cartItems={cartItems}/>} 
+
             </SessionProvider>
         </>
     );

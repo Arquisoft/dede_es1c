@@ -11,10 +11,10 @@ se ven reducidos, haciendo la aplicación más accesible para personas con equip
 * Se recomienda el uso de los navegadores clásicos, como son Google Chrome y Firefox. Otros navegadores como Safari, Edge  u Opera, también pueden ser utilizados aunque en determinadas
 circustancias podrían dar algún tipo de problema debido a sus restricciones de seguridad.
 
-* Es necesario  habilitar la ubicación en el navegador para que desde la tienda se acceda de manera más directa a la dirección donde se enviará el pedido del cliente.
+* Es necesario  habilitar la ubicación en el navegador para que desde la tienda se acceda de manera más directa a la dirección donde se enviará el pedido del cliente y así poder calcular los gastos de envío asociados con mayor exactitud.
 
-* Los datos del cliente siempre se mantendrán por separado en un POD, siguiendo los principios SOLID. De esta forma, dejamos claro que la base de datos de clientes y productos se encuentran
-separadas y que no se tiene acceso a los datos de clientes.
+* Los datos del cliente siempre se mantendrán por separado en un POD, siguiendo los principios SOLID. De esta forma, dejamos claro que los datos de clientes y productos se encuentran
+separados y que no se tiene acceso a los datos de clientes.
 
 * La aplicación se podrá visualizar también desde el navegador de un dispositivo móvil, para ello simplemente bastará con meter la dirección url donde se encuentre alojada la tienda. Se recomienda
 el uso de las aplicaciones de navegador móvil mencionadas anteriormente.
@@ -29,6 +29,8 @@ A la hora de desplegar el proyecto se dan dos opciones, desplegarlo de manera lo
 | Local | Se puede lanzar la aplicación mediante un servidor local en el propio ordenador, esto es una opción para los usuarios más técnicos con algun conocimiento previo.
 | En servidor web    | Servicio que sirve para alojar la aplicación en un servidor remoto, pudiendo hacer accesible la aplicación para el resto de personas. Existen multitud de servicios de hosting que
 cuentan con soporte técnico.
+
+Se ha utilizado para el despliegue Heroku, de esta forma no es necesario preocuparse por la infraestructura, soportando además múltiples lenguajes de programación. Esto lo realiza mediante el uso de contenedores Linux llamados dynos.
 |===
 
 
