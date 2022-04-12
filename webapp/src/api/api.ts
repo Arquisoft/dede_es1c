@@ -10,8 +10,8 @@ export async function getUsers(): Promise<User[]> {
 }
 
 export async function getProductos(): Promise<Product[]> {
-    const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
-    let response = await fetch(apiEndPoint + '/product');
+    const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/product'
+    let response = await fetch(apiEndPoint + '/');
     return response.json();
 }
 
@@ -90,7 +90,7 @@ export async function anadirStock(p: Product): Promise<boolean> {
 
 
 export async function getProducto(name: string): Promise<Product> {
-    const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
+    const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000'
     let response = await fetch(`${apiEndPoint}/product/${name}`);
     return await response.json();
 
