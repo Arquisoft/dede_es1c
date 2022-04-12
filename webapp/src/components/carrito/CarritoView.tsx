@@ -133,10 +133,9 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart,address}) => 
   })
   //Realizar calculo del precio de envio:
   const shippingCost = async () => {
-
     setshipppinCost(await shipCost(address));
-    
   };
+
   const calculateProductTotal = (items: ProductCart[]) =>
   items.reduce((ack: number, item) => ack + item.amount * Number(item.price), 0);
 
@@ -207,14 +206,20 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart,address}) => 
                        </Typography>
                        {session.info.isLoggedIn ? (
                        <Typography variant="h6" gutterBottom >
-                      Precio de envio {shipppinCost}
-                       </Typography>):(
-                              <Typography variant="h6" gutterBottom >
-                              Debes logearte para ver el precio de envio
-                               </Typography>)}
-                       <Typography variant="h5" gutterBottom >
-                      Total  
+                      Precio de envio {shipppinCost}€
                        </Typography>
+                       
+                       ):(
+                             <Typography variant="h6" gutterBottom >
+                              Debes iniciar sesión para ver el precio de envio
+                               </Typography>)}
+                            {session.info.isLoggedIn ? (
+                       <Typography variant="h5" gutterBottom >
+                       Total:{shipppinCost+calculateProductTotal(props)}€
+                       </Typography>):(
+                         <Typography variant="h5" gutterBottom >
+                         Debes iniciar sesión para ver el precio total
+                         </Typography>)}
                        {session.info.isLoggedIn ? (
                        <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>):(
                       <Button to='/LogIn' component={Link} className={classes.btncomprar} variant="contained">LogIn</Button>)

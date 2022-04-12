@@ -6,7 +6,7 @@ export function getCoordenadas(address: string) {
     .get(
       "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
       address +
-        ".json?access_token=" + process.env.API_KEY
+        ".json?access_token=" + ""
     )
     .then((response: any) => {
       return response.data;
@@ -19,23 +19,39 @@ export function getCoordenadas(address: string) {
 export const getCoordenadasDeAddress = async (address: string) => {
   let coords = await getCoordenadas(address);
 
-  let lon = coords.features[0].geometry.coordinates[0];
+ 
   let lat = coords.features[0].geometry.coordinates[1];
+  let lon = coords.features[0].geometry.coordinates[0];
 
-  return lat -lon; 
+  const lon1 =  -5.851290035687373 * Math.PI / 180;
+  const lonPOD = lon * Math.PI / 180;
+  const lat1 = 43.35513026876176 * Math.PI / 180;
+  const latPOD = lat * Math.PI / 180;
+
+  // Haversine formula
+  let dlon = lonPOD - lon1;
+  let dlat = latPOD - lat1;
+  let a = Math.pow(Math.sin(dlat / 2), 2)
+           + Math.cos(lat1) * Math.cos(latPOD)
+           * Math.pow(Math.sin(dlon / 2),2);
+         
+  let c = 2 * Math.asin(Math.sqrt(a));
+
+  // Radius of earth in kilometers. Use 3956
+  // for miles
+  let r = 6371;
+
+  // calculate the result
+  return(c * r);
 
 
-}
 
-export const getDist = async (coord: number) => {
-  const almacen: number = 43.35513026876176 -(-5.851290035687373);
-  var dist = Math.sqrt( Math.pow((almacen), 2) + Math.pow((coord), 2));
-  return dist;
 }
 
 export const shipCost = async (address: string) => {
-  const coor = await getCoordenadasDeAddress(address);
-  let dist= await getDist( coor);
-  let coste = Math.round(dist / 100)
-  return dist
+  const dist = await getCoordenadasDeAddress(address);
+  let coste = dist*0.25 //Cada km 
+ 
+
+  return  Math.round(coste * 100) / 100
 }
