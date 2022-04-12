@@ -27,7 +27,7 @@ export const PaymentView:React.FC<Props> = ({ cartItems }) => {
         <MenuBar cartItems={cartItems}/>
         </div>
         <div>
-            <FormularioPago/>
+        <FormularioPago/>
         </div>
     </React.Fragment>
     );

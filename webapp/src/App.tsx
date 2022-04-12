@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import React, { useState, useEffect} from 'react';
 
-import { Product } from "../../restapi/src/products/productModel";
+import { Product } from "./shared/shareddtypes";
 import  {anadirStock, eliminarStock, getProductos} from './api/api';
 import './App.css';
 
@@ -170,7 +170,7 @@ function App(): JSX.Element {
         <Route  path="/Pago"render={() => <PaymentView cartItems={cartItems}/>}/>
         <Route  path="/Perfil"render={() => <ProfileView cartItems={cartItems}/>}/>
         <Route  path="/LogIn"render={() => <LogInView cartItems={cartItems}/>}/>
-        <Route path="/inrupt" render={() => <SOLIDView/>}/>
+        <Route path="/inrupt" render={() => <SOLIDView cartItems={cartItems} handleAddToCart={handleAddToCart} products={products}/>}/>
 
       </Switch>
       </Router>

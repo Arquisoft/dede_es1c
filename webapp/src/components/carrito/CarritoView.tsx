@@ -7,7 +7,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { calcularTotal } from "../../logica/Carrito";
 import { Link } from "react-router-dom";
 import { ProductCart } from "../../shared/shareddtypes";
-import { Product } from "../../../../restapi/src/products/productModel";
 import { useSession } from "@inrupt/solid-ui-react";
 
 const useStyle = makeStyles({

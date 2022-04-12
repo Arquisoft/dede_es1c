@@ -11,7 +11,7 @@ import {
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect} from 'react';
-import { Product } from "../../../../restapi/src/products/productModel";
+import { Product } from "../../shared/shareddtypes";
 import { getProducto } from "../../api/api";
 import { ProductCart } from "../../shared/shareddtypes";
 
