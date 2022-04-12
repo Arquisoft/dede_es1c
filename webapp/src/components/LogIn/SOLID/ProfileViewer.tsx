@@ -1,19 +1,14 @@
 import { useSession, CombinedDataProvider, LogoutButton, Text  } from "@inrupt/solid-ui-react";
 import { Button, Card, CardContent, Container, Typography } from "@material-ui/core";
-import { FOAF, VCARD } from "@inrupt/lit-generated-vocab-common";
-import {getSolidDataset, getStringNoLocale, getThing, getUrl, Thing} from "@inrupt/solid-client";
+import { VCARD } from "@inrupt/lit-generated-vocab-common";
 import Box from "@mui/material/Box";
 import React, {useEffect} from "react";
 import GetAddress from "./GetAddress";
-
-import { ChangeEvent } from 'react';
 
 
 const ProfileViewer = () =>{
   const { session } = useSession();
   const [addr, setAddr] = React.useState("");
-
-
 
   return (
     <Container fixed>
@@ -24,11 +19,13 @@ const ProfileViewer = () =>{
         <Card style={{ maxWidth: 480 }}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              <Text property={FOAF.name.iri.value} />
+              <Text property={VCARD.fn.iriAsString} />
             </Typography>
              <Typography gutterBottom variant="h5" component="h2"> 
-              
-
+              <Text property={VCARD.note.iri.value}/>
+            </Typography>
+            <Typography gutterBottom variant="h5" component="h2"> 
+              <GetAddress webID={session.info.webId}/>
             </Typography>
           </CardContent>
         </Card>

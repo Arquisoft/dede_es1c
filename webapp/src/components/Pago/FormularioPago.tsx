@@ -24,7 +24,7 @@ const useStyle = makeStyles({
         width: 400,
         display: "grid",
         font: "400 1em Tahoma,sans-serif",
-        backgroundColor:"#FFFF",
+        backgroundColor:"#FFFFFF",
         borderRadius: 30,
         padding: "16px 32px 24px",
         top: "50%",
@@ -32,6 +32,10 @@ const useStyle = makeStyles({
         transform: 'translate(-50%,-50%)',
         textAlign: "center",
         button: "center"
+    },
+    boton: {
+        background: "linear-gradient(45deg, #19275a 30%, #cc90ff 90%)",
+        color: "white"
     }
 });
 
@@ -71,7 +75,7 @@ const FormularioPago = () => {
                 <h2>Tarjeta valida, haga click para aceptar el pago</h2>
                 <img src="https://orxcosmeticos.com/wp-content/uploads/2018/09/pago-seguro.jpg" width={300}/>
                 <Grid>
-                    <Button to='/Perfil' component={Link} color="primary" variant="contained">Aceptar</Button> 
+                    <Button to='/Perfil' component={Link}  className={classes.boton} variant="contained">Aceptar</Button> 
                 </Grid>
             </div>
         </div>
@@ -82,7 +86,7 @@ const FormularioPago = () => {
             <div> 
                 <img src="https://static.thenounproject.com/png/2052102-200.png" width={150}/>
                 <h2>Tarjeta invalida, compruebe los campos</h2>
-                <img src="https://senordescuento.com/wp-content/uploads/2019/06/tarjetas-credito-logos.png" width={200}/>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4lwno3aI3X7AI69K7hpbouaKq55IDSzbwPbG_UMFn_hVwNtYR81xJn0sLuiqG2H75g&usqp=CAU" width={200}/>
             </div>
         </div>
     )
@@ -94,7 +98,7 @@ const FormularioPago = () => {
         const {target: {value}} = event;
         setErrorsName({name: ''})
         setName(value);
-        let reg = new RegExp(/^[a-zA-Z\s]*$/).test(value);
+        let reg = new RegExp(/^[a-zA-Z\s]+$/).test(value);
         if(!reg) {
             setErrorsName({name: 'Nombre invalido'})
             setNameOk(false);
@@ -167,7 +171,7 @@ const FormularioPago = () => {
                 <img src="https://cdn.pixabay.com/photo/2020/07/05/17/32/credit-card-5373806_960_720.png" width={200}/>    
             </Grid>
             <Grid container justify="center">
-                <img src="https://senordescuento.com/wp-content/uploads/2019/06/tarjetas-credito-logos.png" width={200}/>    
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4lwno3aI3X7AI69K7hpbouaKq55IDSzbwPbG_UMFn_hVwNtYR81xJn0sLuiqG2H75g&usqp=CAU" width={200}/>    
             </Grid>
             <TextField 
                 id="nombre" 
@@ -216,7 +220,7 @@ const FormularioPago = () => {
                 InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
             </div>
             <div style={{height: 20}}/>
-            <Button onClick={()=>validacionTodosLosCampos()} color="primary" variant="contained">Pagar</Button> 
+            <Button onClick={()=>validacionTodosLosCampos()} className={classes.boton} variant="contained">Pagar</Button> 
             </div>
         </Grid>
     </div>

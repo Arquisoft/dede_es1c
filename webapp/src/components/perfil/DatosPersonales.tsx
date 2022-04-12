@@ -1,10 +1,14 @@
-import React from "react";
+import React, {ChangeEvent, useEffect} from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from '@mui/material/Button'
-import { InputAdornment, TextField, Typography } from "@mui/material";
-import { AccountBalanceWallet, Directions, Email, Person} from "@material-ui/icons";
+import { InputAdornment, TextField} from "@mui/material";
+import { Directions, Email, Person} from "@material-ui/icons";
 import { Grid } from "@material-ui/core"
-
+import { useSession, CombinedDataProvider, LogoutButton, Text  } from "@inrupt/solid-ui-react";
+import { Button, Card, CardContent, Container, Typography } from "@material-ui/core";
+import { VCARD, FOAF } from "@inrupt/lit-generated-vocab-common";
+import {
+  getSolidDataset, getStringNoLocale, getThing, Thing, getUrl
+} from "@inrupt/solid-client";
 
 const useStyle = makeStyles({
   datosPersonales: {
@@ -40,10 +44,61 @@ const useStyle = makeStyles({
   }
 });
 
-const DatosPersonales = () => {
-  var userName = "Juan Fernandez Diaz";
-  var userEmail = "juan@hotmail.com"
-  var direccion = "Calle React Nº1-3ºD 33015 Oviedo Asturias España "
+async function retrievePODAddress(webID: string): Promise<string> {
+  let profileDocumentURI = webID.split("#")[0]
+  let myDataSet = await getSolidDataset(profileDocumentURI)
+  let profile = getThing(myDataSet, webID)
+  let urlAddress = getUrl(profile as Thing, VCARD.hasAddress) as string
+  let addressProfile = await getThing(myDataSet, urlAddress)
+  let ret= getStringNoLocale(addressProfile as Thing, VCARD.country_name) as string+" "+
+  getStringNoLocale(addressProfile as Thing, VCARD.region) as string+" "+
+  getStringNoLocale(addressProfile as Thing, VCARD.locality) as string+" "+
+  getStringNoLocale(addressProfile as Thing, VCARD.postal_code) as string+" "+
+  getStringNoLocale(addressProfile as Thing, VCARD.street_address) as string;
+  return ret
+}
+
+async function retirevePODName(webID: string): Promise<string> {
+  let profileDocumentURI = webID.split("#")[0]
+  let myDataSet = await getSolidDataset(profileDocumentURI)
+  let profile = getThing(myDataSet, webID)
+  let name = getStringNoLocale(profile as Thing, VCARD.fn.iri.value) as string;
+  return name;
+}
+
+async function retirevePODEmail(webID: string): Promise<string> {
+  let profileDocumentURI = webID.split("#")[0]
+  let myDataSet = await getSolidDataset(profileDocumentURI)
+  let profile = getThing(myDataSet, webID)
+  let email = getStringNoLocale(profile as Thing, VCARD.note.iri.value) as string;
+  return email;
+}
+
+type ReviewType = {
+  webID: string;
+}
+
+const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
+  const { session } = useSession();
+
+  const [address, setAddress] = React.useState("");
+  const getPODAddress = async () => {setAddress(await retrievePODAddress(webID));
+  };
+  useEffect(() => {
+      getPODAddress();
+  })
+  const [name, setName] = React.useState("");
+  const getPODName = async () => {setName(await retirevePODName(webID));
+  };
+  useEffect(() => {
+      getPODName();
+  })
+  const [email, setEmail] = React.useState("");
+  const getPODEmail = async () => {setEmail(await retirevePODEmail(webID));
+  };
+  useEffect(() => {
+      getPODEmail();
+  })
   const classes = useStyle();
   return (
     <div className={classes.formulario}>
@@ -53,16 +108,16 @@ const DatosPersonales = () => {
                 <img src="https://cdn4.iconfinder.com/data/icons/web-app-flat-circular-icons-set/64/Iconos_Redondos_Flat_Usuario_Icn-512.png" width={150}/>    
             </Grid>
             <Typography variant="h5">¡Bienvenido!</Typography>
-            <TextField label="Nombre" margin="normal" contentEditable="false" value={userName} InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
+            <TextField label="Nombre" margin="normal" contentEditable="false" value={name} InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
             <div style={{height: 20, width: 500}}/>
-            <TextField label="Correo asociado" margin="normal" contentEditable="false" variant="outlined" value={userEmail} InputProps={{startAdornment: <InputAdornment position="start"><Email/></InputAdornment>}}/>
+            <TextField label="Correo asociado" margin="normal" contentEditable="false" variant="outlined" value={email} InputProps={{startAdornment: <InputAdornment position="start"><Email/></InputAdornment>}}/>
             <div style={{height: 20}}/>
-            <TextField label="Direccion de envio asociada" margin="normal" contentEditable="false" variant="outlined" value={direccion} InputProps={{startAdornment: <InputAdornment position="start"><Directions/></InputAdornment>}}/>
+            <TextField label="Direccion de envio asociada" margin="normal" contentEditable="false" variant="outlined" value={address} InputProps={{startAdornment: <InputAdornment position="start"><Directions/></InputAdornment>}}/>
             <div style={{height: 20}}/> 
             </div>
         </Grid>
     </div>
-  )
+  );
 }
 
 export default DatosPersonales;

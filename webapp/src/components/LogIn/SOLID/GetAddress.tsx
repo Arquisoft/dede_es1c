@@ -23,11 +23,11 @@ import React, {ChangeEvent, useEffect} from "react";
   }
 //function GetAddress(props: any): JSX.Element 
   type ReviewType = {
-    setPrecio: (precio: number)=> void;
     webID: string;
 
   }
 const GetAddress: React.FC<ReviewType>= ({webID}) => {
+  
     const [address, setAddress] = React.useState("");
 
     const getPODAddress = async () => {setAddress(await retrievePODAddress(webID))
