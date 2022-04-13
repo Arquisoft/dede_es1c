@@ -23,7 +23,7 @@ import { ProductCart, Product } from "../../shared/shareddtypes";
     ];
     const { getByText } = render(
       <Router>
-        <CarritoView props={carrito} handleRemoveFromCart={() => {}} />
+       <CarritoView props={carrito} handleRemoveFromCart={() => {}} address={"nada"} />
       </Router>
     );
 
@@ -50,7 +50,7 @@ import { ProductCart, Product } from "../../shared/shareddtypes";
     ];
     const { getByText } = render(
       <Router>
-        <CarritoView props={[]} handleRemoveFromCart={() => {}} />
+       <CarritoView props={carrito} handleRemoveFromCart={() => {}} address={"nada"} />
       </Router>
     );
 
@@ -90,7 +90,7 @@ import { ProductCart, Product } from "../../shared/shareddtypes";
 ;
     const { getByText } = render(
       <Router>
-        <CarritoView props={carrito} handleRemoveFromCart={() => {}} />
+        <CarritoView props={carrito} handleRemoveFromCart={() => {}} address={"nada"} />
       </Router>
     );
     //Clickear el boton del producto
