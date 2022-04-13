@@ -80,6 +80,11 @@ const useStyle = makeStyles({
   titleCarrito:{
     marginLeft:"10px",
   },
+  titleCarritoVacio:{
+    
+    marginLeft:"35%",
+    marginTop:"20%",
+  },
   cardContent:{
       minWidth: 200,
     display: '1 0 auto' ,
@@ -149,7 +154,7 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart,address}) => 
         {(() => {
         if (vacio===0){
           return(
-      <Typography variant="h5" className={classes.titleCarrito} >
+      <Typography variant="h5" className={classes.titleCarritoVacio} >
       Carrito vacio
       </Typography>)} 
       else { 
