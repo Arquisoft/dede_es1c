@@ -50,8 +50,11 @@ export const getCoordenadasDeAddress = async (address: string) => {
 
 export const shipCost = async (address: string) => {
   const dist = await getCoordenadasDeAddress(address);
-  let coste = dist*0.25 //Cada km 
- 
-
+  let additionalkm=1;
+  let precioFijo=2;
+  if(dist>=3){
+    additionalkm=0.1 
+  }
+  let coste = (dist*additionalkm)+precioFijo
   return  Math.round(coste * 100) / 100
 }
