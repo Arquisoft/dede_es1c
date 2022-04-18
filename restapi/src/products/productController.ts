@@ -88,8 +88,8 @@ export default {
     },
 
     reduceStock: async (req: Request, res: Response) => {
-        const product = await ProductModel.findById(req.params.id);
-        if (req.body.stock && parseInt(product.stock) > 1) {
+        const product = await ProductModel.findOne({name: req.params.name});
+        if (parseInt(product.stock) > 0) {
             product.stock = (parseInt(product.stock) - 1).toString() ;
         }
         await product.save();
