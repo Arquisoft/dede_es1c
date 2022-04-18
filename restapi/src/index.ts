@@ -19,7 +19,6 @@ if (!process.env.JWT_SECRET) {
 const app = express();
 
 
-
 // App Setup
 app.use(cors({
     origin: ['http://localhost:3000'] // Fronted URL goes here
@@ -28,11 +27,18 @@ app.use(morgan('dev'));
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({extended: true})) // for parsing application/x-www-form-urlencoded
 
-app.use('/user', UserRouter)
-app.use('/product', ProductRouter)
-app.use('/', LoginRouter)
+app.use('/api/user', UserRouter)
+app.use('/api/product', ProductRouter)
+app.use('/api', LoginRouter)
 
+// ... other app.use middleware
+app.use(express.static(path.join(__dirname, "..", "..", "webapp", "build")))
 
+// ...
+// Right before your app.listen(), add this:
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.mongoose.uri)

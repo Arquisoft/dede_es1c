@@ -6,22 +6,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 import { calcularTotal } from "../../logica/Carrito";
 import { Link } from "react-router-dom";
-
-const product_card = [
-  {
-    id:1,
-    product_name:"Elden",
-    price:34,
-    thumb:"https://storage.gra.cloud.ovh.net/v1/AUTH_296c7803aa594af69d39b970927c8fb9/media/game_avatars/x6/x6w99LoD0pbanPNO.jpeg"
-  },
-  {
-    id:2,
-    product_name:"Fifa",
-
-
 import { ProductCart } from "../../shared/shareddtypes";
-import { Product } from "../../../../restapi/src/products/productModel";
-
+import { useSession } from "@inrupt/solid-ui-react";
 
 const useStyle = makeStyles({
 
@@ -142,7 +128,7 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
   const calculateProductTotal = (items: ProductCart[]) =>
   items.reduce((ack: number, item) => ack + item.amount * Number(item.price), 0);
 
-
+  const { session } = useSession();
   const classes = useStyle();
   const vacio =props.length
     return (
@@ -167,7 +153,7 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
 
         {props.map((item:ProductCart)=>{
           return (
-         <Grid item key={item.id}  xs={12} className={classes.containerCarrito}>
+         <Grid item key={item.name}  xs={12} className={classes.containerCarrito}>
         <Card  square={true} className={classes.root}>
         <CardMedia component="img"  className={classes.media} image={item.photo} title={item.name} />
 
@@ -179,9 +165,10 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
            Cantidad:{item.amount}
           </Typography>
   
-          <IconButton onClick={() => handleRemoveFromCart(item)}>
+          <IconButton aria-label="Eliminar" onClick={() => handleRemoveFromCart(item)}>
             <Tooltip title="Eliminar">
-              <DeleteIcon   fontSize="large" sx={{ color: "black" }} />
+              <DeleteIcon  fontSize="large" sx={{ color: "black" }} />
+     
             </Tooltip>
             </IconButton>
          
@@ -199,25 +186,29 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
       {(() => {
         if (vacio!==0){
           return(
-      <Container className={classes.containerDch} >
-        <Typography variant="h4" gutterBottom>
-        Precio
-          </Typography>
-          <Typography variant="h6" gutterBottom >
-                  Precio de los productos: {calculateProductTotal(props)} €
-                   </Typography>
-                   <Typography variant="h6" gutterBottom >
-                  Precio de envio 
-                   </Typography>
-                   <Typography variant="h5" gutterBottom >
-                  Total
-                   </Typography>
+            <Container className={classes.containerDch} >
+            <Typography variant="h4" gutterBottom>
+            Precio
+              </Typography>
+              <Typography variant="h6" gutterBottom >
+                      Precio de los productos: {calculateProductTotal(props)} €
+                       </Typography>
+                       {session.info.isLoggedIn ? (
+                       <Typography variant="h6" gutterBottom >
+                      Precio de envio 
+                       </Typography>):(
+                              <Typography variant="h6" gutterBottom >
+                              Debes logearte para ver el precio de envio
+                               </Typography>)}
+                       <Typography variant="h5" gutterBottom >
+                      Total
+                       </Typography>
+                       {session.info.isLoggedIn ? (
+                       <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>):(
+                      <Button to='/LogIn' component={Link} className={classes.btncomprar} variant="contained">LogIn</Button>)
+                       }
 
-                   <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>
-        </Container>
-
-                   <Button className={classes.btncomprar} variant="contained" >Comprar</Button>
-        </Container> 
+            </Container> 
       )}  })()}
 
         </div>

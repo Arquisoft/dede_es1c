@@ -7,10 +7,7 @@ import Icon from "./Icon";
 import { makeStyles } from "@material-ui/core/styles";
 
 
-import { Product } from "../../../../restapi/src/products/productModel";
-import  {getProductos} from '../../api/api';
-import { ProductCart } from '../../shared/shareddtypes';
-
+import { ProductCart, Product } from '../../shared/shareddtypes';
 
 
 const useStyle = makeStyles({
@@ -23,23 +20,23 @@ const useStyle = makeStyles({
   boxSizing:"border-box",
   },
 });
+
 type Props = {
+  
   handleAddToCart: (clickedItem: Product) => void;
   cartItems: ProductCart[];
-  products:Product[];
+  products:Product[];}
 
+  export const HomeView:React.FC<Props> = ({ cartItems , handleAddToCart,products})=> {
 
-export const HomeView:React.FC<Props> = ({ cartItems , handleAddToCart,products})=> {
-
-
-  const classes = useStyle();
-  return (
-    <React.Fragment>
-        <div className={classes.container}>
-      <MenuBar cartItems={cartItems}/>
-      <ProductView props={products} handleAddToCart={handleAddToCart}/>
-      </div>
-      <Icon/>
-    </React.Fragment>
-  );
-};
+    const classes = useStyle();
+    return (
+      <React.Fragment>
+          <div className={classes.container}>
+        <MenuBar cartItems={cartItems}/> 
+        <ProductView props={products} handleAddToCart={handleAddToCart}/>
+        </div>
+        <Icon/>
+      </React.Fragment>
+    );
+  };
