@@ -4,8 +4,6 @@ import { InputAdornment, TextField, Button, Modal, FormControl, Input } from "@m
 import { AccountBalanceWallet, VpnKey, CalendarToday, Person} from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-import { ThemeConsumer } from 'styled-components';
-import { SettingsPhoneTwoTone } from '@mui/icons-material';
 
 const useStyle = makeStyles({
     formulario: {
@@ -129,7 +127,7 @@ const FormularioPago = () => {
     const handleChangeFecha = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {target: {value}} = event;
         setErrorsFecha({fecha: ''})
-        setNumero(value);
+        setFecha(value);
         let reg = new RegExp(/^(1[0-2]|0?[1-9])[/]([0-9]?[0-9])$/).test(value);
         if(!reg) {
             setErrorsFecha({fecha: 'Fecha invalida'})
@@ -145,10 +143,10 @@ const FormularioPago = () => {
     const handleChangeCVC = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {target: {value}} = event;
         setErrorsCVC({cvc: ''})
-        setNumero(value.trim());
+        setCVC(value.trim());
         let reg = new RegExp(/^\d{3}$/).test(value);
         if(!reg) {
-            setErrorsCVC({cvc: 'Fecha invalida'})
+            setErrorsCVC({cvc: 'CVC invalido'})
             setCVCOk(false);
         } else {
             setCVCOk(true);
