@@ -32,8 +32,6 @@ beforeAll(async () => {
     app.use('/product', apiProduct)
     app.use('/', apiLogin)
 
-    app.listen(5000);
-
     app.use("/uploads", express.static(path.resolve("uploads")));
     app.set("view engine", "ejs");
 
@@ -672,6 +670,28 @@ describe("PRODUCTS ", () => {
                 name: "League of Leguends",
                 photo: "https://drive.google.com/uc?export=view&id=16i_-Op9_aurvgDR49AOBzhp85J-GBnjE"
             })
+        );
+    });
+
+    /**
+     * Filter
+     */
+    it("Filtrar", async () => {
+        const responseDelete: Response = await request(app).delete(
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`)
+
+        expect(responseDelete.statusCode).toBe(200);
+
+        const response: Response = await request(app)
+            .get("/product/filter/aventuras")
+            .set('Authorization', `Bearer ${token}`);
+
+        expect(response.statusCode).toBe(200);
+        expect(response.body).toEqual(
+            expect.arrayContaining(
+                [expect.objectContaining({name: "Elden ring"})]
+            )
         );
     });
 })
