@@ -6,7 +6,7 @@ export default async function create() {
 
     let juego2: string[] = ["deportes"];
     let juego3: string[] = ["acción", "aventuras", "estrategia"];
-    let juego4: string[] = ["acción", "aventuras", "estrategia"];
+    let juego4: string[] = ["acción", "estrategia"];
     let juego5: string[] = ["estrategia", "acción"];
     let juego6: string[] = ["estrategia", "acción"];
     let juego8: string[] = ["estrategia", "acción"];
