@@ -44,22 +44,22 @@ Tabla con nuestros objetivos de calidad, los escenarios y las prioridades:
 | Media
 
 | Seguridad
-| La aplicación debe de ser extremadamente segura para que nada referido a la información personal de los usarios pueda ser filtrada.
+| La aplicación debe de ser extremadamente segura para que nada referido a la información personal de los usarios pueda ser filtrada. Para ello, todos los datos de usuarios será metidos en un POD en lugar de en la propia aplicación.
 | Alta
 | Alta
 
 | Portabilidad
-|  Que la aplicación pueda adaptarse de forma correcta a distintos dispositivos.
+|  Que la aplicación pueda adaptarse de forma correcta a distintos dispositivos, la aplicación se verá de manera correcta en el navegador de un pc y de un smartphone.
 | Media
 | Media
 
 | Testeabilidad
-|  Que la aplicación haya sido probada y se sepa de forma segura que no va a romper por ningún sitio.
+|  Que la aplicación haya sido probada y se sepa de forma segura que no va a romper por ningún sitio. Para ello se alcanzará un 100% en Codecov.
 | Alta
 | Media
 
 | Modificabilidad
-| En caso de tener que añadir algún mejora no nos debería de llaver tiempo (más que su implementación)
+| En caso de tener que añadir algún mejora no nos debería de llevar un tiempo excesivo, en ningun caso más que su implementación)
 | Baja
 | Alta
 |===
