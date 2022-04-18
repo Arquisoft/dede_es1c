@@ -7,6 +7,7 @@ const ProductRouter = Router()
 
 ProductRouter.get('/', ProductController.getAll);
 ProductRouter.get('/:name', ProductController.get);
+ProductRouter.get('/reduce/:name', ProductController.reduceStock);
 ProductRouter.post('/',loginRequired(ROLES.ADMIN), ProductController.create);
 ProductRouter.put('/:id', loginRequired(ROLES.ADMIN), ProductController.update);
 ProductRouter.delete('/:id', loginRequired(ROLES.ADMIN), ProductController.delete);
