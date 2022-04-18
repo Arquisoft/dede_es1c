@@ -18,4 +18,5 @@ Se recoge a modo de tabla formada por cuatro columnas:
 |2|Lenguaje de programación|Utilizar TypeScript como lenguaje principal en el desarrollo de la aplicación|Escalabilidad del código, fácil testeo|Desconocimiento técnico sobre el lenguaje, lol que podría hacer que se generase deuda de código y deuda de diseño.
 |3|Librerias|Utilizar React para las interfaces de usuario|Es de código abierto, mucha documentación en la web|No cuenta con documentación oficial ni con estandar de desarrollo.
 |4|Despliegue|Utilizar Heroku para el despliegue|No hay que preocuparse por la infraestructura, soporte de muchos lenguajes de programación|Desconocimiento técnico, nadie del grupo lo ha utilizado nunca.
+|5|Test|Utilizar test para probar Backend y Frontend|Probar el código de manera automatizada|Si se diseñan mal puede dar lugar a deuda de prueba.
 |===
