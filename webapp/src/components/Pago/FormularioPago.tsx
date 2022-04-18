@@ -5,6 +5,7 @@ import { AccountBalanceWallet, VpnKey, CalendarToday, Person} from "@material-ui
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 
+
 const useStyle = makeStyles({
     formulario: {
         display:"grid",
@@ -152,6 +153,8 @@ const FormularioPago = () => {
             setCVCOk(true);
         }
     };
+
+    
 
     return(
     <div className={classes.formulario}>
