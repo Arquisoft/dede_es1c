@@ -608,6 +608,72 @@ describe("PRODUCTS ", () => {
             })
         );
     });
+
+    /**
+     * Actualizar foto del producto
+     */
+    it("Actualizar foto de producto", async () => {
+        const responseDelete: Response = await request(app).delete(
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`)
+
+        expect(responseDelete.statusCode).toBe(200);
+
+        const responseAdd: Response = await request(app).post(
+            "/user/product"
+        ).set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        })
+
+        const response2: Response = await request(app).get(
+            "/user/profile"
+        ).set('Authorization', `Bearer ${token}`)
+
+
+        const responseUpdate: Response = await request(app)
+            .put("/product/photo/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                photo: "https://drive.google.com/uc?export=view&id=1ZJwE7fE-NoqkvCwrm0XgWdsP5P6t8xWw",
+            });
+
+        expect(responseUpdate.statusCode).toBe(200);
+
+        const response: Response = await request(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response.statusCode).toBe(200);
+
+        expect(response.body).toEqual(
+            expect.objectContaining({
+                name: "League of Leguends",
+                photo: "https://drive.google.com/uc?export=view&id=1ZJwE7fE-NoqkvCwrm0XgWdsP5P6t8xWw"
+            })
+        );
+
+        const responseUpdate2: Response = await request(app)
+            .put("/product/photo/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                photo: "https://drive.google.com/uc?export=view&id=16i_-Op9_aurvgDR49AOBzhp85J-GBnjE",
+            });
+
+        expect(responseUpdate2.statusCode).toBe(200);
+
+        const respons2: Response = await request(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(respons2.statusCode).toBe(200);
+
+        expect(respons2.body).toEqual(
+            expect.objectContaining({
+                name: "League of Leguends",
+                photo: "https://drive.google.com/uc?export=view&id=16i_-Op9_aurvgDR49AOBzhp85J-GBnjE"
+            })
+        );
+    });
 })
 
 
