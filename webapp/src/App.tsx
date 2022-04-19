@@ -28,14 +28,15 @@ function App(): JSX.Element {
 
 
   let carritoString = sessionStorage.getItem('carrito');
-  if (carritoString != null)
-    cartItems = JSON.parse(carritoString!);
+
 
   const refreshProducts = async () => {
     setProducts(await getProductos());
   }
 
   const loadCartFromLocalStorage = () => {
+    if (carritoString != null)
+    cartItems = JSON.parse(carritoString!);
     let str = sessionStorage.getItem('cart');
     let cart:ProductCart[] = str!== null ? JSON.parse(str) : [];
     setCartItems(cart);

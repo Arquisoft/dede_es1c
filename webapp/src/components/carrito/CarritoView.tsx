@@ -125,7 +125,6 @@ type Props = {
   props: ProductCart[];
   handleRemoveFromCart: (clickedItem: ProductCart) => void;
   address: string;
-
 };
 
 

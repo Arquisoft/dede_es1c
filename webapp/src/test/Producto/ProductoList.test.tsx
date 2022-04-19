@@ -3,13 +3,10 @@ import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 
 import { BrowserRouter as Router } from "react-router-dom";
-import { Product } from "../../../shared/shareddtypes";
-import ProductView from "../../../components/home/ProductView";
-import MenuBar from "../../../components/comun/MenuBar";
-import CarritoView from "../../../components/carrito/CarritoView";
-import { Carrito } from "../../../components/carrito/Carrito";
-import App from "../../../App";
+
 import userEvent from "@testing-library/user-event";
+import { Product } from "../../shared/shareddtypes";
+import ProductView from "../../components/home/ProductView";
 
 
 test("Productos renderizados homeview", async () => {
@@ -341,7 +338,7 @@ test("Filtro por categoria sin nada", async () => {
   expect(screen.getByText(productos[1].price + "€")).toBeInTheDocument();
 });
 
-
+ 
 test("Filtro por categoria no existe producto", async () => {
   const productos: Product[] = [
     {
@@ -403,3 +400,49 @@ test("Añadir al carrito", async () => {
   fireEvent.click(add);
   expect(handleAddToCart).toHaveBeenCalled();
 });
+
+test("Cickear al producto va a su pagina", async () => {
+  const productos: Product[] = [
+      {
+       // @ts-ignore
+      id:"1",
+      photo: "",
+      name: "Prueba1",
+      price: "23",
+      stock: "3",
+      description: "Prueba del test producto renderizado producto 1",
+      categories: ["acción"]
+  },
+  {
+      // @ts-ignore
+     id:"2",
+     photo: "",
+     name: "Prueba producto 2",
+     price: "10",
+     stock: "7",
+     description: "Prueba del test producto renderizado producto 2",
+     categories: ["deporte"]
+ },
+];
+   
+
+const { getByText } = render(
+
+  <Router>
+ <ProductView props={productos} handleAddToCart={() => {}} />  
+  </Router>
+);
+
+const linkEl = screen.getByRole("link", { name: "Prueba1 23€" });
+userEvent.click(linkEl);
+
+expect(screen.getByText(productos[0].name)).toBeInTheDocument();
+expect(screen.getByText(productos[0].price + "€")).toBeInTheDocument();
+
+//No esta el otro
+// expect(screen.queryByText(productos[1].name)).not.toBeInTheDocument();
+// expect(screen.queryByText(productos[1].price + "€")).not.toBeInTheDocument();
+
+
+});
+
