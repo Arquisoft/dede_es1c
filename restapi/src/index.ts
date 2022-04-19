@@ -6,6 +6,7 @@ import config from './config'
 import mongoose from 'mongoose';
 
 import ProductRouter from "./products/productRouter";
+import OrderRouter from "./orders/orderRouter";
 import LoginRouter from "./login/loginRouter";
 import UserRouter from "./users/userRouter";
 import create from "./util/defaultDatabase";
@@ -29,7 +30,7 @@ app.use(express.urlencoded({extended: true})) // for parsing application/x-www-f
 
 app.use('/api/user', UserRouter)
 app.use('/api/product', ProductRouter)
-app.use('/api/order', ProductRouter)
+app.use('/api/order', OrderRouter)
 app.use('/api', LoginRouter)
 
 // ... other app.use middleware

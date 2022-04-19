@@ -7,7 +7,7 @@ export default {
     },
 
     get: async (req: Request, res: Response) => {
-        const order = await OrderModel.findOne({name: req.params.email});
+        const order = await OrderModel.findOne({email: req.params.email});
         if (order) {
             res.status(200).json(order);
         } else {
@@ -21,7 +21,7 @@ export default {
             fecha: req.body.fecha,
             name: req.body.name,
             description: req.body.description,
-            photo: req.body.url,
+            photo: req.body.photo,
             price: req.body.price,
             amount: req.body.amount
         });
