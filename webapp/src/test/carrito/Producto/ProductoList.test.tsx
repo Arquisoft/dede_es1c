@@ -1,9 +1,16 @@
 import React from "react";
 
 import { fireEvent, render, screen } from "@testing-library/react";
-import ProductView from "../../components/home/ProductView";
+
 import { BrowserRouter as Router } from "react-router-dom";
-import { Product } from "../../shared/shareddtypes";
+import { Product } from "../../../shared/shareddtypes";
+import ProductView from "../../../components/home/ProductView";
+import MenuBar from "../../../components/comun/MenuBar";
+import CarritoView from "../../../components/carrito/CarritoView";
+import { Carrito } from "../../../components/carrito/Carrito";
+import App from "../../../App";
+import userEvent from "@testing-library/user-event";
+
 
 test("Productos renderizados homeview", async () => {
   const productos: Product[] = [
@@ -370,4 +377,29 @@ test("Filtro por categoria no existe producto", async () => {
   expect(screen.queryByText(productos[0].name)).not.toBeInTheDocument();
   expect(screen.queryByText(productos[0].price + "€")).not.toBeInTheDocument();
 
+});
+
+test("Añadir al carrito", async () => {
+  const productos: Product[] = [
+    {
+      // @ts-ignore
+      id: "1",
+      photo: "",
+      name: "Prueba producto 1",
+      price: "23",
+      stock: "3",
+      description: "Prueba del test producto renderizado producto 1",
+      categories: ["acción"],
+    },
+  ];
+  const handleAddToCart=jest.fn();
+  const { getByText } = render(
+    <Router>
+      <ProductView props={productos} handleAddToCart={handleAddToCart} />
+    
+    </Router>
+  );
+  const add = screen.getByRole("button", { name: "" });
+  fireEvent.click(add);
+  expect(handleAddToCart).toHaveBeenCalled();
 });

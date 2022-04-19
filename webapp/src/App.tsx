@@ -15,7 +15,6 @@ import { PaymentView } from "./components/Pago/PaymentView";
 import Producto from "./components/producto/Producto";
 import SOLIDView from "./components/LogIn/SOLID/SOLIDView";
 import { ProductCart } from "./shared/shareddtypes";
-import MenuBar from "./components/comun/MenuBar";
 import { useSession } from "@inrupt/solid-ui-react";
 
 function App(): JSX.Element {
@@ -52,7 +51,6 @@ function App(): JSX.Element {
   
 //CARRITO
   const handleRemoveFromCart = (clickedItem: ProductCart) => {
-    let cart:ProductCart[];
     setCartItems(prev =>
       prev.reduce((ack, item) => {
         if ( item.name === clickedItem.name) {

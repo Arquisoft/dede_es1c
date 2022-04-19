@@ -1,12 +1,14 @@
 import React from 'react';
-
 import {fireEvent, render,screen } from "@testing-library/react";
-import Producto from "../../components/producto/Producto";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Product } from "../../shared/shareddtypes";
-import ProductView from "../../components/home/ProductView";
 
-import MenuBar from "../../components/comun/MenuBar";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Product } from '../../../shared/shareddtypes';
+import ProductView from '../../../components/home/ProductView';
+import MenuBar from '../../../components/comun/MenuBar';
+import Producto from '../../../components/producto/Producto';
+
+
+
 
 test("Cickear al producto va a su pagina", async () => {
     const productos: Product[] = [
@@ -46,6 +48,7 @@ const { getByText } = render(
   expect(screen.getByText(productos[0].name)).toBeInTheDocument();
   expect(screen.getByText(productos[0].price + "€")).toBeInTheDocument();
 
+  //No esta el otro
   expect(screen.getByText(productos[1].name)).toBeInTheDocument();
   expect(screen.getByText(productos[1].price + "€")).toBeInTheDocument();
 
@@ -53,7 +56,7 @@ const { getByText } = render(
 
 
 
-
+//NOOO FUNCIONA ADD
 test("Añadir carrito desde producto", async () => {
 
 

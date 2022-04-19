@@ -121,7 +121,6 @@ const useStyle = makeStyles({
   },
 });
 
-
 type Props = {
   props: ProductCart[];
   handleRemoveFromCart: (clickedItem: ProductCart) => void;
