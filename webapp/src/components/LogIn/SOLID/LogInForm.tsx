@@ -2,8 +2,12 @@ import { useState, useEffect } from "react";
 import { LoginButton } from "@inrupt/solid-ui-react";
 import { Button, TextField, FormGroup, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { ProductCart } from '../../../shared/shareddtypes';
 
 function LoginForm(): JSX.Element {
+  type Props = {
+    cartItems: ProductCart[]
+  };
 
     const [idp, setIdp] = useState("https://inrupt.net");
     const [currentUrl, setCurrentUrl] = useState("https://localhost:3000");

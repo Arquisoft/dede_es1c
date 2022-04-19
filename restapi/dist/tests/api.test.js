@@ -195,7 +195,7 @@ let token;
         (0, globals_1.expect)(response.statusCode).toBe(200);
         (0, globals_1.expect)(response.body).toEqual(globals_1.expect.objectContaining({
             name: "League of Leguends",
-            photo: " https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R ",
+            photo: "https://drive.google.com/uc?export=view&id=16i_-Op9_aurvgDR49AOBzhp85J-GBnjE",
             price: "50",
             stock: "2",
             description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games",
@@ -217,7 +217,7 @@ let token;
         (0, globals_1.expect)(responseDelete.statusCode).toBe(200);
         let juego1 = ["deportes"];
         const response = yield (0, supertest_1.default)(app).post("/product").send({
-            photo: " https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R ",
+            photo: "https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R",
             name: "ProductoNuevo1",
             price: "1",
             stock: "1",
