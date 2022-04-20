@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import { ThemeConsumer } from 'styled-components';
 import { SettingsPhoneTwoTone } from '@mui/icons-material';
+import { ProductCart } from '../../shared/shareddtypes';
 
 const useStyle = makeStyles({
     formulario: {
@@ -60,6 +61,10 @@ const FormularioPago = () => {
         }
     }
 
+    const removeAll = () => {
+    sessionStorage.clear();
+     }
+
     const mostrarPagoOk = ()=> {
         setPagoOk(!mostrar1);
     }
@@ -67,6 +72,8 @@ const FormularioPago = () => {
     const mostrarPagoNotOk = ()=> {
         setPagoNotOk(!mostrar2);
     }
+
+
 
     const modal1=(
         <div className={classes.pagoOk}>
