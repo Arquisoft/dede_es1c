@@ -71,6 +71,7 @@ const MenuBar:React.FC<Props> = (cartItems) => {
   const { session } = useSession();
   
 
+
   return (
 
       <AppBar position="static" className={classes.menu} >
@@ -93,8 +94,10 @@ const MenuBar:React.FC<Props> = (cartItems) => {
               <ShoppingCartIcon   fontSize="large" sx={{ color: "white" ,flexGrow: 1}} />
               </StyledBadge >
             </Tooltip>
+
           </Link>
              {session.info.isLoggedIn ? (
+
           <div>
             <IconButton onClick={handleMenu} className={classes.icon}>
               <Tooltip title="Perfil">
@@ -122,10 +125,7 @@ const MenuBar:React.FC<Props> = (cartItems) => {
               <MenuItem >Sign out</MenuItem>
             </Menu>
           </div>
-            ):(
-   
-          <Button to='/LogIn' component={Link} color="inherit" >Login</Button>)}
-
+          <Button to='/LogIn' component={Link} color="inherit" >Login</Button>
         </Toolbar>
       </AppBar>
   );

@@ -34,7 +34,6 @@ let token;
     app.use('/user', userRouter_1.default);
     app.use('/product', productRouter_1.default);
     app.use('/', loginRouter_1.default);
-    app.listen(5000);
     app.use("/uploads", express_1.default.static(path.resolve("uploads")));
     app.set("view engine", "ejs");
     yield mongoose.connect('mongodb+srv://uo278485:1234@cluster0.35zkv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
@@ -291,6 +290,141 @@ let token;
             name: "League of Leguends",
             stock: "2"
         }));
+    }));
+    /**
+     * Actualizar price del producto
+     */
+    (0, globals_1.it)("Actualizar price de producto", () => __awaiter(void 0, void 0, void 0, function* () {
+        const responseDelete = yield (0, supertest_1.default)(app).delete("/user/product/all").set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(responseDelete.statusCode).toBe(200);
+        const responseAdd = yield (0, supertest_1.default)(app).post("/user/product").set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        });
+        const response2 = yield (0, supertest_1.default)(app).get("/user/profile").set('Authorization', `Bearer ${token}`);
+        const responseUpdate = yield (0, supertest_1.default)(app)
+            .put("/product/price/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+            price: "20",
+        });
+        (0, globals_1.expect)(responseUpdate.statusCode).toBe(200);
+        const response = yield (0, supertest_1.default)(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(response.statusCode).toBe(200);
+        (0, globals_1.expect)(response.body).toEqual(globals_1.expect.objectContaining({
+            name: "League of Leguends",
+            price: "20"
+        }));
+        const responseUpdate2 = yield (0, supertest_1.default)(app)
+            .put("/product/price/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+            price: "50",
+        });
+        (0, globals_1.expect)(responseUpdate2.statusCode).toBe(200);
+        const respons2 = yield (0, supertest_1.default)(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(respons2.statusCode).toBe(200);
+        (0, globals_1.expect)(respons2.body).toEqual(globals_1.expect.objectContaining({
+            name: "League of Leguends",
+            price: "50"
+        }));
+    }));
+    /**
+     * Actualizar description del producto
+     */
+    (0, globals_1.it)("Actualizar description de producto", () => __awaiter(void 0, void 0, void 0, function* () {
+        const responseDelete = yield (0, supertest_1.default)(app).delete("/user/product/all").set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(responseDelete.statusCode).toBe(200);
+        const responseAdd = yield (0, supertest_1.default)(app).post("/user/product").set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        });
+        const response2 = yield (0, supertest_1.default)(app).get("/user/profile").set('Authorization', `Bearer ${token}`);
+        const responseUpdate = yield (0, supertest_1.default)(app)
+            .put("/product/description/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+            description: "Hola",
+        });
+        (0, globals_1.expect)(responseUpdate.statusCode).toBe(200);
+        const response = yield (0, supertest_1.default)(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(response.statusCode).toBe(200);
+        (0, globals_1.expect)(response.body).toEqual(globals_1.expect.objectContaining({
+            name: "League of Leguends",
+            description: "Hola"
+        }));
+        const responseUpdate2 = yield (0, supertest_1.default)(app)
+            .put("/product/description/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+            description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games",
+        });
+        (0, globals_1.expect)(responseUpdate2.statusCode).toBe(200);
+        const respons2 = yield (0, supertest_1.default)(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(respons2.statusCode).toBe(200);
+        (0, globals_1.expect)(respons2.body).toEqual(globals_1.expect.objectContaining({
+            name: "League of Leguends",
+            description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games"
+        }));
+    }));
+    /**
+     * Actualizar foto del producto
+     */
+    (0, globals_1.it)("Actualizar foto de producto", () => __awaiter(void 0, void 0, void 0, function* () {
+        const responseDelete = yield (0, supertest_1.default)(app).delete("/user/product/all").set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(responseDelete.statusCode).toBe(200);
+        const responseAdd = yield (0, supertest_1.default)(app).post("/user/product").set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        });
+        const response2 = yield (0, supertest_1.default)(app).get("/user/profile").set('Authorization', `Bearer ${token}`);
+        const responseUpdate = yield (0, supertest_1.default)(app)
+            .put("/product/photo/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+            photo: "https://drive.google.com/uc?export=view&id=1ZJwE7fE-NoqkvCwrm0XgWdsP5P6t8xWw",
+        });
+        (0, globals_1.expect)(responseUpdate.statusCode).toBe(200);
+        const response = yield (0, supertest_1.default)(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(response.statusCode).toBe(200);
+        (0, globals_1.expect)(response.body).toEqual(globals_1.expect.objectContaining({
+            name: "League of Leguends",
+            photo: "https://drive.google.com/uc?export=view&id=1ZJwE7fE-NoqkvCwrm0XgWdsP5P6t8xWw"
+        }));
+        const responseUpdate2 = yield (0, supertest_1.default)(app)
+            .put("/product/photo/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+            photo: "https://drive.google.com/uc?export=view&id=16i_-Op9_aurvgDR49AOBzhp85J-GBnjE",
+        });
+        (0, globals_1.expect)(responseUpdate2.statusCode).toBe(200);
+        const respons2 = yield (0, supertest_1.default)(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(respons2.statusCode).toBe(200);
+        (0, globals_1.expect)(respons2.body).toEqual(globals_1.expect.objectContaining({
+            name: "League of Leguends",
+            photo: "https://drive.google.com/uc?export=view&id=16i_-Op9_aurvgDR49AOBzhp85J-GBnjE"
+        }));
+    }));
+    /**
+     * Filter
+     */
+    (0, globals_1.it)("Filtrar", () => __awaiter(void 0, void 0, void 0, function* () {
+        const responseDelete = yield (0, supertest_1.default)(app).delete("/user/product/all").set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(responseDelete.statusCode).toBe(200);
+        const response = yield (0, supertest_1.default)(app)
+            .get("/product/filter/aventuras")
+            .set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(response.statusCode).toBe(200);
+        (0, globals_1.expect)(response.body).toEqual(globals_1.expect.arrayContaining([globals_1.expect.objectContaining({ name: "Elden ring" })]));
     }));
 });
 //# sourceMappingURL=api.test.js.map

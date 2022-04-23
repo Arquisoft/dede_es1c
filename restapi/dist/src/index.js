@@ -10,6 +10,7 @@ const cors_1 = __importDefault(require("cors"));
 const config_1 = __importDefault(require("./config"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const productRouter_1 = __importDefault(require("./products/productRouter"));
+const orderRouter_1 = __importDefault(require("./orders/orderRouter"));
 const loginRouter_1 = __importDefault(require("./login/loginRouter"));
 const userRouter_1 = __importDefault(require("./users/userRouter"));
 const defaultDatabase_1 = __importDefault(require("./util/defaultDatabase"));
@@ -28,6 +29,7 @@ app.use(express_1.default.json()); // for parsing application/json
 app.use(express_1.default.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use('/api/user', userRouter_1.default);
 app.use('/api/product', productRouter_1.default);
+app.use('/api/order', orderRouter_1.default);
 app.use('/api', loginRouter_1.default);
 // ... other app.use middleware
 app.use(express_1.default.static(path_1.default.join(__dirname, "..", "..", "webapp", "build")));

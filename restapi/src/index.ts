@@ -6,6 +6,7 @@ import config from './config'
 import mongoose from 'mongoose';
 
 import ProductRouter from "./products/productRouter";
+import OrderRouter from "./orders/orderRouter";
 import LoginRouter from "./login/loginRouter";
 import UserRouter from "./users/userRouter";
 import create from "./util/defaultDatabase";
@@ -28,7 +29,9 @@ app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({extended: true})) // for parsing application/x-www-form-urlencoded
 
 app.use('/api/user', UserRouter)
-app.use('/product', ProductRouter)
+app.use('/api/product', ProductRouter)
+app.use('/api/order', OrderRouter)
+
 app.use('/api', LoginRouter)
 
 // ... other app.use middleware

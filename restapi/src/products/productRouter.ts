@@ -7,12 +7,13 @@ const ProductRouter = Router()
 
 ProductRouter.get('/', ProductController.getAll);
 ProductRouter.get('/:name', ProductController.get);
-ProductRouter.post('/',loginRequired(ROLES.ADMIN), ProductController.create);
-ProductRouter.put('/:id', loginRequired(ROLES.ADMIN), ProductController.update);
-ProductRouter.delete('/:id', loginRequired(ROLES.ADMIN), ProductController.delete);
+ProductRouter.get('/reduce/:name', ProductController.reduceStock);
+ProductRouter.post('/', ProductController.create);
+ProductRouter.put('/:id', ProductController.update);
+ProductRouter.delete('/:id', ProductController.delete);
 ProductRouter.get('/filter/:category', ProductController.filter);
-ProductRouter.put('/stock/:id', loginRequired(ROLES.ADMIN), ProductController.updateStock);
-ProductRouter.put('/price/:id', loginRequired(ROLES.ADMIN), ProductController.updatePrice);
-ProductRouter.put('/description/:id', loginRequired(ROLES.ADMIN), ProductController.updateDescription);
-ProductRouter.put('/photo/:id', loginRequired(ROLES.ADMIN), ProductController.updatePhoto);
+ProductRouter.put('/stock/:id', ProductController.updateStock);
+ProductRouter.put('/price/:id', ProductController.updatePrice);
+ProductRouter.put('/description/:id', ProductController.updateDescription);
+ProductRouter.put('/photo/:id', ProductController.updatePhoto);
 export default ProductRouter;

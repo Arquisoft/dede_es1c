@@ -86,4 +86,16 @@ export default {
         await product.save();
         res.status(200).json({result: 'OK'});
     },
+
+    reduceStock: async (req: Request, res: Response) => {
+        const product = await ProductModel.findOne({name: req.params.name});
+        if (parseInt(product.stock) > 0) {
+            product.stock = (parseInt(product.stock) - 1).toString() ;
+        }
+        await product.save();
+        res.status(200).json({result: 'OK'});
+    },
+
+
+
 }

@@ -11,12 +11,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const productModel_1 = require("../products/productModel");
 const userModel_1 = require("../users/userModel");
+const orderModel_1 = require("../orders/orderModel");
 function create() {
     return __awaiter(this, void 0, void 0, function* () {
         let juego1 = ["deportes"];
         let juego2 = ["deportes"];
         let juego3 = ["acción", "aventuras", "estrategia"];
-        let juego4 = ["acción", "aventuras", "estrategia"];
+        let juego4 = ["acción", "estrategia"];
         let juego5 = ["estrategia", "acción"];
         let juego6 = ["estrategia", "acción"];
         let juego8 = ["estrategia", "acción"];
@@ -89,6 +90,17 @@ function create() {
         yield userModel_1.UserModel.deleteMany({});
         yield userModel_1.UserModel.create({ password: '123', email: 'a@gmail.com', role: userModel_1.ROLES.NORMAL });
         yield userModel_1.UserModel.create({ password: '123', email: 'b@gmail.com', role: userModel_1.ROLES.ADMIN });
+        yield orderModel_1.OrderModel.deleteMany({});
+        yield orderModel_1.OrderModel.create({
+            email: 'a@gmail.com', fecha: "19/04/2022", name: "Dying Light", description: "serie de videojuegos de acción",
+            photo: 'https://drive.google.com/uc?export=view&id=1aUIkNF0ZMJV0CAynt-TE_bFw-ySFcMXx', price: '6',
+            amount: 3
+        });
+        yield orderModel_1.OrderModel.create({
+            email: 'b@gmail.com', fecha: "19/04/2022", name: "Dying Light", description: "serie de videojuegos de acción",
+            photo: 'https://drive.google.com/uc?export=view&id=1aUIkNF0ZMJV0CAynt-TE_bFw-ySFcMXx', price: '6',
+            amount: 3
+        });
     });
 }
 exports.default = create;

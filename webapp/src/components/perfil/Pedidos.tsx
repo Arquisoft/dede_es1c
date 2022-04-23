@@ -41,6 +41,7 @@ const useStyle = makeStyles({
     color: "#FFF",
   }, 
 });
+ 
 const Pedidos = () => {
 
     var direccion = "Juan Fernandez Diaz Calle React Nº1-3ºD 33015 Oviedo Asturias España "

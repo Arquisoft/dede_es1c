@@ -7,7 +7,7 @@
     "lint": "eslint . --ext .ts --fix",
     "dev": "nodemon --watch src --ext ts",
     "build": "tsc -p .",
-    "start": "cross-env NODE_ENV=production node dist/index.js",
+    "start": "cross-env NODE_ENV=production node dist/src/index.js",
     "test": "jest --config=tests/jest.config.ts --coverage --forceExit"
   },
   "author": "",
