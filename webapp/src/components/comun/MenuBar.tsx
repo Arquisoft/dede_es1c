@@ -17,6 +17,7 @@ import { styled } from '@mui/material/styles';
 
 import { ProductCart } from "../../shared/shareddtypes";
 import { useSession } from "@inrupt/solid-ui-react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -65,6 +66,12 @@ const MenuBar:React.FC<Props> = (cartItems) => {
   };
   const classes = useStyle();
 
+
+
+  const { session } = useSession();
+  
+
+
   return (
 
       <AppBar position="static" className={classes.menu} >
@@ -81,13 +88,15 @@ const MenuBar:React.FC<Props> = (cartItems) => {
 
 
 
-          <Button to='/Carrito' component={Link} className={classes.icon}> 
+          <Link className={classes.icon} to= "/Carrito" > 
             <Tooltip title="Carrito">
             <StyledBadge  badgeContent={getTotalItems(cartItems)} sx={{ color: 'white' }}>
               <ShoppingCartIcon   fontSize="large" sx={{ color: "white" ,flexGrow: 1}} />
               </StyledBadge >
             </Tooltip>
-          </Button>
+
+          </Link>
+             {session.info.isLoggedIn ? (
 
           <div>
             <IconButton onClick={handleMenu} className={classes.icon}>

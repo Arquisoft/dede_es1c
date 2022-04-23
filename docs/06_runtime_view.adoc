@@ -41,33 +41,36 @@ else usuario ya existe
 end
 @enduml
 ----
-=== Añadir un producto al carro usuario identificado
+=== Vista del carrito del usuario identificado
 [plantuml,"AñadirCarro_diagrama",png]
 ----
 @startuml
-actor Usuario
-entity DeDe
-database BBDD
-Usuario-> DeDe: Selecciona un producto
-DeDe-> BBDD: Peticion:añadir el producto al carro del usuario
-BBDD-> DeDe:Petición aceptada 
-DeDe->Usuario:Notificación del añadido
+actor Usuario_identificado
+entity Dede
+Usuario_identificado-> Dede: Añade producto al carro
+Usuario_identificado-> Dede: Va al carrito
+Dede->Dede:Mostrar carrito
+Dede->Geocode:precio costes de envio con dirreción
+Geocode->Dede:calcular coste envio
+Dede->Dede:mostrar precio total
 @endtuml
 ----
 === Compra de los productos
 [plantuml,"Compra_diagrama",png]
 ----
 @startuml
-actor Usuario
-entity DeDe
+actor Usuario_identificado
+entity Dede
 database BBDD
-Usuario-> DeDe:Compra de los productos
-DeDe-> BBDD: Petición guardado productos al usuario
-BBDD-> DeDe: Devuelve información necesaria
-DeDe-> Usuario: Pedir datos necesarios para compra
-Usuario-> DeDe:Introducción datos necesarios
-DeDe-> BBDD: Comprobación datos
-BBDD-> DeDe:  Devuelve información necesaria
-DeDe-> Usuario: Notificación de la compra
+Usuario_identificado-> Dede: Añade producto al carro
+Usuario_identificado-> Dede: Va al carrito
+Dede->Dede:Mostrar carrito
+Dede->Geocode:precio costes de envio con dirreción
+Geocode->Dede:calcular coste envio
+Dede->Dede:mostrar precio total
+Usuario_identificado-> Dede: Da al boton de comprar
+Dede->Dede:mostra página de pago
+Usuario_identificado-> Dede: Mete credenciales tarjeta de credito
+Dede->BBDD:Guardar pedido al usuario
 @endtuml
 ----

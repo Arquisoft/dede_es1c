@@ -58,6 +58,7 @@ export const Carrito: React.FC<Props> = ({ cartItems, handleRemoveFromCart}) => 
       setAddress(await retrievePODAddress(session.info.webId!))
     }
     useEffect(() => {
+      if(session.info.isLoggedIn)
         getPODAddress();
     })
 
@@ -65,7 +66,6 @@ export const Carrito: React.FC<Props> = ({ cartItems, handleRemoveFromCart}) => 
     <React.Fragment>
     <div className={classes.container}>
       <MenuBar cartItems={cartItems}/>
-
       <CarritoView props={cartItems} handleRemoveFromCart={handleRemoveFromCart} address={address}/>
 
       </div>

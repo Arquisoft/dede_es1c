@@ -6,6 +6,19 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { ProductCart, Product } from "../../shared/shareddtypes";
 
 
+test("No hay producto", async () => {
+
+  const { getByText } = render(
+    <Router>
+     <CarritoView props={[]} handleRemoveFromCart={() => {}} address={"nada"} />
+    </Router>
+  );
+  //No hay productos
+  expect(screen.getByText( "Carrito vacio")).toBeInTheDocument();
+
+});
+
+
   test("Hay un producto", async () => {
     const carrito: ProductCart[] = [
       {
@@ -33,34 +46,9 @@ import { ProductCart, Product } from "../../shared/shareddtypes";
 
   });
 
-  test("No hay producto", async () => {
-    const carrito: ProductCart[] = [
-      {
-        // @ts-ignore
-        id: "1",
-        photo: "",
-        name: "Prueba producto 1",
-        price: "23",
-          // @ts-ignore
-        stock: "3",
-        description: "Prueba del test producto renderizado producto 1",
-        categories: ["acción"],
-          amount:0,
-      },
-    ];
-    const { getByText } = render(
-      <Router>
-       <CarritoView props={carrito} handleRemoveFromCart={() => {}} address={"nada"} />
-      </Router>
-    );
-
-    //Producto no está
-    expect(screen.queryByText(carrito[0].name)).not.toBeInTheDocument();
-    expect(screen.queryByText(carrito[0].price + "€")).not.toBeInTheDocument();
-
-  });
 
   test("Eliminar producto", async () => {
+    const handleRemoveFromCart=jest.fn();
     const carrito: ProductCart[] = [
       {
         // @ts-ignore
@@ -72,31 +60,48 @@ import { ProductCart, Product } from "../../shared/shareddtypes";
         stock: "3",
         description: "Prueba del test producto renderizado producto 1",
         categories: ["acción"],
-          amount:0,
+          amount:1,
       },
     ];
-    const producto: Product = 
-        {
-         // @ts-ignore
-        id:"1",
-        photo: "",
-        name: "Prueba1",
-        price: "23",
-        stock: "3",
-        description: "Prueba del test producto renderizado producto 1",
-        categories: ["acción"]
-    }
 
-;
-    const { getByText } = render(
+  render(
       <Router>
-        <CarritoView props={carrito} handleRemoveFromCart={() => {}} address={"nada"} />
+        <CarritoView props={carrito} handleRemoveFromCart={handleRemoveFromCart} address={"nada"} />
       </Router>
     );
     //Clickear el boton del producto
-    fireEvent.click(screen.getAllByRole("button")[0]);
+    fireEvent.click(screen.getByRole('button', {name: "Eliminar"}));
+
     //No hay nada
-    expect(screen.getByText( "Carrito vacio")).toBeInTheDocument();
+    //expect(screen.getByText( "Carrito vacio")).toBeInTheDocument();
+
+  });
+
+  test("No logeado", async () => {
+    const carrito: ProductCart[] = [
+      {
+        // @ts-ignore
+        id: "1",
+        photo: "",
+        name: "Prueba producto 1",
+        price: "23",
+          // @ts-ignore
+        stock: "3",
+        description: "Prueba del test producto renderizado producto 1",
+        categories: ["acción"],
+          amount:0,
+      },
+    ];
+
+    const { getByText } = render(
+      <Router>
+        <CarritoView props={carrito} handleRemoveFromCart={() => undefined} address={"nada"} />
+      </Router>
+    );
+      //No hay nada
+      expect(screen.getByRole('button', {name: "LogIn"})).toBeInTheDocument();
+     // fireEvent.click(screen.getByRole('button', {name: "LogIn"}));
+  
 
   });
 
