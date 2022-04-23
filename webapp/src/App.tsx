@@ -83,7 +83,7 @@ function App(): JSX.Element {
     var result:Product =products[newProduct]
     var d=result.id;
     //Añadir BD
-    anadirStock(result);
+   // anadirStock(result);
   }
   };
 
@@ -98,7 +98,7 @@ function App(): JSX.Element {
     setProducts(newTodosP);
     var d=clickedItem.id;
     //Quitar de la BD tb
-    eliminarStock(clickedItem);
+    //eliminarStock(clickedItem);
 
   
   };
@@ -157,7 +157,7 @@ function App(): JSX.Element {
       <Route exact path='/' render={() => <HomeView cartItems={cartItems} handleAddToCart={handleAddToCart} products={products}/>} />
       <Route  path="/Carrito"render={() => <Carrito cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart}/>}/>
         <Route  path="/Producto/:name" render={() => <Producto cartItems={cartItems} handleAddToCart={handleAddToCart}/>}/>
-        <Route  path="/Pago"render={() => <PaymentView cartItems={cartItems}/>}/>
+        <Route  path="/Pago"render={() => <PaymentView cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart}/> }/>
         <Route  path="/Perfil"render={() => <ProfileView cartItems={cartItems}/>}/>
         <Route  path="/LogIn"render={() => <LogInView cartItems={cartItems}/>}/>
         <Route path="/inrupt" render={() => <SOLIDView cartItems={cartItems}/>}/>

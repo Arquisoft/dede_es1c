@@ -23,7 +23,7 @@ test("PaymentView render ", async () => {
   
     const { getByText } = render(
       <Router>
-        <PaymentView cartItems={carrito}/>
+        <PaymentView cartItems={carrito} handleRemoveFromCart={()=>{}}/>
       </Router>
       );  
 });

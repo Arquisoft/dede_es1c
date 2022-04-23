@@ -18,9 +18,10 @@ const useStyle = makeStyles({
 
   type Props = {
     cartItems: ProductCart[]
+    handleRemoveFromCart: (clickedItem: ProductCart) => void;
   };
 
-export const PaymentView:React.FC<Props> = ({ cartItems }) => {
+export const PaymentView:React.FC<Props> = ({ cartItems,  handleRemoveFromCart }) => {
     const classes = useStyle();
     return(
     <React.Fragment>
@@ -28,7 +29,7 @@ export const PaymentView:React.FC<Props> = ({ cartItems }) => {
         <MenuBar cartItems={cartItems}/>
         </div>
         <div>
-        <FormularioPago cartItems={cartItems}/>
+        <FormularioPago cartItems={cartItems}  handleRemoveFromCart={handleRemoveFromCart}/>
         </div>
     </React.Fragment>
     );
