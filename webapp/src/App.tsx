@@ -15,12 +15,9 @@ import { PaymentView } from "./components/Pago/PaymentView";
 import Producto from "./components/producto/Producto";
 import SOLIDView from "./components/LogIn/SOLID/SOLIDView";
 import { ProductCart } from "./shared/shareddtypes";
-import { useSession } from "@inrupt/solid-ui-react";
+
 
 function App(): JSX.Element {
-
-  const { session } = useSession();
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   var [cartItems,setCartItems]= useState<ProductCart[]>([]);
 

@@ -5,6 +5,7 @@ import CarritoView from "../../components/carrito/CarritoView";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ProductCart, Product } from "../../shared/shareddtypes";
 
+
 test("Carrito vacio ", async () => {
 
     const { getByText } = render(
@@ -16,6 +17,5 @@ test("Carrito vacio ", async () => {
     //expect(localStorage.__proto__.getItem).toBeCalledWith('carrito');
   
   });
-
 
   

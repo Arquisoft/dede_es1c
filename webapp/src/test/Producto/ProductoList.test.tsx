@@ -429,7 +429,7 @@ test("Cickear al producto va a su pagina", async () => {
 const { getByText } = render(
 
   <Router>
- <ProductView props={productos} handleAddToCart={() => {}} />  
+  <ProductView props={productos} handleAddToCart={() => {}} />  
   </Router>
 );
 
