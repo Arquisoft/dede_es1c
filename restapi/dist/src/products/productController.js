@@ -87,5 +87,13 @@ exports.default = {
         yield product.save();
         res.status(200).json({ result: 'OK' });
     }),
+    reduceStock: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        const product = yield productModel_1.ProductModel.findOne({ name: req.params.name });
+        if (parseInt(product.stock) > 0) {
+            product.stock = (parseInt(product.stock) - 1).toString();
+        }
+        yield product.save();
+        res.status(200).json({ result: 'OK' });
+    }),
 };
 //# sourceMappingURL=productController.js.map
