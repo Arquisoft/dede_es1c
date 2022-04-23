@@ -8,7 +8,7 @@ import { ProductCart, Order} from '../../shared/shareddtypes';
 import { useSession} from "@inrupt/solid-ui-react";
 import { VCARD, FOAF } from "@inrupt/lit-generated-vocab-common";
 import {getSolidDataset, getStringNoLocale, getThing, Thing, getUrl} from "@inrupt/solid-client";
-import { saveOrder } from '../../api/api';
+import { eliminarStock, saveOrder } from '../../api/api';
 
 
 const useStyle = makeStyles({
@@ -191,6 +191,7 @@ const FormularioPago:React.FC<Props> = ({ cartItems ,  handleRemoveFromCart}) =>
             const order = {email, fecha, name, description, photo, price, amount};
             saveOrder(order);
             handleRemoveFromCart(item);
+            eliminarStock(item);
             }
         )}
     }

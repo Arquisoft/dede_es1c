@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React, { useState, useEffect} from 'react';
 
 import { Order, Product } from "./shared/shareddtypes";
-import  {anadirStock, eliminarStock, getProductos} from './api/api';
+import  {getProductos} from './api/api';
 import './App.css';
 
 import {HomeView} from "./components/home/HomeView";
@@ -21,8 +21,6 @@ import { ProductCart } from "./shared/shareddtypes";
 function App(): JSX.Element {
 
   var [cartItems,setCartItems]= useState<ProductCart[]>([]);
-
-  var [orderItems, setOrderItems] = useState<Order[]>([]);
 
   const [products, setProducts] = useState<Product[]>([]);
 
