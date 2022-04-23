@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import { Grid } from "@material-ui/core";
 import { InputAdornment, TextField, Button, Modal, FormControl, Input } from "@mui/material";
 import { AccountBalanceWallet, VpnKey, CalendarToday, Person} from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-
+import { ProductCart, Order} from '../../shared/shareddtypes';
+import { useSession} from "@inrupt/solid-ui-react";
+import { VCARD, FOAF } from "@inrupt/lit-generated-vocab-common";
+import {getSolidDataset, getStringNoLocale, getThing, Thing, getUrl} from "@inrupt/solid-client";
+import { saveOrder } from '../../api/api';
 
 const useStyle = makeStyles({
     formulario: {
@@ -38,8 +42,11 @@ const useStyle = makeStyles({
     }
 });
 
-
-const FormularioPago = () => {
+type Props = {
+    cartItems: ProductCart[]
+  };
+   
+const FormularioPago:React.FC<Props> = ({ cartItems }) => {
     const classes = useStyle();
 
     const[mostrar1, setPagoOk]=useState(false);
@@ -74,7 +81,7 @@ const FormularioPago = () => {
                 <h2>Tarjeta valida, haga click para aceptar el pago</h2>
                 <img src="https://orxcosmeticos.com/wp-content/uploads/2018/09/pago-seguro.jpg" width={300}/>
                 <Grid>
-                    <Button to='/Perfil' component={Link}  className={classes.boton} variant="contained">Aceptar</Button> 
+                    <Button onClick={()=>generateOrders()} to='/Perfil' component={Link}  className={classes.boton} variant="contained">Aceptar</Button> 
                 </Grid>
             </div>
         </div>
@@ -153,9 +160,41 @@ const FormularioPago = () => {
             setCVCOk(true);
         }
     };
-
     
+    const { session } = useSession();
 
+    const [email, setEmail] = React.useState("");
+
+    const getEmail = async () => {
+        setEmail(await retrievePODEmail());
+    }
+
+    useEffect(() => {
+        getEmail();
+    })
+
+    const generateOrders = () => {
+        {cartItems.map((item:ProductCart)=>{
+            const now = new Date();
+            getEmail();
+            var fecha:string = now.toLocaleDateString();
+            const {name, description, photo, price, amount} = item;
+            const order = {email, fecha, name, description, photo, price, amount};
+            saveOrder(order);
+            }
+        )}
+    }
+
+
+    async function retrievePODEmail(): Promise<string> {
+        var webID:string = session.info.webId!;
+        let profileDocumentURI = webID.split("#")[0]
+        let myDataSet = await getSolidDataset(profileDocumentURI)
+        let profile = getThing(myDataSet, webID)
+        let email = getStringNoLocale(profile as Thing, VCARD.note.iri.value) as string;
+        return email;
+    }
+    
     return(
     <div className={classes.formulario}>
         <Modal open={mostrar1} onClose={mostrarPagoOk}>

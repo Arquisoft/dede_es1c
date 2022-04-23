@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import React, { useState, useEffect} from 'react';
 
-import { Product } from "./shared/shareddtypes";
+import { Order, Product } from "./shared/shareddtypes";
 import  {anadirStock, eliminarStock, getProductos} from './api/api';
 import './App.css';
 
@@ -15,7 +15,6 @@ import { PaymentView } from "./components/Pago/PaymentView";
 import Producto from "./components/producto/Producto";
 import SOLIDView from "./components/LogIn/SOLID/SOLIDView";
 import { ProductCart } from "./shared/shareddtypes";
-import MenuBar from "./components/comun/MenuBar";
 import { useSession } from "@inrupt/solid-ui-react";
 
 function App(): JSX.Element {
@@ -25,8 +24,9 @@ function App(): JSX.Element {
 
   var [cartItems,setCartItems]= useState<ProductCart[]>([]);
 
-  const [products, setProducts] = useState<Product[]>([]);
+  var [orderItems, setOrderItems] = useState<Order[]>([]);
 
+  const [products, setProducts] = useState<Product[]>([]);
 
   let carritoString = sessionStorage.getItem('carrito');
   if (carritoString != null)
@@ -41,8 +41,6 @@ function App(): JSX.Element {
     let cart:ProductCart[] = str!== null ? JSON.parse(str) : [];
     setCartItems(cart);
   };
-
-
 
   useEffect(()=>{
     refreshProducts();
@@ -158,13 +156,11 @@ function App(): JSX.Element {
 
   return (
 
-
     <>
 <main>
       
      <Router>
       <Switch>
-
       <Route exact path='/' render={() => <HomeView cartItems={cartItems} handleAddToCart={handleAddToCart} products={products}/>} />
       <Route  path="/Carrito"render={() => <Carrito cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart}/>}/>
         <Route  path="/Producto/:name" render={() => <Producto cartItems={cartItems} handleAddToCart={handleAddToCart}/>}/>
@@ -172,7 +168,6 @@ function App(): JSX.Element {
         <Route  path="/Perfil"render={() => <ProfileView cartItems={cartItems}/>}/>
         <Route  path="/LogIn"render={() => <LogInView cartItems={cartItems}/>}/>
         <Route path="/inrupt" render={() => <SOLIDView cartItems={cartItems}/>}/>
-
       </Switch>
       </Router>
       

@@ -1,4 +1,5 @@
-import {User, Product} from "../shared/shareddtypes";
+import { ownerDocument } from "@mui/material";
+import {User, Product, Order} from "../shared/shareddtypes";
 import {ProductCart} from "../shared/shareddtypes";
 
 
@@ -14,6 +15,27 @@ export async function getProductos(): Promise<Product[]> {
     let response = await fetch(apiEndPoint + '/');
     return response.json();
 }
+
+export async function saveOrder( o:Order):Promise<boolean>{ 
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:8000/order'
+  
+  let response = await fetch(apiEndPoint+'/', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+                            'email': o.email,
+                            'fecha': o.fecha,
+                            'name': o.name,
+                            'description': o.description,
+                            'photo': o.photo,
+                            'amount': o.amount,  })
+    });
+
+  if (response.status===200)
+    return true;
+  else
+    return false;
+} 
 
 /* export async function addCart( p:Product):Promise<boolean>{ 
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:8000/user'
