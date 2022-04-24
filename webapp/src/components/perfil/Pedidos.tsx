@@ -5,8 +5,8 @@ import { getPedidos } from "../../api/api";
 import { useSession} from "@inrupt/solid-ui-react";
 import { VCARD, FOAF } from "@inrupt/lit-generated-vocab-common";
 import {getSolidDataset, getStringNoLocale, getThing, Thing, getUrl} from "@inrupt/solid-client";
-import { useEffect } from "react";
-import { InputAdornment, TextField } from "@mui/material";
+import { useEffect,useState} from "react";
+import { InputAdornment, TextField, Typography } from "@mui/material";
 import { Directions } from "@material-ui/icons";
 
 const useStyle = makeStyles({
@@ -60,26 +60,32 @@ async function retirevePODEmail(webID: string): Promise<string> {
 
 type ReviewType = {
   webID: string;
+  ped: Order[];
 }
 
-const Pedidos: React.FC<ReviewType> = ({webID}) => {
+const Pedidos: React.FC<ReviewType> = ({webID,ped}) => {
   const classes = useStyle();
 
-  const [email, setEmail] = React.useState("");
-
-  const getEmail = async () => {
-    setEmail(await retirevePODEmail(webID));
-  }
-
-  useEffect(() => {
-    getEmail();
-  })
-
-    return (
-        <div className={classes.pedidoSup}>
-          <h2 className={classes.tituloHistorico}>Historico de pedidos:</h2>
-          
-        </div>
+  return (
+    <div className={classes.pedidoSup}>
+      <h2 className={classes.tituloHistorico}>Historico de pedidos:</h2>
+      <Typography>{ped.length}</Typography>
+        {ped.map(item=>(
+          <div className={classes.pedido}>
+            <h1>{item.name}</h1> 
+            <br></br>
+            <p>Descripcion del articulo: {item.description}</p>
+            <br></br>
+            <p>Precio articulo: {item.price}€</p>
+            <br></br>
+            <p>Fecha de compra: {item.fecha}</p>
+            <br></br>
+            <p>Email: {item.email}</p>
+            <br></br>
+            <p>Cantidad: {item.amount}</p>
+          </div>
+      ))}
+      </div>
     )
   }
   
