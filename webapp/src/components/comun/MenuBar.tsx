@@ -14,8 +14,9 @@ import HomeIcon from '@mui/icons-material/Home';
 import { Link } from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
-import {calcularNumeroProductosCarrito} from "../../logica/Carrito";
 
+import { ProductCart } from "../../shared/shareddtypes";
+import { useSession } from "@inrupt/solid-ui-react";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -28,7 +29,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const useStyle = makeStyles({
   menu: {
-    background: "linear-gradient(45deg, #000000 20%, #6ABACE 80%)",
+    background: "linear-gradient(45deg, #19275a 10%, #3a4c8e 30% ,#cc90ff 50% ,#634280 80%)",
     border: 0,
     boxShadow:"1px 23px 23px 5px rgba(#000000,#000000,#000000, #000000)",
     borderRadius: 30,
@@ -40,10 +41,21 @@ const useStyle = makeStyles({
     marginLeft:"10px",
     marginRight:"20px",
   },
+  logo: {
+    width:"10%",
+   marginTop:"30px",
+
+  },
 });
 
+type Props = {
+  cartItems: ProductCart[];
+};
 
-const MenuBar = () => {
+const getTotalItems = (items: Props) =>
+items.cartItems.reduce((ack: number, item) => ack + item.amount, 0);
+
+const MenuBar:React.FC<Props> = (cartItems) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -53,13 +65,19 @@ const MenuBar = () => {
   };
   const classes = useStyle();
 
+
+
+  const { session } = useSession();
+  
+
+
   return (
-      <AppBar position="static" className={classes.menu}>
+
+      <AppBar position="static" className={classes.menu} >
         <Toolbar >
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Logo
+            <img src="https://i.postimg.cc/yxpLW6CX/imageedit-1-3048145247.png" alt="logo" className={classes.logo}/>
           </Typography>
-
 
             <Button to='/' component={Link}  className={classes.icon}>
             <Tooltip title="Home">
@@ -71,12 +89,12 @@ const MenuBar = () => {
 
           <Button to='/Carrito' component={Link} className={classes.icon}> 
             <Tooltip title="Carrito">
-            <StyledBadge  badgeContent={calcularNumeroProductosCarrito()} sx={{ color: 'white' }}>
+            <StyledBadge  badgeContent={getTotalItems(cartItems)} sx={{ color: 'white' }}>
               <ShoppingCartIcon   fontSize="large" sx={{ color: "white" ,flexGrow: 1}} />
               </StyledBadge >
             </Tooltip>
           </Button>
-
+             {session.info.isLoggedIn ? (
           <div>
             <IconButton onClick={handleMenu} className={classes.icon}>
               <Tooltip title="Perfil">
@@ -104,7 +122,9 @@ const MenuBar = () => {
               <MenuItem >Sign out</MenuItem>
             </Menu>
           </div>
-          <Button to='/LogIn' component={Link} color="inherit" >Login</Button>
+            ):(
+   
+          <Button to='/LogIn' component={Link} color="inherit" >Login</Button>)}
 
         </Toolbar>
       </AppBar>

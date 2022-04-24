@@ -5,10 +5,11 @@ import cors from 'cors';
 import config from './config'
 import mongoose from 'mongoose';
 
-import ProductRouter from "./products/router";
-import LoginRouter from "./login/router";
-import UserRouter from "./users/router";
+import ProductRouter from "./products/productRouter";
+import LoginRouter from "./login/loginRouter";
+import UserRouter from "./users/userRouter";
 import create from "./util/defaultDatabase";
+import path from "path";
 
 if (!process.env.JWT_SECRET) {
     const err = new Error('No JWT_SECRET in env variable, check instructions: https://github.com/amazingandyyy/mern#prepare-your-secret');
@@ -17,8 +18,6 @@ if (!process.env.JWT_SECRET) {
 
 const app = express();
 
-// TODO: load default values
-create();
 
 // App Setup
 app.use(cors({
@@ -28,12 +27,24 @@ app.use(morgan('dev'));
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({extended: true})) // for parsing application/x-www-form-urlencoded
 
-app.use('/user', UserRouter)
-app.use('/product', ProductRouter)
-app.use('/', LoginRouter)
+app.use('/api/user', UserRouter)
+app.use('/api/product', ProductRouter)
+app.use('/api', LoginRouter)
+
+// ... other app.use middleware
+app.use(express.static(path.join(__dirname, "..", "..", "webapp", "build")))
+
+// ...
+// Right before your app.listen(), add this:
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.mongoose.uri).catch(err => console.error(err)).then(() => {
+mongoose.connect(config.mongoose.uri)
+    .catch(err => console.error(err))
+    .then(() => create())
+    .then(() => {
     // Server Setup
     const port = process.env.PORT || 8000
     http.createServer(app).listen(port, () => {

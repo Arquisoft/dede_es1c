@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 
 export interface Product {
-    id: string
+    id: mongoose.ObjectId
     photo: string
     name: string
     price: string
     stock: string
     description: string
-
+    categories: [string]
 }
 
 // Define the model
@@ -26,7 +26,8 @@ const Schema = new mongoose.Schema({
     },
     description: {
         type: String,
-    }
+    },
+    categories: [String]
 
 })
 // Export the model

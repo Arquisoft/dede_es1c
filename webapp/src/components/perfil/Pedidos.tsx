@@ -14,6 +14,19 @@ const useStyle = makeStyles({
   pedido :{
     display:"grid",
     font: "400 1em Tahoma,sans-serif",
+    backgroundColor:"#8545A2",
+    borderRadius: 30,
+    boxShadow: "7px 6px rgba(0, 0, 0, .5)",
+    marginLeft:"5%",
+    marginRight: "5%",
+    padding: "1em",
+    textAlign: "center",
+    margin: "auto",
+    color: "#000",
+  }, 
+  pedidoSup: {
+    display: "flex",
+    flexDirection: "column",
     backgroundColor:"#FFFF",
     borderRadius: 30,
     boxShadow: "7px 6px rgba(0, 0, 0, .5)",
@@ -22,16 +35,7 @@ const useStyle = makeStyles({
     padding: "1em",
     textAlign: "center",
     margin: "auto",
-    color: "#4D8AE2",
-  }, 
-  pedidoSup: {
-    display: "flex",
-    flexDirection: "column",
-    width: "100%",
-  height: "100%",
-  padding: "30px 50px 60px 50px",
-  boxSizing:"border-box",
-  backgroundColor: "#6ABACE", 
+    color: "#A569BD",
   }
 });
 const Pedidos = () => {
@@ -50,8 +54,8 @@ const Pedidos = () => {
     
         {
           id:23143,
-          Descripcion: "Mario Kart 8",
-          Precio: "30€",
+          Descripcion: "Mario Kart 8, League of legends",
+          Precio: "60€",
           Direccion: direccion,
           Estado: "Recibido"
         }
@@ -59,6 +63,7 @@ const Pedidos = () => {
 
     return (
         <div className={classes.pedidoSup}>
+          <h2>Historico de pedidos:</h2>
         {pedidos.map(item=>(
             <div className={classes.pedido}>
               <h1>{item.Descripcion}</h1> 
