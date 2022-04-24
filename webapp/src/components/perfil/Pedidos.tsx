@@ -50,14 +50,6 @@ const useStyle = makeStyles({
   }, 
 });
 
-async function retirevePODEmail(webID: string): Promise<string> {
-  let profileDocumentURI = webID.split("#")[0]
-  let myDataSet = await getSolidDataset(profileDocumentURI)
-  let profile = getThing(myDataSet, webID)
-  let email = getStringNoLocale(profile as Thing, VCARD.note.iri.value) as string;
-  return email;
-}
-
 type ReviewType = {
   webID: string;
   ped: Order[];
@@ -65,6 +57,8 @@ type ReviewType = {
 
 const Pedidos: React.FC<ReviewType> = ({webID,ped}) => {
   const classes = useStyle();
+
+  console.log('fetched data', ped);
 
   return (
     <div className={classes.pedidoSup}>
