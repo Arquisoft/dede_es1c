@@ -15,26 +15,25 @@ import { PaymentView } from "./components/Pago/PaymentView";
 import Producto from "./components/producto/Producto";
 import SOLIDView from "./components/LogIn/SOLID/SOLIDView";
 import { ProductCart } from "./shared/shareddtypes";
-import { useSession } from "@inrupt/solid-ui-react";
+
+
 
 function App(): JSX.Element {
-
-  const { session } = useSession();
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   var [cartItems,setCartItems]= useState<ProductCart[]>([]);
 
   const [products, setProducts] = useState<Product[]>([]);
 
   let carritoString = sessionStorage.getItem('carrito');
-  if (carritoString != null)
-    cartItems = JSON.parse(carritoString!);
+
 
   const refreshProducts = async () => {
     setProducts(await getProductos());
   }
 
   const loadCartFromLocalStorage = () => {
+    if (carritoString != null)
+    cartItems = JSON.parse(carritoString!);
     let str = sessionStorage.getItem('cart');
     let cart:ProductCart[] = str!== null ? JSON.parse(str) : [];
     setCartItems(cart);
@@ -48,11 +47,11 @@ function App(): JSX.Element {
   
 //CARRITO
   const handleRemoveFromCart = (clickedItem: ProductCart) => {
-    let cart:ProductCart[];
     setCartItems(prev =>
       prev.reduce((ack, item) => {
         if ( item.name === clickedItem.name) {
           if (item.amount === 1){
+            addStock(clickedItem);
             sessionStorage.setItem('cart', JSON.stringify(ack));
             return ack;
           }
@@ -61,10 +60,6 @@ function App(): JSX.Element {
           sessionStorage.setItem('cart', JSON.stringify([...ack, { ...item, amount: item.amount - 1 }]));
           return [...ack, { ...item, amount: item.amount - 1 }];
         } else {
-          cart = [...ack, item];
-           //Añdadir stock
-          addStock(clickedItem);
-          sessionStorage.setItem('cart', JSON.stringify(cart));
           return [...ack, item];
         }
       }, [] as ProductCart[])
@@ -122,7 +117,7 @@ function App(): JSX.Element {
               const amountt= item.amount+1;
               newTodos[index].amount=amountt; 
               sessionStorage.setItem('cart', JSON.stringify(newTodos));
-            setCartItems(newTodos);
+              setCartItems(newTodos);
               index=index+1;
               //Quitar stock al producto
               removeStock(existProductClicked);
@@ -140,9 +135,7 @@ function App(): JSX.Element {
        sessionStorage.setItem('cart', JSON.stringify([...cartItems, {id, name, photo, price, description,amount:1 }]));
        setCartItems([...cartItems, {id, name, photo, price, description,amount:1 }]);
       }
-      if(isLoggedIn){
-      // addCart(clickedItem);
-      }
+
   }
   else{
     alert("No hay más stock para "+""+ clickedItem.name);

@@ -10,6 +10,7 @@ import { VCARD, FOAF } from "@inrupt/lit-generated-vocab-common";
 import {getSolidDataset, getStringNoLocale, getThing, Thing, getUrl} from "@inrupt/solid-client";
 import { saveOrder } from '../../api/api';
 
+
 const useStyle = makeStyles({
     formulario: {
         display:"grid",
@@ -66,6 +67,10 @@ const FormularioPago:React.FC<Props> = ({ cartItems }) => {
         }
     }
 
+    const removeAll = () => {
+    sessionStorage.clear();
+     }
+
     const mostrarPagoOk = ()=> {
         setPagoOk(!mostrar1);
     }
@@ -73,6 +78,8 @@ const FormularioPago:React.FC<Props> = ({ cartItems }) => {
     const mostrarPagoNotOk = ()=> {
         setPagoNotOk(!mostrar2);
     }
+
+
 
     const modal1=(
         <div className={classes.pagoOk}>

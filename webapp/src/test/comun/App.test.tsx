@@ -7,17 +7,10 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from "../../App";
 
 
-test("Cickear al producto va a su pagina", async () => {
+test("Render app", async () => {
 
      
-const { getByText } = render(
+ render(<App />);
 
-    <Router>
-      <App />
-    </Router>
-  );
 
 });
-
-
-
