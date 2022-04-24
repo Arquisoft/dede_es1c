@@ -46,12 +46,14 @@ export const ProfileView:React.FC<Props> = ({ cartItems}) => {
       setEmail(e);
       let ped = await getPedidos(e);
       setPedidos(ped);
-      console.log('fetched data',pedidos.length);
+
+      let copyPed = pedidos;
+      console.log('fetched data', copyPed);
     }
   }
+  
   useEffect(() => {
     getPedidosEmail();
-    let ped = pedidos;
   })
 
   return (

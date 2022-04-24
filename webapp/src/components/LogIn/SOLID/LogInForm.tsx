@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { LoginButton } from "@inrupt/solid-ui-react";
 import { Button, TextField, FormGroup, Container } from "@material-ui/core";
-import { makeStyles,Theme } from "@material-ui/core/styles";
+import { makeStyles} from "@material-ui/core/styles";
 import { ProductCart } from '../../../shared/shareddtypes';
 import React from 'react';
 import MenuBar from "../../comun/MenuBar";
