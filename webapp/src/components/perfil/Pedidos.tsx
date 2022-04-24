@@ -6,6 +6,8 @@ import { useSession} from "@inrupt/solid-ui-react";
 import { VCARD, FOAF } from "@inrupt/lit-generated-vocab-common";
 import {getSolidDataset, getStringNoLocale, getThing, Thing, getUrl} from "@inrupt/solid-client";
 import { useEffect } from "react";
+import { InputAdornment, TextField } from "@mui/material";
+import { Directions } from "@material-ui/icons";
 
 const useStyle = makeStyles({
   container: {
@@ -48,56 +50,35 @@ const useStyle = makeStyles({
   }, 
 });
 
+async function retirevePODEmail(webID: string): Promise<string> {
+  let profileDocumentURI = webID.split("#")[0]
+  let myDataSet = await getSolidDataset(profileDocumentURI)
+  let profile = getThing(myDataSet, webID)
+  let email = getStringNoLocale(profile as Thing, VCARD.note.iri.value) as string;
+  return email;
+}
+
+type ReviewType = {
+  webID: string;
+}
 
 const Pedidos: React.FC<ReviewType> = ({webID}) => {
-  const { session } = useSession();
-
   const classes = useStyle();
-
-  const [pedidos, setPedidos] = React.useState<Order[]>();
 
   const [email, setEmail] = React.useState("");
 
-  async function retrievePODEmail(): Promise<string> {
-    var webID:string = session.info.webId!;
-    let profileDocumentURI = webID.split("#")[0]
-    let myDataSet = await getSolidDataset(profileDocumentURI)
-    let profile = getThing(myDataSet, webID)
-    let email = getStringNoLocale(profile as Thing, VCARD.note.iri.value) as string;
-    return email;
-  }
-
   const getEmail = async () => {
-    setEmail(await retrievePODEmail());
+    setEmail(await retirevePODEmail(webID));
   }
 
   useEffect(() => {
     getEmail();
-    getPedidosEmail();
   })
-
-  const getPedidosEmail = async () => {
-    setPedidos(await getPedidos(email));
-  }
 
     return (
         <div className={classes.pedidoSup}>
           <h2 className={classes.tituloHistorico}>Historico de pedidos:</h2>
-        {pedidos!.map(item=>(
-            <div className={classes.pedido}>
-              <h1>{item.name}</h1> 
-              <br></br>
-              <p>Descripcion del articulo: {item.description}</p>
-              <br></br>
-              <p>Precio articulo: {item.price}</p>
-              <br></br>
-              <p>Fecha de compra: {item.fecha}</p>
-              <br></br>
-              <p>Email: {item.email}</p>
-              <br></br>
-              <p>Cantidad: {item.amount}</p>
-            </div>
-        ))}
+          
         </div>
     )
   }
