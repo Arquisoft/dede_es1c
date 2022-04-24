@@ -24,8 +24,6 @@ function App(): JSX.Element {
 
   var [cartItems,setCartItems]= useState<ProductCart[]>([]);
 
-  var [orderItems, setOrderItems] = useState<Order[]>([]);
-
   const [products, setProducts] = useState<Product[]>([]);
 
   let carritoString = sessionStorage.getItem('carrito');

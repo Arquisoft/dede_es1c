@@ -12,13 +12,13 @@ export async function getUsers(): Promise<User[]> {
 
 export async function getProductos(): Promise<Product[]> {
     const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
-    let response = await fetch(apiEndPoint + '/product/');
+    let response = await fetch(apiEndPoint + '/order/');
     return response.json();
 }
 
-export async function getPedidos(emial: string): Promise<Order[]> {
+export async function getPedidos(email: string): Promise<Order[]> {
     const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
-    let response = await fetch(apiEndPoint + '/product/');
+    let response = await fetch(`${apiEndPoint}/email/${email}`);
     return response.json();
 }
 

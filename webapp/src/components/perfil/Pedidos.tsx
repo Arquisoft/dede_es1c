@@ -48,66 +48,54 @@ const useStyle = makeStyles({
   }, 
 });
 
-const { session } = useSession();
 
-const [pedidos2, setPedidos] = React.useState<Order[]>();
+const Pedidos: React.FC<ReviewType> = ({webID}) => {
+  const { session } = useSession();
 
-const [email, setEmail] = React.useState("");
+  const classes = useStyle();
 
-const getEmail = async () => {
+  const [pedidos, setPedidos] = React.useState<Order[]>();
+
+  const [email, setEmail] = React.useState("");
+
+  async function retrievePODEmail(): Promise<string> {
+    var webID:string = session.info.webId!;
+    let profileDocumentURI = webID.split("#")[0]
+    let myDataSet = await getSolidDataset(profileDocumentURI)
+    let profile = getThing(myDataSet, webID)
+    let email = getStringNoLocale(profile as Thing, VCARD.note.iri.value) as string;
+    return email;
+  }
+
+  const getEmail = async () => {
     setEmail(await retrievePODEmail());
-}
+  }
 
-useEffect(() => {
+  useEffect(() => {
     getEmail();
-})
+    getPedidosEmail();
+  })
 
-async function retrievePODEmail(): Promise<string> {
-  var webID:string = session.info.webId!;
-  let profileDocumentURI = webID.split("#")[0]
-  let myDataSet = await getSolidDataset(profileDocumentURI)
-  let profile = getThing(myDataSet, webID)
-  let email = getStringNoLocale(profile as Thing, VCARD.note.iri.value) as string;
-  return email;
-}
-
-const Pedidos = () => {
-
-    var direccion = "Juan Fernandez Diaz Calle React Nº1-3ºD 33015 Oviedo Asturias España "
-    const classes = useStyle();
-
-    const pedidos = [
-        {
-          id:12345,
-          Descripcion: "Pokemon Arceus",
-          Precio: "45€",
-          Direccion: direccion,
-          Estado: "Pendiente"
-        },
-    
-        {
-          id:23143,
-          Descripcion: "Mario Kart 8, League of legends",
-          Precio: "60€",
-          Direccion: direccion,
-          Estado: "Recibido"
-        }
-      ]
+  const getPedidosEmail = async () => {
+    setPedidos(await getPedidos(email));
+  }
 
     return (
         <div className={classes.pedidoSup}>
           <h2 className={classes.tituloHistorico}>Historico de pedidos:</h2>
-        {pedidos.map(item=>(
+        {pedidos!.map(item=>(
             <div className={classes.pedido}>
-              <h1>{item.Descripcion}</h1> 
+              <h1>{item.name}</h1> 
               <br></br>
-              <p>ID Pedido: {item.id}</p>
+              <p>Descripcion del articulo: {item.description}</p>
               <br></br>
-              <p>Precio: {item.Precio}</p>
+              <p>Precio articulo: {item.price}</p>
               <br></br>
-              <p>Enviado a: {item.Direccion}</p>
+              <p>Fecha de compra: {item.fecha}</p>
               <br></br>
-              <p>Estado del pedido: {item.Estado}</p>
+              <p>Email: {item.email}</p>
+              <br></br>
+              <p>Cantidad: {item.amount}</p>
             </div>
         ))}
         </div>

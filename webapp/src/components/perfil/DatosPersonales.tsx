@@ -79,7 +79,6 @@ type ReviewType = {
 }
 
 const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
-  const { session } = useSession();
 
   const [address, setAddress] = React.useState("");
   const getPODAddress = async () => {setAddress(await retrievePODAddress(webID));

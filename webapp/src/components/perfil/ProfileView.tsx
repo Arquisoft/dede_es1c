@@ -35,7 +35,9 @@ export const ProfileView:React.FC<Props> = ({ cartItems}) => {
       ): null }
       </div>
       <div className={classes.container}>
-      <Pedidos/>
+      {session.info.webId ? (
+      <Pedidos webID={session.info.webId}/>
+      ): null }
       </div>
     </React.Fragment>
   );
