@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import TextField from '@mui/material/TextField';
 import { makeStyles } from "@material-ui/core/styles";
 import DatosPersonales from './DatosPersonales';
 import MenuBar from '../comun/MenuBar';
 import Pedidos from './Pedidos';
 import { Order, ProductCart } from '../../shared/shareddtypes';
-import { useSession, CombinedDataProvider, LogoutButton, Text  } from "@inrupt/solid-ui-react";
-import { VCARD, FOAF } from "@inrupt/lit-generated-vocab-common";
+import { useSession} from "@inrupt/solid-ui-react";
+import { VCARD} from "@inrupt/lit-generated-vocab-common";
 import {getSolidDataset, getStringNoLocale, getThing, Thing, getUrl} from "@inrupt/solid-client";
 import { getPedidos } from '../../api/api';
 
