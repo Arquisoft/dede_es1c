@@ -1,5 +1,11 @@
-import React from "react";
+import  React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { Order } from "../../shared/shareddtypes";
+import { getPedidos } from "../../api/api";
+import { useSession} from "@inrupt/solid-ui-react";
+import { VCARD, FOAF } from "@inrupt/lit-generated-vocab-common";
+import {getSolidDataset, getStringNoLocale, getThing, Thing, getUrl} from "@inrupt/solid-client";
+import { useEffect } from "react";
 
 const useStyle = makeStyles({
   container: {
@@ -41,7 +47,30 @@ const useStyle = makeStyles({
     color: "#FFF",
   }, 
 });
- 
+
+const { session } = useSession();
+
+const [pedidos2, setPedidos] = React.useState<Order[]>();
+
+const [email, setEmail] = React.useState("");
+
+const getEmail = async () => {
+    setEmail(await retrievePODEmail());
+}
+
+useEffect(() => {
+    getEmail();
+})
+
+async function retrievePODEmail(): Promise<string> {
+  var webID:string = session.info.webId!;
+  let profileDocumentURI = webID.split("#")[0]
+  let myDataSet = await getSolidDataset(profileDocumentURI)
+  let profile = getThing(myDataSet, webID)
+  let email = getStringNoLocale(profile as Thing, VCARD.note.iri.value) as string;
+  return email;
+}
+
 const Pedidos = () => {
 
     var direccion = "Juan Fernandez Diaz Calle React Nº1-3ºD 33015 Oviedo Asturias España "

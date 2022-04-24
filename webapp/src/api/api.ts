@@ -16,6 +16,12 @@ export async function getProductos(): Promise<Product[]> {
     return response.json();
 }
 
+export async function getPedidos(emial: string): Promise<Order[]> {
+    const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
+    let response = await fetch(apiEndPoint + '/product/');
+    return response.json();
+}
+
 export async function saveOrder( o:Order):Promise<boolean>{ 
     const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
     let response = await fetch(`${apiEndPoint}/order/`, {
