@@ -5,6 +5,7 @@ import bp from "body-parser";
 import promBundle from "express-prom-bundle";
 import apiUser from "../src/users/userRouter";
 import apiProduct from "../src/products/productRouter";
+import apiOrder from "../src/orders/orderRouter";
 import apiLogin from "../src/login/loginRouter";
 import {beforeAll, afterAll, describe, it, expect} from "@jest/globals";
 
@@ -31,6 +32,8 @@ beforeAll(async () => {
     app.use('/user', apiUser)
     app.use('/product', apiProduct)
     app.use('/', apiLogin)
+
+    app.use('/order', apiOrder)
 
     app.use("/uploads", express.static(path.resolve("uploads")));
     app.set("view engine", "ejs");
@@ -747,6 +750,38 @@ describe("ORDERS ", () => {
     });
 
 
+    /**
+     * Crear order
+     */
+
+    it("Crear un order", async () => {
+
+        const response: Response = await request(app).post("/order").send({
+            email: 'c@gmail.com', fecha: "19/04/2022", name: 'Battlefield 2042',
+            description: 'videojuego de disparos y acción bélica en primera persona',
+            photo: 'https://drive.google.com/uc?export=view&id=1RwYHUq0MTPV7RQCCkX1LKqpbyptVOrad',
+            price: '6',
+            amount: 3
+        }).set('Authorization', `Bearer ${token}`);
+
+        expect(response.statusCode).toBe(200);
+
+        const response2: Response = await request(app)
+            .get("/order/c@gmail.com")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response2.statusCode).toBe(200);
+
+        expect(response2.body).toEqual(
+            expect.objectContaining({
+                email: 'c@gmail.com', fecha: "19/04/2022", name: 'Battlefield 2042',
+                description: 'videojuego de disparos y acción bélica en primera persona',
+                photo: 'https://drive.google.com/uc?export=view&id=1RwYHUq0MTPV7RQCCkX1LKqpbyptVOrad',
+                price: '6',
+                amount: 3
+            })
+        );
+    });
 })
 
 
