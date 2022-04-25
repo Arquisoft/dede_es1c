@@ -36,4 +36,14 @@ test("FormularioPago render ", async () => {
     expect(screen.getByText("Fecha de caducidad")).toBeInTheDocument();
     //CVC
     expect(screen.getByText("CVC")).toBeInTheDocument();
+
+    //Placeholders
+    //Numero tarjeta
+    expect(screen.getByText("XXXX XXXX XXXX XXXX")).toBeInTheDocument(); 
+    //Nombre
+    expect(screen.getByText("NOMBRE TARJETA")).toBeInTheDocument();
+    //fecha
+    expect(screen.getByText("MM/YY")).toBeInTheDocument();
+    //CVC
+    expect(screen.getByText("XXX")).toBeInTheDocument();
 });
