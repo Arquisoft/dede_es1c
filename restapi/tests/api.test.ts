@@ -696,4 +696,20 @@ describe("PRODUCTS ", () => {
     });
 })
 
+/****Orders****/
+
+describe("ORDERS ", () => {
+    /**
+     * Get order que no existe
+     */
+    it("Get Order que no existe", async () => {
+        const response: Response = await request(app)
+            .get("/order/noexiste@email.com")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response.statusCode).toBe(404);
+    });
+
+})
+
 
