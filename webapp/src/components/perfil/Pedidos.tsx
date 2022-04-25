@@ -8,6 +8,7 @@ import {getSolidDataset, getStringNoLocale, getThing, Thing, getUrl} from "@inru
 import { useEffect,useState} from "react";
 import { InputAdornment, TextField, Typography } from "@mui/material";
 import { Directions } from "@material-ui/icons";
+import { render } from "@testing-library/react";
 
 const useStyle = makeStyles({
   container: {
@@ -52,35 +53,67 @@ const useStyle = makeStyles({
 
 type ReviewType = {
   webID: string;
-  ped: Order[];
 }
 
-const Pedidos: React.FC<ReviewType> = ({webID,ped}) => {
+async function retirevePODEmail(webID: string): Promise<string> {
+  let profileDocumentURI = webID.split("#")[0]
+  let myDataSet = await getSolidDataset(profileDocumentURI)
+  let profile = getThing(myDataSet, webID)
+  let email = getStringNoLocale(profile as Thing, VCARD.note.iri.value) as string;
+  return email;
+}
+
+const Pedidos: React.FC<ReviewType> = ({webID}) => {
   const classes = useStyle();
 
-  console.log('fetched data', ped);
+  const [email, setEmail] = React.useState("");
+  const [pedidos, setPedidos] = useState<Order[]>([]);
+  const { session } = useSession();
 
-  return (
-    <div className={classes.pedidoSup}>
-      <h2 className={classes.tituloHistorico}>Historico de pedidos:</h2>
-      <Typography>{ped.length}</Typography>
-        {ped.map(item=>(
-          <div className={classes.pedido}>
-            <h1>{item.name}</h1> 
-            <br></br>
-            <p>Descripcion del articulo: {item.description}</p>
-            <br></br>
-            <p>Precio articulo: {item.price}€</p>
-            <br></br>
-            <p>Fecha de compra: {item.fecha}</p>
-            <br></br>
-            <p>Email: {item.email}</p>
-            <br></br>
-            <p>Cantidad: {item.amount}</p>
-          </div>
-      ))}
-      </div>
-    )
+  const getPedidosEmail = async () => {
+    if(email == "") {
+      let e = await retirevePODEmail(session.info.webId!);
+      setEmail(e);
+      let ped = await getPedidos(e);
+      setPedidos(ped);
+
+      let copyPed = pedidos;
+      console.log('fetched data', copyPed);
+    }
+  }
+
+  useEffect(() => {
+    getPedidosEmail();
+  },[pedidos])
+  
+  const mostrarPedidos = () => {
+    getPedidosEmail();
+    if(pedidos != null) {
+      const classes = useStyle();
+      return pedidos.map(item=>(
+        <div className={classes.pedido}>
+          <h1>{item.name}</h1> 
+          <br></br>
+          <p>Descripcion del articulo: {item.description}</p>
+          <br></br>
+          <p>Precio articulo: {item.price}€</p>
+          <br></br>
+          <p>Fecha de compra: {item.fecha}</p>
+          <br></br>
+          <p>Email: {item.email}</p>
+          <br></br>
+          <p>Cantidad: {item.amount}</p>
+        </div>))
+    }
+  }
+
+  
+    return (
+      <div className={classes.pedidoSup}>
+        <h2 className={classes.tituloHistorico}>Historico de pedidos:</h2>
+          {mostrarPedidos()}
+        </div>
+      )
   }
   
   export default Pedidos;

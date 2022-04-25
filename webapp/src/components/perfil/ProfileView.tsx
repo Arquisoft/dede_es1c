@@ -24,37 +24,10 @@ type Props = {
   cartItems: ProductCart[]
 };
 
-async function retirevePODEmail(webID: string): Promise<string> {
-  let profileDocumentURI = webID.split("#")[0]
-  let myDataSet = await getSolidDataset(profileDocumentURI)
-  let profile = getThing(myDataSet, webID)
-  let email = getStringNoLocale(profile as Thing, VCARD.note.iri.value) as string;
-  return email;
-}
-
 export const ProfileView:React.FC<Props> = ({ cartItems}) => {
   const classes = useStyle();
   const { session } = useSession();
   
-  const [email, setEmail] = React.useState("");
-  const [pedidos, setPedidos] = useState<Order[]>([]);
-
-  const getPedidosEmail = async () => {
-    if(email == "") {
-      let e = await retirevePODEmail(session.info.webId!);
-      setEmail(e);
-      let ped = await getPedidos(e);
-      setPedidos(ped);
-
-      let copyPed = pedidos;
-      console.log('fetched data', copyPed);
-    }
-  }
-  
-  useEffect(() => {
-    getPedidosEmail();
-  })
-
   return (
     <React.Fragment>
       <div className={classes.container}>
@@ -67,7 +40,7 @@ export const ProfileView:React.FC<Props> = ({ cartItems}) => {
       </div>
       <div className={classes.container}>
       {session.info.webId ? (
-      <Pedidos webID={session.info.webId} ped={pedidos}/>
+      <Pedidos webID={session.info.webId}/>
       ): null }
       </div>
     </React.Fragment>

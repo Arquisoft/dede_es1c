@@ -24,7 +24,7 @@ test("FormularioPago render ", async () => {
   
     const { getByText } = render(
       <Router>
-        <FormularioPago cartItems={carrito}/>
+        <FormularioPago cartItems={carrito} handleRemoveFromCart={()=>{}}/>
       </Router>
       ); 
 
