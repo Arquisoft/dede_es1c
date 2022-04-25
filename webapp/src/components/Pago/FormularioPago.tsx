@@ -1,15 +1,14 @@
 import React, {useState,useEffect} from 'react';
 import { Grid } from "@material-ui/core";
-import { InputAdornment, TextField, Button, Modal, FormControl, Input } from "@mui/material";
+import { InputAdornment, TextField, Button, Modal} from "@mui/material";
 import { AccountBalanceWallet, VpnKey, CalendarToday, Person} from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-import { ProductCart, Order} from '../../shared/shareddtypes';
+import { ProductCart} from '../../shared/shareddtypes';
 import { useSession} from "@inrupt/solid-ui-react";
-import { VCARD, FOAF } from "@inrupt/lit-generated-vocab-common";
-import {getSolidDataset, getStringNoLocale, getThing, Thing, getUrl} from "@inrupt/solid-client";
-import { eliminarStock, saveOrder } from '../../api/api';
-
+import { VCARD} from "@inrupt/lit-generated-vocab-common";
+import {getSolidDataset, getStringNoLocale, getThing, Thing} from "@inrupt/solid-client";
+import { saveOrder ,eliminarStock} from '../../api/api';
 
 const useStyle = makeStyles({
     formulario: {
@@ -86,9 +85,9 @@ const FormularioPago:React.FC<Props> = ({ cartItems ,  handleRemoveFromCart}) =>
     const modal1=(
         <div className={classes.pagoOk}>
             <div> 
-                <img alt=""src="https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemok_103757.png" width={50}/>
+                <img src="https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemok_103757.png" width={50}/>
                 <h2>Tarjeta valida, haga click para aceptar el pago</h2>
-                <img alt="" src="https://orxcosmeticos.com/wp-content/uploads/2018/09/pago-seguro.jpg" width={300}/>
+                <img src="https://orxcosmeticos.com/wp-content/uploads/2018/09/pago-seguro.jpg" width={300}/>
                 <Grid>
                     <Button onClick={()=>generateOrders()} to='/Perfil' component={Link}  className={classes.boton} variant="contained">Aceptar</Button> 
                 </Grid>
@@ -99,9 +98,9 @@ const FormularioPago:React.FC<Props> = ({ cartItems ,  handleRemoveFromCart}) =>
     const modal2=(
         <div className={classes.pagoOk}>
             <div> 
-                <img alt="" src="https://static.thenounproject.com/png/2052102-200.png" width={150}/>
+                <img src="https://static.thenounproject.com/png/2052102-200.png" width={150}/>
                 <h2>Tarjeta invalida, compruebe los campos</h2>
-                <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4lwno3aI3X7AI69K7hpbouaKq55IDSzbwPbG_UMFn_hVwNtYR81xJn0sLuiqG2H75g&usqp=CAU" width={200}/>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4lwno3aI3X7AI69K7hpbouaKq55IDSzbwPbG_UMFn_hVwNtYR81xJn0sLuiqG2H75g&usqp=CAU" width={200}/>
             </div>
         </div>
     )
@@ -183,18 +182,17 @@ const FormularioPago:React.FC<Props> = ({ cartItems ,  handleRemoveFromCart}) =>
     })
 
     const generateOrders = () => {
-        cartItems.map((item:ProductCart)=>{
+        {cartItems.map((item:ProductCart)=>{
             const now = new Date();
             getEmail();
             var fecha:string = now.toLocaleDateString();
             const {name, description, photo, price, amount} = item;
-      
             const order = {email, fecha, name, description, photo, price, amount};
             saveOrder(order);
             handleRemoveFromCart(item);
             eliminarStock(item);
-            
-        })
+            }
+        )}
     }
 
 
@@ -220,10 +218,10 @@ const FormularioPago:React.FC<Props> = ({ cartItems ,  handleRemoveFromCart}) =>
         <Grid container alignItems="center" direction="column" justify="space-between" style={{padding: 100}}> 
             <div style={{ display: "flex", flexDirection: "column", maxWidth: 500, minWidth: 200}}>
             <Grid container justify="center">
-                <img alt="" src="https://cdn.pixabay.com/photo/2020/07/05/17/32/credit-card-5373806_960_720.png" width={200}/>    
+                <img src="https://cdn.pixabay.com/photo/2020/07/05/17/32/credit-card-5373806_960_720.png" width={200}/>    
             </Grid>
             <Grid container justify="center">
-                <img alt=""src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4lwno3aI3X7AI69K7hpbouaKq55IDSzbwPbG_UMFn_hVwNtYR81xJn0sLuiqG2H75g&usqp=CAU" width={200}/>    
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4lwno3aI3X7AI69K7hpbouaKq55IDSzbwPbG_UMFn_hVwNtYR81xJn0sLuiqG2H75g&usqp=CAU" width={200}/>    
             </Grid>
             <TextField 
                 id="nombre" 

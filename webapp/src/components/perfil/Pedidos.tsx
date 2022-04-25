@@ -80,6 +80,7 @@ const Pedidos: React.FC<ReviewType> = ({webID,ped}) => {
             <br></br>
             <p>Fecha de compra: {item.fecha}</p>
             <br></br>
+
             <p>Cantidad: {item.amount}</p>
           </div>)
       })}

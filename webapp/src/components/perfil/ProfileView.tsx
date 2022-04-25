@@ -5,9 +5,10 @@ import DatosPersonales from './DatosPersonales';
 import MenuBar from '../comun/MenuBar';
 import Pedidos from './Pedidos';
 import { Order, ProductCart } from '../../shared/shareddtypes';
-import { useSession} from "@inrupt/solid-ui-react";
-import { VCARD, } from "@inrupt/lit-generated-vocab-common";
-import {getSolidDataset, getStringNoLocale, getThing, Thing} from "@inrupt/solid-client";
+
+import { useSession, CombinedDataProvider, LogoutButton, Text  } from "@inrupt/solid-ui-react";
+import { VCARD, FOAF } from "@inrupt/lit-generated-vocab-common";
+import {getSolidDataset, getStringNoLocale, getThing, Thing, getUrl} from "@inrupt/solid-client";
 import { getPedidos } from '../../api/api';
 
 
@@ -41,10 +42,20 @@ export const ProfileView:React.FC<Props> = ({ cartItems}) => {
   const [email, setEmail] = React.useState("");
   const [pedidos, setPedidos] = useState<Order[]>([]);
 
+  const getPedidosEmail = async () => {
+    if(email === "") {
+      let e = await retirevePODEmail(session.info.webId!);
+      setEmail(e);
+      let ped = await getPedidos(e);
+      setPedidos(ped);
+      console.log('fetched data',pedidos.length);
+    }
+  }
  useEffect(() => {
-    getPedidos("UO270762@uniovi.es").then(pedidos => setPedidos(pedidos));
+  getPedidosEmail();
 },[] );
   
+
 
   return (
     <React.Fragment>
@@ -57,12 +68,11 @@ export const ProfileView:React.FC<Props> = ({ cartItems}) => {
       ): null }
       </div>
       <div className={classes.container}>
+
       {session.info.webId ?  (
       <Pedidos webID={session.info.webId} ped={pedidos}/>
       ): null }  
 
-    
- 
       </div>
     </React.Fragment>
   );
