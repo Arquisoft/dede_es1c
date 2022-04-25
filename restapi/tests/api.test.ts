@@ -780,11 +780,11 @@ describe("ORDERS ", () => {
                 price: '6',
                 amount: 3
             })
-        );
+        )
 
         //Elimina
         const responseDelete: Response = await request(app)
-            .delete("/order/" + response2.body.order[0])
+            .delete("/order/" + response2.body._id.toString())
             .set('Authorization', `Bearer ${token}`);
 
         expect(responseDelete.statusCode).toBe(200);
