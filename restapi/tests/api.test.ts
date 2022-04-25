@@ -751,7 +751,7 @@ describe("ORDERS ", () => {
 
 
     /**
-     * Crear order
+     * Crear order y lo elimina
      */
 
     it("Crear un order", async () => {
