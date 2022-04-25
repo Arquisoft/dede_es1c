@@ -9,7 +9,6 @@ export async function getUsers(): Promise<User[]> {
     //The objects returned by the api are directly convertible to User objects
     return response.json()
 }
-
 export async function getProductos(): Promise<Product[]> {
     const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
     let response = await fetch(apiEndPoint + '/product/');
@@ -21,7 +20,6 @@ export async function getPedidos(email: string): Promise<Order[]> {
     let response = await fetch(`${apiEndPoint}/order/${email}`);
     return response.json();
 }
-
 export async function saveOrder( o:Order):Promise<boolean>{ 
     const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
     let response = await fetch(`${apiEndPoint}/order/`, {
@@ -43,38 +41,6 @@ export async function saveOrder( o:Order):Promise<boolean>{
     else
         return false;
 } 
-
-/* export async function addCart( p:Product):Promise<boolean>{ 
-  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:8000/user'
-  
-  let response = await fetch(apiEndPoint+'/product', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({'id':p.id,
-                           })
-    });
-  if (response.status===200)
-    return true;
-  else
-    return false;
-
-} */
-export async function loginUsuario(u: User): Promise<boolean> {
-    const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
-    let response = await fetch(apiEndPoint + '/login', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            'email': u.email, "password": u.password,
-        })
-    });
-    console.log(response.body);
-    if (response.status === 200)
-        return true;
-    else
-        return false;
-}
-
 export async function removeCart(): Promise<boolean> {
     const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
     let response = await fetch(apiEndPoint + '/product');
@@ -92,10 +58,6 @@ export async function eliminarStock(p: ProductCart): Promise<boolean> {
     else
         return false;
 }
-
-
-
-
 export async function getProducto(name: string): Promise<Product> {
     const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
     let response = await fetch(`${apiEndPoint}/product/${name}`);

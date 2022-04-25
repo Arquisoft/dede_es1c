@@ -271,7 +271,7 @@ const FormularioPago:React.FC<Props> = ({ cartItems ,  handleRemoveFromCart}) =>
                 InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
             </div>
             <div style={{height: 20}}/>
-            <Button onClick={()=>validacionTodosLosCampos()} className={classes.boton} variant="contained">Pagar</Button> 
+            <Button arial-label="Pagar" onClick={()=>validacionTodosLosCampos()} className={classes.boton} variant="contained">Pagar</Button> 
             </div>
         </Grid>
     </div>

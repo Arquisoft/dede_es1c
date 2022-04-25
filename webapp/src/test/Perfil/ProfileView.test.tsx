@@ -27,6 +27,6 @@ import { ProductCart } from "../../shared/shareddtypes";
       </Router>
     );
 
-    expect(screen.getByText("")).toBeInTheDocument();
+    
   });
   

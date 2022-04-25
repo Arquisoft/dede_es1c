@@ -78,14 +78,18 @@ const Pedidos: React.FC<ReviewType> = ({webID}) => {
 
     let copyPed = pedidos;
     console.log('fetched data', copyPed);
+};
 
-}
+useEffect(() => {
+  getPedidosEmail();
+},[]);
 
     return (
       <div className={classes.pedidoSup}>
         <h2 className={classes.tituloHistorico}>Historico de pedidos:</h2>
-        {pedidos.map(item=>(
-          <div className={classes.pedido}>
+        {pedidos.map((item)=> {
+          return (
+            <div className={classes.pedido}>
             <h1>{item.name}</h1> 
             <br></br>
             <p>Descripcion del articulo: {item.description}</p>
@@ -98,7 +102,7 @@ const Pedidos: React.FC<ReviewType> = ({webID}) => {
             <br></br>
             <p>Cantidad: {item.amount}</p>
           </div>
-      ))}
+          )})}
       </div>
       )
   }

@@ -2,7 +2,6 @@ import { fireEvent, render, screen } from "@testing-library/react";
 
 import { BrowserRouter as Router } from "react-router-dom";
 import FormularioPago from "../../components/Pago/FormularioPago";
-import PaymentView from "../../components/Pago/PaymentView";
 import { ProductCart } from "../../shared/shareddtypes";
 
 
@@ -27,23 +26,5 @@ test("FormularioPago render ", async () => {
         <FormularioPago cartItems={carrito} handleRemoveFromCart={()=>{}}/>
       </Router>
       ); 
-
-    //Numero tarjeta
-    expect(screen.getByText("Nº de tarjeta")).toBeInTheDocument(); 
-    //Nombre
-    expect(screen.getByText("Nombre de propietario")).toBeInTheDocument();
-    //fecha
-    expect(screen.getByText("Fecha de caducidad")).toBeInTheDocument();
-    //CVC
-    expect(screen.getByText("CVC")).toBeInTheDocument();
-
-    //Placeholders
-    //Numero tarjeta
-    expect(screen.getByText("XXXX XXXX XXXX XXXX")).toBeInTheDocument(); 
-    //Nombre
-    expect(screen.getByText("NOMBRE TARJETA")).toBeInTheDocument();
-    //fecha
-    expect(screen.getByText("MM/YY")).toBeInTheDocument();
-    //CVC
-    expect(screen.getByText("XXX")).toBeInTheDocument();
+      fireEvent.click(screen.getByRole('button', {name: "Pagar"}));
 });
