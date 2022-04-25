@@ -1,14 +1,14 @@
 import React, {useState,useEffect} from 'react';
 import { Grid } from "@material-ui/core";
-import { InputAdornment, TextField, Button, Modal, FormControl, Input } from "@mui/material";
+import { InputAdornment, TextField, Button, Modal} from "@mui/material";
 import { AccountBalanceWallet, VpnKey, CalendarToday, Person} from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-import { ProductCart, Order} from '../../shared/shareddtypes';
+import { ProductCart} from '../../shared/shareddtypes';
 import { useSession} from "@inrupt/solid-ui-react";
-import { VCARD, FOAF } from "@inrupt/lit-generated-vocab-common";
-import {getSolidDataset, getStringNoLocale, getThing, Thing, getUrl} from "@inrupt/solid-client";
-import { eliminarStock, saveOrder } from '../../api/api';
+import { VCARD} from "@inrupt/lit-generated-vocab-common";
+import {getSolidDataset, getStringNoLocale, getThing, Thing} from "@inrupt/solid-client";
+import { saveOrder } from '../../api/api';
 
 
 const useStyle = makeStyles({

@@ -1,11 +1,10 @@
-import React, {ChangeEvent, useEffect} from "react";
+import React, {useEffect} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { InputAdornment, TextField} from "@mui/material";
 import { Directions, Email, Person} from "@material-ui/icons";
 import { Grid } from "@material-ui/core"
-import { useSession, CombinedDataProvider, LogoutButton, Text  } from "@inrupt/solid-ui-react";
-import { Button, Card, CardContent, Container, Typography } from "@material-ui/core";
-import { VCARD, FOAF } from "@inrupt/lit-generated-vocab-common";
+import { Typography } from "@material-ui/core";
+import { VCARD } from "@inrupt/lit-generated-vocab-common";
 import {
   getSolidDataset, getStringNoLocale, getThing, Thing, getUrl
 } from "@inrupt/solid-client";
@@ -79,7 +78,6 @@ type ReviewType = {
 }
 
 const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
-  const { session } = useSession();
 
   const [address, setAddress] = React.useState("");
   const getPODAddress = async () => {setAddress(await retrievePODAddress(webID));
