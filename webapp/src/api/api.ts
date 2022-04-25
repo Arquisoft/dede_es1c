@@ -82,16 +82,10 @@ export async function removeCart(): Promise<boolean> {
     return response.json();
 }
 
-export async function eliminarStock(p: Product): Promise<boolean> {
+export async function eliminarStock(p: ProductCart): Promise<boolean> {
     const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
-    var id = p.id
-    let response = await fetch(`${apiEndPoint}/product/stock/${"" + id}`, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            'stock': Number(p.stock) - 1,
-        })
-    });
+    var name = p.name
+    let response = await fetch(`${apiEndPoint}/product/reduce/${name}`);
 
     if (response.status === 200)
         return true;
@@ -100,22 +94,6 @@ export async function eliminarStock(p: Product): Promise<boolean> {
 }
 
 
-export async function anadirStock(p: Product): Promise<boolean> {
-    const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
-    var id = p.id
-    let response = await fetch(`${apiEndPoint}/product/stock/${"" + id}`, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            'stock': Number(p.stock) + 1,
-        })
-    });
-
-    if (response.status === 200)
-        return true;
-    else
-        return false;
-}
 
 
 export async function getProducto(name: string): Promise<Product> {

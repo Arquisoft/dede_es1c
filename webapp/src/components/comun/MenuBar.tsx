@@ -96,8 +96,8 @@ const MenuBar:React.FC<Props> = (cartItems) => {
             </Tooltip>
 
           </Link>
-             {session.info.isLoggedIn ? (
 
+             {session.info.isLoggedIn ? (
           <div>
             <IconButton onClick={handleMenu} className={classes.icon}>
               <Tooltip title="Perfil">
@@ -124,8 +124,11 @@ const MenuBar:React.FC<Props> = (cartItems) => {
               <MenuItem to='/Perfil' component={Link}>Perfil</MenuItem>
               <MenuItem >Sign out</MenuItem>
             </Menu>
-          </div>
+          </div>  ):(
+   
           <Button to='/LogIn' component={Link} color="inherit" >Login</Button>
+          )}
+
         </Toolbar>
       </AppBar>
   );
