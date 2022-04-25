@@ -26,5 +26,7 @@ import { ProductCart } from "../../shared/shareddtypes";
      <ProfileView cartItems={carrito}/>
       </Router>
     );
+
+    expect(screen.getByText("")).toBeInTheDocument();
   });
   

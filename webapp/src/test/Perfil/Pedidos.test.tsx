@@ -4,8 +4,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Pedidos from "../../components/perfil/Pedidos";
 
 
-
-
   test("Pedidos render ", async () => {
 
     const { getByText } = render(

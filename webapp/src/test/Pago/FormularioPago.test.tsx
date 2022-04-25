@@ -24,7 +24,9 @@ test("FormularioPago render ", async () => {
   
     const { getByText } = render(
       <Router>
-        <FormularioPago/>
+        <FormularioPago cartItems={carrito}/>
       </Router>
-      );  
+      ); 
+
+    expect(screen.getByText("Nº de tarjeta")).toBeInTheDocument(); 
 });
