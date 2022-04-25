@@ -72,9 +72,6 @@ test("No hay producto", async () => {
     //Clickear el boton del producto
     fireEvent.click(screen.getByRole('button', {name: "Eliminar"}));
 
-    //No hay nada
-    //expect(screen.getByText( "Carrito vacio")).toBeInTheDocument();
-
   });
 
   test("No logeado", async () => {

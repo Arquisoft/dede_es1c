@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React, { useState, useEffect} from 'react';
 
 import { Order, Product } from "./shared/shareddtypes";
-import  {getProductos} from './api/api';
+import  {getPedidos, getProductos} from './api/api';
 import './App.css';
 
 import {HomeView} from "./components/home/HomeView";
@@ -40,7 +40,7 @@ function App(): JSX.Element {
   };
 
   useEffect(()=>{
-    refreshProducts();
+   refreshProducts();
     loadCartFromLocalStorage();
   },[]);
 
@@ -144,7 +144,6 @@ function App(): JSX.Element {
 
 
 
-
   return (
 
     <>
@@ -156,7 +155,7 @@ function App(): JSX.Element {
       <Route  path="/Carrito"render={() => <Carrito cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart}/>}/>
         <Route  path="/Producto/:name" render={() => <Producto cartItems={cartItems} handleAddToCart={handleAddToCart}/>}/>
         <Route  path="/Pago"render={() => <PaymentView cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart}/> }/>
-        <Route  path="/Perfil"render={() => <ProfileView cartItems={cartItems}/>}/>
+        <Route  path="/Perfil"render={() => <ProfileView cartItems={cartItems} /> }/>
         <Route  path="/LogIn"render={() => <LogInView cartItems={cartItems}/>}/>
         <Route path="/inrupt" render={() => <SOLIDView cartItems={cartItems}/>}/>
       </Switch>

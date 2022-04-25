@@ -1,11 +1,15 @@
-import React, {useEffect} from 'react';
-import TextField from '@mui/material/TextField';
+import React, {useEffect, useState} from 'react';
+
 import { makeStyles } from "@material-ui/core/styles";
 import DatosPersonales from './DatosPersonales';
 import MenuBar from '../comun/MenuBar';
 import Pedidos from './Pedidos';
-import { ProductCart } from '../../shared/shareddtypes';
-import { useSession, CombinedDataProvider, LogoutButton, Text  } from "@inrupt/solid-ui-react";
+import { Order, ProductCart } from '../../shared/shareddtypes';
+import { useSession} from "@inrupt/solid-ui-react";
+import { VCARD, } from "@inrupt/lit-generated-vocab-common";
+import {getSolidDataset, getStringNoLocale, getThing, Thing} from "@inrupt/solid-client";
+import { getPedidos } from '../../api/api';
+
 
 const useStyle = makeStyles({
   container: {
@@ -16,14 +20,32 @@ const useStyle = makeStyles({
     padding: "30px 50px 60px 50px",
     boxSizing:"border-box",
   },
-
 });
+
 type Props = {
   cartItems: ProductCart[]
 };
+
+async function retirevePODEmail(webID: string): Promise<string> {
+  let profileDocumentURI = webID.split("#")[0]
+  let myDataSet = await getSolidDataset(profileDocumentURI)
+  let profile = getThing(myDataSet, webID)
+  let email = getStringNoLocale(profile as Thing, VCARD.note.iri.value) as string;
+  return email;
+}
+
 export const ProfileView:React.FC<Props> = ({ cartItems}) => {
   const classes = useStyle();
   const { session } = useSession();
+
+  const [email, setEmail] = React.useState("");
+  const [pedidos, setPedidos] = useState<Order[]>([]);
+
+ useEffect(() => {
+    getPedidos("UO270762@uniovi.es").then(pedidos => setPedidos(pedidos));
+},[] );
+  
+
   return (
     <React.Fragment>
       <div className={classes.container}>
@@ -35,12 +57,16 @@ export const ProfileView:React.FC<Props> = ({ cartItems}) => {
       ): null }
       </div>
       <div className={classes.container}>
-      <Pedidos/>
+      {session.info.webId ?  (
+      <Pedidos webID={session.info.webId} ped={pedidos}/>
+      ): null }  
+
+    
+ 
       </div>
     </React.Fragment>
   );
 };
-
 
 
 

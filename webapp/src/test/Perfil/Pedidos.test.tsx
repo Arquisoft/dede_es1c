@@ -10,7 +10,7 @@ import Pedidos from "../../components/perfil/Pedidos";
 
     const { getByText } = render(
       <Router>
-     <Pedidos/>
+     <Pedidos webID={""} ped={[]}/>
       </Router>
 
     );
