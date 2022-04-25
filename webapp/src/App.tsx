@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React, { useState, useEffect} from 'react';
 
 import { Order, Product } from "./shared/shareddtypes";
-import  {getProductos} from './api/api';
+import  {getPedidos, getProductos} from './api/api';
 import './App.css';
 
 import {HomeView} from "./components/home/HomeView";
@@ -44,7 +44,8 @@ function App(): JSX.Element {
     loadCartFromLocalStorage();
   },[]);
 
-  
+
+
 //CARRITO
   const handleRemoveFromCart = (clickedItem: ProductCart) => {
     setCartItems(prev =>

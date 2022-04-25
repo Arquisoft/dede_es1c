@@ -65,54 +65,41 @@ async function retirevePODEmail(webID: string): Promise<string> {
 
 const Pedidos: React.FC<ReviewType> = ({webID}) => {
   const classes = useStyle();
+  const { session } = useSession();
 
   const [email, setEmail] = React.useState("");
   const [pedidos, setPedidos] = useState<Order[]>([]);
-  const { session } = useSession();
-
+  
   const getPedidosEmail = async () => {
-    if(email == "") {
-      let e = await retirevePODEmail(session.info.webId!);
-      setEmail(e);
-      let ped = await getPedidos(e);
-      setPedidos(ped);
+    
+    let e = "UO270762@uniovi.es";
+    let ped = await getPedidos(e);
+    setPedidos(ped);
 
-      let copyPed = pedidos;
-      console.log('fetched data', copyPed);
-    }
-  }
+    let copyPed = pedidos;
+    console.log('fetched data', copyPed);
 
-  useEffect(() => {
-    getPedidosEmail();
-  },[pedidos])
-  
-  const mostrarPedidos = () => {
-    getPedidosEmail();
-    if(pedidos != null) {
-      const classes = useStyle();
-      return pedidos.map(item=>(
-        <div className={classes.pedido}>
-          <h1>{item.name}</h1> 
-          <br></br>
-          <p>Descripcion del articulo: {item.description}</p>
-          <br></br>
-          <p>Precio articulo: {item.price}€</p>
-          <br></br>
-          <p>Fecha de compra: {item.fecha}</p>
-          <br></br>
-          <p>Email: {item.email}</p>
-          <br></br>
-          <p>Cantidad: {item.amount}</p>
-        </div>))
-    }
-  }
+}
 
-  
     return (
       <div className={classes.pedidoSup}>
         <h2 className={classes.tituloHistorico}>Historico de pedidos:</h2>
-          {mostrarPedidos()}
-        </div>
+        {pedidos.map(item=>(
+          <div className={classes.pedido}>
+            <h1>{item.name}</h1> 
+            <br></br>
+            <p>Descripcion del articulo: {item.description}</p>
+            <br></br>
+            <p>Precio articulo: {item.price}€</p>
+            <br></br>
+            <p>Fecha de compra: {item.fecha}</p>
+            <br></br>
+            <p>Email: {item.email}</p>
+            <br></br>
+            <p>Cantidad: {item.amount}</p>
+          </div>
+      ))}
+      </div>
       )
   }
   

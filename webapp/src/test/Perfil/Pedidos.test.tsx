@@ -8,7 +8,7 @@ import Pedidos from "../../components/perfil/Pedidos";
 
     const { getByText } = render(
       <Router>
-     <Pedidos webID=""/>
+
       </Router>
 
     );
