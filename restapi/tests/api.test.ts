@@ -734,6 +734,17 @@ describe("ORDERS ", () => {
         );
     });
 
+    /**
+     * Listar todos las ordenes
+     */
+
+    it("listar todas las ordenes", async () => {
+        const response: Response = await request(app).get(
+            "/order"
+        );
+        expect(response.statusCode).toBe(200);
+
+    });
 
 
 })
