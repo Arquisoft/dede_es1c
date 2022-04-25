@@ -28,5 +28,12 @@ test("FormularioPago render ", async () => {
       </Router>
       ); 
 
+    //Numero tarjeta
     expect(screen.getByText("Nº de tarjeta")).toBeInTheDocument(); 
+    //Nombre
+    expect(screen.getByText("Nombre de propietario")).toBeInTheDocument();
+    //fecha
+    expect(screen.getByText("Fecha de caducidad")).toBeInTheDocument();
+    //CVC
+    expect(screen.getByText("CVC")).toBeInTheDocument();
 });
