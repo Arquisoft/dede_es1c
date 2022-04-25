@@ -336,7 +336,7 @@ describe("PRODUCTS ", () => {
     });
 
     /**
-     * Crear producto y elimianrlo
+     * Crear producto y eliminarlo
      */
 
     it("Crear un producto correctamente y eliminarlo", async () => {
@@ -699,6 +699,7 @@ describe("PRODUCTS ", () => {
 /****Orders****/
 
 describe("ORDERS ", () => {
+
     /**
      * Get order que no existe
      */
@@ -709,6 +710,31 @@ describe("ORDERS ", () => {
 
         expect(response.statusCode).toBe(404);
     });
+
+    /**
+     * Order que existe
+     */
+    it("Get Order que existe", async () => {
+        const response: Response = await request(app)
+            .get("/order/a@gmail.com")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response.statusCode).toBe(200);
+
+        expect(response.body).toEqual(
+            expect.objectContaining({
+                email: 'a@gmail.com',
+                fecha: "19/04/2022",
+                name: "Dying Light",
+                description: "serie de videojuegos de acción",
+                photo: 'https://drive.google.com/uc?export=view&id=1aUIkNF0ZMJV0CAynt-TE_bFw-ySFcMXx',
+                price: '6',
+                amount: 3
+            })
+        );
+    });
+
+
 
 })
 
