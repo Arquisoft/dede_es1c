@@ -781,7 +781,12 @@ describe("ORDERS ", () => {
                 amount: 3
             })
         );
+
+        //Elimina
+        const responseDelete: Response = await request(app)
+            .delete("/order/" + response2.body.order[0])
+            .set('Authorization', `Bearer ${token}`);
+
+        expect(responseDelete.statusCode).toBe(200);
     });
 })
-
-
