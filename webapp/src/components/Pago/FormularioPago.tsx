@@ -43,11 +43,13 @@ const useStyle = makeStyles({
     }
 });
 
+
 type Props = {
     cartItems: ProductCart[]
+    handleRemoveFromCart: (clickedItem: ProductCart) => void;
   };
    
-const FormularioPago:React.FC<Props> = ({ cartItems }) => {
+const FormularioPago:React.FC<Props> = ({ cartItems ,  handleRemoveFromCart}) => {
     const classes = useStyle();
 
     const[mostrar1, setPagoOk]=useState(false);
@@ -188,6 +190,8 @@ const FormularioPago:React.FC<Props> = ({ cartItems }) => {
             const {name, description, photo, price, amount} = item;
             const order = {email, fecha, name, description, photo, price, amount};
             saveOrder(order);
+            handleRemoveFromCart(item);
+            eliminarStock(item);
             }
         )}
     }
