@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+
 import { makeStyles } from "@material-ui/core/styles";
 import DatosPersonales from './DatosPersonales';
 import MenuBar from '../comun/MenuBar';
@@ -7,7 +8,6 @@ import { Order, ProductCart } from '../../shared/shareddtypes';
 
 import { useSession, CombinedDataProvider, LogoutButton, Text  } from "@inrupt/solid-ui-react";
 import { VCARD, FOAF } from "@inrupt/lit-generated-vocab-common";
-
 import {getSolidDataset, getStringNoLocale, getThing, Thing, getUrl} from "@inrupt/solid-client";
 import { getPedidos } from '../../api/api';
 
@@ -48,13 +48,13 @@ export const ProfileView:React.FC<Props> = ({ cartItems}) => {
       setEmail(e);
       let ped = await getPedidos(e);
       setPedidos(ped);
-      console.log('fetched data',pedidos.length);
     }
   }
  useEffect(() => {
   getPedidosEmail();
 },[] );
   
+
 
   return (
     <React.Fragment>
@@ -76,6 +76,3 @@ export const ProfileView:React.FC<Props> = ({ cartItems}) => {
     </React.Fragment>
   );
 };
-
-
-

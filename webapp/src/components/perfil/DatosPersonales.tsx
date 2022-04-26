@@ -40,6 +40,12 @@ const useStyle = makeStyles({
     marginRight: "10%",
     textAlign: "center",
     color: "#513280",
+  },
+  disable: {
+    ".MuiInputBase-input.Mui-disabled": {
+      WebkitTextFillColor: "#000",
+      color: "#000"
+    }
   }
 });
 
@@ -48,13 +54,17 @@ async function retrievePODAddress(webID: string): Promise<string> {
   let myDataSet = await getSolidDataset(profileDocumentURI)
   let profile = getThing(myDataSet, webID)
   let urlAddress = getUrl(profile as Thing, VCARD.hasAddress) as string
-  let addressProfile = await getThing(myDataSet, urlAddress)
-  let ret= getStringNoLocale(addressProfile as Thing, VCARD.street_address) as string+" "+
-  getStringNoLocale(addressProfile as Thing, VCARD.postal_code) as string+" "+
-  getStringNoLocale(addressProfile as Thing, VCARD.locality) as string+" "+
-  getStringNoLocale(addressProfile as Thing, VCARD.region) as string+" "+
-  getStringNoLocale(addressProfile as Thing, VCARD.country_name) as string;
-  return ret
+  if(urlAddress === null) {
+    return "";
+  } else  {
+    let addressProfile = await getThing(myDataSet, urlAddress)
+    let ret= getStringNoLocale(addressProfile as Thing, VCARD.street_address) as string+" "+
+    getStringNoLocale(addressProfile as Thing, VCARD.postal_code) as string+" "+
+    getStringNoLocale(addressProfile as Thing, VCARD.locality) as string+" "+
+    getStringNoLocale(addressProfile as Thing, VCARD.region) as string+" "+
+    getStringNoLocale(addressProfile as Thing, VCARD.country_name) as string;
+    return ret
+  }
 }
 
 async function retirevePODName(webID: string): Promise<string> {
@@ -80,19 +90,40 @@ type ReviewType = {
 const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
 
   const [address, setAddress] = React.useState("");
-  const getPODAddress = async () => {setAddress(await retrievePODAddress(webID));
+  const getPODAddress = async () => {
+    let a = await retrievePODAddress(webID);
+    if(a === "") {
+      setAddress("ERROR: POD SIN DIRECCION");
+    } else {
+      setAddress(a);
+    }
+    
   };
   useEffect(() => {
       getPODAddress();
   })
-  const [name, setName] = React.useState("");
-  const getPODName = async () => {setName(await retirevePODName(webID));
+  const [name, setName] = React.useState("Name");
+  const getPODName = async () => {
+    let n = await retirevePODName(webID);
+    if(n === null) {
+      setName("ERROR: POD SIN NOMBRE COMPLETO");
+    } else {
+      setName(n);
+    }
+    
   };
   useEffect(() => {
       getPODName();
   })
   const [email, setEmail] = React.useState("");
-  const getPODEmail = async () => {setEmail(await retirevePODEmail(webID));
+
+  const getPODEmail = async () => {
+    let e = await retirevePODEmail(webID);
+    if(e === null) {
+      setEmail("ERROR: POD SIN EMAIL")
+    } else {
+      setEmail(e);
+    }
   };
   useEffect(() => {
       getPODEmail();

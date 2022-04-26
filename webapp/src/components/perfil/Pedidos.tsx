@@ -8,7 +8,6 @@ import {getSolidDataset, getStringNoLocale, getThing, Thing, getUrl} from "@inru
 import { useEffect,useState} from "react";
 import { InputAdornment, TextField, Typography } from "@mui/material";
 import { Directions } from "@material-ui/icons";
-import { render } from "@testing-library/react";
 
 const useStyle = makeStyles({
   container: {
@@ -51,11 +50,6 @@ const useStyle = makeStyles({
   }, 
 });
 
-type ReviewType = {
-  webID: string;
-  ped: Order[];
-}
-
 async function retirevePODEmail(webID: string): Promise<string> {
   let profileDocumentURI = webID.split("#")[0]
   let myDataSet = await getSolidDataset(profileDocumentURI)
@@ -64,27 +58,13 @@ async function retirevePODEmail(webID: string): Promise<string> {
   return email;
 }
 
-const Pedidos: React.FC<ReviewType> = ({webID, ped}) => {
+type ReviewType = {
+  webID: string;
+  ped: Order[];
+}
+
+const Pedidos: React.FC<ReviewType> = ({webID,ped}) => {
   const classes = useStyle();
-  const { session } = useSession();
-
-  const [email, setEmail] = React.useState("");
-  const [pedidos, setPedidos] = useState<Order[]>([]);
-  
-  const getPedidosEmail = async () => {
-    
-    let e = "UO270762@uniovi.es";
-    let ped = await getPedidos(e);
-    setPedidos(ped);
-
-    let copyPed = pedidos;
-    console.log('fetched data', copyPed);
-};
-
-useEffect(() => {
-  getPedidosEmail();
-},[]);
-
 
   return (
     <div className={classes.pedidoSup}>
@@ -105,7 +85,7 @@ useEffect(() => {
           </div>)
       })}
       </div>
-      )
+    )
   }
   
   export default Pedidos;

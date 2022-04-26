@@ -8,13 +8,10 @@ import {ProductCart} from "../shared/shareddtypes";
     let response = await fetch(apiEndPoint + '/');
     //The objects returned by the api are directly convertible to User objects
     return response.json()
-<<<<<<< HEAD
-}
-export async function getProductos(): Promise<Product[]> {
-=======
+
+
 } */
 export async function getPedidos(email: string): Promise<Order[]> {
->>>>>>> 679bcbff26451dd0d79f2e0be7dcdffe856982c2
     const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
     let response = await fetch(`${apiEndPoint}/order/${email}`);
     return response.json();
@@ -46,9 +43,6 @@ export async function saveOrder( o:Order):Promise<boolean>{
     else
         return false;
 } 
-<<<<<<< HEAD
-export async function removeCart(): Promise<boolean> {
-=======
 
 /* export async function addCart( p:Product):Promise<boolean>{ 
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:8000/user'
@@ -82,7 +76,6 @@ export async function removeCart(): Promise<boolean> {
 } */
 
 /* export async function removeCart(): Promise<boolean> {
->>>>>>> 679bcbff26451dd0d79f2e0be7dcdffe856982c2
     const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
     let response = await fetch(apiEndPoint + '/product');
 
@@ -99,10 +92,6 @@ export async function eliminarStock(p: ProductCart): Promise<boolean> {
     else
         return false;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 679bcbff26451dd0d79f2e0be7dcdffe856982c2
 export async function getProducto(name: string): Promise<Product> {
     const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
     let response = await fetch(`${apiEndPoint}/product/${name}`);
