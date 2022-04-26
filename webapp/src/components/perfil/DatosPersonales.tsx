@@ -106,10 +106,12 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
       getPODAddress();
   })
   const [name, setName] = React.useState("Name");
+  const [errorsName,setErrorsName] = React.useState<{name: string}>();
   const getPODName = async () => {
     let n = await retirevePODName(webID);
-    if(n === null) {
+    if(n === null || n == "") {
       setName("ERROR: POD SIN NOMBRE COMPLETO");
+      setErrorsName({name: 'Esta aplicacion requiere de un POD con un nombre en el'});
     } else {
       setName(n);
     }
@@ -140,7 +142,7 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
                 <img src="https://cdn4.iconfinder.com/data/icons/web-app-flat-circular-icons-set/64/Iconos_Redondos_Flat_Usuario_Icn-512.png" width={150}/>    
             </Grid>
             <Typography variant="h5">¡Bienvenido!</Typography>
-            <TextField label="Nombre" margin="normal" contentEditable="false" value={name} InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
+            <TextField label="Nombre" error={Boolean(errorsName?.name)} helperText={(errorsName?.name)} margin="normal" contentEditable="false" value={name} InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
             <div style={{height: 20, width: 500}}/>
             <TextField label="Correo asociado" margin="normal" contentEditable="false" variant="outlined" value={email} InputProps={{startAdornment: <InputAdornment position="start"><Email/></InputAdornment>}}/>
             <div style={{height: 20}}/>
