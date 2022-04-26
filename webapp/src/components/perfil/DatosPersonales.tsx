@@ -121,11 +121,12 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
       getPODName();
   })
   const [email, setEmail] = React.useState("Email");
-
+  const [errorsEmail,setErrorsEmail] = React.useState<{email: string}>();
   const getPODEmail = async () => {
     let e = await retirevePODEmail(webID);
     if(e === null) {
-      setEmail("ERROR: POD SIN EMAIL")
+      setEmail("ERROR: POD SIN EMAIL");
+      setErrorsEmail({email: 'Esta aplicacion requiere de un POD con un email en el (ubicado en notas)'});
     } else {
       setEmail(e);
     }
@@ -144,7 +145,7 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
             <Typography variant="h5">¡Bienvenido!</Typography>
             <TextField label="Nombre" error={Boolean(errorsName?.name)} helperText={(errorsName?.name)} margin="normal" contentEditable="false" value={name} InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
             <div style={{height: 20, width: 500}}/>
-            <TextField label="Correo asociado" margin="normal" contentEditable="false" variant="outlined" value={email} InputProps={{startAdornment: <InputAdornment position="start"><Email/></InputAdornment>}}/>
+            <TextField label="Correo asociado" error={Boolean(errorsEmail?.email)} helperText={(errorsEmail?.email)} margin="normal" contentEditable="false" variant="outlined" value={email} InputProps={{startAdornment: <InputAdornment position="start"><Email/></InputAdornment>}}/>
             <div style={{height: 20}}/>
             <TextField label="Direccion de envio asociada" error={Boolean(errorsAddres?.address)} helperText={(errorsAddres?.address)}  margin="normal" contentEditable="false" variant="outlined" value={address} InputProps={{startAdornment: <InputAdornment position="start"><Directions/></InputAdornment>}}/>
             <div style={{height: 20}}/> 
