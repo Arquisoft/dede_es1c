@@ -89,11 +89,14 @@ type ReviewType = {
 
 const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
 
+
   const [address, setAddress] = React.useState("Direccion");
+  const [errorsAddres,setErrorsAddress] = React.useState<{address: string}>();
   const getPODAddress = async () => {
     let a = await retrievePODAddress(webID);
     if(a === "") {
       setAddress("ERROR: POD SIN DIRECCION");
+      setErrorsAddress({address: 'Esta aplicacion requiere de un POD con una direccion en el'});
     } else {
       setAddress(a);
     }
@@ -141,7 +144,7 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
             <div style={{height: 20, width: 500}}/>
             <TextField label="Correo asociado" margin="normal" contentEditable="false" variant="outlined" value={email} InputProps={{startAdornment: <InputAdornment position="start"><Email/></InputAdornment>}}/>
             <div style={{height: 20}}/>
-            <TextField label="Direccion de envio asociada" margin="normal" contentEditable="false" variant="outlined" value={address} InputProps={{startAdornment: <InputAdornment position="start"><Directions/></InputAdornment>}}/>
+            <TextField label="Direccion de envio asociada" error={Boolean(errorsAddres?.address)} helperText={(errorsAddres?.address)}  margin="normal" contentEditable="false" variant="outlined" value={address} InputProps={{startAdornment: <InputAdornment position="start"><Directions/></InputAdornment>}}/>
             <div style={{height: 20}}/> 
             </div>
         </Grid>
