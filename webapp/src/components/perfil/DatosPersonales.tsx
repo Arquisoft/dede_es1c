@@ -89,7 +89,7 @@ type ReviewType = {
 
 const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
 
-  const [address, setAddress] = React.useState("");
+  const [address, setAddress] = React.useState("Direccion");
   const getPODAddress = async () => {
     let a = await retrievePODAddress(webID);
     if(a === "") {
@@ -115,7 +115,7 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
   useEffect(() => {
       getPODName();
   })
-  const [email, setEmail] = React.useState("");
+  const [email, setEmail] = React.useState("Email");
 
   const getPODEmail = async () => {
     let e = await retirevePODEmail(webID);
