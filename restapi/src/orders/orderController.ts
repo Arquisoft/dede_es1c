@@ -7,12 +7,8 @@ export default {
     },
 
     get: async (req: Request, res: Response) => {
-        const order = await OrderModel.findOne({email: req.params.email});
-        if (order) {
-            res.status(200).json(order);
-        } else {
-            res.status(404).json({error: "The order does not exist"});
-        }
+        res.json(await OrderModel.find({email: req.params.email}));
+
     },
 
     create: async (req: Request, res: Response) => {

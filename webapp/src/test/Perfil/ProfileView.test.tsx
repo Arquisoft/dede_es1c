@@ -6,7 +6,7 @@ import { ProfileView } from "../../components/perfil/ProfileView";
 import { ProductCart } from "../../shared/shareddtypes";
 
 
-  test("ProfileView render ", async () => {
+  test("ProfileView render", async () => {
     const carrito: ProductCart[] = [
         {
           // @ts-ignore
@@ -23,7 +23,7 @@ import { ProductCart } from "../../shared/shareddtypes";
       ];
     const { getByText } = render(
       <Router>
-     <ProfileView cartItems={carrito}/>
+     <ProfileView cartItems={carrito} />
       </Router>
     );
   });

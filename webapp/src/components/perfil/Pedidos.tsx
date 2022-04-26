@@ -69,8 +69,8 @@ const Pedidos: React.FC<ReviewType> = ({webID,ped}) => {
   return (
     <div className={classes.pedidoSup}>
       <h2 className={classes.tituloHistorico}>Historico de pedidos:</h2>
-      <Typography>{ped.length}</Typography>
-        {ped.map(item=>(
+      {ped.map((item:Order)=>{
+        return(
           <div className={classes.pedido}>
             <h1>{item.name}</h1> 
             <br></br>
@@ -80,11 +80,10 @@ const Pedidos: React.FC<ReviewType> = ({webID,ped}) => {
             <br></br>
             <p>Fecha de compra: {item.fecha}</p>
             <br></br>
-            <p>Email: {item.email}</p>
-            <br></br>
+
             <p>Cantidad: {item.amount}</p>
-          </div>
-      ))}
+          </div>)
+      })}
       </div>
     )
   }
