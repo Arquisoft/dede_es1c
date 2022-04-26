@@ -9,8 +9,8 @@ import App from "../../App";
 
 test("Render app", async () => {
 
-     
- render(<App />);
 
-
+ render(
+ 
+ <App />);
 });

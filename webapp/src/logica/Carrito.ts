@@ -1,4 +1,4 @@
-
+/* istanbul ignore next */
 export function getCoordenadas(address: string) {
   const axios = require("axios");
 
@@ -15,14 +15,12 @@ export function getCoordenadas(address: string) {
       return error;
     });
 }
-
+/* istanbul ignore next */
 export const getCoordenadasDeAddress = async (address: string) => {
   let coords = await getCoordenadas(address);
 
- 
   let lat = coords.features[0].geometry.coordinates[1];
   let lon = coords.features[0].geometry.coordinates[0];
-
   const lon1 =  -5.851290035687373 * Math.PI / 180;
   const lonPOD = lon * Math.PI / 180;
   const lat1 = 43.35513026876176 * Math.PI / 180;
@@ -47,7 +45,7 @@ export const getCoordenadasDeAddress = async (address: string) => {
 
 
 }
-
+/* istanbul ignore next */
 export const shipCost = async (address: string) => {
   if(address!==""){
   const dist = await getCoordenadasDeAddress(address);

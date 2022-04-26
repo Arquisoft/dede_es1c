@@ -32,6 +32,7 @@ const useStyle = makeStyles({
     cartItems: ProductCart[];
     handleRemoveFromCart: (clickedItem: ProductCart) => void;
   };
+  /* istanbul ignore next */
   async function retrievePODAddress(webID: string): Promise<string> {
 
     let profileDocumentURI = webID.split("#")[0]
@@ -53,10 +54,11 @@ export const Carrito: React.FC<Props> = ({ cartItems, handleRemoveFromCart}) => 
   
     const [address, setAddress] = React.useState("");
 
-
+    /* istanbul ignore next */
     const getPODAddress = async () => {
       setAddress(await retrievePODAddress(session.info.webId!))
     }
+    /* istanbul ignore next */
     useEffect(() => {
       if(session.info.isLoggedIn)
         getPODAddress();

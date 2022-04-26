@@ -216,13 +216,15 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart,address}) => 
                              <Typography variant="h6" gutterBottom >
                               Debes iniciar sesión para ver el precio de envio
                                </Typography>)}
-                            {session.info.isLoggedIn ? (
+        
+                            { session.info.isLoggedIn ? (
                        <Typography variant="h5" gutterBottom >
                        Total:{shipppinCost+calculateProductTotal(props)}€
                        </Typography>):(
                          <Typography variant="h5" gutterBottom >
                          Debes iniciar sesión para ver el precio total
                          </Typography>)}
+
                        {session.info.isLoggedIn ? (
                        <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>):(
                       <Button to='/LogIn' component={Link} className={classes.btncomprar} variant="contained">LogIn</Button>)

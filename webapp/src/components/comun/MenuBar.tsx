@@ -58,9 +58,11 @@ items.cartItems.reduce((ack: number, item) => ack + item.amount, 0);
 
 const MenuBar:React.FC<Props> = (cartItems) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    /* istanbul ignore next */
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
+    /* istanbul ignore next */
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -98,6 +100,7 @@ const MenuBar:React.FC<Props> = (cartItems) => {
           </Link>
 
              {session.info.isLoggedIn ? (
+       /* istanbul ignore next */
           <div>
             <IconButton onClick={handleMenu} className={classes.icon}>
               <Tooltip title="Perfil">

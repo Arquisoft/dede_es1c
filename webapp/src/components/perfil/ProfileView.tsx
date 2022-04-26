@@ -26,7 +26,7 @@ const useStyle = makeStyles({
 type Props = {
   cartItems: ProductCart[]
 };
-
+    /* istanbul ignore next */
 async function retirevePODEmail(webID: string): Promise<string> {
   let profileDocumentURI = webID.split("#")[0]
   let myDataSet = await getSolidDataset(profileDocumentURI)
@@ -34,21 +34,20 @@ async function retirevePODEmail(webID: string): Promise<string> {
   let email = getStringNoLocale(profile as Thing, VCARD.note.iri.value) as string;
   return email;
 }
-
+    /* istanbul ignore next */
 export const ProfileView:React.FC<Props> = ({ cartItems}) => {
   const classes = useStyle();
   const { session } = useSession();
 
   const [email, setEmail] = React.useState("");
   const [pedidos, setPedidos] = useState<Order[]>([]);
-
+    /* istanbul ignore next */
   const getPedidosEmail = async () => {
     if(email === "") {
       let e = await retirevePODEmail(session.info.webId!);
       setEmail(e);
       let ped = await getPedidos(e);
       setPedidos(ped);
-      console.log('fetched data',pedidos.length);
     }
   }
  useEffect(() => {

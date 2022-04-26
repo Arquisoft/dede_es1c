@@ -44,7 +44,7 @@ function App(): JSX.Element {
     loadCartFromLocalStorage();
   },[]);
 
-  
+     /* istanbul ignore next */
 //CARRITO
   const handleRemoveFromCart = (clickedItem: ProductCart) => {
     setCartItems(prev =>
@@ -68,6 +68,7 @@ function App(): JSX.Element {
 
 
   };
+     /* istanbul ignore next */
  //Añadir stock local
   const addStock = (clickedItem: ProductCart) => {
     const existProduct = products.find(item => item.name === clickedItem.name);
@@ -85,7 +86,7 @@ function App(): JSX.Element {
   }
   };
 
-  
+     /* istanbul ignore next */
   //Eliminar stock local
   const removeStock = (clickedItem: Product) => {
     //Tengo que encontrar el del producto local
@@ -100,7 +101,7 @@ function App(): JSX.Element {
 
   
   };
-
+   /* istanbul ignore next */
   //Añadir al carrito
   const handleAddToCart = (clickedItem: Product) => {
     //Tiene stock a cero?? pero del que devuelve no del producto de BD

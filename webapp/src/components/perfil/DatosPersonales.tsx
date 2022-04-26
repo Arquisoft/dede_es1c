@@ -42,7 +42,7 @@ const useStyle = makeStyles({
     color: "#513280",
   }
 });
-
+  /* istanbul ignore next */
 async function retrievePODAddress(webID: string): Promise<string> {
   let profileDocumentURI = webID.split("#")[0]
   let myDataSet = await getSolidDataset(profileDocumentURI)
@@ -56,7 +56,7 @@ async function retrievePODAddress(webID: string): Promise<string> {
   getStringNoLocale(addressProfile as Thing, VCARD.country_name) as string;
   return ret
 }
-
+  /* istanbul ignore next */
 async function retirevePODName(webID: string): Promise<string> {
   let profileDocumentURI = webID.split("#")[0]
   let myDataSet = await getSolidDataset(profileDocumentURI)
@@ -64,7 +64,7 @@ async function retirevePODName(webID: string): Promise<string> {
   let name = getStringNoLocale(profile as Thing, VCARD.fn.iri.value) as string;
   return name;
 }
-
+  /* istanbul ignore next */
 async function retirevePODEmail(webID: string): Promise<string> {
   let profileDocumentURI = webID.split("#")[0]
   let myDataSet = await getSolidDataset(profileDocumentURI)
@@ -80,20 +80,24 @@ type ReviewType = {
 const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
 
   const [address, setAddress] = React.useState("");
+  
   const getPODAddress = async () => {setAddress(await retrievePODAddress(webID));
   };
+    /* istanbul ignore next */
   useEffect(() => {
       getPODAddress();
   })
   const [name, setName] = React.useState("");
   const getPODName = async () => {setName(await retirevePODName(webID));
   };
+    /* istanbul ignore next */
   useEffect(() => {
       getPODName();
   })
   const [email, setEmail] = React.useState("");
   const getPODEmail = async () => {setEmail(await retirevePODEmail(webID));
   };
+    /* istanbul ignore next */
   useEffect(() => {
       getPODEmail();
   })
@@ -103,7 +107,7 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
         <Grid container alignItems="center" direction="column" justify="space-between" style={{padding: 20}}> 
             <div style={{ display: "flex", flexDirection: "column", maxWidth: 500, minWidth: 200}}>
             <Grid container justify="center">
-                <img src="https://cdn4.iconfinder.com/data/icons/web-app-flat-circular-icons-set/64/Iconos_Redondos_Flat_Usuario_Icn-512.png" width={150}/>    
+                <img alt="" src="https://cdn4.iconfinder.com/data/icons/web-app-flat-circular-icons-set/64/Iconos_Redondos_Flat_Usuario_Icn-512.png" width={150}/>    
             </Grid>
             <Typography variant="h5">¡Bienvenido!</Typography>
             <TextField label="Nombre" margin="normal" contentEditable="false" value={name} InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
