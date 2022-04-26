@@ -1,21 +1,14 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import ProductView from "../../components/home/ProductView";
-import {Carrito} from "../../components/carrito/Carrito";
-import CarritoView from "../../components/carrito/CarritoView";
+import { Carrito } from "../../components/carrito/Carrito";
 import { BrowserRouter as Router } from "react-router-dom";
-import { ProductCart, Product } from "../../shared/shareddtypes";
+import { useSession } from "@inrupt/solid-ui-react";
+
+test("Carrito vacio", () => {
+  const handleRemoveFromCart=jest.fn();
+  // eslint-disable-next-line testing-library/render-result-naming-convention
+  const carritoVacio = render(<Router> <Carrito cartItems={[]} handleRemoveFromCart={handleRemoveFromCart} /> </Router> );
+  expect(carritoVacio).toBeTruthy();
+});
 
 
-test("Carrito vacio ", async () => {
 
-    const { getByText } = render(
-      <Router>
-       <Carrito cartItems={[]} handleRemoveFromCart={()=>{}}/>
-      </Router>
-    );
-    //jest.spyOn(localStorage.__proto__, 'getItem').mockReturnValueOnce('1');
-    //expect(localStorage.__proto__.getItem).toBeCalledWith('carrito');
-  
-  });
-
-  

@@ -8,7 +8,11 @@ import Pedidos from "../../components/perfil/Pedidos";
 
     const { getByText } = render(
       <Router>
+<<<<<<< HEAD
 
+=======
+     <Pedidos webID={""} ped={[]}/>
+>>>>>>> 679bcbff26451dd0d79f2e0be7dcdffe856982c2
       </Router>
 
     );

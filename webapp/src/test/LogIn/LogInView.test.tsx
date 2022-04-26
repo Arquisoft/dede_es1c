@@ -6,7 +6,7 @@ import LogInView from "../../components/LogIn/LogInView";
 import { ProductCart } from "../../shared/shareddtypes";
 
 
-test("LogInView render ", async () => {
+test("LogInView render", async () => {
     const carrito: ProductCart[] = [
         {
           // @ts-ignore
@@ -27,6 +27,6 @@ test("LogInView render ", async () => {
   </Router>
   );
 
-  //expect(screen.getByText("¿No tienes una cuenta SOLID? Registrate aqui")).toBeInTheDocument();
+
   
 });

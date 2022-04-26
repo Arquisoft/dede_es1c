@@ -439,9 +439,6 @@ userEvent.click(linkEl);
 expect(screen.getByText(productos[0].name)).toBeInTheDocument();
 expect(screen.getByText(productos[0].price + "€")).toBeInTheDocument();
 
-//No esta el otro
-// expect(screen.queryByText(productos[1].name)).not.toBeInTheDocument();
-// expect(screen.queryByText(productos[1].price + "€")).not.toBeInTheDocument();
 
 
 });

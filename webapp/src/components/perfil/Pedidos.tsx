@@ -53,6 +53,7 @@ const useStyle = makeStyles({
 
 type ReviewType = {
   webID: string;
+  ped: Order[];
 }
 
 async function retirevePODEmail(webID: string): Promise<string> {
@@ -63,7 +64,7 @@ async function retirevePODEmail(webID: string): Promise<string> {
   return email;
 }
 
-const Pedidos: React.FC<ReviewType> = ({webID}) => {
+const Pedidos: React.FC<ReviewType> = ({webID, ped}) => {
   const classes = useStyle();
   const { session } = useSession();
 
@@ -84,12 +85,13 @@ useEffect(() => {
   getPedidosEmail();
 },[]);
 
-    return (
-      <div className={classes.pedidoSup}>
-        <h2 className={classes.tituloHistorico}>Historico de pedidos:</h2>
-        {pedidos.map((item)=> {
-          return (
-            <div className={classes.pedido}>
+
+  return (
+    <div className={classes.pedidoSup}>
+      <h2 className={classes.tituloHistorico}>Historico de pedidos:</h2>
+      {ped.map((item:Order)=>{
+        return(
+          <div className={classes.pedido}>
             <h1>{item.name}</h1> 
             <br></br>
             <p>Descripcion del articulo: {item.description}</p>
@@ -98,11 +100,10 @@ useEffect(() => {
             <br></br>
             <p>Fecha de compra: {item.fecha}</p>
             <br></br>
-            <p>Email: {item.email}</p>
-            <br></br>
+
             <p>Cantidad: {item.amount}</p>
-          </div>
-          )})}
+          </div>)
+      })}
       </div>
       )
   }

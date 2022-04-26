@@ -32,7 +32,7 @@ const Authenticator:React.FC<Props> = ({ cartItems}) =>
     return (
         <>
             <SessionProvider sessionId="log-in-example">
-                {(!isLoggedIn) ? <LoginForm /> : <ProfileView cartItems={cartItems}/>} 
+                {(!isLoggedIn) ? <LoginForm /> : <ProfileView cartItems={cartItems} />} 
 
             </SessionProvider>
         </>

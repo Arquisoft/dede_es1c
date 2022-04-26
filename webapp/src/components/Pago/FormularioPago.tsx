@@ -8,8 +8,7 @@ import { ProductCart} from '../../shared/shareddtypes';
 import { useSession} from "@inrupt/solid-ui-react";
 import { VCARD} from "@inrupt/lit-generated-vocab-common";
 import {getSolidDataset, getStringNoLocale, getThing, Thing} from "@inrupt/solid-client";
-import { eliminarStock, saveOrder } from '../../api/api';
-
+import { saveOrder ,eliminarStock} from '../../api/api';
 
 const useStyle = makeStyles({
     formulario: {
