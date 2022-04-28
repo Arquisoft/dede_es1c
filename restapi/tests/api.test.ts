@@ -657,7 +657,7 @@ describe("PRODUCTS ", () => {
             .put("/product/photo/" + response2.body.products[0])
             .set('Authorization', `Bearer ${token}`)
             .send({
-                photo: "https://drive.google.com/uc?export=view&id=16i_-Op9_aurvgDR49AOBzhp85J-GBnjE",
+                photo: "https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R",
             });
 
         expect(responseUpdate2.statusCode).toBe(200);
@@ -703,35 +703,67 @@ describe("PRODUCTS ", () => {
      */
     it("Reduce en uno el stock", async () => {
 
-        //Cojo un producto y guardo su stock
-        const response: Response = await request(app)
+
+
+        const respons2: Response = await request(app)
             .get("/product/League of Leguends")
             .set('Authorization', `Bearer ${token}`)
-        expect(response.statusCode).toBe(200);
 
-        //Compruebo su stock
-        expect(response.body.stock.toString()).toEqual("2");
+        expect(respons2.statusCode).toBe(200);
+
+        expect(respons2.body).toEqual(
+            expect.objectContaining({
+                name: "League of Leguends",
+                stock: "2"
+            })
+        );
 
         //Bajo su stock en uno
         const responseReduce: Response = await request(app)
             .get("/product/reduce/League of Leguends")
             .set('Authorization', `Bearer ${token}`)
+
         expect(responseReduce.statusCode).toBe(200);
 
-        //Compruebo su stock
-        expect(response.body.stock.toString()).toEqual("1");
-
-        //Vuelvo a poner stock a 2
-        const response2: Response = await request(app)
+        const respons3: Response = await request(app)
             .get("/product/League of Leguends")
             .set('Authorization', `Bearer ${token}`)
 
+        expect(respons3.statusCode).toBe(200);
+
+        //Compruebo su stock
+        expect(respons3.body).toEqual(
+            expect.objectContaining({
+                name: "League of Leguends",
+                stock: "1"
+            })
+        );
+
+        const responseDelete: Response = await request(app).delete(
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`)
+
+        expect(responseDelete.statusCode).toBe(200);
+
+        const responseAdd: Response = await request(app).post(
+            "/user/product"
+        ).set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        })
+
+        const response2: Response = await request(app).get(
+            "/user/profile"
+        ).set('Authorization', `Bearer ${token}`)
+
+
         const responseUpdate: Response = await request(app)
-            .put("/product/stock/" + response2.body._id)
+            .put("/product/stock/" + response2.body.products[0])
             .set('Authorization', `Bearer ${token}`)
             .send({
                 stock: "2",
             });
+
+
     })
 })
 
