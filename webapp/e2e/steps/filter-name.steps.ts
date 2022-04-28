@@ -1,7 +1,7 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
 import puppeteer from "puppeteer";
 
-const feature = loadFeature('./features/register-form.feature');
+const feature = loadFeature('./features/filter-name.feature');
 
 let page: puppeteer.Page;
 let browser: puppeteer.Browser;
@@ -23,21 +23,24 @@ defineFeature(feature, test => {
       .catch(() => {});
   });
   
-  test("The user does not have a solid pod", ({given,when,then}) => {
-    given("A user without a pod", () => {
+  test("Usuario no logeado filtra productos", ({given,when,then}) => {
+
+    let nombre:string
+
+    given("Dado un usuario no logeado se filtra por nombre", () => {
+       nombre="Elden"
     });
 
-    when("I click on the registrate aqui", async () => {
+    when("Filtro por nombre", async () => {
+      //Logearse
       await page.setViewport({ width: 1200, height: 1300 });
       await expect(page).toMatch("Productos");
-      await expect(page).toClick("a[href='/LogIn']");
-      await expect(page).toClick('button', { text: '¿No tienes una cuenta SOLID? Registrate aqui' });
+      await expect(page).toFill("input[aria-label='search']", nombre);
+   
     });
 
-    then("I should be redirected to https://inrupt.net/register", async () => {
-      await page.waitForNavigation()
-      expect(await page.url()).toBe("https://inrupt.net/register");
-
+    then("Se ve solo el producto filtrado", async () => {
+      await expect(page).toMatch("Elden");
     });
   });
 
