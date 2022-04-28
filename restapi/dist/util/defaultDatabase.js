@@ -21,6 +21,8 @@ function create() {
         let juego6 = ["estrategia", "acción"];
         let juego8 = ["estrategia", "acción"];
         let juego9 = ["estrategia", "acción"];
+        let juego10 = ["estrategia", "aventuras"];
+
         yield productModel_1.ProductModel.deleteMany({});
         yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=15YbSwC0XyAWKpxQANq3YbIZBUm5YY--5 ', name: 'Fifa 20', price: '20', stock: '2', description: 'publicados anualmente por Electronic Arts bajo el sello de EA Sports creado en Japón Cuando la saga comenzó a finales de 1993', categories: juego1 });
         yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=1vLpKO1Vd9HgJ0j1NQsrvyidlxMHZPRA- ', name: 'Fifa 19', price: '30', stock: '67', description: 'publicados anualmente por Electronic Arts bajo el sello de EA Sports creado en Japón Cuando la saga comenzó a finales de 1993', categories: juego2 });
@@ -30,6 +32,9 @@ function create() {
         yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=1IZA82snexAD6qpokj5jzYiML4WprAHys ', name: 'God of War', price: '30', stock: '8', description: ' serie de videojuegos hack and slash creada por SCE Santa Monica Studio y distribuida por Sony Computer Entertainment', categories: juego6 });
         yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=1X68RR3eLIPUna7H9H2OEmjstE_pdPwmA ', name: 'Battlefield 2042', price: '36', stock: '10', description: ' videojuego de disparos y acción bélica en primera persona', categories: juego8 });
         yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=17T2Ikaoq47h4Qj-SsfRQoqlnBjRJOQFJ ', name: 'Dying Light', price: '6', stock: '3', description: ' serie de videojuegos de acción', categories: juego9 });
+        yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=13HyCiWP3UfPYtulmBz2GOYVLOY3tLmbG ', name: 'Age of Empires', price: '8', stock: '99', description: 'es un juego de estrategia en tiempo real desarrollado por Relic Entertainment', categories: juego10 });
+
+
         yield userModel_1.UserModel.deleteMany({});
         yield userModel_1.UserModel.create({ password: '123', email: 'a@gmail.com', role: userModel_1.ROLES.NORMAL });
         yield userModel_1.UserModel.create({ password: '123', email: 'b@gmail.com', role: userModel_1.ROLES.ADMIN });
