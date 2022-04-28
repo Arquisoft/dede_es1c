@@ -22,6 +22,9 @@ function create() {
         let juego8 = ["estrategia", "acción"];
         let juego9 = ["estrategia", "acción"];
         let juego10 = ["estrategia", "aventuras"];
+        let juego11 = ["accion", "aventuras"];
+        let juego12 = ["deportes"];
+        let juego13 = ["acción", "aventuras"];
 
         yield productModel_1.ProductModel.deleteMany({});
         yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=15YbSwC0XyAWKpxQANq3YbIZBUm5YY--5 ', name: 'Fifa 20', price: '20', stock: '2', description: 'publicados anualmente por Electronic Arts bajo el sello de EA Sports creado en Japón Cuando la saga comenzó a finales de 1993', categories: juego1 });
@@ -33,7 +36,9 @@ function create() {
         yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=1X68RR3eLIPUna7H9H2OEmjstE_pdPwmA ', name: 'Battlefield 2042', price: '36', stock: '10', description: ' videojuego de disparos y acción bélica en primera persona', categories: juego8 });
         yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=17T2Ikaoq47h4Qj-SsfRQoqlnBjRJOQFJ ', name: 'Dying Light', price: '6', stock: '3', description: ' serie de videojuegos de acción', categories: juego9 });
         yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=13HyCiWP3UfPYtulmBz2GOYVLOY3tLmbG ', name: 'Age of Empires', price: '8', stock: '99', description: 'es un juego de estrategia en tiempo real desarrollado por Relic Entertainment', categories: juego10 });
-
+        yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=1_8q98NtevJs9KebqNrpD0-aBrph3f89U ', name: 'Assassins Creed: Valhalla', price: '30', stock: '99', description: 'es un videojuego desarrollado por Ubisoft Montreal y publicado por Ubisoft', categories: juego11 });
+        yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=1ooWq8FWS3Qy3nHSZ28K9Y2Rzd-hfrhwu ', name: 'NBA 2K22', price: '65', stock: '99', description: 'NBA 2K22 es un videojuego de simulación de baloncesto de 2021 desarrollado por Visual Concepts', categories: juego12 });
+        yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=1ehFIESOG396RdbgNv2zMzJoyqycSlULr ', name: 'Batman: Arkham Origins', price: '70', stock: '99', description: 'es un videojuego que fue desarrollado por Warner Bros. Games Montreal y lanzado por Warner Bros', categories: juego13 })
 
         yield userModel_1.UserModel.deleteMany({});
         yield userModel_1.UserModel.create({ password: '123', email: 'a@gmail.com', role: userModel_1.ROLES.NORMAL });
