@@ -25,6 +25,9 @@ function create() {
         let juego11 = ["accion", "aventuras"];
         let juego12 = ["deportes"];
         let juego13 = ["acción", "aventuras"];
+        let juego14 = ["deportes"];
+        let juego15 = ["estrategia", "aventuras"];
+        let juego16 = ["estrategia", "aventuras", "accion"];
 
         yield productModel_1.ProductModel.deleteMany({});
         yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=15YbSwC0XyAWKpxQANq3YbIZBUm5YY--5 ', name: 'Fifa 20', price: '20', stock: '2', description: 'publicados anualmente por Electronic Arts bajo el sello de EA Sports creado en Japón Cuando la saga comenzó a finales de 1993', categories: juego1 });
@@ -39,7 +42,9 @@ function create() {
         yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=1_8q98NtevJs9KebqNrpD0-aBrph3f89U ', name: 'Assassins Creed: Valhalla', price: '30', stock: '99', description: 'es un videojuego desarrollado por Ubisoft Montreal y publicado por Ubisoft', categories: juego11 });
         yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=1ooWq8FWS3Qy3nHSZ28K9Y2Rzd-hfrhwu ', name: 'NBA 2K22', price: '65', stock: '99', description: 'NBA 2K22 es un videojuego de simulación de baloncesto de 2021 desarrollado por Visual Concepts', categories: juego12 });
         yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=1ehFIESOG396RdbgNv2zMzJoyqycSlULr ', name: 'Batman: Arkham Origins', price: '70', stock: '99', description: 'es un videojuego que fue desarrollado por Warner Bros. Games Montreal y lanzado por Warner Bros', categories: juego13 })
-
+        yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=1Hy1_41wnW-qfcc2GPLWKxYAws4pd_ugF ', name: 'WWE 2K22', price: '65', stock: '99', description: 'WWE 2K22 es un videojuego de lucha libre profesional que fue desarrollado por Visual Concepts y publicado por 2K Sports', categories: juego14 })
+        yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=1gGNLHFkDatDTMfy5Tj2h8Y-fWfLuIu-4 ', name: 'Civilization VI', price: '66', stock: '99', description: 'es un videojuego de estrategia por turnos perteneciente a la serie Civilization', categories: juego15 });
+        yield productModel_1.ProductModel.create({ photo: ' https://drive.google.com/uc?export=view&id=1CZooRBTJ9vebM4croj-yyje5luXA7Dzi ', name: 'Dark Souls II', price: '70', stock: '99', description: ' es un videojuego de rol de acción que tiene lugar en un mundo abierto, desarrollado para Microsoft Windows', categories: juego16 });
         yield userModel_1.UserModel.deleteMany({});
         yield userModel_1.UserModel.create({ password: '123', email: 'a@gmail.com', role: userModel_1.ROLES.NORMAL });
         yield userModel_1.UserModel.create({ password: '123', email: 'b@gmail.com', role: userModel_1.ROLES.ADMIN });
