@@ -697,7 +697,44 @@ describe("PRODUCTS ", () => {
             )
         );
     });
+
+    /**
+     * Reduce Stock
+     */
+    it("Reduce en uno el stock", async () => {
+
+        //Cojo un producto y guardo su stock
+        const response: Response = await request(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+        expect(response.statusCode).toBe(200);
+
+        //Compruebo su stock
+        expect(response.body.stock.toString()).toEqual("2");
+
+        //Bajo su stock en uno
+        const responseReduce: Response = await request(app)
+            .get("/product/reduce/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+        expect(responseReduce.statusCode).toBe(200);
+
+        //Compruebo su stock
+        expect(response.body.stock.toString()).toEqual("1");
+
+        //Vuelvo a poner stock a 2
+        const response2: Response = await request(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+
+        const responseUpdate: Response = await request(app)
+            .put("/product/stock/" + response2.body._id)
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                stock: "4",
+            });
+    })
 })
+
 
 /****Orders****/
 
