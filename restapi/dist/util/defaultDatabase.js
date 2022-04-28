@@ -32,6 +32,10 @@ function create() {
         let juego18 = ["simulacion"];
         let juego19 = ["simulacion"];
         let juego20 = ["deportes"];
+        let juego21 = ["deportes"];
+        let juego22 = ["acción", "aventuras"];
+        let juego23 = ["acción", "aventuras"];
+        let juego24 = ["acción", "aventuras"];
 
         yield productModel_1.ProductModel.deleteMany({});
         yield productModel_1.ProductModel.create({ photo: 'https://drive.google.com/uc?export=view&id=15YbSwC0XyAWKpxQANq3YbIZBUm5YY--5', name: 'Fifa 20', price: '20', stock: '2', description: 'publicados anualmente por Electronic Arts bajo el sello de EA Sports creado en Japón Cuando la saga comenzó a finales de 1993', categories: juego1 });
@@ -53,7 +57,10 @@ function create() {
         yield productModel_1.ProductModel.create({ photo: 'https://drive.google.com/uc?export=view&id=1PomJe8ghIWTIyDfW4xx0Gsijif64DGBG', name: 'Farming Simulator', price: '69', stock: '99', description: ' farming Simulator ofrece más profundidad y el mayor grado de libertad para el jugador en la historia de la serie', categories: juego18 });
         yield productModel_1.ProductModel.create({ photo: 'https://drive.google.com/uc?export=view&id=1CbCduxx05tD__Fh4UDSLnU0PNpr2fTYh', name: 'Microsoft Flight Simulator', price: '80', stock: '99', description: ' microsoft Flight Simulator es una serie de simuladores de vuelo creada por SubLOGIC en 1979 ', categories: juego19 });
         yield productModel_1.ProductModel.create({ photo: 'https://drive.google.com/uc?export=view&id=1HF1P6M7RJRdndh9fVT-IjIINIxuLGOUD', name: 'Forza Horizon 5', price: '60', stock: '99', description: ' es un videojuego de carreras multijugador en línea desarrollado por Playground Games  ', categories: juego20 });
-
+        yield productModel_1.ProductModel.create({ photo: 'https://drive.google.com/uc?export=view&id=1nBxn8syNnVgv0Cy9FxM3IpfaWOOwYKuL', name: 'MotoGP 22', price: '67', stock: '99', description: ' es un videojuego de carreras multijugador en línea desarrollado por  Milestone', categories: juego21 });
+        yield productModel_1.ProductModel.create({ photo: 'https://drive.google.com/uc?export=view&id=1xXFcLKH_VM0YQ0anLQBuSgjwQaT54S52', name: 'Watch Dogs 2', price: '35', stock: '99', description: ' es un videojuego de mundo abierto y acción-aventura desarrollado por Ubisoft Montreal', categories: juego22 });
+        yield productModel_1.ProductModel.create({ photo: 'https://drive.google.com/uc?export=view&id=16qh59leZdrMul8S2vZboi3zMkTb8uKzM', name: 'Assassins Creed: Odyssey', price: '38', stock: '99', description: ' es un videojuego desarrollado por Ubisoft Quebec y publicado por Ubisoft', categories: juego23 });
+        yield productModel_1.ProductModel.create({ photo: 'https://drive.google.com/uc?export=view&id=16qh59leZdrMul8S2vZboi3zMkTb8uKzM', name: 'The Elder Scrolls V: Skyrim', price: '45', stock: '99', description: ' es un ARPG del tipo mundo abierto desarrollado por Bethesda Game Studios', categories: juego24 });
 
         yield userModel_1.UserModel.deleteMany({});
         yield userModel_1.UserModel.create({ password: '123', email: 'a@gmail.com', role: userModel_1.ROLES.NORMAL });
