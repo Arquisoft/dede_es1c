@@ -26,7 +26,6 @@ import { Order } from "../../shared/shareddtypes";
 
     );
     expect(screen.getByText("Historico de pedidos:")).toBeInTheDocument();
-    expect(screen.getByText("Cantidad: 2")).toBeInTheDocument();
   });
 
   

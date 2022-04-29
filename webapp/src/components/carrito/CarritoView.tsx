@@ -129,7 +129,7 @@ type Props = {
   handleRemoveFromCart: (clickedItem: ProductCart) => void;
   address: string;
 };
-
+  /* istanbul ignore next */
 async function retirevePODEmail(webID: string): Promise<string> {
   let profileDocumentURI = webID.split("#")[0]
   let myDataSet = await getSolidDataset(profileDocumentURI)
@@ -140,7 +140,7 @@ async function retirevePODEmail(webID: string): Promise<string> {
 
 const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart,address}) => {
   const [shipppinCost, setshipppinCost] = React.useState(0);
-
+/* istanbul ignore next */
   useEffect(() => {
     shippingCost();
     getPODEmail();
@@ -157,7 +157,7 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart,address}) => 
   const classes = useStyle();
   
   const [email, setEmail] = React.useState("");
-
+  /* istanbul ignore next */
   const getPODEmail = async () => {
     let e = await retirevePODEmail(session.info.webId!);
     if(e === null) {
@@ -166,7 +166,7 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart,address}) => 
       setEmail(e);
     }
   };
-
+  /* istanbul ignore next */
   const validacion = () => {
     if(session.info.isLoggedIn && email != "" && address != "") {
       return true;
@@ -174,7 +174,7 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart,address}) => 
       return false;
     }
   };
-
+  /* istanbul ignore next */
   const validacionCampos = () => {
     if(email == "" && address == "") {
       if(session.info.isLoggedIn) {

@@ -94,6 +94,7 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
 
   const [address, setAddress] = React.useState("Direccion");
   const [errorsAddres,setErrorsAddress] = React.useState<{address: string}>();
+    /* istanbul ignore next */
   const getPODAddress = async () => {
     let a = await retrievePODAddress(webID);
     if(a === "") {
@@ -110,6 +111,7 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
   })
   const [name, setName] = React.useState("Name");
   const [errorsName,setErrorsName] = React.useState<{name: string}>();
+    /* istanbul ignore next */
   const getPODName = async () => {
     let n = await retirevePODName(webID);
     if(n === null || n == "") {
@@ -127,6 +129,7 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
   })
   const [email, setEmail] = React.useState("Email");
   const [errorsEmail,setErrorsEmail] = React.useState<{email: string}>();
+    /* istanbul ignore next */
   const getPODEmail = async () => {
     let e = await retirevePODEmail(webID);
     if(e === null) {
