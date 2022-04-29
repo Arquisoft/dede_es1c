@@ -104,6 +104,7 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
     }
     
   };
+  /* istanbul ignore next */
   useEffect(() => {
       getPODAddress();
   })
@@ -119,6 +120,7 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
     }
     
   };
+  /* istanbul ignore next */
   useEffect(() => {
       getPODName();
   })
@@ -133,6 +135,7 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
       setEmail(e);
     }
   };
+  /* istanbul ignore next */
   useEffect(() => {
       getPODEmail();
   })
