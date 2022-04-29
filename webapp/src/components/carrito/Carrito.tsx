@@ -57,6 +57,7 @@ export const Carrito: React.FC<Props> = ({ cartItems, handleRemoveFromCart}) => 
     const { session } = useSession();
   
     const [address, setAddress] = React.useState("");
+
     /* istanbul ignore next */
     const getPODAddress = async () => {
       setAddress(await retrievePODAddress(session.info.webId!))

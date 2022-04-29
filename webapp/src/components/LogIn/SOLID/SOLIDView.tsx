@@ -8,6 +8,7 @@ import {ProfileView} from "../../perfil/ProfileView"
 type Props = {
     cartItems: ProductCart[]
   };
+     /* istanbul ignore next */
 //function Authenticator(props: any): JSX.Element
 const Authenticator:React.FC<Props> = ({ cartItems}) =>
 

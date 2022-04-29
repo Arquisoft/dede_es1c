@@ -41,7 +41,19 @@ else usuario ya existe
 end
 @enduml
 ----
-=== Vista del carrito del usuario identificado
+=== Vista del carrito con productos del usuario no identificado
+[plantuml,"AñadirCarro_diagrama",png]
+----
+@startuml
+actor Usuario_no_identificado
+entity Dede
+Usuario_no_identificado-> Dede: Añade producto al carro
+Usuario_no_identificado-> Dede: Va al carrito
+Dede->Dede:Mostrar carrito
+Dede->Dede:Error:Inicia sesion para continuar con la compra
+@endtuml
+----
+=== Vista del carrito con productos del usuario con datos POD correctos
 [plantuml,"AñadirCarro_diagrama",png]
 ----
 @startuml
@@ -53,6 +65,18 @@ Dede->Dede:Mostrar carrito
 Dede->Geocode:precio costes de envio con dirreción
 Geocode->Dede:calcular coste envio
 Dede->Dede:mostrar precio total
+@endtuml
+----
+=== Vista del carrito con productos del usuario con datos POD incorrectos
+[plantuml,"AñadirCarro_diagrama",png]
+----
+@startuml
+actor Usuario_identificado
+entity Dede
+Usuario_identificado-> Dede: Añade producto al carro
+Usuario_identificado-> Dede: Va al carrito
+Dede->Dede:Mostrar carrito
+Dede->Dede:Error:POD con datos incorrectos
 @endtuml
 ----
 === Compra de los productos

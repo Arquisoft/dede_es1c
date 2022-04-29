@@ -1,6 +1,6 @@
 Feature: Registering a new user
 
-Scenario: The user is not registered in the site
-  Given An unregistered user
-  When I fill the data in the form and press submit
-  Then A confirmation message should be shown in the screen
+Scenario: The user does not have a solid pod
+  Given A user without a pod
+  When I click on the registrate aqui
+  Then I should be redirected to https://inrupt.net/register

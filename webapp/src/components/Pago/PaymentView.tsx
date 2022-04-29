@@ -20,15 +20,18 @@ const useStyle = makeStyles({
     cartItems: ProductCart[]
     handleRemoveFromCart: (clickedItem: ProductCart) => void;
   };
-
+   /* istanbul ignore next */
 export const PaymentView:React.FC<Props> = ({ cartItems,  handleRemoveFromCart }) => {
+
     const classes = useStyle();
+   
     return(
     <React.Fragment>
         <div className={classes.container}>
         <MenuBar cartItems={cartItems}/>
         </div>
         <div>
+  
         <FormularioPago cartItems={cartItems}  handleRemoveFromCart={handleRemoveFromCart}/>
         </div>
     </React.Fragment>

@@ -47,7 +47,7 @@ type Props = {
     cartItems: ProductCart[]
     handleRemoveFromCart: (clickedItem: ProductCart) => void;
   };
-   
+     /* istanbul ignore next */
 const FormularioPago:React.FC<Props> = ({ cartItems ,  handleRemoveFromCart}) => {
     const classes = useStyle();
 

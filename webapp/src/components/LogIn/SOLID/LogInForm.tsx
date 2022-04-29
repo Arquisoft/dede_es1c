@@ -9,10 +9,11 @@ function LoginForm(): JSX.Element {
   type Props = {
     cartItems: ProductCart[]
   };
-
+   /* istanbul ignore next */
     const [idp, setIdp] = useState("https://inrupt.net");
+       /* istanbul ignore next */
     const [currentUrl, setCurrentUrl] = useState("https://localhost:3000");
-  
+
     const useStyle = makeStyles({
       container2: {
         display: "flex",
@@ -64,7 +65,7 @@ function LoginForm(): JSX.Element {
     useEffect(() => {
       setCurrentUrl(window.location.href);
     }, [setCurrentUrl]);
-    
+
     const classes = useStyle();
 
     return (
@@ -81,7 +82,6 @@ function LoginForm(): JSX.Element {
             placeholder="Link"
             type="url"
             value={idp}
-            onChange={(e) => setIdp(e.target.value)}
             />
                 <LoginButton  oidcIssuer={idp} redirectUrl={currentUrl} >
                   <Button variant="contained" color="primary"  className={classes.button}>

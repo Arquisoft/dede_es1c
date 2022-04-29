@@ -50,7 +50,7 @@ const useStyle = makeStyles({
     }
   }
 });
-
+  /* istanbul ignore next */
 async function retrievePODAddress(webID: string): Promise<string> {
   let profileDocumentURI = webID.split("#")[0]
   let myDataSet = await getSolidDataset(profileDocumentURI)
@@ -68,7 +68,7 @@ async function retrievePODAddress(webID: string): Promise<string> {
     return ret
   }
 }
-
+  /* istanbul ignore next */
 async function retirevePODName(webID: string): Promise<string> {
   let profileDocumentURI = webID.split("#")[0]
   let myDataSet = await getSolidDataset(profileDocumentURI)
@@ -76,7 +76,7 @@ async function retirevePODName(webID: string): Promise<string> {
   let name = getStringNoLocale(profile as Thing, VCARD.fn.iri.value) as string;
   return name;
 }
-
+  /* istanbul ignore next */
 async function retirevePODEmail(webID: string): Promise<string> {
   let profileDocumentURI = webID.split("#")[0]
   let myDataSet = await getSolidDataset(profileDocumentURI)
@@ -120,7 +120,8 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
     }
     
   };
-  /* istanbul ignore next */
+
+    /* istanbul ignore next */
   useEffect(() => {
       getPODName();
   })
@@ -135,7 +136,7 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
       setEmail(e);
     }
   };
-  /* istanbul ignore next */
+   /* istanbul ignore next */
   useEffect(() => {
       getPODEmail();
   })
