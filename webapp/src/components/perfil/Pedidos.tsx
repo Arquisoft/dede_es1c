@@ -6,7 +6,7 @@ import { useSession} from "@inrupt/solid-ui-react";
 import { VCARD, FOAF } from "@inrupt/lit-generated-vocab-common";
 import {getSolidDataset, getStringNoLocale, getThing, Thing, getUrl} from "@inrupt/solid-client";
 import { useEffect,useState} from "react";
-import { InputAdornment, TextField, Typography } from "@mui/material";
+import { Card, CardContent, CardMedia, Grid, InputAdornment, TextField, Typography } from "@mui/material";
 import { Directions } from "@material-ui/icons";
 
 const useStyle = makeStyles({
@@ -48,6 +48,34 @@ const useStyle = makeStyles({
     margin: "auto",
     color: "#FFF",
   }, 
+  cardContent:{
+    minWidth: 200,
+    display: '1 0 auto' ,
+  },
+  root:{
+    marginLeft:"20px",
+    maxWidth: 345,
+    color:"black",
+    display: 'flex',
+    height:150,
+    border: "none", boxShadow: "none"
+  },
+  containerCarrito:{
+
+    marginLeft:"30px",
+    display: 'flex',
+    paddingRight:"20px",
+    position: "relative",
+    width: "200px",
+    marginBottom:"20px",
+    marginTop:"10px",
+  },
+  media: {
+    borderRadius:"20px",
+    minWidth: 120,
+    minHeight:100,
+
+  },
 });
 
 async function retirevePODEmail(webID: string): Promise<string> {
@@ -72,17 +100,21 @@ const Pedidos: React.FC<ReviewType> = ({webID,ped}) => {
       {ped.map((item:Order)=>{
         return(
           <div className={classes.pedido}>
-            <h1>{item.name}</h1> 
-            <br></br>
-            <p>Descripcion del articulo: {item.description}</p>
-            <br></br>
-            <p>Precio articulo: {item.price}€</p>
-            <br></br>
-            <p>Fecha de compra: {item.fecha}</p>
-            <br></br>
+            <Grid item key={item.name}  xs={12} className={classes.containerCarrito}>
+            <Card  square={true} className={classes.root}>
+            <CardMedia component="img"  className={classes.media} image={item.photo} title={item.name} />
 
-            <p>Cantidad: {item.amount}</p>
-          </div>)
+            <CardContent className={classes.cardContent}  >
+            <Typography component="div" variant="h5">
+              {item.name}
+            </Typography>
+            <Typography variant="subtitle1" component="div">
+              Cantidad:{item.amount}
+            </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+        </div>)
       })}
       </div>
     )
