@@ -32,14 +32,22 @@ const useStyle = makeStyles({
   },
   formulario: {
     display:"grid",
+    position: "relative",
     font: "400 1em Tahoma,sans-serif",
     backgroundColor:"#FFFF",
+    minWidth: 600,
     borderRadius: 30,
     boxShadow: "7px 6px rgba(0, 0, 0, .5)",
     marginLeft:"10%",
     marginRight: "10%",
     textAlign: "center",
     color: "#513280",
+  },
+  disable: {
+    ".MuiInputBase-input.Mui-disabled": {
+      WebkitTextFillColor: "#000",
+      color: "#000"
+    }
   }
 });
   /* istanbul ignore next */
@@ -48,13 +56,17 @@ async function retrievePODAddress(webID: string): Promise<string> {
   let myDataSet = await getSolidDataset(profileDocumentURI)
   let profile = getThing(myDataSet, webID)
   let urlAddress = getUrl(profile as Thing, VCARD.hasAddress) as string
-  let addressProfile = await getThing(myDataSet, urlAddress)
-  let ret= getStringNoLocale(addressProfile as Thing, VCARD.street_address) as string+" "+
-  getStringNoLocale(addressProfile as Thing, VCARD.postal_code) as string+" "+
-  getStringNoLocale(addressProfile as Thing, VCARD.locality) as string+" "+
-  getStringNoLocale(addressProfile as Thing, VCARD.region) as string+" "+
-  getStringNoLocale(addressProfile as Thing, VCARD.country_name) as string;
-  return ret
+  if(urlAddress === null) {
+    return "";
+  } else  {
+    let addressProfile = await getThing(myDataSet, urlAddress)
+    let ret= getStringNoLocale(addressProfile as Thing, VCARD.street_address) as string+" "+
+    getStringNoLocale(addressProfile as Thing, VCARD.postal_code) as string+" "+
+    getStringNoLocale(addressProfile as Thing, VCARD.locality) as string+" "+
+    getStringNoLocale(addressProfile as Thing, VCARD.region) as string+" "+
+    getStringNoLocale(addressProfile as Thing, VCARD.country_name) as string;
+    return ret
+  }
 }
   /* istanbul ignore next */
 async function retirevePODName(webID: string): Promise<string> {
@@ -79,25 +91,52 @@ type ReviewType = {
 
 const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
 
-  const [address, setAddress] = React.useState("");
-  
-  const getPODAddress = async () => {setAddress(await retrievePODAddress(webID));
+
+  const [address, setAddress] = React.useState("Direccion");
+  const [errorsAddres,setErrorsAddress] = React.useState<{address: string}>();
+  const getPODAddress = async () => {
+    let a = await retrievePODAddress(webID);
+    if(a === "") {
+      setAddress("ERROR: POD SIN DIRECCION");
+      setErrorsAddress({address: 'Esta aplicacion requiere de un POD con una direccion en el'});
+    } else {
+      setAddress(a);
+    }
+    
   };
-    /* istanbul ignore next */
+  /* istanbul ignore next */
   useEffect(() => {
       getPODAddress();
   })
-  const [name, setName] = React.useState("");
-  const getPODName = async () => {setName(await retirevePODName(webID));
+  const [name, setName] = React.useState("Name");
+  const [errorsName,setErrorsName] = React.useState<{name: string}>();
+  const getPODName = async () => {
+    let n = await retirevePODName(webID);
+    if(n === null || n == "") {
+      setName("ERROR: POD SIN NOMBRE COMPLETO");
+      setErrorsName({name: 'Esta aplicacion requiere de un POD con un nombre en el'});
+    } else {
+      setName(n);
+    }
+    
   };
+
     /* istanbul ignore next */
   useEffect(() => {
       getPODName();
   })
-  const [email, setEmail] = React.useState("");
-  const getPODEmail = async () => {setEmail(await retirevePODEmail(webID));
+  const [email, setEmail] = React.useState("Email");
+  const [errorsEmail,setErrorsEmail] = React.useState<{email: string}>();
+  const getPODEmail = async () => {
+    let e = await retirevePODEmail(webID);
+    if(e === null) {
+      setEmail("ERROR: POD SIN EMAIL");
+      setErrorsEmail({email: 'Esta aplicacion requiere de un POD con un email en el (ubicado en notas)'});
+    } else {
+      setEmail(e);
+    }
   };
-    /* istanbul ignore next */
+   /* istanbul ignore next */
   useEffect(() => {
       getPODEmail();
   })
@@ -107,14 +146,14 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
         <Grid container alignItems="center" direction="column" justify="space-between" style={{padding: 20}}> 
             <div style={{ display: "flex", flexDirection: "column", maxWidth: 500, minWidth: 200}}>
             <Grid container justify="center">
-                <img alt="" src="https://cdn4.iconfinder.com/data/icons/web-app-flat-circular-icons-set/64/Iconos_Redondos_Flat_Usuario_Icn-512.png" width={150}/>    
+                <img src="https://drive.google.com/uc?export=view&id=1ckatCm03YBWhjTubSxD4TLESZqB4zLP-" width={150}/>    
             </Grid>
             <Typography variant="h5">¡Bienvenido!</Typography>
-            <TextField label="Nombre" margin="normal" contentEditable="false" value={name} InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
+            <TextField label="Nombre" error={Boolean(errorsName?.name)} helperText={(errorsName?.name)} margin="normal" contentEditable="false" value={name} InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>
             <div style={{height: 20, width: 500}}/>
-            <TextField label="Correo asociado" margin="normal" contentEditable="false" variant="outlined" value={email} InputProps={{startAdornment: <InputAdornment position="start"><Email/></InputAdornment>}}/>
+            <TextField label="Correo asociado" error={Boolean(errorsEmail?.email)} helperText={(errorsEmail?.email)} margin="normal" contentEditable="false" variant="outlined" value={email} InputProps={{startAdornment: <InputAdornment position="start"><Email/></InputAdornment>}}/>
             <div style={{height: 20}}/>
-            <TextField label="Direccion de envio asociada" margin="normal" contentEditable="false" variant="outlined" value={address} InputProps={{startAdornment: <InputAdornment position="start"><Directions/></InputAdornment>}}/>
+            <TextField label="Direccion de envio asociada" error={Boolean(errorsAddres?.address)} helperText={(errorsAddres?.address)}  margin="normal" contentEditable="false" variant="outlined" value={address} InputProps={{startAdornment: <InputAdornment position="start"><Directions/></InputAdornment>}}/>
             <div style={{height: 20}}/> 
             </div>
         </Grid>

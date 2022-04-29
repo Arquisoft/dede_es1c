@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { LoginButton } from "@inrupt/solid-ui-react";
 import { Button, TextField, FormGroup, Container } from "@material-ui/core";
-import { makeStyles,Theme } from "@material-ui/core/styles";
+import { makeStyles} from "@material-ui/core/styles";
 import { ProductCart } from '../../../shared/shareddtypes';
 import React from 'react';
 import MenuBar from "../../comun/MenuBar";
@@ -40,8 +40,6 @@ function LoginForm(): JSX.Element {
           /* bring your own prefixes */
           transform: "translate(-50%, -50%)",
           boxShadow: " 16px 11px 9px rgba(0, 0, 0, .5)",
-
-
       },
       center:{
         width:"50%",

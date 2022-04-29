@@ -76,6 +76,3 @@ export const ProfileView:React.FC<Props> = ({ cartItems}) => {
     </React.Fragment>
   );
 };
-
-
-

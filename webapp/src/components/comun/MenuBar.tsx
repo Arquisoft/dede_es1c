@@ -72,6 +72,9 @@ const MenuBar:React.FC<Props> = (cartItems) => {
 
   const { session } = useSession();
   
+  const logOut =()=>{
+    session.info.isLoggedIn = false;
+  }
 
 
   return (
@@ -125,7 +128,7 @@ const MenuBar:React.FC<Props> = (cartItems) => {
       
             >
               <MenuItem to='/Perfil' component={Link}>Perfil</MenuItem>
-              <MenuItem >Sign out</MenuItem>
+              <MenuItem onClick={logOut} to='/' component={Link}>Sign out</MenuItem>
             </Menu>
           </div>  ):(
    

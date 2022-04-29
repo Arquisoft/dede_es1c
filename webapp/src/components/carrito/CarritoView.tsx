@@ -3,11 +3,14 @@ import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {Button,Grid,CardContent,CardMedia,Card,Container,Typography,Tooltip,IconButton} from "@material-ui/core";
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import {getSolidDataset, getStringNoLocale, getThing, Thing} from "@inrupt/solid-client";
 import { getCoordenadasDeAddress, shipCost } from "../../logica/Carrito";
 import { Link } from "react-router-dom";
 import { ProductCart } from "../../shared/shareddtypes";
 import { useSession } from "@inrupt/solid-ui-react";
+import { VCARD } from "@inrupt/lit-generated-vocab-common";
+import { getPopoverUtilityClass } from "@mui/material";
+import { Alert } from "@material-ui/lab";
 
 const useStyle = makeStyles({
 
@@ -127,12 +130,20 @@ type Props = {
   address: string;
 };
 
+async function retirevePODEmail(webID: string): Promise<string> {
+  let profileDocumentURI = webID.split("#")[0]
+  let myDataSet = await getSolidDataset(profileDocumentURI)
+  let profile = getThing(myDataSet, webID)
+  let email = getStringNoLocale(profile as Thing, VCARD.note.iri.value) as string;
+  return email;
+}
 
 const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart,address}) => {
   const [shipppinCost, setshipppinCost] = React.useState(0);
 
   useEffect(() => {
     shippingCost();
+    getPODEmail();
   })
   //Realizar calculo del precio de envio:
   const shippingCost = async () => {
@@ -144,6 +155,36 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart,address}) => 
 
   const { session } = useSession();
   const classes = useStyle();
+  
+  const [email, setEmail] = React.useState("");
+
+  const getPODEmail = async () => {
+    let e = await retirevePODEmail(session.info.webId!);
+    if(e === null) {
+      setEmail("")
+    } else {
+      setEmail(e);
+    }
+  };
+
+  const validacion = () => {
+    if(session.info.isLoggedIn && email != "" && address != "") {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const validacionCampos = () => {
+    if(email == "" && address == "") {
+      if(session.info.isLoggedIn) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
+
   const vacio =props.length
     return (
 
@@ -211,7 +252,6 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart,address}) => 
                        <Typography variant="h6" gutterBottom >
                       Precio de envio {shipppinCost}€
                        </Typography>
-                       
                        ):(
                              <Typography variant="h6" gutterBottom >
                               Debes iniciar sesión para ver el precio de envio
@@ -224,12 +264,13 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart,address}) => 
                          <Typography variant="h5" gutterBottom >
                          Debes iniciar sesión para ver el precio total
                          </Typography>)}
-
-                       {session.info.isLoggedIn ? (
-                       <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>):(
-                      <Button to='/LogIn' component={Link} className={classes.btncomprar} variant="contained">LogIn</Button>)
-                       }
-
+                       {validacion() ? (
+                          <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>
+                       ):(
+                         <div>
+                            {validacionCampos() ? (<Alert severity="warning">POD CON DATOS INCORRECTOS</Alert>):(<Alert severity="warning">Inicia sesion para continuar con la compra</Alert>)}
+                            <Button to='/LogIn' component={Link} className={classes.btncomprar} variant="contained">LogIn</Button>
+                         </div>)}
             </Container> 
       )}  })()}
 

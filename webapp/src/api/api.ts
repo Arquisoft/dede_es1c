@@ -2,20 +2,20 @@ import { ownerDocument } from "@mui/material";
 import {User, Product, Order} from "../shared/shareddtypes";
 import {ProductCart} from "../shared/shareddtypes";
 
-
-
   /* istanbul ignore next */
 export async function getPedidos(email: string): Promise<Order[]> {
     const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
     let response = await fetch(`${apiEndPoint}/order/${email}`);
     return response.json();
 }
+
   /* istanbul ignore next */
 export async function getProductos(): Promise<Product[]> {
     const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
     let response = await fetch(apiEndPoint + '/product/');
     return response.json();
 }
+
   /* istanbul ignore next */
 export async function saveOrder( o:Order):Promise<boolean>{ 
     const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'
@@ -38,6 +38,7 @@ export async function saveOrder( o:Order):Promise<boolean>{
     else
         return false;
 } 
+
   /* istanbul ignore next */
 export async function eliminarStock(p: ProductCart): Promise<boolean> {
     const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:8000/api'

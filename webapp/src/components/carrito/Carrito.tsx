@@ -39,13 +39,17 @@ const useStyle = makeStyles({
     let myDataSet = await getSolidDataset(profileDocumentURI)
     let profile = getThing(myDataSet, webID)
     let urlAddress = getUrl(profile as Thing, VCARD.hasAddress) as string
-    let addressProfile = await getThing(myDataSet, urlAddress)
-    let ret= getStringNoLocale(addressProfile as Thing, VCARD.street_address) as string;
-    let locality = getStringNoLocale(addressProfile as Thing, VCARD.locality) as string;
-    let region= getStringNoLocale(addressProfile as Thing, VCARD.region) as string;
-    let postal_code= getStringNoLocale(addressProfile as Thing, VCARD.postal_code) as string;
-    let addresses:string=`${ret} - ${locality}, ${region} - ${postal_code}`;
-    return addresses;
+    if(urlAddress === null) {
+      return "";
+    } else  {
+      let addressProfile = await getThing(myDataSet, urlAddress)
+      let ret= getStringNoLocale(addressProfile as Thing, VCARD.street_address) as string+" "+
+      getStringNoLocale(addressProfile as Thing, VCARD.postal_code) as string+" "+
+      getStringNoLocale(addressProfile as Thing, VCARD.locality) as string+" "+
+      getStringNoLocale(addressProfile as Thing, VCARD.region) as string+" "+
+      getStringNoLocale(addressProfile as Thing, VCARD.country_name) as string;
+      return ret
+    }
   }
 
 export const Carrito: React.FC<Props> = ({ cartItems, handleRemoveFromCart}) => {

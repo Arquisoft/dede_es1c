@@ -33,7 +33,7 @@ export const LogInFragmento = () => {
     return(
         <Grid container style={{minHeight: '100vh'}}>
             <Grid item xs={12} sm={6}>
-                <img src="https://i.pinimg.com/originals/fc/ce/c1/fccec1a63579bf7de24d6955cbddc1ca.png" style={{width: '100%', height:'100%', objectFit: 'cover', boxSizing:"border-box",  borderRadius: 30 ,padding: "30px 50px 60px 50px"}}/>
+                <img src="https://drive.google.com/uc?export=view&id=1qDgmrZrPg0dCK8VxK0wTkhChwMqZuHIi" style={{width: '100%', height:'100%', objectFit: 'cover', boxSizing:"border-box",  borderRadius: 30 ,padding: "30px 50px 60px 50px"}}/>
             </Grid>
             <Grid container item xs={12} sm={6} alignItems="center" direction="column" justify="space-between" style={{padding: 10}}> 
                 <div/>
