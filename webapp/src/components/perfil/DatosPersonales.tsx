@@ -140,7 +140,7 @@ const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
         <Grid container alignItems="center" direction="column" justify="space-between" style={{padding: 20}}> 
             <div style={{ display: "flex", flexDirection: "column", maxWidth: 500, minWidth: 200}}>
             <Grid container justify="center">
-                <img src="https://cdn4.iconfinder.com/data/icons/web-app-flat-circular-icons-set/64/Iconos_Redondos_Flat_Usuario_Icn-512.png" width={150}/>    
+                <img src="https://drive.google.com/uc?export=view&id=1ckatCm03YBWhjTubSxD4TLESZqB4zLP-" width={150}/>    
             </Grid>
             <Typography variant="h5">¡Bienvenido!</Typography>
             <TextField label="Nombre" error={Boolean(errorsName?.name)} helperText={(errorsName?.name)} margin="normal" contentEditable="false" value={name} InputProps={{startAdornment: <InputAdornment position="start"><Person/></InputAdornment>}}/>

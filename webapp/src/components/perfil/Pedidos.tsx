@@ -61,7 +61,6 @@ const useStyle = makeStyles({
     border: "none", boxShadow: "none"
   },
   containerCarrito:{
-
     marginLeft:"30px",
     display: 'flex',
     paddingRight:"20px",
@@ -69,6 +68,7 @@ const useStyle = makeStyles({
     width: "200px",
     marginBottom:"20px",
     marginTop:"10px",
+    backgroundColor: "#8545A2"
   },
   media: {
     borderRadius:"20px",

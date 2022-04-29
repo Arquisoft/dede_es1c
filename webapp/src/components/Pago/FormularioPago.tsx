@@ -85,9 +85,9 @@ const FormularioPago:React.FC<Props> = ({ cartItems ,  handleRemoveFromCart}) =>
     const modal1=(
         <div className={classes.pagoOk}>
             <div> 
-                <img src="https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemok_103757.png" width={50}/>
+                <img src="https://drive.google.com/uc?export=view&id=16xkO_XdFvcWZkO0Z2diI5VmShMY7QgWG" width={50}/>
                 <h2>Tarjeta valida, haga click para aceptar el pago</h2>
-                <img src="https://orxcosmeticos.com/wp-content/uploads/2018/09/pago-seguro.jpg" width={300}/>
+                <img src="https://drive.google.com/uc?export=view&id=1rHW9WVgZOaqPMoc1NYIttoSsNRBO-uMf" width={300}/>
                 <Grid>
                     <Button onClick={()=>generateOrders()} to='/Perfil' component={Link}  className={classes.boton} variant="contained">Aceptar</Button> 
                 </Grid>
@@ -98,9 +98,9 @@ const FormularioPago:React.FC<Props> = ({ cartItems ,  handleRemoveFromCart}) =>
     const modal2=(
         <div className={classes.pagoOk}>
             <div> 
-                <img src="https://static.thenounproject.com/png/2052102-200.png" width={150}/>
+                <img src="https://drive.google.com/uc?export=view&id=1ii0L4nWFSOj-yRAmnbptBD-B5GW2prcb" width={150}/>
                 <h2>Tarjeta invalida, compruebe los campos</h2>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4lwno3aI3X7AI69K7hpbouaKq55IDSzbwPbG_UMFn_hVwNtYR81xJn0sLuiqG2H75g&usqp=CAU" width={200}/>
+                <img src="https://drive.google.com/uc?export=view&id=10teEYXDrEL3S6Pu0I9ODX-C2iL-Uiz7-" width={200}/>
             </div>
         </div>
     )
@@ -218,10 +218,10 @@ const FormularioPago:React.FC<Props> = ({ cartItems ,  handleRemoveFromCart}) =>
         <Grid container alignItems="center" direction="column" justify="space-between" style={{padding: 100}}> 
             <div style={{ display: "flex", flexDirection: "column", maxWidth: 500, minWidth: 200}}>
             <Grid container justify="center">
-                <img src="https://cdn.pixabay.com/photo/2020/07/05/17/32/credit-card-5373806_960_720.png" width={200}/>    
+                <img src="https://drive.google.com/uc?export=view&id=1X9Cypl2FobGe5-iKmdY6TuiVHBYno7OB" width={200}/>    
             </Grid>
             <Grid container justify="center">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4lwno3aI3X7AI69K7hpbouaKq55IDSzbwPbG_UMFn_hVwNtYR81xJn0sLuiqG2H75g&usqp=CAU" width={200}/>    
+                <img src="https://drive.google.com/uc?export=view&id=10teEYXDrEL3S6Pu0I9ODX-C2iL-Uiz7-" width={200}/>    
             </Grid>
             <TextField 
                 id="nombre" 
