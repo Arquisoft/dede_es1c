@@ -39,8 +39,6 @@ function LoginForm(): JSX.Element {
           /* bring your own prefixes */
           transform: "translate(-50%, -50%)",
           boxShadow: " 16px 11px 9px rgba(0, 0, 0, .5)",
-
-
       },
       center:{
         width:"50%",

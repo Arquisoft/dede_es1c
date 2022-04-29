@@ -23,6 +23,7 @@ const useStyle = makeStyles({
     display: "grid",
     flexDirection: "column",
     backgroundColor:"#FFFF",
+    minWidth: 600,
     borderRadius: 30,
     boxShadow: "7px 6px rgba(0, 0, 0, .5)",
     marginLeft:"5%",
@@ -38,44 +39,51 @@ const useStyle = makeStyles({
   },
   pedido :{
     display:"grid",
+    gridTemplateColumns: "1.5fr 2fr",
     font: "400 1em Tahoma,sans-serif",
     backgroundColor:"#8545A2",
     borderRadius: 30,
     boxShadow: "7px 6px rgba(0, 0, 0, .5)",
     marginLeft:"5%",
     marginRight: "5%",
+    gridColumnGap: "3%",
     textAlign: "center",
     margin: "auto",
     color: "#FFF",
   }, 
   cardContent:{
     minWidth: 200,
+    minHeight: 300,
+    backgroundColor: "#8545A2",
     display: '1 0 auto' ,
   },
-  root:{
-    marginLeft:"20px",
-    maxWidth: 345,
+  imagen:{
+    width: 150,
     color:"black",
     display: 'flex',
-    height:150,
-    border: "none", boxShadow: "none"
-  },
-  containerCarrito:{
-    marginLeft:"30px",
-    display: 'flex',
-    paddingRight:"20px",
-    position: "relative",
-    width: "200px",
-    marginBottom:"20px",
-    marginTop:"10px",
-    backgroundColor: "#8545A2"
+    height: 200,
+    backgroundColor: "transparent",
+    marginLeft:"45%",
+    marginTop: "2.5%",
+    marginBottom: "2.5%",
+    boxShadow: " 16px 11px 9px rgba(0, 0, 0, .5)",
+    borderRadius:"20px",
   },
   media: {
     borderRadius:"20px",
+    backgroundColor: "#8545A2",
+  },
+  datosPedido: {
+    height: 200,
+    width: 600,
+    marginTop: "1%",
+    marginRight: "55%",
+  },
+  contenedorImg: {
+    borderRadius:"20px",
     minWidth: 120,
     minHeight:100,
-
-  },
+  }
 });
 
 async function retirevePODEmail(webID: string): Promise<string> {
@@ -100,21 +108,33 @@ const Pedidos: React.FC<ReviewType> = ({webID,ped}) => {
       {ped.map((item:Order)=>{
         return(
           <div className={classes.pedido}>
-            <Grid item key={item.name}  xs={12} className={classes.containerCarrito}>
-            <Card  square={true} className={classes.root}>
-            <CardMedia component="img"  className={classes.media} image={item.photo} title={item.name} />
-
-            <CardContent className={classes.cardContent}  >
-            <Typography component="div" variant="h5">
-              {item.name}
-            </Typography>
-            <Typography variant="subtitle1" component="div">
-              Cantidad:{item.amount}
-            </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        </div>)
+            <Grid item key={item.name}  xs={12} className={classes.media}>
+            <Card  square={true} className={classes.imagen}>
+              <CardMedia component="img"  className={classes.contenedorImg} image={item.photo} title={item.name} />
+            </Card>
+            </Grid>
+            <div className={classes.datosPedido}>
+                    <Typography component="div" variant="h5">
+                    {item.name}
+                    </Typography>
+                    <Typography variant="subtitle1" component="div">
+                      Cantidad:{item.amount}
+                    </Typography>
+                    <Typography variant="subtitle1" component="div">
+                      {item.description}
+                    </Typography>
+                    <Typography variant="subtitle1" component="div">
+                        Fecha de compra:{item.fecha}
+                    </Typography>
+                    <Typography variant="subtitle1" component="div">
+                      Email:{item.email}
+                    </Typography>
+                  <Typography variant="subtitle1" component="div">
+                    Precio:{item.price}€
+                </Typography>
+            </div>
+        </div>
+        )
       })}
       </div>
     )

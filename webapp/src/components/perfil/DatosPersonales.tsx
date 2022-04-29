@@ -32,8 +32,10 @@ const useStyle = makeStyles({
   },
   formulario: {
     display:"grid",
+    position: "relative",
     font: "400 1em Tahoma,sans-serif",
     backgroundColor:"#FFFF",
+    minWidth: 600,
     borderRadius: 30,
     boxShadow: "7px 6px rgba(0, 0, 0, .5)",
     marginLeft:"10%",
