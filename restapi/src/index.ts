@@ -35,24 +35,18 @@ app.use('/api/order', OrderRouter)
 app.use('/api', LoginRouter)
 
 // ... other app.use middleware
-app.use(express.static(path.join(__dirname, "..", "..", "webapp", "build")))
-
-// ...
-// Right before your app.listen(), add this:
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
+app.use(express.static(path.join(__dirname, "..", "..", "..", "webapp", "build")))
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.mongoose.uri)
     .catch(err => console.error(err))
     .then(() => create())
     .then(() => {
-    // Server Setup
-    const port = process.env.PORT || 8000
-    http.createServer(app).listen(port, () => {
-        console.log(`\x1b[32m`, `Server listening on: ${port}`, `\x1b[0m`)
+        // Server Setup
+        const port = process.env.PORT || 8000
+        http.createServer(app).listen(port, () => {
+            console.log(`\x1b[32m`, `Server listening on: ${port}`, `\x1b[0m`)
+        });
     });
-});
 
 
