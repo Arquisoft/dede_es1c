@@ -15,10 +15,9 @@ import { Link } from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 
-
-import { Product } from "../../../../restapi/src/products/model";
 import { ProductCart } from "../../shared/shareddtypes";
-
+import { useSession } from "@inrupt/solid-ui-react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -44,7 +43,7 @@ const useStyle = makeStyles({
     marginRight:"20px",
   },
   logo: {
-   width:"10%",
+    width:"10%",
    marginTop:"30px",
 
   },
@@ -59,13 +58,24 @@ items.cartItems.reduce((ack: number, item) => ack + item.amount, 0);
 
 const MenuBar:React.FC<Props> = (cartItems) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    /* istanbul ignore next */
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
+    /* istanbul ignore next */
   const handleClose = () => {
     setAnchorEl(null);
   };
   const classes = useStyle();
+
+
+
+  const { session } = useSession();
+  
+  const logOut =()=>{
+    session.info.isLoggedIn = false;
+  }
+
 
   return (
 
@@ -83,14 +93,17 @@ const MenuBar:React.FC<Props> = (cartItems) => {
 
 
 
-          <Button to='/Carrito' component={Link} className={classes.icon}> 
+          <Link className={classes.icon} to= "/Carrito" > 
             <Tooltip title="Carrito">
             <StyledBadge  badgeContent={getTotalItems(cartItems)} sx={{ color: 'white' }}>
               <ShoppingCartIcon   fontSize="large" sx={{ color: "white" ,flexGrow: 1}} />
               </StyledBadge >
             </Tooltip>
-          </Button>
 
+          </Link>
+
+             {session.info.isLoggedIn ? (
+       /* istanbul ignore next */
           <div>
             <IconButton onClick={handleMenu} className={classes.icon}>
               <Tooltip title="Perfil">
@@ -115,10 +128,12 @@ const MenuBar:React.FC<Props> = (cartItems) => {
       
             >
               <MenuItem to='/Perfil' component={Link}>Perfil</MenuItem>
-              <MenuItem >Sign out</MenuItem>
+              <MenuItem onClick={logOut} to='/' component={Link}>Sign out</MenuItem>
             </Menu>
-          </div>
+          </div>  ):(
+   
           <Button to='/LogIn' component={Link} color="inherit" >Login</Button>
+          )}
 
         </Toolbar>
       </AppBar>

@@ -41,7 +41,7 @@ const useStyle = makeStyles({
       color: "#000",
       "&:hover ": {
         transform: "translate(0, -7px)",
-        background: "linear-gradient(315deg, #28313b 0%, #6ABACE  74%)",
+        background: "linear-gradient(45deg, #19275a 30%, #cc90ff 90%)",
         color: "white",
       },
       position: "relative",
@@ -62,11 +62,11 @@ const Icon = () => {
   return (
  <div className="menu-social-links">
  <ul className={classes.ul}>
-  <IconButton  className={classes.li}>
-  <GitHubIcon className={classes.icon} style={{ fontSize: 40 }} onClick={event =>  window.location.href='https://github.com/Arquisoft/dede_es1c'} />
+  <IconButton aria-label="git" className={classes.li} onClick={event =>  window.location.href='https://github.com/Arquisoft/dede_es1c'}>
+  <GitHubIcon className={classes.icon} style={{ fontSize: 40 }}  />
   </IconButton>
-  <IconButton className={classes.li}>
-  <ArticleIcon  className={classes.icon} style={{ fontSize: 40 }}  onClick={event =>  window.location.href='https://arquisoft.github.io/dede_es1c/'}  />
+  <IconButton  aria-label="doc" className={classes.li}  onClick={event =>  window.location.href='https://arquisoft.github.io/dede_es1c/'}>
+  <ArticleIcon  className={classes.icon} style={{ fontSize: 40 }}   />
   </IconButton>
   <IconButton className={classes.li} to='/' component={Link}>
   <HomeIcon   className={classes.icon} style={{ fontSize: 40 }}   />

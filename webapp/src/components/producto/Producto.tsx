@@ -11,10 +11,11 @@ import {
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect} from 'react';
-import { Product } from "../../../../restapi/src/products/productModel";
+import { Product } from "../../shared/shareddtypes";
 import { getProducto } from "../../api/api";
 import { ProductCart } from "../../shared/shareddtypes";
 
+import { Link } from "react-router-dom";
 /**const product = {
   id: 1,
   product_name: "Elden",
@@ -77,10 +78,10 @@ container3:{
   },
 
   root: {
-    minWidth: 320,
+
     marginTop:"2%",
     marginBottom:"2%",
-    maxWidth: 320,
+
     color: "black",
     display: "flex",
     height: 400,
@@ -131,6 +132,21 @@ container3:{
     marginBottom: "10px",
     background: "linear-gradient(45deg, #19275a 30%, #cc90ff 90%)",
   },
+  comboBox:{
+    marginLeft:"100%",
+    boxShadow: "7px 6px rgba(0, 0, 0, .5)",
+    borderRadius: 10,
+  
+  },
+
+  textfield:{
+    "& .MuiAutocomplete-listbox": {
+      border: "2px solid grey",
+      minHeight: 400,
+      color: "green",
+      fontSize: 18,
+  }
+},
 });
 
 type ProductoItem = {
@@ -145,6 +161,8 @@ type Props = {
 
 
 const Producto : React.FC<Props> = ({ cartItems,  handleAddToCart }) => {
+
+  // @ts-ignore
   const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",name: "Nombre",price: "Error",stock: "Error",description: "Error", categories: [""]});
 
   const classes = useStyle();
@@ -173,8 +191,9 @@ const Producto : React.FC<Props> = ({ cartItems,  handleAddToCart }) => {
                 image={producto.photo}
                 title={producto.name}/>
             </Card>
+            
             <Typography variant="h4" gutterBottom>
-            <IconButton onClick={() => handleAddToCart(producto)}>
+            <IconButton aria-label="Añadir carrito" onClick={() => handleAddToCart(producto)}>
                       <Tooltip title="Añadir al carrito">
                         <AddShoppingCartIcon
                           fontSize="large"
@@ -182,9 +201,12 @@ const Producto : React.FC<Props> = ({ cartItems,  handleAddToCart }) => {
                         />
                       </Tooltip>
                     </IconButton>
+                    
               {producto.name}
-             
+
+
             </Typography>
+   
 
             <Typography variant="h5" gutterBottom  className={classes.description}>
             {producto.description}
@@ -195,7 +217,7 @@ const Producto : React.FC<Props> = ({ cartItems,  handleAddToCart }) => {
                   {producto.price}€
                 </Typography>
               </div>
-              <Button className={classes.btncomprar} variant="contained"   >
+              <Button  className={classes.btncomprar}    variant="contained" onClick={() => handleAddToCart(producto)} to="/Carrito" component={Link} >
                 Comprar
               </Button>
             </div>

@@ -33,7 +33,7 @@ Mostrar las dos partes principales que componen la aplicacion DeDe
 |====
 | Nombre | Responsabilidad
 | Capa de servicio | Tambien conocida como front-end en ingles, es la interfaz de la aplicacion, la cara visible hacia el usuario.
-| Capa de datos | Tambien conocida como brack-end en ingles, corresponde a las operaciones de tratamiento de datos de la aplicacion (registro, log-in).
+| Capa de datos | Tambien conocida como back-end en ingles, corresponde a las operaciones de tratamiento de datos de la aplicacion (registro, log-in).
 |====
 
 === Nivel 3
