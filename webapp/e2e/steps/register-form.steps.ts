@@ -8,11 +8,13 @@ let browser: puppeteer.Browser;
 
 defineFeature(feature, test => {
   
+  jest.setTimeout(100000)
   beforeAll(async () => {
+
     browser = process.env.GITHUB_ACTIONS
-      ? await puppeteer.launch()
-      : await puppeteer.launch({ headless: true });
-    page = await browser.newPage();
+    ? await puppeteer.launch()
+    : await puppeteer.launch({ headless: true, slowMo:100}); //false to run tests locally
+  page = await browser.newPage();
 
     await page
       .goto("http://localhost:3000", {
@@ -20,34 +22,24 @@ defineFeature(feature, test => {
       })
       .catch(() => {});
   });
-
-  test('The user is not registered in the site', ({given,when,then}) => {
-    
-    let email:string;
-    let username:string;
-
-    given('An unregistered user', () => {
-      email = "newuser@test.com"
-      username = "newuser"
+  
+  test("The user does not have a solid pod", ({given,when,then}) => {
+    given("A user without a pod", () => {
     });
 
-    when('I fill the data in the form and press submit', async () => {
-      await expect(page).toMatch('Hi, ASW students')
-      await expect(page).toFillForm('form[name="register"]', {
-        username: username,
-        email: email,
-      })
-      await expect(page).toClick('button', { text: 'Accept' })
+    when("I click on the registrate aqui", async () => {
+      await page.setViewport({ width: 1200, height: 1300 });
+      await expect(page).toMatch("Productos");
+      await expect(page).toClick("a[href='/LogIn']");
+      await expect(page).toClick('button', { text: '¿No tienes una cuenta SOLID? Registrate aqui' });
     });
 
-    then('A confirmation message should be shown in the screen', async () => {
-      await expect(page).toMatch('You have been registered in the system!')
-    });
-  })
+    then("I should be redirected to https://inrupt.net/register", async () => {
+      await page.waitForNavigation()
+      expect(await page.url()).toBe("https://inrupt.net/register");
 
-  afterAll(async ()=>{
-    browser.close()
-  })
+    });
+  });
 
 });
 

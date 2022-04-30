@@ -8,6 +8,16 @@ export interface ProductCart {
   amount: number;
 }
 
+export interface Order {
+  email: string
+  fecha: string
+  name: string
+  description: string;
+  photo: string;
+  price: string;
+  amount: number;
+}
+
 export interface Product {
   id: string
   photo: string

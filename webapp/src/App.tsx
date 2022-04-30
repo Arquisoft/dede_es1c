@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import React, { useState, useEffect} from 'react';
 
-import { Product } from "./shared/shareddtypes";
-import  {anadirStock, eliminarStock, getProductos} from './api/api';
+import { Order, Product } from "./shared/shareddtypes";
+import  {getPedidos, getProductos} from './api/api';
 import './App.css';
 
 import {HomeView} from "./components/home/HomeView";
@@ -15,47 +15,43 @@ import { PaymentView } from "./components/Pago/PaymentView";
 import Producto from "./components/producto/Producto";
 import SOLIDView from "./components/LogIn/SOLID/SOLIDView";
 import { ProductCart } from "./shared/shareddtypes";
-import MenuBar from "./components/comun/MenuBar";
+
+
 
 function App(): JSX.Element {
-
-
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   var [cartItems,setCartItems]= useState<ProductCart[]>([]);
 
   const [products, setProducts] = useState<Product[]>([]);
 
-
   let carritoString = sessionStorage.getItem('carrito');
-  if (carritoString != null)
-    cartItems = JSON.parse(carritoString!);
+
 
   const refreshProducts = async () => {
     setProducts(await getProductos());
   }
 
   const loadCartFromLocalStorage = () => {
+    if (carritoString != null)
+    cartItems = JSON.parse(carritoString!);
     let str = sessionStorage.getItem('cart');
     let cart:ProductCart[] = str!== null ? JSON.parse(str) : [];
     setCartItems(cart);
   };
 
-
-
   useEffect(()=>{
-    refreshProducts();
+   refreshProducts();
     loadCartFromLocalStorage();
   },[]);
 
-  
+     /* istanbul ignore next */
 //CARRITO
   const handleRemoveFromCart = (clickedItem: ProductCart) => {
-    let cart:ProductCart[];
     setCartItems(prev =>
       prev.reduce((ack, item) => {
         if ( item.name === clickedItem.name) {
           if (item.amount === 1){
+            addStock(clickedItem);
             sessionStorage.setItem('cart', JSON.stringify(ack));
             return ack;
           }
@@ -64,10 +60,6 @@ function App(): JSX.Element {
           sessionStorage.setItem('cart', JSON.stringify([...ack, { ...item, amount: item.amount - 1 }]));
           return [...ack, { ...item, amount: item.amount - 1 }];
         } else {
-          cart = [...ack, item];
-           //Añdadir stock
-          addStock(clickedItem);
-          sessionStorage.setItem('cart', JSON.stringify(cart));
           return [...ack, item];
         }
       }, [] as ProductCart[])
@@ -76,6 +68,7 @@ function App(): JSX.Element {
 
 
   };
+     /* istanbul ignore next */
  //Añadir stock local
   const addStock = (clickedItem: ProductCart) => {
     const existProduct = products.find(item => item.name === clickedItem.name);
@@ -89,11 +82,11 @@ function App(): JSX.Element {
     var result:Product =products[newProduct]
     var d=result.id;
     //Añadir BD
-    anadirStock(result);
+   // anadirStock(result);
   }
   };
 
-  
+     /* istanbul ignore next */
   //Eliminar stock local
   const removeStock = (clickedItem: Product) => {
     //Tengo que encontrar el del producto local
@@ -104,11 +97,11 @@ function App(): JSX.Element {
     setProducts(newTodosP);
     var d=clickedItem.id;
     //Quitar de la BD tb
-    eliminarStock(clickedItem);
+    //eliminarStock(clickedItem);
 
   
   };
-
+   /* istanbul ignore next */
   //Añadir al carrito
   const handleAddToCart = (clickedItem: Product) => {
     //Tiene stock a cero?? pero del que devuelve no del producto de BD
@@ -125,7 +118,7 @@ function App(): JSX.Element {
               const amountt= item.amount+1;
               newTodos[index].amount=amountt; 
               sessionStorage.setItem('cart', JSON.stringify(newTodos));
-            setCartItems(newTodos);
+              setCartItems(newTodos);
               index=index+1;
               //Quitar stock al producto
               removeStock(existProductClicked);
@@ -143,9 +136,7 @@ function App(): JSX.Element {
        sessionStorage.setItem('cart', JSON.stringify([...cartItems, {id, name, photo, price, description,amount:1 }]));
        setCartItems([...cartItems, {id, name, photo, price, description,amount:1 }]);
       }
-      if(isLoggedIn){
-      // addCart(clickedItem);
-      }
+
   }
   else{
     alert("No hay más stock para "+""+ clickedItem.name);
@@ -154,24 +145,20 @@ function App(): JSX.Element {
 
 
 
-
   return (
-
 
     <>
 <main>
       
      <Router>
       <Switch>
-
       <Route exact path='/' render={() => <HomeView cartItems={cartItems} handleAddToCart={handleAddToCart} products={products}/>} />
-        <Route  path="/Carrito"render={() => <Carrito cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart} />}/>
+      <Route  path="/Carrito"render={() => <Carrito cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart}/>}/>
         <Route  path="/Producto/:name" render={() => <Producto cartItems={cartItems} handleAddToCart={handleAddToCart}/>}/>
-        <Route  path="/Pago"render={() => <PaymentView cartItems={cartItems}/>}/>
-        <Route  path="/Perfil"render={() => <ProfileView cartItems={cartItems}/>}/>
+        <Route  path="/Pago"render={() => <PaymentView cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart}/> }/>
+        <Route  path="/Perfil"render={() => <ProfileView cartItems={cartItems} /> }/>
         <Route  path="/LogIn"render={() => <LogInView cartItems={cartItems}/>}/>
-        <Route path="/inrupt" render={() => <SOLIDView cartItems={cartItems} handleAddToCart={handleAddToCart} products={products}/>}/>
-
+        <Route path="/inrupt" render={() => <SOLIDView cartItems={cartItems}/>}/>
       </Switch>
       </Router>
       

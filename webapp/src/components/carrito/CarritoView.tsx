@@ -1,13 +1,16 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {Button,Grid,CardContent,CardMedia,Card,Container,Typography,Tooltip,IconButton} from "@material-ui/core";
 import DeleteIcon from '@mui/icons-material/Delete';
-
-import { calcularTotal } from "../../logica/Carrito";
+import {getSolidDataset, getStringNoLocale, getThing, Thing} from "@inrupt/solid-client";
+import { getCoordenadasDeAddress, shipCost } from "../../logica/Carrito";
 import { Link } from "react-router-dom";
 import { ProductCart } from "../../shared/shareddtypes";
 import { useSession } from "@inrupt/solid-ui-react";
+import { VCARD } from "@inrupt/lit-generated-vocab-common";
+import { getPopoverUtilityClass } from "@mui/material";
+import { Alert } from "@material-ui/lab";
 
 const useStyle = makeStyles({
 
@@ -80,6 +83,11 @@ const useStyle = makeStyles({
   titleCarrito:{
     marginLeft:"10px",
   },
+  titleCarritoVacio:{
+    
+    marginLeft:"35%",
+    marginTop:"20%",
+  },
   cardContent:{
       minWidth: 200,
     display: '1 0 auto' ,
@@ -116,20 +124,67 @@ const useStyle = makeStyles({
   },
 });
 
-
 type Props = {
   props: ProductCart[];
   handleRemoveFromCart: (clickedItem: ProductCart) => void;
-
+  address: string;
 };
+  /* istanbul ignore next */
+async function retirevePODEmail(webID: string): Promise<string> {
+  let profileDocumentURI = webID.split("#")[0]
+  let myDataSet = await getSolidDataset(profileDocumentURI)
+  let profile = getThing(myDataSet, webID)
+  let email = getStringNoLocale(profile as Thing, VCARD.note.iri.value) as string;
+  return email;
+}
 
-const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
+const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart,address}) => {
+  const [shipppinCost, setshipppinCost] = React.useState(0);
+/* istanbul ignore next */
+  useEffect(() => {
+    shippingCost();
+    getPODEmail();
+  })
+  //Realizar calculo del precio de envio:
+  const shippingCost = async () => {
+    setshipppinCost(await shipCost(address));
+  };
 
   const calculateProductTotal = (items: ProductCart[]) =>
   items.reduce((ack: number, item) => ack + item.amount * Number(item.price), 0);
 
   const { session } = useSession();
   const classes = useStyle();
+  
+  const [email, setEmail] = React.useState("");
+  /* istanbul ignore next */
+  const getPODEmail = async () => {
+    let e = await retirevePODEmail(session.info.webId!);
+    if(e === null) {
+      setEmail("")
+    } else {
+      setEmail(e);
+    }
+  };
+  /* istanbul ignore next */
+  const validacion = () => {
+    if(session.info.isLoggedIn && email != "" && address != "") {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  /* istanbul ignore next */
+  const validacionCampos = () => {
+    if(email == "" && address == "") {
+      if(session.info.isLoggedIn) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
+
   const vacio =props.length
     return (
 
@@ -138,7 +193,7 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
         {(() => {
         if (vacio===0){
           return(
-      <Typography variant="h5" className={classes.titleCarrito} >
+      <Typography variant="h5" className={classes.titleCarritoVacio} >
       Carrito vacio
       </Typography>)} 
       else { 
@@ -195,19 +250,27 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart}) => {
                        </Typography>
                        {session.info.isLoggedIn ? (
                        <Typography variant="h6" gutterBottom >
-                      Precio de envio 
-                       </Typography>):(
-                              <Typography variant="h6" gutterBottom >
-                              Debes logearte para ver el precio de envio
-                               </Typography>)}
-                       <Typography variant="h5" gutterBottom >
-                      Total
+                      Precio de envio {shipppinCost}€
                        </Typography>
-                       {session.info.isLoggedIn ? (
-                       <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>):(
-                      <Button to='/LogIn' component={Link} className={classes.btncomprar} variant="contained">LogIn</Button>)
-                       }
-
+                       ):(
+                             <Typography variant="h6" gutterBottom >
+                              Debes iniciar sesión para ver el precio de envio
+                               </Typography>)}
+        
+                            { session.info.isLoggedIn ? (
+                       <Typography variant="h5" gutterBottom >
+                       Total:{shipppinCost+calculateProductTotal(props)}€
+                       </Typography>):(
+                         <Typography variant="h5" gutterBottom >
+                         Debes iniciar sesión para ver el precio total
+                         </Typography>)}
+                       {validacion() ? (
+                          <Button to='/Pago' component={Link} className={classes.btncomprar} variant="contained">Comprar</Button>
+                       ):(
+                         <div>
+                            {validacionCampos() ? (<Alert severity="warning">POD CON DATOS INCORRECTOS</Alert>):(<Alert severity="warning">Inicia sesion para continuar con la compra</Alert>)}
+                            <Button to='/LogIn' component={Link} className={classes.btncomprar} variant="contained">LogIn</Button>
+                         </div>)}
             </Container> 
       )}  })()}
 

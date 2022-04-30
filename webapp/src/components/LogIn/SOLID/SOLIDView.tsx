@@ -1,20 +1,17 @@
 import { useState } from "react";
 import LoginForm from "./LogInForm";
-import  { ProfileView } from "../../perfil/ProfileView";
-import ProfileViewer from "./ProfileViewer"
+
 import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
-import  {HomeView}  from "../../home/HomeView";
-import { Product } from "../../../shared/shareddtypes";
+
 import { ProductCart } from "../../../shared/shareddtypes";
-
-
+import {ProfileView} from "../../perfil/ProfileView"
 type Props = {
-  
-    handleAddToCart: (clickedItem: Product) => void;
-    cartItems: ProductCart[];
-    products:Product[];}
+    cartItems: ProductCart[]
+  };
+     /* istanbul ignore next */
 //function Authenticator(props: any): JSX.Element
-const Authenticator:React.FC<Props> = ({ cartItems , handleAddToCart,products}) =>
+const Authenticator:React.FC<Props> = ({ cartItems}) =>
+
 
  {
     //We use this state variable
@@ -36,7 +33,8 @@ const Authenticator:React.FC<Props> = ({ cartItems , handleAddToCart,products}) 
     return (
         <>
             <SessionProvider sessionId="log-in-example">
-                {(!isLoggedIn) ? <LoginForm /> : <HomeView cartItems={cartItems} handleAddToCart={handleAddToCart} products={products}/>} 
+                {(!isLoggedIn) ? <LoginForm /> : <ProfileView cartItems={cartItems} />} 
+
             </SessionProvider>
         </>
     );
