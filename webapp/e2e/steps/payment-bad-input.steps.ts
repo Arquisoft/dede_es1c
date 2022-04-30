@@ -31,17 +31,12 @@ defineFeature(feature, test => {
           campoNumeroErroneo = "1234"
       });
   
-      when("I click in Pagar ", async () => {
+      when("I click in Pagar", async () => {
         await page.setViewport({ width: 1200, height: 1300 });
-        await expect(page).toMatch("Pago");
-        await expect(page).toFill("input[name='numero']", campoNumeroErroneo);
-        await expect(page).toMatch("Numero invalido");
         await expect(page).toClick('button', { text: 'Pagar' });
-        await page.waitForNavigation();
       });
   
       then("A modal popout appear", async () => {
-        await page.waitForNavigation()
         await page.waitForTimeout(2000);
         await expect(page).toMatch("Tarjeta invalida, compruebe los campos");
       });
