@@ -19,6 +19,9 @@ export const LogInFragmento = () => {
             backgroundColor: "#FFFFFF", 
             borderRadius: 30,
         },
+        boton: {
+            background: "linear-gradient(45deg, #19275a 30%, #cc90ff 90%)"
+        }
       });
 
       const classes = useStyle();
@@ -30,7 +33,7 @@ export const LogInFragmento = () => {
     return(
         <Grid container style={{minHeight: '100vh'}}>
             <Grid item xs={12} sm={6}>
-                <img src="https://i.pinimg.com/originals/fc/ce/c1/fccec1a63579bf7de24d6955cbddc1ca.png" style={{width: '100%', height:'100%', objectFit: 'cover', boxSizing:"border-box",  borderRadius: 30 ,padding: "30px 50px 60px 50px"}}/>
+                <img src="https://drive.google.com/uc?export=view&id=1qDgmrZrPg0dCK8VxK0wTkhChwMqZuHIi" style={{width: '100%', height:'100%', objectFit: 'cover', boxSizing:"border-box",  borderRadius: 30 ,padding: "30px 50px 60px 50px"}}/>
             </Grid>
             <Grid container item xs={12} sm={6} alignItems="center" direction="column" justify="space-between" style={{padding: 10}}> 
                 <div/>
@@ -39,7 +42,7 @@ export const LogInFragmento = () => {
                         <img src="https://solidproject.org/assets/img/solid-emblem.svg" width={100}/>    
                     </Grid>
                     <div style={{height: 20}}/>
-                    <Button color="primary" variant="contained" to='/inrupt' component={Link}>Inicia sesion con INRUPT</Button> 
+                    <Button className={classes.boton} variant="contained" to='/inrupt' component={Link}>Inicia sesion con INRUPT</Button> 
                     <div style={{height: 20}}/>
                     <Button color="primary" variant="outlined" onClick={event =>  window.location.href='https://inrupt.net/register'}>
                         ¿No tienes una cuenta SOLID? Registrate aqui

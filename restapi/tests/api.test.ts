@@ -5,6 +5,7 @@ import bp from "body-parser";
 import promBundle from "express-prom-bundle";
 import apiUser from "../src/users/userRouter";
 import apiProduct from "../src/products/productRouter";
+import apiOrder from "../src/orders/orderRouter";
 import apiLogin from "../src/login/loginRouter";
 import {beforeAll, afterAll, describe, it, expect} from "@jest/globals";
 
@@ -32,7 +33,7 @@ beforeAll(async () => {
     app.use('/product', apiProduct)
     app.use('/', apiLogin)
 
-    app.listen(5000);
+    app.use('/order', apiOrder)
 
     app.use("/uploads", express.static(path.resolve("uploads")));
     app.set("view engine", "ejs");
@@ -314,10 +315,10 @@ describe("PRODUCTS ", () => {
         expect(response.body).toEqual(
             expect.objectContaining({
                 name: "League of Leguends",
-                photo: "https://drive.google.com/uc?export=view&id=16i_-Op9_aurvgDR49AOBzhp85J-GBnjE",
+                photo: "https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R",
                 price: "50",
                 stock: "2",
-                description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games",
+                description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games.",
                 categories: ["estrategia", "acción"]
 
             })
@@ -338,7 +339,7 @@ describe("PRODUCTS ", () => {
     });
 
     /**
-     * Crear producto y elimianrlo
+     * Crear producto y eliminarlo
      */
 
     it("Crear un producto correctamente y eliminarlo", async () => {
@@ -476,6 +477,385 @@ describe("PRODUCTS ", () => {
             })
         );
     });
+
+    /**
+     * Actualizar price del producto
+     */
+    it("Actualizar price de producto", async () => {
+        const responseDelete: Response = await request(app).delete(
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`)
+
+        expect(responseDelete.statusCode).toBe(200);
+
+        const responseAdd: Response = await request(app).post(
+            "/user/product"
+        ).set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        })
+
+        const response2: Response = await request(app).get(
+            "/user/profile"
+        ).set('Authorization', `Bearer ${token}`)
+
+
+        const responseUpdate: Response = await request(app)
+            .put("/product/price/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                price: "20",
+            });
+
+        expect(responseUpdate.statusCode).toBe(200);
+
+        const response: Response = await request(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response.statusCode).toBe(200);
+
+        expect(response.body).toEqual(
+            expect.objectContaining({
+                name: "League of Leguends",
+                price: "20"
+            })
+        );
+
+        const responseUpdate2: Response = await request(app)
+            .put("/product/price/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                price: "50",
+            });
+
+        expect(responseUpdate2.statusCode).toBe(200);
+
+        const respons2: Response = await request(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(respons2.statusCode).toBe(200);
+
+        expect(respons2.body).toEqual(
+            expect.objectContaining({
+                name: "League of Leguends",
+                price: "50"
+            })
+        );
+    });
+
+    /**
+     * Actualizar description del producto
+     */
+    it("Actualizar description de producto", async () => {
+        const responseDelete: Response = await request(app).delete(
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`)
+
+        expect(responseDelete.statusCode).toBe(200);
+
+        const responseAdd: Response = await request(app).post(
+            "/user/product"
+        ).set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        })
+
+        const response2: Response = await request(app).get(
+            "/user/profile"
+        ).set('Authorization', `Bearer ${token}`)
+
+
+        const responseUpdate: Response = await request(app)
+            .put("/product/description/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                description: "Hola",
+            });
+
+        expect(responseUpdate.statusCode).toBe(200);
+
+        const response: Response = await request(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response.statusCode).toBe(200);
+
+        expect(response.body).toEqual(
+            expect.objectContaining({
+                name: "League of Leguends",
+                description: "Hola"
+            })
+        );
+
+        const responseUpdate2: Response = await request(app)
+            .put("/product/description/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games.",
+            });
+
+        expect(responseUpdate2.statusCode).toBe(200);
+
+        const respons2: Response = await request(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(respons2.statusCode).toBe(200);
+
+        expect(respons2.body).toEqual(
+            expect.objectContaining({
+                name: "League of Leguends",
+                description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games."
+            })
+        );
+    });
+
+    /**
+     * Actualizar foto del producto
+     */
+    it("Actualizar foto de producto", async () => {
+        const responseDelete: Response = await request(app).delete(
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`)
+
+        expect(responseDelete.statusCode).toBe(200);
+
+        const responseAdd: Response = await request(app).post(
+            "/user/product"
+        ).set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        })
+
+        const response2: Response = await request(app).get(
+            "/user/profile"
+        ).set('Authorization', `Bearer ${token}`)
+
+
+        const responseUpdate: Response = await request(app)
+            .put("/product/photo/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                photo: "https://drive.google.com/uc?export=view&id=1ZJwE7fE-NoqkvCwrm0XgWdsP5P6t8xWw",
+            });
+
+        expect(responseUpdate.statusCode).toBe(200);
+
+        const response: Response = await request(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response.statusCode).toBe(200);
+
+        expect(response.body).toEqual(
+            expect.objectContaining({
+                name: "League of Leguends",
+                photo: "https://drive.google.com/uc?export=view&id=1ZJwE7fE-NoqkvCwrm0XgWdsP5P6t8xWw"
+            })
+        );
+
+        const responseUpdate2: Response = await request(app)
+            .put("/product/photo/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                photo: "https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R",
+            });
+
+        expect(responseUpdate2.statusCode).toBe(200);
+
+        const respons2: Response = await request(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(respons2.statusCode).toBe(200);
+
+        expect(respons2.body).toEqual(
+            expect.objectContaining({
+                name: "League of Leguends",
+                photo: "https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R"
+            })
+        );
+    });
+
+    /**
+     * Filter
+     */
+    it("Filtrar", async () => {
+        const responseDelete: Response = await request(app).delete(
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`)
+
+        expect(responseDelete.statusCode).toBe(200);
+
+        const response: Response = await request(app)
+            .get("/product/filter/aventuras")
+            .set('Authorization', `Bearer ${token}`);
+
+        expect(response.statusCode).toBe(200);
+        expect(response.body).toEqual(
+            expect.arrayContaining(
+                [expect.objectContaining({name: "Elden ring"})]
+            )
+        );
+    });
+
+    /**
+     * Reduce Stock
+     */
+    it("Reduce en uno el stock", async () => {
+
+
+
+        const respons2: Response = await request(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(respons2.statusCode).toBe(200);
+
+        expect(respons2.body).toEqual(
+            expect.objectContaining({
+                name: "League of Leguends",
+                stock: "2"
+            })
+        );
+
+        //Bajo su stock en uno
+        const responseReduce: Response = await request(app)
+            .get("/product/reduce/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(responseReduce.statusCode).toBe(200);
+
+        const respons3: Response = await request(app)
+            .get("/product/League of Leguends")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(respons3.statusCode).toBe(200);
+
+        //Compruebo su stock
+        expect(respons3.body).toEqual(
+            expect.objectContaining({
+                name: "League of Leguends",
+                stock: "1"
+            })
+        );
+
+        const responseDelete: Response = await request(app).delete(
+            "/user/product/all"
+        ).set('Authorization', `Bearer ${token}`)
+
+        expect(responseDelete.statusCode).toBe(200);
+
+        const responseAdd: Response = await request(app).post(
+            "/user/product"
+        ).set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        })
+
+        const response2: Response = await request(app).get(
+            "/user/profile"
+        ).set('Authorization', `Bearer ${token}`)
+
+
+        const responseUpdate: Response = await request(app)
+            .put("/product/stock/" + response2.body.products[0])
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                stock: "2",
+            });
+
+
+    })
 })
 
 
+/****Orders****/
+
+describe("ORDERS ", () => {
+
+    /**
+     * Get order que no existe
+     */
+    it("Get Order que no existe", async () => {
+        const response: Response = await request(app)
+            .get("/order/noexiste@email.com")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response.statusCode).toBe(404);
+    });
+
+    /**
+     * Order que existe
+     */
+    it("Get Order que existe", async () => {
+        const response: Response = await request(app)
+            .get("/order/a@gmail.com")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response.statusCode).toBe(200);
+
+        expect(response.body).toEqual(
+            expect.objectContaining({
+                email: 'a@gmail.com',
+                fecha: "19/04/2022",
+                name: "Dying Light",
+                description: "serie de videojuegos de acción",
+                photo: 'https://drive.google.com/uc?export=view&id=1aUIkNF0ZMJV0CAynt-TE_bFw-ySFcMXx',
+                price: '6',
+                amount: 3
+            })
+        );
+    });
+
+    /**
+     * Listar todos las ordenes
+     */
+
+    it("listar todas las ordenes", async () => {
+        const response: Response = await request(app).get(
+            "/order"
+        );
+        expect(response.statusCode).toBe(200);
+
+    });
+
+
+    /**
+     * Crear order y lo elimina
+     */
+
+    it("Crear un order", async () => {
+
+        const response: Response = await request(app).post("/order").send({
+            email: 'c@gmail.com', fecha: "19/04/2022", name: 'Battlefield 2042',
+            description: 'videojuego de disparos y acción bélica en primera persona',
+            photo: 'https://drive.google.com/uc?export=view&id=1RwYHUq0MTPV7RQCCkX1LKqpbyptVOrad',
+            price: '6',
+            amount: 3
+        }).set('Authorization', `Bearer ${token}`);
+
+        expect(response.statusCode).toBe(200);
+
+        const response2: Response = await request(app)
+            .get("/order/c@gmail.com")
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response2.statusCode).toBe(200);
+
+        expect(response2.body).toEqual(
+            expect.objectContaining({
+                email: 'c@gmail.com', fecha: "19/04/2022", name: 'Battlefield 2042',
+                description: 'videojuego de disparos y acción bélica en primera persona',
+                photo: 'https://drive.google.com/uc?export=view&id=1RwYHUq0MTPV7RQCCkX1LKqpbyptVOrad',
+                price: '6',
+                amount: 3
+            })
+        )
+
+        //Elimina
+        const responseDelete: Response = await request(app)
+            .delete("/order/" + response2.body._id.toString())
+            .set('Authorization', `Bearer ${token}`);
+
+        expect(responseDelete.statusCode).toBe(200);
+    });
+})

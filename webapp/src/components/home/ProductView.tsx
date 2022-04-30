@@ -219,7 +219,6 @@ const ProductView: React.FC<Props> = ({ props, handleAddToCart }) => {
         setFiltrosActivosCategoria(true);
       }
     }
-
     setProductos(filter);
     refreshProducts(filter);
   };

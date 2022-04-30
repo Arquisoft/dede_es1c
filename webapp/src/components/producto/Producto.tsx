@@ -162,8 +162,6 @@ type Props = {
 
 const Producto : React.FC<Props> = ({ cartItems,  handleAddToCart }) => {
 
-  const categorias = ['fisico','digital'];
-
   // @ts-ignore
   const [producto, setProducts] = useState<Product>({id:"0",photo: "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930",name: "Nombre",price: "Error",stock: "Error",description: "Error", categories: [""]});
 

@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import { Grid } from "@material-ui/core";
-import { InputAdornment, TextField, Button, Modal, FormControl, Input } from "@mui/material";
+import { InputAdornment, TextField, Button, Modal} from "@mui/material";
 import { AccountBalanceWallet, VpnKey, CalendarToday, Person} from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-import { ThemeConsumer } from 'styled-components';
-import { SettingsPhoneTwoTone } from '@mui/icons-material';
+import { ProductCart} from '../../shared/shareddtypes';
+import { useSession} from "@inrupt/solid-ui-react";
+import { VCARD} from "@inrupt/lit-generated-vocab-common";
+import {getSolidDataset, getStringNoLocale, getThing, Thing} from "@inrupt/solid-client";
+import { saveOrder ,eliminarStock} from '../../api/api';
 
 const useStyle = makeStyles({
     formulario: {
@@ -24,7 +27,7 @@ const useStyle = makeStyles({
         width: 400,
         display: "grid",
         font: "400 1em Tahoma,sans-serif",
-        backgroundColor:"#FFFF",
+        backgroundColor:"#FFFFFF",
         borderRadius: 30,
         padding: "16px 32px 24px",
         top: "50%",
@@ -32,11 +35,20 @@ const useStyle = makeStyles({
         transform: 'translate(-50%,-50%)',
         textAlign: "center",
         button: "center"
+    },
+    boton: {
+        background: "linear-gradient(45deg, #19275a 30%, #cc90ff 90%)",
+        color: "white"
     }
 });
 
 
-const FormularioPago = () => {
+type Props = {
+    cartItems: ProductCart[]
+    handleRemoveFromCart: (clickedItem: ProductCart) => void;
+  };
+     /* istanbul ignore next */
+const FormularioPago:React.FC<Props> = ({ cartItems ,  handleRemoveFromCart}) => {
     const classes = useStyle();
 
     const[mostrar1, setPagoOk]=useState(false);
@@ -56,6 +68,10 @@ const FormularioPago = () => {
         }
     }
 
+    const removeAll = () => {
+    sessionStorage.clear();
+     }
+
     const mostrarPagoOk = ()=> {
         setPagoOk(!mostrar1);
     }
@@ -64,14 +80,16 @@ const FormularioPago = () => {
         setPagoNotOk(!mostrar2);
     }
 
+
+
     const modal1=(
         <div className={classes.pagoOk}>
             <div> 
-                <img src="https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemok_103757.png" width={50}/>
+                <img src="https://drive.google.com/uc?export=view&id=16xkO_XdFvcWZkO0Z2diI5VmShMY7QgWG" width={50}/>
                 <h2>Tarjeta valida, haga click para aceptar el pago</h2>
-                <img src="https://orxcosmeticos.com/wp-content/uploads/2018/09/pago-seguro.jpg" width={300}/>
+                <img src="https://drive.google.com/uc?export=view&id=1rHW9WVgZOaqPMoc1NYIttoSsNRBO-uMf" width={300}/>
                 <Grid>
-                    <Button to='/Perfil' component={Link} color="primary" variant="contained">Aceptar</Button> 
+                    <Button onClick={()=>generateOrders()} to='/Perfil' component={Link}  className={classes.boton} variant="contained">Aceptar</Button> 
                 </Grid>
             </div>
         </div>
@@ -80,9 +98,9 @@ const FormularioPago = () => {
     const modal2=(
         <div className={classes.pagoOk}>
             <div> 
-                <img src="https://static.thenounproject.com/png/2052102-200.png" width={150}/>
+                <img src="https://drive.google.com/uc?export=view&id=1ii0L4nWFSOj-yRAmnbptBD-B5GW2prcb" width={150}/>
                 <h2>Tarjeta invalida, compruebe los campos</h2>
-                <img src="https://senordescuento.com/wp-content/uploads/2019/06/tarjetas-credito-logos.png" width={200}/>
+                <img src="https://drive.google.com/uc?export=view&id=10teEYXDrEL3S6Pu0I9ODX-C2iL-Uiz7-" width={200}/>
             </div>
         </div>
     )
@@ -94,7 +112,7 @@ const FormularioPago = () => {
         const {target: {value}} = event;
         setErrorsName({name: ''})
         setName(value);
-        let reg = new RegExp(/^[a-zA-Z\s]*$/).test(value);
+        let reg = new RegExp(/^[a-zA-Z\s]+$/).test(value);
         if(!reg) {
             setErrorsName({name: 'Nombre invalido'})
             setNameOk(false);
@@ -125,7 +143,7 @@ const FormularioPago = () => {
     const handleChangeFecha = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {target: {value}} = event;
         setErrorsFecha({fecha: ''})
-        setNumero(value);
+        setFecha(value);
         let reg = new RegExp(/^(1[0-2]|0?[1-9])[/]([0-9]?[0-9])$/).test(value);
         if(!reg) {
             setErrorsFecha({fecha: 'Fecha invalida'})
@@ -141,16 +159,52 @@ const FormularioPago = () => {
     const handleChangeCVC = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {target: {value}} = event;
         setErrorsCVC({cvc: ''})
-        setNumero(value.trim());
+        setCVC(value.trim());
         let reg = new RegExp(/^\d{3}$/).test(value);
         if(!reg) {
-            setErrorsCVC({cvc: 'Fecha invalida'})
+            setErrorsCVC({cvc: 'CVC invalido'})
             setCVCOk(false);
         } else {
             setCVCOk(true);
         }
     };
+    
+    const { session } = useSession();
 
+    const [email, setEmail] = React.useState("");
+
+    const getEmail = async () => {
+        setEmail(await retrievePODEmail());
+    }
+
+    useEffect(() => {
+        getEmail();
+    })
+
+    const generateOrders = () => {
+        {cartItems.map((item:ProductCart)=>{
+            const now = new Date();
+            getEmail();
+            var fecha:string = now.toLocaleDateString();
+            const {name, description, photo, price, amount} = item;
+            const order = {email, fecha, name, description, photo, price, amount};
+            saveOrder(order);
+            handleRemoveFromCart(item);
+            eliminarStock(item);
+            }
+        )}
+    }
+
+
+    async function retrievePODEmail(): Promise<string> {
+        var webID:string = session.info.webId!;
+        let profileDocumentURI = webID.split("#")[0]
+        let myDataSet = await getSolidDataset(profileDocumentURI)
+        let profile = getThing(myDataSet, webID)
+        let email = getStringNoLocale(profile as Thing, VCARD.note.iri.value) as string;
+        return email;
+    }
+    
     return(
     <div className={classes.formulario}>
         <Modal open={mostrar1} onClose={mostrarPagoOk}>
@@ -164,10 +218,10 @@ const FormularioPago = () => {
         <Grid container alignItems="center" direction="column" justify="space-between" style={{padding: 100}}> 
             <div style={{ display: "flex", flexDirection: "column", maxWidth: 500, minWidth: 200}}>
             <Grid container justify="center">
-                <img src="https://cdn.pixabay.com/photo/2020/07/05/17/32/credit-card-5373806_960_720.png" width={200}/>    
+                <img src="https://drive.google.com/uc?export=view&id=1X9Cypl2FobGe5-iKmdY6TuiVHBYno7OB" width={200}/>    
             </Grid>
             <Grid container justify="center">
-                <img src="https://senordescuento.com/wp-content/uploads/2019/06/tarjetas-credito-logos.png" width={200}/>    
+                <img src="https://drive.google.com/uc?export=view&id=10teEYXDrEL3S6Pu0I9ODX-C2iL-Uiz7-" width={200}/>    
             </Grid>
             <TextField 
                 id="nombre" 
@@ -216,7 +270,7 @@ const FormularioPago = () => {
                 InputProps={{startAdornment: <InputAdornment position="start"><VpnKey/></InputAdornment>}}/>
             </div>
             <div style={{height: 20}}/>
-            <Button onClick={()=>validacionTodosLosCampos()} color="primary" variant="contained">Pagar</Button> 
+            <Button arial-label="Pagar" onClick={()=>validacionTodosLosCampos()} className={classes.boton} variant="contained">Pagar</Button> 
             </div>
         </Grid>
     </div>
