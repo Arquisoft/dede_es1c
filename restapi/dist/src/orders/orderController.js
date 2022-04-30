@@ -35,13 +35,5 @@ exports.default = {
         });
         res.status(200).json(order);
     }),
-    delete: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        if (yield orderModel_1.OrderModel.findByIdAndDelete(req.params.id)) {
-            res.status(200).json({ result: 'OK' });
-        }
-        else {
-            res.status(404).json({ error: "The order does not exist" });
-        }
-    }),
 };
 //# sourceMappingURL=orderController.js.map

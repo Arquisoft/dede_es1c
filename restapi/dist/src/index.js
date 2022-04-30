@@ -32,12 +32,7 @@ app.use('/api/product', productRouter_1.default);
 app.use('/api/order', orderRouter_1.default);
 app.use('/api', loginRouter_1.default);
 // ... other app.use middleware
-app.use(express_1.default.static(path_1.default.join(__dirname, "..", "..", "webapp", "build")));
-// ...
-// Right before your app.listen(), add this:
-app.get("*", (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, "client", "build", "index.html"));
-});
+app.use(express_1.default.static(path_1.default.join(__dirname, "..", "..", "..", "webapp", "build")));
 mongoose_1.default.Promise = global.Promise;
 mongoose_1.default.connect(config_1.default.mongoose.uri)
     .catch(err => console.error(err))

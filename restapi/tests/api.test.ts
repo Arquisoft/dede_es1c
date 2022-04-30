@@ -779,7 +779,6 @@ describe("ORDERS ", () => {
         const response: Response = await request(app)
             .get("/order/noexiste@email.com")
             .set('Authorization', `Bearer ${token}`)
-
         expect(response.statusCode).toBe(404);
     });
 
@@ -811,9 +810,7 @@ describe("ORDERS ", () => {
      */
 
     it("listar todas las ordenes", async () => {
-        const response: Response = await request(app).get(
-            "/order"
-        );
+        const response: Response = await request(app).get("/order");
         expect(response.statusCode).toBe(200);
 
     });

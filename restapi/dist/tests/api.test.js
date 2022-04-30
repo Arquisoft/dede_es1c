@@ -196,10 +196,10 @@ let token;
         (0, globals_1.expect)(response.statusCode).toBe(200);
         (0, globals_1.expect)(response.body).toEqual(globals_1.expect.objectContaining({
             name: "League of Leguends",
-            photo: "https://drive.google.com/uc?export=view&id=16i_-Op9_aurvgDR49AOBzhp85J-GBnjE",
+            photo: "https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R",
             price: "50",
             stock: "2",
-            description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games",
+            description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games.",
             categories: ["estrategia", "acción"]
         }));
     }));
@@ -363,7 +363,7 @@ let token;
             .put("/product/description/" + response2.body.products[0])
             .set('Authorization', `Bearer ${token}`)
             .send({
-            description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games",
+            description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games.",
         });
         (0, globals_1.expect)(responseUpdate2.statusCode).toBe(200);
         const respons2 = yield (0, supertest_1.default)(app)
@@ -372,7 +372,7 @@ let token;
         (0, globals_1.expect)(respons2.statusCode).toBe(200);
         (0, globals_1.expect)(respons2.body).toEqual(globals_1.expect.objectContaining({
             name: "League of Leguends",
-            description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games"
+            description: "Videojuego del género multijugador de arena de batalla en línea y deporte electrónico el cual fue desarrollado por Riot Games."
         }));
     }));
     /**
@@ -404,7 +404,7 @@ let token;
             .put("/product/photo/" + response2.body.products[0])
             .set('Authorization', `Bearer ${token}`)
             .send({
-            photo: "https://drive.google.com/uc?export=view&id=16i_-Op9_aurvgDR49AOBzhp85J-GBnjE",
+            photo: "https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R",
         });
         (0, globals_1.expect)(responseUpdate2.statusCode).toBe(200);
         const respons2 = yield (0, supertest_1.default)(app)
@@ -413,7 +413,7 @@ let token;
         (0, globals_1.expect)(respons2.statusCode).toBe(200);
         (0, globals_1.expect)(respons2.body).toEqual(globals_1.expect.objectContaining({
             name: "League of Leguends",
-            photo: "https://drive.google.com/uc?export=view&id=16i_-Op9_aurvgDR49AOBzhp85J-GBnjE"
+            photo: "https://drive.google.com/uc?export=view&id=1bJdo5tZKUHbIUTM4SLJlGdRQWsfy6s7R"
         }));
     }));
     /**
@@ -432,29 +432,39 @@ let token;
      * Reduce Stock
      */
     (0, globals_1.it)("Reduce en uno el stock", () => __awaiter(void 0, void 0, void 0, function* () {
-        //Cojo un producto y guardo su stock
-        const response = yield (0, supertest_1.default)(app)
+        const respons2 = yield (0, supertest_1.default)(app)
             .get("/product/League of Leguends")
             .set('Authorization', `Bearer ${token}`);
-        (0, globals_1.expect)(response.statusCode).toBe(200);
-        //Compruebo su stock
-        (0, globals_1.expect)(response.body.stock.toString()).toEqual("2");
+        (0, globals_1.expect)(respons2.statusCode).toBe(200);
+        (0, globals_1.expect)(respons2.body).toEqual(globals_1.expect.objectContaining({
+            name: "League of Leguends",
+            stock: "2"
+        }));
         //Bajo su stock en uno
         const responseReduce = yield (0, supertest_1.default)(app)
             .get("/product/reduce/League of Leguends")
             .set('Authorization', `Bearer ${token}`);
         (0, globals_1.expect)(responseReduce.statusCode).toBe(200);
-        //Compruebo su stock
-        (0, globals_1.expect)(response.body.stock.toString()).toEqual("1");
-        //Vuelvo a poner stock a 2
-        const response2 = yield (0, supertest_1.default)(app)
+        const respons3 = yield (0, supertest_1.default)(app)
             .get("/product/League of Leguends")
             .set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(respons3.statusCode).toBe(200);
+        //Compruebo su stock
+        (0, globals_1.expect)(respons3.body).toEqual(globals_1.expect.objectContaining({
+            name: "League of Leguends",
+            stock: "1"
+        }));
+        const responseDelete = yield (0, supertest_1.default)(app).delete("/user/product/all").set('Authorization', `Bearer ${token}`);
+        (0, globals_1.expect)(responseDelete.statusCode).toBe(200);
+        const responseAdd = yield (0, supertest_1.default)(app).post("/user/product").set('Authorization', `Bearer ${token}`).send({
+            name: 'League of Leguends'
+        });
+        const response2 = yield (0, supertest_1.default)(app).get("/user/profile").set('Authorization', `Bearer ${token}`);
         const responseUpdate = yield (0, supertest_1.default)(app)
-            .put("/product/stock/" + response2.body._id)
+            .put("/product/stock/" + response2.body.products[0])
             .set('Authorization', `Bearer ${token}`)
             .send({
-            stock: "4",
+            stock: "2",
         });
     }));
 });

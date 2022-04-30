@@ -60,7 +60,21 @@ function create() {
         yield productModel_1.ProductModel.create({ photo: 'https://drive.google.com/uc?export=view&id=1nBxn8syNnVgv0Cy9FxM3IpfaWOOwYKuL', name: 'MotoGP 22', price: '70', stock: '99', description: 'Es un videojuego de carreras multijugador en línea desarrollado por  Milestone.', categories: juego21 });
         yield productModel_1.ProductModel.create({ photo: 'https://drive.google.com/uc?export=view&id=1xXFcLKH_VM0YQ0anLQBuSgjwQaT54S52', name: 'Watch Dogs 2', price: '40', stock: '99', description: 'Es un videojuego de mundo abierto y acción-aventura desarrollado por Ubisoft Montreal.', categories: juego22 });
         yield productModel_1.ProductModel.create({ photo: 'https://drive.google.com/uc?export=view&id=16qh59leZdrMul8S2vZboi3zMkTb8uKzM', name: 'Assassins Creed: Odyssey', price: '20', stock: '99', description: 'Es un videojuego desarrollado por Ubisoft Quebec y publicado por Ubisoft.', categories: juego23 });
-        yield productModel_1.ProductModel.create({ photo: 'https://drive.google.com/uc?export=view&id=16qh59leZdrMul8S2vZboi3zMkTb8uKzM', name: 'The Elder Scrolls V: Skyrim', price: '10', stock: '99', description: 'Es un ARPG del tipo mundo abierto desarrollado por Bethesda Game Studios.', categories: juego24 });
+        yield productModel_1.ProductModel.create({ photo: 'https://drive.google.com/uc?export=view&id=1TQef18uKm-07aO5_-aN0HexJEIFpJ6RU', name: 'The Elder Scrolls V: Skyrim', price: '10', stock: '99', description: 'Es un ARPG del tipo mundo abierto desarrollado por Bethesda Game Studios.', categories: juego24 });
+        yield userModel_1.UserModel.deleteMany({});
+        yield userModel_1.UserModel.create({ password: '123', email: 'a@gmail.com', role: userModel_1.ROLES.NORMAL });
+        yield userModel_1.UserModel.create({ password: '123', email: 'b@gmail.com', role: userModel_1.ROLES.ADMIN });
+        yield orderModel_1.OrderModel.deleteMany({});
+        yield orderModel_1.OrderModel.create({
+            email: 'a@gmail.com', fecha: "19/04/2022", name: "Dying Light", description: "serie de videojuegos de acción",
+            photo: 'https://drive.google.com/uc?export=view&id=1aUIkNF0ZMJV0CAynt-TE_bFw-ySFcMXx', price: '6',
+            amount: 3
+        });
+        yield orderModel_1.OrderModel.create({
+            email: 'b@gmail.com', fecha: "19/04/2022", name: "Dying Light", description: "serie de videojuegos de acción",
+            photo: 'https://drive.google.com/uc?export=view&id=1aUIkNF0ZMJV0CAynt-TE_bFw-ySFcMXx', price: '6',
+            amount: 3
+        });
         yield userModel_1.UserModel.deleteMany({});
         yield userModel_1.UserModel.create({ password: '123', email: 'a@gmail.com', role: userModel_1.ROLES.NORMAL });
         yield userModel_1.UserModel.create({ password: '123', email: 'b@gmail.com', role: userModel_1.ROLES.ADMIN });
