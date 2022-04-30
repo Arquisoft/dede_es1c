@@ -9,5 +9,6 @@ const OrderRouter = (0, express_1.Router)();
 OrderRouter.get('/', orderController_1.default.getAll);
 OrderRouter.get('/:email', orderController_1.default.get);
 OrderRouter.post('/', orderController_1.default.create);
+OrderRouter.delete('/:id', orderController_1.default.delete);
 exports.default = OrderRouter;
 //# sourceMappingURL=orderRouter.js.map
