@@ -17,7 +17,7 @@ defineFeature(feature, test => {
   page = await browser.newPage();
 
     await page
-      .goto("http://localhost:3000", {
+      .goto("https://secure-oasis-78684.herokuapp.com", {
         waitUntil: "networkidle0",
       })
       .catch(() => {});
@@ -54,7 +54,6 @@ defineFeature(feature, test => {
 
     then("Se ve en el carrito", async () => {
       await expect(page).toClick("a[href='/Carrito']");
-      await page.waitForNavigation()
       await expect(page).toMatch("Fifa 20");
     });
   });

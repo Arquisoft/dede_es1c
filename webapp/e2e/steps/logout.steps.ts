@@ -13,11 +13,11 @@ defineFeature(feature, test => {
 
     browser = process.env.GITHUB_ACTIONS
     ? await puppeteer.launch()
-    : await puppeteer.launch({ headless: true, slowMo:100}); //false to run tests locally
+    : await puppeteer.launch({ headless: false, slowMo:100}); //false to run tests locally
   page = await browser.newPage();
 
     await page
-      .goto("http://localhost:3000", {
+      .goto("https://secure-oasis-78684.herokuapp.com", {
         waitUntil: "networkidle0",
       })
       .catch(() => {});
@@ -50,10 +50,14 @@ defineFeature(feature, test => {
     then("The login button must appear again", async () => {
       await page.waitForTimeout(2000);
       await expect(page).toClick("button[id='User']");
+<<<<<<< HEAD
       await page.waitForTimeout(2000);
       await expect(page).toClick("button[id='signout']");
+=======
+      await expect(page).toClick("a[id='signout']");
+>>>>>>> 42de9a5a1efa1d4a462c3dc5d57819a8d5141e8f
       await page.waitForNavigation();
-      await expect(page).toMatch("login");
+      await expect(page).toMatch("Login");
     });
   });
 
