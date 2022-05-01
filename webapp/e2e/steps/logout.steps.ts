@@ -51,7 +51,6 @@ defineFeature(feature, test => {
       await page.waitForTimeout(2000);
       await expect(page).toClick("button[id='User']");
       await expect(page).toClick("a[id='signout']");
-      await page.waitForNavigation();
       await expect(page).toMatch("Login");
     });
   });
