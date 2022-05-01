@@ -33,8 +33,12 @@ defineFeature(feature, test => {
   
       when("I click in certain game card", async () => {
         await page.setViewport({ width: 1200, height: 1300 });
-        await expect(page).toClick("a[href=/Producto/"+nombreJuego+"]");
-        await page.waitForNavigation()
+        await page
+        .goto("http://localhost:3000/Producto/God%20of%20War", {
+          waitUntil: "networkidle0",
+        })
+        .catch(() => {});
+
       });
   
       then("See the game details", async () => {
