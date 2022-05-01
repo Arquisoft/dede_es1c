@@ -16,7 +16,7 @@ exports.default = {
     }),
     get: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const order = yield orderModel_1.OrderModel.find({ email: req.params.email });
-        if (order) {
+        if (order.length != 0) {
             res.status(200).json(order);
         }
         else {
