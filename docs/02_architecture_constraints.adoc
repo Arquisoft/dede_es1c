@@ -20,7 +20,8 @@
 | Revisiones | Tendremos diversas presentaciones y revisiones del proyecto, hasta la entrega final
 | Equipo | El equipo cuenta con un maximo de 5 miembros
 | Reuniones continuas | El equipo esta obligado a realizar reuniones periodicas sobre el proyecto
-| Fechas límites | Respetar las fechas indicadas por el profesor para la entrega de los diferentes versiones de la apliación
+| Fechas límites | Respetar las fechas indicadas por el profesor para la entrega de los diferentes versiones de la aplicación
+| Presentación | Hay que realizar una presentación con una demo del proyecto una vez finalizado.
 |====
 
 === Convenios
@@ -28,7 +29,8 @@
 |====
 |Convenciones | Descripcion
 | Arc42 | La plantilla que usaremos para la documentacion es el modelo Arc42
-| Git-Flow | Usamos el patron git-flow trabajando en la rama develop principalmente
+| Git-Flow | Usamos el patrón git-flow trabajando en la rama develop principalmente, además de rama hotfix para solucionar problemas rápidos.
+| Anexos | Determinadas partes de la documentación que entren dentro del modelo Arc42, se pondrán en ANEXOS, ya que pueden aportar información para entender mejor el proyecto.
 |====
 
 

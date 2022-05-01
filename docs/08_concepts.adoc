@@ -7,9 +7,9 @@
 |Rol | Explicación
 |Usuario | Representa un usuario de la aplicación, toda su información se guardará en un POD.
 
-|Posición actual del usuario | El objetivo es que se conozca la posición actual para,  en el caso de enviar un pedido, se pueda calcular el coste de envio.
+|Posición actual del usuario | Se conoce la posición actual del usuario para,  en el caso de enviar un pedido, se puede calcular un precio diferente.
 
-|Productos | Lista de productos disponibles con toda la información relevante.
+|Productos | Lista de productos disponibles con toda la información relevante como precio, descripción y una imagen ilustrativa del producto.
 |===
 
 ==== Conceptos de experiencia de usuario
@@ -17,13 +17,13 @@
 La aplicación está desarrollada para que el usuario pueda interaccionar con ella de manera sencilla, no es necesario que tenga conocimientos previos, pero como es lógico
 si ya se encuentra familiarizado con plataformas de compra electrónica como Steam u Origin, siempre le será más sencillo.
 
-El usuario podrá identificarse haciendo clic en la parte derecha del panel introduciendo su POD, o bien acceder a crear un POD en la página de SOLID, se le pone a disposición el enlace al usuario.
-La única forma de compra y acceso a la aplicación es la de usuario registrado en un POD, nos tomamos muy enserio la privacidad y creemos que esta es la mejor manera de interacción con nuestro sistema.
+El usuario podrá identificarse haciendo clic en la parte derecha del panel introduciendo su POD, o bien acceder a crear un POD en la página de inrupt donde se le redirige si su POD no es válido o no se encuentra con inrupt iniciado.
+La única forma de compra y acceso a la aplicación es la de usuario propietario de un POD con inrupt iniciado, nos tomamos muy enserio la privacidad y creemos que esta es la mejor manera de interacción con nuestro sistema.
 
 
 ==== Conceptos de seguridad y protección
 
-En líneas generales, nuestra aplicación es segura. Hemos utilizado los principios SOLID, esto es que los datos de los usuarios serán almacenados de forma segura en almacenes de datos llamados PODS.
+En líneas generales, nuestra aplicación es segura. Hemos utilizado los principios SOLID, esto es que, los datos de los usuarios serán almacenados de forma segura en almacenes de datos llamados PODS.
 Los PODS (Personal online data stores) pueden contener cualquier tipo de información, en nuestro caso contiene email que será el usuario, password, nombre, apellido, teléfono, país, provincia, ciudad, código postal, calle, número, piso y letra del piso.
 El acceso a los datos de los PODS se puede restringir y controlar de manera segura, eligiendo las reglas de acceso determinadas.
 
@@ -53,7 +53,7 @@ Como ya se menciono anteriormente, los datos de usuario son guardados en un POD,
 
 ==== Conceptos operativos
 
-Las operaciones básicas que se pueden realizar desde la aplicación desde el rol de usuario son:
+Las operaciones básicas que se pueden realizar desde la aplicación con el rol de usuario son:
 
 * Autenticación de usuario: Hace referencia a identificarse en la aplicación como usuario registrado mediante su POD.
 
@@ -64,6 +64,8 @@ Las operaciones básicas que se pueden realizar desde la aplicación desde el ro
 * Filtrar por categorias: Una función que consiste en que el usuario pueda ver de manera más concreta determinado tipo de productos.
 
 * Filtrar por nombre: Una función que consiste en que el usuario pueda buscar un producto por su nombre.
+
+Es importante destacar que el filtro por nombre funciona sobre el filtro de las categorías, es decir, si en primer lugar filtramos por ejemplo por la categoría aventura y luego aplicamos el filtro por nombre. La aplicación nos devolverá los resultados para ese nombre dentro de la categoría del filtro.
 
 En el siguiente diagrama se puede apreciar de forma gráfica las operaciones que puede realizar el usuario explicadas anteriormente:
 [plantuml, "conceptos operativos",png]

@@ -41,17 +41,16 @@ Mostrar las dos partes principales que componen la aplicacion DeDe
 image:nivel3.png[nivel3]
 
 .Motivacion
-Descomponer las dos partes principales vistas en el nivel anterior con detalle respecto a operaciones concretas de los usuarios y las acciones de acceso  datos que estas conllevan tanto a POD como a la BBDD.
+La principal motivación perseguida es la de, descomponer las dos partes principales vistas en el nivel anterior con detalle respecto a operaciones concretas de los usuarios y las acciones de acceso  datos que estas conllevan, tanto a POD como a la BBDD.
 
 .Contenedores
 [options=""header", cols="1,5"]
 |====
 | Nombre | Responsabilidad
-| Vender | Desde la tienda el administrador podra poner productos a la venta.
+| Vender | Desde la tienda el administrador podra poner productos a la venta. Notese que el rol de administrador se encuentra desarrollado en el Back end, pero que por limitación temporal no se ha incluido la vista hacia el usuario.
 | Catalogo | Mostrar el catalogo de productos a los usuarios
-| Ver perfil | Mostrar informacion del usuario segun su tipo (cliente o admin)
-| Lista de pedidos | Mostrar los pedidos, tanto de ventas al Administrador como de compras al cliente
-| Comprar | Los clientes podran comprar juego
+| Ver perfil | Mostrar informacion del usuario relativa a su historico de pedidos.
+| Comprar | Los clientes podran comprar juegos
 |====
 
 
