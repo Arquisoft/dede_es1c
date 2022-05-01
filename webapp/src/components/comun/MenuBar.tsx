@@ -105,7 +105,7 @@ const MenuBar:React.FC<Props> = (cartItems) => {
              {session.info.isLoggedIn ? (
        /* istanbul ignore next */
           <div>
-            <IconButton onClick={handleMenu} className={classes.icon}>
+            <IconButton onClick={handleMenu} className={classes.icon} id="User">
               <Tooltip title="Perfil">
                 <AccountCircleIcon fontSize="large" sx={{ color: "white" }} />
               </Tooltip>
@@ -128,7 +128,7 @@ const MenuBar:React.FC<Props> = (cartItems) => {
       
             >
               <MenuItem to='/Perfil' component={Link}>Perfil</MenuItem>
-              <MenuItem onClick={logOut} to='/' component={Link}>Sign out</MenuItem>
+              <MenuItem onClick={logOut} to='/' component={Link} id="signout">Sign out</MenuItem>
             </Menu>
           </div>  ):(
    
