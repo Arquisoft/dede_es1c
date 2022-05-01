@@ -7,6 +7,28 @@
 *****************************************************************
 
  <img src="http://drive.google.com/uc?export=view&id=1ip-YahU4mQ7A-FgJtKgmiA1vFw8HgLqz" height="400">
+ 
+ Bienvenidos al repositorio de la tienda descentralizada para comprar videojuegos DeDe donde... 
+ ¡no tendras que preocuparte por la seguridad de tus datos!
+ 
+ A continuación os mostramos un menú para que podaís moveros por nuestro repositorio y visitar todo nuestro trabajo 😄
+ 
+ - [Issues](https://github.com/Arquisoft/dede_es1c/issues)
+ 
+ - [Pull requests](https://github.com/Arquisoft/dede_es1c/pulls?q=is%3Apr+is%3Aclosed)
+ 
+ - [Tablero Kanban](https://github.com/Arquisoft/dede_es1c/projects/1)
+ 
+ - [Wiki](https://github.com/Arquisoft/dede_es1c/wiki)
+ 
+ - [Documentación](https://github.com/Arquisoft/dede_es1c/tree/master/docs)
+ 
+ - [Presentación]()
+ 
+ - [Demo](https://google.com)
+ 
+ - [Catálogo](https://google.com)
+ 
 
 *****************************************************************
 <p float="left">
