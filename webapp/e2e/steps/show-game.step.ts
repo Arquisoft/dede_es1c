@@ -34,6 +34,7 @@ defineFeature(feature, test => {
       when("I click in certain game card", async () => {
         await page.setViewport({ width: 1200, height: 1300 });
         await expect(page).toClick("a[href=/Producto/"+nombreJuego+"]");
+        await page.waitForNavigation()
       });
   
       then("See the game details", async () => {

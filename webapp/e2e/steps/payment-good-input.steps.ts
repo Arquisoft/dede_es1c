@@ -39,16 +39,14 @@ defineFeature(feature, test => {
   
       when("I click in Pagar", async () => {
         await page.setViewport({ width: 1200, height: 1300 });
-        await expect(page).toFill("textfield[name='nombre']", campoNombre);
-        await expect(page).toFill("textfield[name='numero']", campoNumero);
-        await expect(page).toFill("textfield[name='fecha']", campoFecha);
-        await expect(page).toFill("textfield[name='cvc']", campoCVC);
+        await expect(page).toFill("input[id='nombre']", campoNombre);
+        await expect(page).toFill("input[id='numero']", campoNumero);
+        await expect(page).toFill("input[id='fecha']", campoFecha);
+        await expect(page).toFill("input[id='cvc']", campoCVC);
         await expect(page).toClick('button', { text: 'Pagar' });
-        await page.waitForNavigation();
       });
   
       then("A modal popout appear", async () => {
-        await page.waitForNavigation()
         await page.waitForTimeout(2000);
         await expect(page).toMatch("Tarjeta valida, haga click para aceptar el pago");
       });
