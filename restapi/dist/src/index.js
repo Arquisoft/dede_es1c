@@ -33,6 +33,9 @@ app.use('/api/order', orderRouter_1.default);
 app.use('/api', loginRouter_1.default);
 // ... other app.use middleware
 app.use(express_1.default.static(path_1.default.join(__dirname, "..", "..", "..", "webapp", "build")));
+app.get("/Pago", (req, res) => {
+    res.redirect('/');
+});
 app.get("*", (req, res) => {
     res.sendFile(path_1.default.join(__dirname, "..", "..", "..", "webapp", "build", "index.html"));
 });
