@@ -54,7 +54,6 @@ defineFeature(feature, test => {
 
     then("Se ve en el carrito", async () => {
       await expect(page).toClick("a[href='/Carrito']");
-      await page.waitForNavigation()
       await expect(page).toMatch("Fifa 20");
     });
   });
