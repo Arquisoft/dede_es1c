@@ -259,7 +259,7 @@ const CarritoView: React.FC<Props> = ({props, handleRemoveFromCart,address}) => 
         
                             { session.info.isLoggedIn ? (
                        <Typography variant="h5" gutterBottom >
-                       Total:{shipppinCost+calculateProductTotal(props)}€
+                       Total:{ shipppinCost+calculateProductTotal(props).toFixed(3)}€
                        </Typography>):(
                          <Typography variant="h5" gutterBottom >
                          Debes iniciar sesión para ver el precio total

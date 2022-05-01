@@ -1,7 +1,7 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
 import puppeteer from "puppeteer";
 
-const feature = loadFeature('./features/login.feature');
+const feature = loadFeature('./features/login-bad-pod.feature');
 
 let page: puppeteer.Page;
 let browser: puppeteer.Browser;
@@ -23,12 +23,12 @@ defineFeature(feature, test => {
       .catch(() => {});
   });
   
-  test("The user log in", ({given,when,then}) => {
+  test("The user log in with bad pod", ({given,when,then}) => {
     let email:string
     let password:string
 
-    given("A user with a pod", () => {
-      email = "UO270762"
+    given("A user with a pod without name,adress and email", () => {
+      email = "IvanPOD"
       password = "Solidasw88."
     });
 
@@ -44,12 +44,16 @@ defineFeature(feature, test => {
       await expect(page).toClick('button', { text: 'Log In' });
     });
 
-    then("I should be redirected to my profile", async () => {
+    then("I should be redirected to my profile with error messages", async () => {
       await page.waitForNavigation()
-      await page.waitForTimeout(2000);
-      await expect(page).toMatch("Historico de pedidos:");
+      await page.waitForTimeout(80000);
+     
+      await expect(page).toMatch("Esta aplicacion requiere de un POD con un nombre en el");
+
+      await expect(page).toMatch("Esta aplicacion requiere de un POD con un email en el (ubicado en notas)");
+
+      await expect(page).toMatch("Esta aplicacion requiere de un POD con una direccion en el");
     });
   });
 
 });
-

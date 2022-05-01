@@ -17,7 +17,7 @@ defineFeature(feature, test => {
   page = await browser.newPage();
 
     await page
-      .goto("http://localhost:3000", {
+      .goto("https://secure-oasis-78684.herokuapp.com", {
         waitUntil: "networkidle0",
       })
       .catch(() => {});
@@ -48,14 +48,12 @@ defineFeature(feature, test => {
       await expect(page).toMatch("Historico de pedidos:");
       //Voy home
       await expect(page).toClick("a[href='/']");
-      await page.waitForNavigation()
       //Añado producto
       await expect(page).toClick('button[name="Añadir Carrito"]');
     });
 
     then("Se ve en el carrito", async () => {
       await expect(page).toClick("a[href='/Carrito']");
-      await page.waitForNavigation()
       await expect(page).toMatch("Fifa 20");
     });
   });
