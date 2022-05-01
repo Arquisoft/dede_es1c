@@ -6,7 +6,7 @@
 === Algunas consideraciones
 
 * Nuestra aplicación funcionará desde cualquier ordenador  a través del navegador. De esta forma los requisitos necesarios para ejecutarla
-se ven reducidos, haciendo la aplicación más accesible para personas con equipos menos potentes.
+se ven reducidos, haciendo la aplicación más accesible para personas con equipos menos potentes. Se puede visualizar en el _ANEXO III_.
 
 * Se recomienda el uso de los navegadores clásicos, como son Google Chrome y Firefox. Otros navegadores como Safari, Edge  u Opera, también pueden ser utilizados aunque en determinadas
 circustancias podrían dar algún tipo de problema debido a sus restricciones de seguridad.
@@ -17,7 +17,7 @@ circustancias podrían dar algún tipo de problema debido a sus restricciones de
 separados y que no se tiene acceso a los datos de clientes.
 
 * La aplicación se podrá visualizar también desde el navegador de un dispositivo móvil, para ello simplemente bastará con meter la dirección url donde se encuentre alojada la tienda. Se recomienda
-el uso de las aplicaciones de navegador móvil mencionadas anteriormente.
+el uso de las aplicaciones de navegador móvil mencionadas anteriormente. Se puede ver en el _ANEXO II_
 
 === Infraestructura técnica
 ==== Despliegue

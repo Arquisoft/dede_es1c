@@ -31,7 +31,7 @@ Se controlará el correcto funcionamiento mediante las siguientes tipos de prueb
 * Pruebas unitarias
 * Pruebas de aceptación
 * Pruebas de carga
-* Pruebas de usabilidad. (Incluidas en el Anexo I)
+* Pruebas de usabilidad. (Incluidas en el _ANEXO I_)
 
 === Objetivos de calidad
 
@@ -39,7 +39,7 @@ Se controlará el correcto funcionamiento mediante las siguientes tipos de prueb
 |===
 |Objetivo de calidad |Motivación
 | Usabilidad
-| La aplicación debería de poder ser usada por cualquier tipo de usuario independientemente de su nivel. Para llevar a cabo este objetivo se ha realizado un estudio con una muestra de 15 personas comprendiendo un amplio rango de edad. Los resultados obtenidos, así como la prueba realizada se pueden apreciar en el anexo 1 de esta documetación.
+| La aplicación debería de poder ser usada por cualquier tipo de usuario independientemente de su nivel. Para llevar a cabo este objetivo se ha realizado un estudio con una muestra de 15 personas comprendiendo un amplio rango de edad. Los resultados obtenidos, así como la prueba realizada se pueden apreciar en el _ANEXO I_ de esta documetación.
 
 | Privacidad
 |  La gestión de información es descentralizada. En la aplicación no se guarda ningún dato que pueda comprometer al usuario. Sino que, todos los datos relativos a estos, se encuentran en un POD (Personal Online Data)
@@ -48,7 +48,7 @@ Se controlará el correcto funcionamiento mediante las siguientes tipos de prueb
 | La aplicación no debería de tener ninguna vulnerabilidad. Esto se demuestra gracias a la integración con SonarCloud.
 
 | Portabilidad
-|  Que la aplicación pueda adaptarse de forma correcta a distintos dispositivos. Nuestra aplicación se encuentra desarrollada principalmente para verse de forma correcta en ordenadores, pero tambien, tal y como se puede apreciar en el ANEXO II, se encuentra adaptada a dispositivos móviles.
+|  Que la aplicación pueda adaptarse de forma correcta a distintos dispositivos. Nuestra aplicación se encuentra desarrollada principalmente para verse de forma correcta en ordenadores, pero tambien, tal y como se puede apreciar en el _ANEXO II_, se encuentra adaptada a dispositivos móviles.
 |===
 
 === Stakeholders
