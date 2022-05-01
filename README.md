@@ -21,7 +21,7 @@
  
  - [Wiki](https://github.com/Arquisoft/dede_es1c/wiki)
  
- - [Documentación](https://github.com/Arquisoft/dede_es1c/tree/master/docs)
+ - [Documentación](https://arquisoft.github.io/dede_es1c/)
  
  - [Presentación]()
  
