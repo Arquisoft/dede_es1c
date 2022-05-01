@@ -26,12 +26,28 @@ defineFeature(feature, test => {
     test("The user try to pay with bad card inputs on the form", ({given,when,then}) => {
   
         let campoNumeroErroneo:string;
+        let campoNombreErroneo: string;
+        let campoFechaErroneo: string;
+        let campoCVCErroneo: string;
 
       given("Bad card number", () => {
-          campoNumeroErroneo = "1234"
+          campoNumeroErroneo = "1234";
+          campoNombreErroneo= "1234";
+          campoFechaErroneo = "00/00";
+          campoCVCErroneo= "JEJE";
       });
   
       when("I click in Pagar", async () => {
+        await expect(page).toFill("input[id='nombre']", campoNombreErroneo);
+        await expect(page).toFill("input[id='numero']", campoNumeroErroneo);
+        await expect(page).toFill("input[id='fecha']", campoFechaErroneo);
+        await expect(page).toFill("input[id='cvc']", campoCVCErroneo);
+
+        await expect(page).toMatch("Nombre invalido");
+        await expect(page).toMatch("Numero invalido");
+        await expect(page).toMatch("Fecha invalida");
+        await expect(page).toMatch("CVC invalido");
+        
         await page.setViewport({ width: 1200, height: 1300 });
         await expect(page).toClick('button', { text: 'Pagar' });
       });
