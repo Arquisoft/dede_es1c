@@ -34,12 +34,12 @@ Tabla con nuestros objetivos de calidad, los escenarios y las prioridades:
 |Objetivos de calidad|Escenarios|Prioridad|Dificultad
 
 | Usabilidad
-| La aplicación debería de poder ser usada por cualquier tipo de usuario independientemente de su nivel, para probar esto utilizaremos test con personas ajenas al proyecto.
+| La aplicación debería de poder ser usada por cualquier tipo de usuario independientemente de su nivel, para probar esto utilizaremos test con personas ajenas al proyecto. Los resultado obtenidos se pueden visualizar en _ANEXO I_.
 | Alta
 | Alta
 
 | Privacidad
-|  La gestión de información es descentralizada. El usuario no se debe de preocupar acerca de sus datos ya que solo se le pedirá su email y contraseña, el resto de datos van almacenados en un POD externo y seguro..
+|  La gestión de información es descentralizada. El usuario no se debe de preocupar acerca de sus datos ya que solo se le pedirá su email y contraseña, el resto de datos van almacenados en un POD externo y seguro. Sin un POD correcto es imposible comprar en la aplicación.
 | Alta
 | Media
 
@@ -49,17 +49,17 @@ Tabla con nuestros objetivos de calidad, los escenarios y las prioridades:
 | Alta
 
 | Portabilidad
-|  Que la aplicación pueda adaptarse de forma correcta a distintos dispositivos, la aplicación se verá de manera correcta en el navegador de un pc y de un smartphone.
+|  Que la aplicación pueda adaptarse de forma correcta a distintos dispositivos, la aplicación se verá de manera correcta en el navegador de un pc y de un smartphone. Ver _ANEXOS II Y III_.
 | Media
 | Media
 
 | Testeabilidad
-|  Que la aplicación haya sido probada y se sepa de forma segura que no va a romper por ningún sitio. Para ello se alcanzará un 100% en Codecov.
+|  Que la aplicación haya sido probada y se sepa de forma segura que no va a romper por ningún sitio. Para ello se alcanzará más de un 80% de cobertura de test unitarios, además de test de usabilidad y de carga sobre el despliegue.
 | Alta
 | Media
 
 | Modificabilidad
-| En caso de tener que añadir algún mejora no nos debería de llevar un tiempo excesivo, en ningun caso más que su implementación)
+| En caso de tener que añadir algún mejora, es facil de modificar y no influye en el resto de partes del proyecto gracias al bajo acoplamiento con el que se encuentra programada.
 | Baja
 | Alta
 |===
