@@ -50,12 +50,7 @@ defineFeature(feature, test => {
     then("The login button must appear again", async () => {
       await page.waitForTimeout(2000);
       await expect(page).toClick("button[id='User']");
-<<<<<<< HEAD
-      await page.waitForTimeout(2000);
-      await expect(page).toClick("button[id='signout']");
-=======
       await expect(page).toClick("a[id='signout']");
->>>>>>> 42de9a5a1efa1d4a462c3dc5d57819a8d5141e8f
       await page.waitForNavigation();
       await expect(page).toMatch("Login");
     });

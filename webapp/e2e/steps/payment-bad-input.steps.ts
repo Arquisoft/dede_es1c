@@ -17,27 +17,51 @@ defineFeature(feature, test => {
     page = await browser.newPage();
   
       await page
-        .goto("http://localhost:3000/Pago", {
+        .goto("https://secure-oasis-78684.herokuapp.com", {
           waitUntil: "networkidle0",
         })
         .catch(() => {});
     });
     
     test("The user try to pay with bad card inputs on the form", ({given,when,then}) => {
-  
+
+        let email:string
+        let password:string
+
         let campoNumeroErroneo:string;
         let campoNombreErroneo: string;
         let campoFechaErroneo: string;
         let campoCVCErroneo: string;
 
       given("Bad card number", () => {
-          campoNumeroErroneo = "1234";
-          campoNombreErroneo= "1234";
-          campoFechaErroneo = "00/00";
-          campoCVCErroneo= "JEJE";
+        email = "UO270762"
+        password = "Solidasw88."
+
+        campoNumeroErroneo = "1234";
+        campoNombreErroneo= "1234";
+        campoFechaErroneo = "00/00";
+        campoCVCErroneo= "JEJE";
       });
   
       when("I click in Pagar", async () => {
+        await page.setViewport({ width: 1200, height: 1300 });
+        await expect(page).toMatch("Productos");
+        //LogIn
+        await expect(page).toClick("a[href='/LogIn']");
+        await expect(page).toClick("a[href='/inrupt']");
+        await expect(page).toClick('button', { text: 'Login' });
+        await page.waitForNavigation()
+        await expect(page).toFill("input[name='username']", email);
+        await expect(page).toFill("input[name='password']", password);
+        await expect(page).toClick('button', { text: 'Log In' });
+        //Añadir al carro
+        await page.waitForNavigation()
+        await expect(page).toClick("a[href='/']");
+        await expect(page).toClick('button[name="Añadir Carrito"]');
+        await expect(page).toClick("a[href='/Carrito']");
+        await page.waitForTimeout(3000);
+        await expect(page).toClick("a[href='/Pago']");
+        //Añadir datos
         await expect(page).toFill("input[id='nombre']", campoNombreErroneo);
         await expect(page).toFill("input[id='numero']", campoNumeroErroneo);
         await expect(page).toFill("input[id='fecha']", campoFechaErroneo);
