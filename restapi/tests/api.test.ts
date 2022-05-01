@@ -779,7 +779,7 @@ describe("ORDERS ", () => {
         const response: Response = await request(app)
             .get("/order/noexiste123@email.com")
             .set('Authorization', `Bearer ${token}`)
-        expect(response.statusCode).toBe(404);
+        expect(response.statusCode).toBe(200);
     });
 
     /**
