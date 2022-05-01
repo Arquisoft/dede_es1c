@@ -38,6 +38,11 @@ app.use('/api', LoginRouter)
 app.use(express.static(path.join(__dirname, "..", "..", "..", "webapp", "build")))
 
 
+app.get("/Pago", (req, res) => {
+    res.redirect('/')
+});
+
+
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "..", "..", "..", "webapp", "build", "index.html"));
 });
