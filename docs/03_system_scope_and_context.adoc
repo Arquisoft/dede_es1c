@@ -2,9 +2,9 @@
 == Alcance y contexto del sistema
 
 .Objetivos
-Esta aplicacion va a consistir en una tienda online de venta de videojuegos fisicos, por lo tanto tendremos que manejar tanto datos de usuarios como los propios productos, envios etc.
-Sobre los datos de los usuarios debemos trabajar de acuerdo al principio SOLID, tendremos descentralizados los datos de los usuarios en PODs, cada usuario tendra su propio POD realizando todas las gestiones con ellos mediante
-el provedor de PODs Inrupt.
+Esta aplicacion consiste en una tienda online de venta de videojuegos fisicos, por lo tanto tendremos que manejar tanto datos de usuarios como los propios productos. Por la naturalidad del concepto de tienda, se manejaran datos de productos como son el nombre, descripción del producto, precio, stock y el coste asociado al envío de todos estos productos al cliente.
+Sobre los datos de los usuarios trabajamos de acuerdo al principio SOLID, es decir tenemos descentralizados los datos de los usuarios en PODs. Cada usuario tiene su propio POD realizando todas las gestiones con ellos mediante
+el provedor de PODs Inrupt. Un usuario que no tenga un POD no podrá realizar una compra en nuestra tienda, lo único que podrá hacer es visualizar los productos.
 
 === Contexto empresarial
 Veremos con este diagrama cual va a ser el contexto de la aplicacion y los PODs.
@@ -13,13 +13,14 @@ Veremos con este diagrama cual va a ser el contexto de la aplicacion y los PODs.
 image:Punto 3 Diagrama de contexto empresarial.png[Punto3:DCE]
 
 === Contexto tecnico
-Nuestra tienda DeDe se debe adecuar a los principios SOLID de descentralizacion de datos personales mediante el almacenamiento de los mismos en PODs independientes para cada usuario, nuestro proovedor de PODs sera Inrupt.
-El front-end estara desarrollado mediante el framework React implementando componentes ya desarrolladas o bien creadas por nosotros mismos, ademas el lenguaje para el desarrollo de las diversas funcionalidades de las pantallas sera TypeScript.
-Por la parte del back-end, nuestro SGDB es Mongo.db y mediante Node.js express realizaremos todas las transacciones a la base de datos, en la misma almacenaremos los datos de los productos.
-La mayoria de peticiones se realizaran mediante el protocolo web HTTP.
+Nuestra tienda DeDe se adecua a los principios SOLID de descentralizacion de datos personales mediante el almacenamiento de los mismos en PODs independientes para cada usuario, nuestro proovedor de PODs es Inrupt.
+El front-end se encuentra desarrollado mediante el framework React implementando componentes ya desarrolladas, o bien, creados por nosotros mismos, ademas el lenguaje para el desarrollo de las diversas funcionalidades de las pantallas es TypeScript.
+Por la parte del back-end, nuestro SGDB es Mongo.db y mediante Node.js express realizamos todas las transacciones a la base de datos, donde almacenamos los datos de los productos.
+La mayoria de peticiones se realiza mediante el protocolo web HTTP.
+Para calcular los costes de los envíos hacemos uso de una API externa muy popular, Geocoding.
 
 
-Diagrama para ilustrar en los componentes de la aplicacion que estan afectados por cada tecnologia
+A continuación, se muestra un diagrama para ilustrar los componentes de la aplicación que se encuentran afectados por cada tecnología.
 
 :imagesdir: images/
 image:Punto 3 Diagrama tecnico.png[Punto3:DT]
