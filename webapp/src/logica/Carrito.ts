@@ -6,7 +6,7 @@ export function getCoordenadas(address: string) {
     .get(
       "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
       address +
-        ".json?access_token=" + ""
+        ".json?access_token=" + "pk.eyJ1IjoidW8yNzE0MzIiLCJhIjoiY2wxd2I3OTBwMDBzNDNrbXNyanJrd3p0biJ9.IrKcH5PYbd3tbKmNyHziYA"
     )
     .then((response: any) => {
       return response.data;
