@@ -777,7 +777,7 @@ describe("ORDERS ", () => {
      */
     it("Get Order que no existe", async () => {
         const response: Response = await request(app)
-            .get("/order/noexiste@email.com")
+            .get("/order/noexiste123@email.com")
             .set('Authorization', `Bearer ${token}`)
         expect(response.statusCode).toBe(404);
     });
@@ -793,16 +793,17 @@ describe("ORDERS ", () => {
         expect(response.statusCode).toBe(200);
 
         expect(response.body).toEqual(
-            expect.objectContaining({
-                email: 'a@gmail.com',
-                fecha: "19/04/2022",
-                name: "Dying Light",
-                description: "serie de videojuegos de acción",
-                photo: 'https://drive.google.com/uc?export=view&id=1aUIkNF0ZMJV0CAynt-TE_bFw-ySFcMXx',
-                price: '6',
-                amount: 3
-            })
+            expect.arrayContaining(
+                [expect.objectContaining({email: 'a@gmail.com',
+                    fecha: "19/04/2022",
+                    name: "Dying Light",
+                    description: "serie de videojuegos de acción",
+                    photo: 'https://drive.google.com/uc?export=view&id=1aUIkNF0ZMJV0CAynt-TE_bFw-ySFcMXx',
+                    price: '6',
+                    amount: 3})]
+            )
         );
+
     });
 
     /**
@@ -839,18 +840,19 @@ describe("ORDERS ", () => {
         expect(response2.statusCode).toBe(200);
 
         expect(response2.body).toEqual(
-            expect.objectContaining({
-                email: 'c@gmail.com', fecha: "19/04/2022", name: 'Battlefield 2042',
-                description: 'videojuego de disparos y acción bélica en primera persona',
-                photo: 'https://drive.google.com/uc?export=view&id=1RwYHUq0MTPV7RQCCkX1LKqpbyptVOrad',
-                price: '6',
-                amount: 3
-            })
-        )
+            expect.arrayContaining(
+                [expect.objectContaining({email: 'c@gmail.com', fecha: "19/04/2022", name: 'Battlefield 2042',
+                    description: 'videojuego de disparos y acción bélica en primera persona',
+                    photo: 'https://drive.google.com/uc?export=view&id=1RwYHUq0MTPV7RQCCkX1LKqpbyptVOrad',
+                    price: '6',
+                    amount: 3})]
+            )
+        );
+
 
         //Elimina
         const responseDelete: Response = await request(app)
-            .delete("/order/" + response2.body._id.toString())
+            .delete("/order/" + response2.body[0]._id.toString())
             .set('Authorization', `Bearer ${token}`);
 
         expect(responseDelete.statusCode).toBe(200);

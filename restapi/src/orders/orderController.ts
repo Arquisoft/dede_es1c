@@ -9,7 +9,7 @@ export default {
 
     get: async (req: Request, res: Response) => {
         const order = await OrderModel.find({email: req.params.email});
-        if (order) {
+        if (order.length!=0) {
             res.status(200).json(order);
         } else {
             res.status(404).json({error: "The order does not exist"});
