@@ -8,8 +8,10 @@
 
  <img src="http://drive.google.com/uc?export=view&id=1ip-YahU4mQ7A-FgJtKgmiA1vFw8HgLqz" height="400">
  
- Bienvenidos al repositorio de la tienda descentralizada para comprar videojuegos DeDe donde... 
- ¡no tendras que preocuparte por la seguridad de tus datos!
+ ¡Bienvenidos!
+ 
+ Es es el repositorio de la tienda descentralizada para comprar videojuegos DeDe. 
+ ¡Aquí no tendras que preocuparte por la seguridad de tus datos!
  
  A continuación os mostramos un menú para que podaís moveros por nuestro repositorio y visitar todo nuestro trabajo 😄
  
