@@ -37,6 +37,11 @@ app.use('/api', LoginRouter)
 // ... other app.use middleware
 app.use(express.static(path.join(__dirname, "..", "..", "..", "webapp", "build")))
 
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "..", "..", "webapp", "build", "index.html"));
+});
+
 mongoose.Promise = global.Promise;
 mongoose.connect(config.mongoose.uri)
     .catch(err => console.error(err))
