@@ -17,7 +17,7 @@ defineFeature(feature, test => {
   page = await browser.newPage();
 
     await page
-      .goto("http://localhost:3000", {
+      .goto("https://secure-oasis-78684.herokuapp.com/", {
         waitUntil: "networkidle0",
       })
       .catch(() => {});

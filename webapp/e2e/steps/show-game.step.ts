@@ -17,7 +17,7 @@ defineFeature(feature, test => {
     page = await browser.newPage();
   
       await page
-        .goto("http://localhost:3000", {
+        .goto("https://secure-oasis-78684.herokuapp.com/", {
           waitUntil: "networkidle0",
         })
         .catch(() => {});
@@ -34,7 +34,7 @@ defineFeature(feature, test => {
       when("I click in certain game card", async () => {
         await page.setViewport({ width: 1200, height: 1300 });
         await page
-        .goto("http://localhost:3000/Producto/God%20of%20War", {
+        .goto("https://secure-oasis-78684.herokuapp.com/Producto/God%20of%20War", {
           waitUntil: "networkidle0",
         })
         .catch(() => {});
