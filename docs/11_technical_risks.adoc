@@ -43,5 +43,7 @@
 | Riesgo | Explicación | Solución
 |Conflictos en gitHub | A la hora de mergear puede dar fallos | Hacer una reunión para solucionarlo
 |Robustez| Al tener poca experencia en trabajar en este tipo de proyectos en grupo puede darse la situación de que el código no quede robusto   | Tener mucha comunicación
+|Retardo al hacer login| Al cargar los datos del POD de inrupt.net se provoca cierto retardo   | Tener una buena conexión cableada
+|Retardo al cargar imágenes| Al cargar los datos de imagenes del drive del proyecto se provoca cierto retardo   | Tener una buena conexión cableada
 
 |=========================================================
