@@ -2,8 +2,10 @@
 == Decisiones de diseño
 [options="header",cols="1,1,1,1,1"]
 
-En este documento se recogerán de manera continuada las distintas decisiones de diseño que se vayan tomando en el desarrollo del proyecto.
-Se recoge a modo de tabla formada por cuatro columnas:
+En este documento se recoge de manera continuada las distintas decisiones de diseño que se han tomando en el desarrollo del proyecto.
+Se describe a modo de tabla formada por cinco columnas:
+
+-**Orden**: se trata del orden de aplicación.
 
 -**Sección**: Se explicará a la sección que pertenece la decisión. P.e: Base de datos.
 
@@ -21,4 +23,6 @@ Se recoge a modo de tabla formada por cuatro columnas:
 |5|Test|Utilizar test para probar Backend y Frontend|Probar el código de manera automatizada|Si se diseñan mal puede dar lugar a deuda de prueba.
 |6|Test|Utilizar Codecov para comprobar porcentaje de test|Obtendremos el porcentaje exacto de partes del código que se encuentran testadas|Puede llevar tiempo aprender a implementarlo en el proyecto.
 |7|Documentación|Utilizar Arc42 para la documentación|Es un estandár ya probado|Su complejidad puede provocar deuda de documentación.
+|8|APIs|Consumir Geocoding como API externa para calcular el precio de envío de los productos.
+
 |===

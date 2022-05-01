@@ -20,7 +20,7 @@ Para obtener información de otros usuarios, la aplicación consultará sus corr
 
 En la aplicación web los usuarios podrán comprar, el sistema calculará los costes de envío consultando la dirección deseada del usuario en su pod y calculando los costes de acuerdo a la distancia del centro de distribución a dicha dirección.
 
-Los usuarios podrán confirmar la compra como ver sus pedidos realizados.
+Los usuarios podrán tanto confirmar la compra desde su carrito, como ver su historico de pedidos realizados.
 
 ==== Requisitos técnicos
 
@@ -31,6 +31,7 @@ Se controlará el correcto funcionamiento mediante las siguientes tipos de prueb
 * Pruebas unitarias
 * Pruebas de aceptación
 * Pruebas de carga
+* Pruebas de usabilidad. (Incluidas en el _ANEXO I_)
 
 === Objetivos de calidad
 
@@ -38,16 +39,16 @@ Se controlará el correcto funcionamiento mediante las siguientes tipos de prueb
 |===
 |Objetivo de calidad |Motivación
 | Usabilidad
-| La aplicación debería de poder ser usada por cualquier tipo de usuario independientemente de su nivel.
+| La aplicación debería de poder ser usada por cualquier tipo de usuario independientemente de su nivel. Para llevar a cabo este objetivo se ha realizado un estudio con una muestra de 15 personas comprendiendo un amplio rango de edad. Los resultados obtenidos, así como la prueba realizada se pueden apreciar en el _ANEXO I_ de esta documetación.
 
 | Privacidad
-|  La gestión de información es descentralizada.
+|  La gestión de información es descentralizada. En la aplicación no se guarda ningún dato que pueda comprometer al usuario. Sino que, todos los datos relativos a estos, se encuentran en un POD (Personal Online Data)
 
 | Seguridad
-| La aplicación no debería de tener ninguna vulnerabilidad.
+| La aplicación no debería de tener ninguna vulnerabilidad. Esto se demuestra gracias a la integración con SonarCloud.
 
 | Portabilidad
-|  Que la aplicación pueda adaptarse de forma correcta a distintos dispositivos.
+|  Que la aplicación pueda adaptarse de forma correcta a distintos dispositivos. Nuestra aplicación se encuentra desarrollada principalmente para verse de forma correcta en ordenadores, pero tambien, tal y como se puede apreciar en el _ANEXO II_, se encuentra adaptada a dispositivos móviles.
 |===
 
 === Stakeholders
@@ -59,8 +60,8 @@ Se controlará el correcto funcionamiento mediante las siguientes tipos de prueb
 | Implementar y mostrar un proyecto que refleje lo explicado en clase.
 
 | Clientes
-| Sea intuitiva y fácil de utilizar independientemente del nivel.
+| Sea intuitiva y fácil de utilizar independientemente del nivel, además de que sus datos se encuentren almacenados de forma segura.
 
 | Administrador
-| Encargado  de solucionar los futuros problemas.
+| Encargado  de solucionar los futuros problemas que vayan surgiendo en la aplicación.
 |===

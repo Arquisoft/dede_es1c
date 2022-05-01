@@ -40,6 +40,7 @@ app.use(express.static(path.join(__dirname, "..", "..", "..", "webapp", "build")
 
 app.get("/Pago", (req, res) => {
     res.redirect('/')
+
 });
 
 

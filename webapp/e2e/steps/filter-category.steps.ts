@@ -13,11 +13,11 @@ defineFeature(feature, test => {
 
     browser = process.env.GITHUB_ACTIONS
     ? await puppeteer.launch()
-    : await puppeteer.launch({ headless: false, slowMo:100}); //false to run tests locally
+    : await puppeteer.launch({ headless: true, slowMo:100}); //false to run tests locally
   page = await browser.newPage();
 
     await page
-      .goto("http://localhost:3000", {
+      .goto("https://secure-oasis-78684.herokuapp.com/", {
         waitUntil: "networkidle0",
       })
       .catch(() => {});
@@ -36,7 +36,7 @@ defineFeature(feature, test => {
       await page.setViewport({ width: 1200, height: 1300 });
       await expect(page).toMatch("Productos");
       await expect(page).toFill("input[aria-autocomplete='list']", nombre);
-   
+
     });
 
     then("Se ve solo el producto filtrado por categoria", async () => {

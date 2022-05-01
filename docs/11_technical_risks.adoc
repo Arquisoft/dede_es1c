@@ -8,7 +8,7 @@
 
 |1
 | SOLID
-| Nadie del equipo ha utilizado alguna vez SOLID, por lo que todos carecemos de conocimiento sobre este framework.
+| Nadie del equipo ha utilizado SOLID, por lo que todos carecemos de conocimiento sobre este framework.
 | Leer más artículos relacionados con este tema o verse alguna guía.
 
 |2
@@ -34,7 +34,7 @@
 |5
 | Heroku
 | Nunca nadie del equipo ha realizado ningún despliegue con Heroku.
-| Los miembros del equipo se apoyarán en la documentación oficial donde se encuentra explicado..
+| Los miembros del equipo se apoyarán en la documentación oficial donde se encuentra explicado.
 
 |=========================================================
 === Tabla deuda técnica
