@@ -206,3 +206,7 @@ En este apartado se incluirán los aspectos de mejora del proyecto establecidos 
 * La optimización para dispositivos móviles podría ser mejorable.
 
 * El redimensionado de las imagenes tambien se podría mejorar para que se adapten sin cortes.
+
+* Enviar un correo al usuario con los datos del pedido. Esto se trato de realizar pero por problemas de compatibilidad no fue posible.
+
+Los miembros del grupo opinan que, en lineas generales con mayor tiempo para investigar sobre estos aspectos, podrían haberse llevado a cabo.
