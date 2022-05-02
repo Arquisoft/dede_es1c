@@ -122,3 +122,13 @@ Se cuenta con una ventana de detalle, en la que cada juego cuenta con una descri
 :imagesdir: images/
 image:detallejuego.png[nivel3]
 
+Cada usuario puede consultar su histórico de pedidos, que cuenta con la fecha, el email y la cantidad como datos adicionales al juego.
+
+
+:imagesdir: images/
+image:historico.png[nivel3]
+
+Se cuenta con un carrito donde se pueden añadir y eliminar productos, además de que nos da un precio de envío dependiendo del lugar donde tengamos nuestra dirección de POD.
+
+:imagesdir: images/
+image:carrito2.png[nivel3]
