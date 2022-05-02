@@ -136,4 +136,63 @@ image:carrito2.png[nivel3]
 
 == Anexo IV
 
+Hemos realizado pruebas de carga sobre el ultimo despliege de la aplicacion a fin de conocer los limites de carga de trabajo que puede manejar y los tiempos de respuesta de la misma para diversas acciones de los usuarios, la herramienta utilizada es Gatling a continuacion mostramos los informes de los resultados obtenidos.
+
+Acceso simultaneo de 100 usuarios a la web 
+
+:imagesdir: images/
+image:GatAccesoWeb1.jpg[nivel3]
+
+Acceso simultaneo de 1000 usuario a la web
+
+:imagesdir: images/
+image:GatAccesoWeb2.jpg[nivel3]
+
+LogIn de 50 usuarios en 60 segundos
+
+:imagesdir: images/
+image:GatLogin1.jpg[nivel3]
+
+LogIn de 10 usuarios/segundo durante 60 segundos
+
+:imagesdir: images/
+image:GatLogin2.jpg[nivel3]
+
+LogIn de 100 usuarios/segundo durante 60 segundos
+
+:imagesdir: images/
+image:GatLogin3.jpg[nivel3]
+
+Acceden a un juego 5 usuarios/segundo durante 60 segundos
+
+:imagesdir: images/
+image:GatVerJuego1.jpg[nivel3]
+
+Acceden a un juego 30 usuarios/segundo durante 60 segundos
+
+:imagesdir: images/
+image:GatVerJuego2.jpg[nivel3]
+
+Añaden 3 juegos al carrito 5 usuarios/segundo durante 60 segundos
+
+:imagesdir: images/
+image:GatCarrito1.jpg[nivel3]
+
+Añaden 3 juegos al carrito 30 usuarios/segundo durante 60 segundos
+
+:imagesdir: images/
+image:GatCarrito2.jpg[nivel3]
+
+Comprar un juego 5 usuario/segundo durante 60 segundos
+
+:imagesdir: images/
+image:GatComprar1.jpg[nivel3]
+
+Comprar un juego 30 usuario/segundo durante 60 segundos
+
+:imagesdir: images/
+image:GatComprar2.jpg[nivel3]
+
+== Anexo V
+
 En este apartado se incluirán los aspectos de mejora del proyecto establecidos en la reunión previa a la última release. Estos aspectos surgen del análisis de los cuestionarios realizados y de la opinión de los desarrolladores del proyecto.
