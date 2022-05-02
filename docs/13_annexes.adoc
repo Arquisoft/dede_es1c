@@ -36,8 +36,17 @@ Las opiniones más repetidas al respecto tienen que ver con "no entender muy bie
 :imagesdir: images/
 image:opiniones.png[nivel3]
 
+Se ha realizado una pregunta cerrada con tres opciones de respuesta respecto a la navegación por la tienda. El resultado obtenido ha sido que el 80% afirma que la navegación es clara e intuitiva. Para esto hemos utilizado la metáfora del carrito y también la metáfora de la casa para llevar al inicio. Tan solo el 20% de los encuestados hace hincapié en que de alguna manera la navegación de la aplicación en alguna ocasión puede llevar a confusión.
 
 
+:imagesdir: images/
+image:navegacion.png[nivel3]
+
+A pesar de ser algo muy subjetivo, quisimos que los entrevistados valorasen la estética de la aplicación, con el fin de establecer campos de mejora. Se estableció una escala del 1 al 10, en la que 1 es una estética muy pobre y 10 es una estética sobresaliente. Los resultados  obtenidos han sido por encima de 6 puntos siempre, incluso en algún caso alcanzando el 10. La moda ha sido de 9 sobre 10, lo que denota que la estética de la aplicación, en lineas generales ha sido atractiva para los encuestados.
+
+
+:imagesdir: images/
+image:estetica.png[nivel3]
 
 == Anexo II
 
