@@ -24,13 +24,13 @@ Los usuarios podrán tanto confirmar la compra desde su carrito, como ver su his
 
 ==== Requisitos técnicos
 
-Para el despliegue del sistema se utilizarán contenedores docker o en su defecto ejecutando restapi.
+Para la ejecución del proyecto se compila y ejecuta restapi y webapp. El despligue será realizado en Heroku.
 
-Se controlará el correcto funcionamiento mediante las siguientes tipos de pruebas:
+Se controlará el correcto funcionamiento mediante los siguientes tipos de pruebas:
 
 * Pruebas unitarias
 * Pruebas de aceptación
-* Pruebas de carga
+* Pruebas de carga (Incluidas en el _ANEXO IV_)
 * Pruebas de usabilidad. (Incluidas en el _ANEXO I_)
 
 === Objetivos de calidad

@@ -18,11 +18,12 @@ Se describe a modo de tabla formada por cinco columnas:
 |Orden |Sección |Decisión| Ventajas| Inconvenientes
 |1|Base de datos| Utilizar MongoDB como base de datos para almacenar la información de la tienda| Versatilidad NoSQL, buena implementación con TypeScript|Ningún miembro del equipo lo ha utilizado antes, pueden surgir problemas técnicos
 |2|Lenguaje de programación|Utilizar TypeScript como lenguaje principal en el desarrollo de la aplicación|Escalabilidad del código, fácil testeo|Desconocimiento técnico sobre el lenguaje, lol que podría hacer que se generase deuda de código y deuda de diseño.
-|3|Librerias|Utilizar React para las interfaces de usuario|Es de código abierto, mucha documentación en la web|No cuenta con documentación oficial ni con estandar de desarrollo.
+|3|Librerias|Utilizar React y Material UI para las interfaces de usuario|Es de código abierto, mucha documentación en la web|No cuenta con documentación oficial ni con estandar de desarrollo.
 |4|Despliegue|Utilizar Heroku para el despliegue|No hay que preocuparse por la infraestructura, soporte de muchos lenguajes de programación|Desconocimiento técnico, nadie del grupo lo ha utilizado nunca.
 |5|Test|Utilizar test para probar Backend y Frontend|Probar el código de manera automatizada|Si se diseñan mal puede dar lugar a deuda de prueba.
 |6|Test|Utilizar Codecov para comprobar porcentaje de test|Obtendremos el porcentaje exacto de partes del código que se encuentran testadas|Puede llevar tiempo aprender a implementarlo en el proyecto.
 |7|Documentación|Utilizar Arc42 para la documentación|Es un estandár ya probado|Su complejidad puede provocar deuda de documentación.
-|8|APIs|Consumir Geocoding como API externa para calcular el precio de envío de los productos.
+|8|APIs|Consumir Geocoding como API externa para calcular el precio de envío de los productos.|Poder calcular costes de envío | Hay que aprender a consumir la API.
+|9|Test|Utilizar Gatling par test de carga|Comprobamos con distintos niveles de carga de usuario el funcionamiento de la aplicación|Nadie sabe usar previamente Gatling.
 
 |===

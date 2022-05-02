@@ -47,7 +47,6 @@ La principal motivación perseguida es la de, descomponer las dos partes princip
 [options=""header", cols="1,5"]
 |====
 | Nombre | Responsabilidad
-| Vender | Desde la tienda el administrador podra poner productos a la venta. Notese que el rol de administrador se encuentra desarrollado en el Back end, pero que por limitación temporal no se ha incluido la vista hacia el usuario.
 | Catalogo | Mostrar el catalogo de productos a los usuarios
 | Ver perfil | Mostrar informacion del usuario relativa a su historico de pedidos.
 | Comprar | Los clientes podran comprar juegos

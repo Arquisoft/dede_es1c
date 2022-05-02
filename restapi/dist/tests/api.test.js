@@ -477,7 +477,7 @@ let token;
         const response = yield (0, supertest_1.default)(app)
             .get("/order/noexiste123@email.com")
             .set('Authorization', `Bearer ${token}`);
-        (0, globals_1.expect)(response.statusCode).toBe(404);
+        (0, globals_1.expect)(response.statusCode).toBe(200);
     }));
     /**
      * Order que existe
