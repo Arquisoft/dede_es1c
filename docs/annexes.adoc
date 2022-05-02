@@ -193,6 +193,7 @@ Comprar un juego 30 usuario/segundo durante 60 segundos
 :imagesdir: images/
 image:GatComprar2.jpg[nivel3]
 
+== Anexo V
 
 En este apartado se incluirán los aspectos de mejora del proyecto establecidos en la reunión previa a la última release. Estos aspectos surgen del análisis de los cuestionarios realizados y de la opinión de los desarrolladores del proyecto.
 
