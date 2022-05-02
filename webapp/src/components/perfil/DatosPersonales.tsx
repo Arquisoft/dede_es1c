@@ -50,7 +50,7 @@ const useStyle = makeStyles({
     }
   }
 });
-  /* istanbul ignore next */
+/* istanbul ignore next */
 async function retrievePODAddress(webID: string): Promise<string> {
   let profileDocumentURI = webID.split("#")[0]
   let myDataSet = await getSolidDataset(profileDocumentURI)
@@ -88,7 +88,7 @@ async function retirevePODEmail(webID: string): Promise<string> {
 type ReviewType = {
   webID: string;
 }
-
+/* istanbul ignore next */
 const DatosPersonales: React.FC<ReviewType> = ({webID}) => {
 
 
