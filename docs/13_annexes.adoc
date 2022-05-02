@@ -11,58 +11,58 @@ Se ha elaborado un cuestionario con 10 preguntas, algunas con respuesta corta, o
 El cuestionario se planteo mediante google forms, con una muestra de 15 personas de diferentes edades y con distinto nivel técnico.
 
 :imagesdir: images/
-image:cuestionario.png[nivel3]
+image:cuestionario.PNG[nivel3]
 
 :imagesdir: images/
-image:preguntas2.png[nivel3]
+image:preguntas2.PNG[nivel3]
 
 :imagesdir: images/
-image:preguntas3.png[nivel3]
+image:preguntas3.PNG[nivel3]
 
 Las respuestas obtenidas a este cuestionario han sido las siguientes:
 
 Respecto a la edad, podemos observar que el grupo predominante es el de más de 50 años, seguido por el de entre 10 y 20. Esto es debido a que el cuestionario se ha realizado a familiares cercanos en su mayoría como por ejemplo madres, padres, hermanos o primos. De igual forma se puede apreciar como hay gente en todos los grupos de edad en la muestra.
 
 :imagesdir: images/
-image:edad.png[nivel3]
+image:edad.PNG[nivel3]
 
 Una de los grandes problemas en la aplicación ha sido al utilizar el login, el 66,7% afirma que ha tenido problemas al realizarlo, es decir casí 7 de cada 10. Tan solo el 33,3% ha podido loguearse sin problemas, posiblemente personas con conocimiento más técnico. Junto a esta pregunta se daba la opción en la siguiente de explicar estos problemas.
 
 :imagesdir: images/
-image:login.png[nivel3]
+image:login.PNG[nivel3]
 
 Las opiniones más repetidas al respecto tienen que ver con "no entender muy bien el tema de los POD" o que "eso no se usa en otras plataformas estilo Amazon". Utilizar los POD y SOLID es uno de los requisitos del trabajo y por ello lo hemos utilizado.
 
 :imagesdir: images/
-image:opiniones.png[nivel3]
+image:opiniones.PNG[nivel3]
 
 Se ha realizado una pregunta cerrada con tres opciones de respuesta respecto a la navegación por la tienda. El resultado obtenido ha sido que el 80% afirma que la navegación es clara e intuitiva. Para esto hemos utilizado la metáfora del carrito y también la metáfora de la casa para llevar al inicio. Tan solo el 20% de los encuestados hace hincapié en que de alguna manera la navegación de la aplicación en alguna ocasión puede llevar a confusión.
 
 
 :imagesdir: images/
-image:navegacion.png[nivel3]
+image:navegacion.PNG[nivel3]
 
 A pesar de ser algo muy subjetivo, quisimos que los entrevistados valorasen la estética de la aplicación, con el fin de establecer campos de mejora. Se estableció una escala del 1 al 10, en la que 1 es una estética muy pobre y 10 es una estética sobresaliente. Los resultados  obtenidos han sido por encima de 6 puntos siempre, incluso en algún caso alcanzando el 10. La moda ha sido de 9 sobre 10, lo que denota que la estética de la aplicación, en lineas generales ha sido atractiva para los encuestados.
 
 
 :imagesdir: images/
-image:estetica.png[nivel3]
+image:estetica.PNG[nivel3]
 
 En los casos en los que les era imposible el acceso debido al POD, se les enseñó como entrar con un POD propio y se les pidio que realizasen una compra. En el cuestionario tambien se les pidio si podían evaluar este proceso de compra reguntandoles si les había resultado sencillo. El 93,3% afirmaba que fue sencillo realizar la compra.
 
 :imagesdir: images/
-image:sencillo.png[nivel3]
+image:sencillo.PNG[nivel3]
 
 Se realizó una pregunta sobre el filtro por categorías, donde el 100% afirma que han podido utilizar bien el filtro sin ninguna complicación.
 
 :imagesdir: images/
-image:filtros.png[nivel3]
+image:filtros.PNG[nivel3]
 
 
 Para finalizar el cuestionario se les animo a escribir unas palabras sobre lo que les había parecido la aplicación a modo de observaciones. La mayoría afirman que la aplicación es bonita y que se puede comprar en ella sin problemas, el unico problema que se repite es el de entender el uso de los POD y de porqué su uso es tan útil.
 
 :imagesdir: images/
-image:observaciones.png[nivel3]
+image:observaciones.PNG[nivel3]
 
 
 == Anexo II
@@ -99,39 +99,39 @@ En este anexo se recoge la vista de la aplicación desde el ordenador a modo com
 El login en la aplicación se realiza mediante el login de inrupt.net que, una vez iniciada la sesión, nos lleva a la ventana de cliente.
 
 :imagesdir: images/
-image:loginPod.png[nivel3]
+image:loginPOD.PNG[nivel3]
 
 El home de la aplicación cuenta con todo el catálogo de juegos.
 
 :imagesdir: images/
-image:home.png[nivel3]
+image:home.PNG[nivel3]
 
 Los juegos se pueden filtrar por distintas categorías.
 
 :imagesdir: images/
-image:filtrosg.png[nivel3]
+image:filtrosg.PNG[nivel3]
 
 Además, tambien se puede realizar busquedas por nombre sobre el propio filtro y de manera bidireccional. Según se van completando letras del nombre, van saliendo resultados.
 
 
 :imagesdir: images/
-image:filtromasbusqueda.png[nivel3]
+image:filtromasbusqueda.PNG[nivel3]
 
 Se cuenta con una ventana de detalle, en la que cada juego cuenta con una descripción, una imagen y el precio del juego.
 
 :imagesdir: images/
-image:detallejuego.png[nivel3]
+image:detallejuego.PNG[nivel3]
 
 Cada usuario puede consultar su histórico de pedidos, que cuenta con la fecha, el email y la cantidad como datos adicionales al juego.
 
 
 :imagesdir: images/
-image:historico.png[nivel3]
+image:historico.PNG[nivel3]
 
 Se cuenta con un carrito donde se pueden añadir y eliminar productos, además de que nos da un precio de envío dependiendo del lugar donde tengamos nuestra dirección de POD.
 
 :imagesdir: images/
-image:carrito2.png[nivel3]
+image:carrito2.PNG[nivel3]
 
 == Anexo IV
 En este apartado se incluirán los aspectos relativos a las pruebas de carga.
