@@ -7,7 +7,7 @@
 |Rol | Explicación
 |Usuario | Representa un usuario de la aplicación, toda su información se guardará en un POD.
 
-|Posición actual del usuario | Se conoce la posición actual del usuario para,  en el caso de enviar un pedido, se puede calcular un precio diferente.
+|Posición de envío para el usuario | Se conoce la posición de envío para el usuario gracias al POD. Se puede calcular un precio diferente dependiendo de la distancia al centro de distribución.
 
 |Productos | Lista de productos disponibles con toda la información relevante como precio, descripción y una imagen ilustrativa del producto.
 |===

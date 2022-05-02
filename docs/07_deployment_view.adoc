@@ -11,7 +11,7 @@ se ven reducidos, haciendo la aplicación más accesible para personas con equip
 * Se recomienda el uso de los navegadores clásicos, como son Google Chrome y Firefox. Otros navegadores como Safari, Edge  u Opera, también pueden ser utilizados aunque en determinadas
 circustancias podrían dar algún tipo de problema debido a sus restricciones de seguridad.
 
-* Es necesario  habilitar la ubicación en el navegador para que desde la tienda se acceda de manera más directa a la dirección donde se enviará el pedido del cliente y así poder calcular los gastos de envío asociados con mayor exactitud.
+* La dirección de envío se obtiene desde el POD de cliente, por lo que no es necesario tener la ubicación del navegador activada.
 
 * Los datos del cliente siempre se mantendrán por separado en un POD, siguiendo los principios SOLID. De esta forma, dejamos claro que los datos de clientes y productos se encuentran
 separados y que no se tiene acceso a los datos de clientes.

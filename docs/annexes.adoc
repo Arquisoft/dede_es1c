@@ -133,7 +133,10 @@ Se cuenta con un carrito donde se pueden añadir y eliminar productos, además d
 :imagesdir: images/
 image:carrito2.png[nivel3]
 
-
 == Anexo IV
+En este apartado se incluirán los aspectos relativos a las pruebas de carga.
+
+
+== Anexo V
 
 En este apartado se incluirán los aspectos de mejora del proyecto establecidos en la reunión previa a la última release. Estos aspectos surgen del análisis de los cuestionarios realizados y de la opinión de los desarrolladores del proyecto.
