@@ -17,16 +17,11 @@
 | Adaptar el conocimiento de JavaScript a TypeScript.
 
 |3
-| Docker
-| No nos hemos centrado todavía en esto (más haya de su instalación), sin embargo también carecemos de conocimiento de como se usa.
-| Comprender como funciona aunque sea de forma básica.
-
-|4
 | MongoDB
 | Nunca hemos trabajado con esta base de datos en concreto pero todos los miembros ya han utilizado una no relacional.
 | Comprender su funcionamiento mirando documentación al respecto
 
-|5
+|4
 | GitHub
 | Aunque todo el equipo trabaja bien con GitHub falta soltura a la hora de realizar ciertas acciones.
 | Esto no supone un gran inconveniente, se resolverá a medida que nos vayan saliendo los problemas.

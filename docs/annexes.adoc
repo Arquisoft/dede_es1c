@@ -133,8 +133,11 @@ Se cuenta con un carrito donde se pueden añadir y eliminar productos, además d
 :imagesdir: images/
 image:carrito2.png[nivel3]
 
-
 == Anexo IV
+En este apartado se incluirán los aspectos relativos a las pruebas de carga.
+
+
+== Anexo V
 
 Hemos realizado pruebas de carga sobre el ultimo despliege de la aplicacion a fin de conocer los limites de carga de trabajo que puede manejar y los tiempos de respuesta de la misma para diversas acciones de los usuarios, la herramienta utilizada es Gatling a continuacion mostramos los informes de los resultados obtenidos.
 

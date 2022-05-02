@@ -42,7 +42,7 @@ end
 @enduml
 ----
 === Vista del carrito con productos del usuario no identificado
-[plantuml,"AñadirCarro_diagrama",png]
+[plantuml,"AñadirCarrru_diagrama",png]
 ----
 @startuml
 actor Usuario_no_identificado
@@ -54,7 +54,7 @@ Dede->Dede:Error:Inicia sesion para continuar con la compra
 @endtuml
 ----
 === Vista del carrito con productos del usuario con datos POD correctos
-[plantuml,"AñadirCarro_diagrama",png]
+[plantuml,"AñadirCarrro_diagrama",png]
 ----
 @startuml
 actor Usuario_identificado
@@ -62,8 +62,8 @@ entity Dede
 Usuario_identificado-> Dede: Añade producto al carro
 Usuario_identificado-> Dede: Va al carrito
 Dede->Dede:Mostrar carrito
-Dede->Geocode:precio costes de envio con dirreción
-Geocode->Dede:calcular coste envio
+Dede->Geocoding:precio costes de envio con dirreción
+Geocoding->Dede:calcular coste envio
 Dede->Dede:mostrar precio total
 @endtuml
 ----
@@ -89,8 +89,8 @@ database BBDD
 Usuario_identificado-> Dede: Añade producto al carro
 Usuario_identificado-> Dede: Va al carrito
 Dede->Dede:Mostrar carrito
-Dede->Geocode:precio costes de envio con dirreción
-Geocode->Dede:calcular coste envio
+Dede->Geocoding:precio costes de envio con dirreción
+Geocoding->Dede:calcular coste envio
 Dede->Dede:mostrar precio total
 Usuario_identificado-> Dede: Da al boton de comprar
 Dede->Dede:mostra página de pago
