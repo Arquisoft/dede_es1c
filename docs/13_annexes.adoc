@@ -1,9 +1,45 @@
 [[section-annexes]]
-== Anexos
+= Anexos
 
 En este apartado se recogen varios anexos para enriquecer el entendimiento de determinadas partes de la documentación.
 
-= Anexo I
+== Anexo I
+
+En este anexo se recoge el cuestionario utilizado para medir la usabilidad de la aplicación.
+Se ha elaborado un cuestionario con 10 preguntas, algunas con respuesta corta, otras de opción multiple y tambien se han incluido una para valorar en escala likert.
+
+El cuestionario se planteo mediante google forms, con una muestra de 15 personas de diferentes edades y con distinto nivel técnico.
+
+:imagesdir: images/
+image:cuestionario.png[nivel3]
+
+:imagesdir: images/
+image:preguntas2.png[nivel3]
+
+:imagesdir: images/
+image:preguntas3.png[nivel3]
+
+Las respuestas obtenidas a este cuestionario han sido las siguientes:
+
+Respecto a la edad, podemos observar que el grupo predominante es el de más de 50 años, seguido por el de entre 10 y 20. Esto es debido a que el cuestionario se ha realizado a familiares cercanos en su mayoría como por ejemplo madres, padres, hermanos o primos. De igual forma se puede apreciar como hay gente en todos los grupos de edad en la muestra.
+
+:imagesdir: images/
+image:edad.png[nivel3]
+
+Una de los grandes problemas en la aplicación ha sido al utilizar el login, el 66,7% afirma que ha tenido problemas al realizarlo, es decir casí 7 de cada 10. Tan solo el 33,3% ha podido loguearse sin problemas, posiblemente personas con conocimiento más técnico. Junto a esta pregunta se daba la opción en la siguiente de explicar estos problemas.
+
+:imagesdir: images/
+image:login.png[nivel3]
+
+Las opiniones más repetidas al respecto tienen que ver con "no entender muy bien el tema de los POD" o que "eso no se usa en otras plataformas estilo Amazon". Utilizar los POD y SOLID es uno de los requisitos del trabajo y por ello lo hemos utilizado.
+
+:imagesdir: images/
+image:opiniones.png[nivel3]
+
+
+
+
+== Anexo II
 
 En este anexo se recoge algunas imagenes de como se ve la aplicación en un smartphone.
 
