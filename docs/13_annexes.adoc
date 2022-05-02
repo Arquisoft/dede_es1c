@@ -90,3 +90,35 @@ Por último tambien se muestra la pantalla de login, que redirige a inrupt.net p
 
 :imagesdir: images/
 image:login.jpg[nivel3]
+
+
+== Anexo III
+
+En este anexo se recoge la vista de la aplicación desde el ordenador a modo complementarío.
+
+El login en la aplicación se realiza mediante el login de inrupt.net que, una vez iniciada la sesión, nos lleva a la ventana de cliente.
+
+:imagesdir: images/
+image:loginPod.png[nivel3]
+
+El home de la aplicación cuenta con todo el catálogo de juegos.
+
+:imagesdir: images/
+image:home.png[nivel3]
+
+Los juegos se pueden filtrar por distintas categorías.
+
+:imagesdir: images/
+image:filtrosg.png[nivel3]
+
+Además, tambien se puede realizar busquedas por nombre sobre el propio filtro y de manera bidireccional. Según se van completando letras del nombre, van saliendo resultados.
+
+
+:imagesdir: images/
+image:filtromasbusqueda.png[nivel3]
+
+Se cuenta con una ventana de detalle, en la que cada juego cuenta con una descripción, una imagen y el precio del juego.
+
+:imagesdir: images/
+image:detallejuego.png[nivel3]
+
