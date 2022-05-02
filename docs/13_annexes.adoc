@@ -48,6 +48,23 @@ A pesar de ser algo muy subjetivo, quisimos que los entrevistados valorasen la e
 :imagesdir: images/
 image:estetica.png[nivel3]
 
+En los casos en los que les era imposible el acceso debido al POD, se les enseñó como entrar con un POD propio y se les pidio que realizasen una compra. En el cuestionario tambien se les pidio si podían evaluar este proceso de compra reguntandoles si les había resultado sencillo. El 93,3% afirmaba que fue sencillo realizar la compra.
+
+:imagesdir: images/
+image:sencillo.png[nivel3]
+
+Se realizó una pregunta sobre el filtro por categorías, donde el 100% afirma que han podido utilizar bien el filtro sin ninguna complicación.
+
+:imagesdir: images/
+image:filtros.png[nivel3]
+
+
+Para finalizar el cuestionario se les animo a escribir unas palabras sobre lo que les había parecido la aplicación a modo de observaciones. La mayoría afirman que la aplicación es bonita y que se puede comprar en ella sin problemas, el unico problema que se repite es el de entender el uso de los POD y de porqué su uso es tan útil.
+
+:imagesdir: images/
+image:observaciones.png[nivel3]
+
+
 == Anexo II
 
 En este anexo se recoge algunas imagenes de como se ve la aplicación en un smartphone.
