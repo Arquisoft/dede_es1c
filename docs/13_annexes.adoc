@@ -1,0 +1,30 @@
+[[section-annexes]]
+== Anexos
+
+En este apartado se recogen varios anexos para enriquecer el entendimiento de determinadas partes de la documentación.
+
+= Anexo I
+
+En este anexo se recoge algunas imagenes de como se ve la aplicación en un smartphone.
+
+En primer lugar de como se muestra el catálogo de juegos, completamente funcional haciendo scroll.
+
+:imagesdir: images/
+image:catalogo.png[nivel3]
+
+
+En segundo lugar, el carrito con sus productos añadidos y el precio a pagar por la ubicación del POD.
+
+:imagesdir: images/
+image:carrito.png[nivel3]
+
+
+En tercer lugar, un juego al detalle, donde se muestra su descripción, precio y posibilidad de compra.
+
+:imagesdir: images/
+image:detalle.png[nivel3]
+
+Por último tambien se muestra la pantalla de login, que redirige a inrupt.net para posteriomente una vez identificado, volver a la aplicación  de manera automática.
+
+:imagesdir: images/
+image:login.jpg[nivel3]
