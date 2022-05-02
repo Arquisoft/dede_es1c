@@ -141,57 +141,57 @@ Hemos realizado pruebas de carga sobre el ultimo despliege de la aplicacion a fi
 Acceso simultaneo de 100 usuarios a la web 
 
 :imagesdir: images/
-image:GatAccesoWeb1.jpg[nivel3]
+image:GatAccesoWeb1.JPG[nivel3]
 
 Acceso simultaneo de 1000 usuario a la web
 
 :imagesdir: images/
-image:GatAccesoWeb2.jpg[nivel3]
+image:GatAccesoWeb2.JPG[nivel3]
 
 LogIn de 50 usuarios en 60 segundos
 
 :imagesdir: images/
-image:GatLogin1.jpg[nivel3]
+image:GatLogin1.JPG[nivel3]
 
 LogIn de 10 usuarios/segundo durante 60 segundos
 
 :imagesdir: images/
-image:GatLogin2.jpg[nivel3]
+image:GatLogin2.JPG[nivel3]
 
 LogIn de 100 usuarios/segundo durante 60 segundos
 
 :imagesdir: images/
-image:GatLogin3.jpg[nivel3]
+image:GatLogin3.JPG[nivel3]
 
 Acceden a un juego 5 usuarios/segundo durante 60 segundos
 
 :imagesdir: images/
-image:GatVerJuego1.jpg[nivel3]
+image:GatVerJuego1.JPG[nivel3]
 
 Acceden a un juego 30 usuarios/segundo durante 60 segundos
 
 :imagesdir: images/
-image:GatVerJuego2.jpg[nivel3]
+image:GatVerJuego2.JPG[nivel3]
 
 Añaden 3 juegos al carrito 5 usuarios/segundo durante 60 segundos
 
 :imagesdir: images/
-image:GatCarrito1.jpg[nivel3]
+image:GatCarrito1.JPG[nivel3]
 
 Añaden 3 juegos al carrito 30 usuarios/segundo durante 60 segundos
 
 :imagesdir: images/
-image:GatCarrito2.jpg[nivel3]
+image:GatCarrito2.JPG[nivel3]
 
 Comprar un juego 5 usuario/segundo durante 60 segundos
 
 :imagesdir: images/
-image:GatComprar1.jpg[nivel3]
+image:GatComprar1.JPG[nivel3]
 
 Comprar un juego 30 usuario/segundo durante 60 segundos
 
 :imagesdir: images/
-image:GatComprar2.jpg[nivel3]
+image:GatComprar2.JPG[nivel3]
 
 == Anexo V
 
