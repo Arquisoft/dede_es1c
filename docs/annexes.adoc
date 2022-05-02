@@ -136,10 +136,7 @@ image:carrito2.png[nivel3]
 == Anexo IV
 En este apartado se incluirán los aspectos relativos a las pruebas de carga.
 
-
-== Anexo V
-
-Hemos realizado pruebas de carga sobre el ultimo despliege de la aplicacion a fin de conocer los limites de carga de trabajo que puede manejar y los tiempos de respuesta de la misma para diversas acciones de los usuarios, la herramienta utilizada es Gatling a continuacion mostramos los informes de los resultados obtenidos.
+Hemos realizado pruebas de carga sobre el ultimo despliege de la aplicacion a fin de conocer los limites de carga de trabajo que puede manejar y los tiempos de respuesta de la aplicación para diversas acciones de los usuarios. La herramienta utilizada para medir esto es Gatling. A continuacion, mostramos los informes de los resultados obtenidos.
 
 Acceso simultaneo de 100 usuarios a la web 
 
@@ -196,6 +193,16 @@ Comprar un juego 30 usuario/segundo durante 60 segundos
 :imagesdir: images/
 image:GatComprar2.jpg[nivel3]
 
-== Anexo V
 
 En este apartado se incluirán los aspectos de mejora del proyecto establecidos en la reunión previa a la última release. Estos aspectos surgen del análisis de los cuestionarios realizados y de la opinión de los desarrolladores del proyecto.
+
+
+* Cambiar el servicio externo de las imagenes para evitar el cuello de botella que se genera en determinadas ocasiones.
+
+* Sería interesante añadir el rol de administrador también a la parte de front, ya que en el back end si que esta disponible.
+
+* Tambien estaría bien cambiar datos del POD desde DeDe, para por ejemplo, modificar la dirección de envío.
+
+* La optimización para dispositivos móviles podría ser mejorable.
+
+* El redimensionado de las imagenes tambien se podría mejorar para que se adapten sin cortes.
