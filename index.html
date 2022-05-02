@@ -481,8 +481,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_login_de_usuario">6.1. Login de Usuario</a></li>
 <li><a href="#_registro_de_usuarios">6.2. Registro de usuarios</a></li>
-<li><a href="#_añadir_un_producto_al_carro_usuario_identificado">6.3. Añadir un producto al carro usuario identificado</a></li>
-<li><a href="#_compra_de_los_productos">6.4. Compra de los productos</a></li>
+<li><a href="#_vista_del_carrito_con_productos_del_usuario_no_identificado">6.3. Vista del carrito con productos del usuario no identificado</a></li>
+<li><a href="#_vista_del_carrito_con_productos_del_usuario_con_datos_pod_correctos">6.4. Vista del carrito con productos del usuario con datos POD correctos</a></li>
+<li><a href="#_vista_del_carrito_con_productos_del_usuario_con_datos_pod_incorrectos">6.5. Vista del carrito con productos del usuario con datos POD incorrectos</a></li>
+<li><a href="#_compra_de_los_productos">6.6. Compra de los productos</a></li>
 </ul>
 </li>
 <li><a href="#section-deployment-view">7. Vista de implementación</a>
@@ -585,15 +587,15 @@ Para obtener información de otros usuarios, la aplicación consultará sus corr
 <p>En la aplicación web los usuarios podrán comprar, el sistema calculará los costes de envío consultando la dirección deseada del usuario en su pod y calculando los costes de acuerdo a la distancia del centro de distribución a dicha dirección.</p>
 </div>
 <div class="paragraph">
-<p>Los usuarios podrán confirmar la compra como ver sus pedidos realizados.</p>
+<p>Los usuarios podrán tanto confirmar la compra desde su carrito, como ver su historico de pedidos realizados.</p>
 </div>
 <div class="sect3">
 <h4 id="_requisitos_técnicos">1.1.1. Requisitos técnicos</h4>
 <div class="paragraph">
-<p>Para el despliegue del sistema se utilizarán contenedores docker o en su defecto ejecutando restapi.</p>
+<p>Para la ejecución del proyecto se compila y ejecuta restapi y webapp. El despligue será realizado en Heroku.</p>
 </div>
 <div class="paragraph">
-<p>Se controlará el correcto funcionamiento mediante las siguientes tipos de pruebas:</p>
+<p>Se controlará el correcto funcionamiento mediante los siguientes tipos de pruebas:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -604,7 +606,10 @@ Para obtener información de otros usuarios, la aplicación consultará sus corr
 <p>Pruebas de aceptación</p>
 </li>
 <li>
-<p>Pruebas de carga</p>
+<p>Pruebas de carga (Incluidas en el <em>ANEXO IV</em>)</p>
+</li>
+<li>
+<p>Pruebas de usabilidad. (Incluidas en el <em>ANEXO I</em>)</p>
 </li>
 </ul>
 </div>
@@ -626,19 +631,19 @@ Para obtener información de otros usuarios, la aplicación consultará sus corr
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Usabilidad</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación debería de poder ser usada por cualquier tipo de usuario independientemente de su nivel.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación debería de poder ser usada por cualquier tipo de usuario independientemente de su nivel. Para llevar a cabo este objetivo se ha realizado un estudio con una muestra de 15 personas comprendiendo un amplio rango de edad. Los resultados obtenidos, así como la prueba realizada se pueden apreciar en el <em>ANEXO I</em> de esta documetación.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Privacidad</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La gestión de información es descentralizada.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La gestión de información es descentralizada. En la aplicación no se guarda ningún dato que pueda comprometer al usuario. Sino que, todos los datos relativos a estos, se encuentran en un POD (Personal Online Data)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Seguridad</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación no debería de tener ninguna vulnerabilidad.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación no debería de tener ninguna vulnerabilidad. Esto se demuestra gracias a la integración con SonarCloud.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Portabilidad</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Que la aplicación pueda adaptarse de forma correcta a distintos dispositivos.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Que la aplicación pueda adaptarse de forma correcta a distintos dispositivos. Nuestra aplicación se encuentra desarrollada principalmente para verse de forma correcta en ordenadores, pero tambien, tal y como se puede apreciar en el <em>ANEXO II</em>, se encuentra adaptada a dispositivos móviles.</p></td>
 </tr>
 </tbody>
 </table>
@@ -663,11 +668,11 @@ Para obtener información de otros usuarios, la aplicación consultará sus corr
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Clientes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sea intuitiva y fácil de utilizar independientemente del nivel.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sea intuitiva y fácil de utilizar independientemente del nivel, además de que sus datos se encuentren almacenados de forma segura.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Administrador</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Encargado  de solucionar los futuros problemas.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Encargado  de solucionar los futuros problemas que vayan surgiendo en la aplicación.</p></td>
 </tr>
 </tbody>
 </table>
@@ -739,7 +744,11 @@ Para obtener información de otros usuarios, la aplicación consultará sus corr
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Fechas límites</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Respetar las fechas indicadas por el profesor para la entrega de los diferentes versiones de la apliación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Respetar las fechas indicadas por el profesor para la entrega de los diferentes versiones de la aplicación</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Presentación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hay que realizar una presentación con una demo del proyecto una vez finalizado.</p></td>
 </tr>
 </tbody>
 </table>
@@ -762,7 +771,11 @@ Para obtener información de otros usuarios, la aplicación consultará sus corr
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Git-Flow</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Usamos el patron git-flow trabajando en la rama develop principalmente</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usamos el patrón git-flow trabajando en la rama develop principalmente, además de rama hotfix para solucionar problemas rápidos.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Anexos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Determinadas partes de la documentación que entren dentro del modelo Arc42, se pondrán en ANEXOS, ya que pueden aportar información para entender mejor el proyecto.</p></td>
 </tr>
 </tbody>
 </table>
@@ -775,9 +788,9 @@ Para obtener información de otros usuarios, la aplicación consultará sus corr
 <div class="sectionbody">
 <div class="paragraph">
 <div class="title">Objetivos</div>
-<p>Esta aplicacion va a consistir en una tienda online de venta de videojuegos fisicos, por lo tanto tendremos que manejar tanto datos de usuarios como los propios productos, envios etc.
-Sobre los datos de los usuarios debemos trabajar de acuerdo al principio SOLID, tendremos descentralizados los datos de los usuarios en PODs, cada usuario tendra su propio POD realizando todas las gestiones con ellos mediante
-el provedor de PODs Inrupt.</p>
+<p>Esta aplicacion consiste en una tienda online de venta de videojuegos fisicos, por lo tanto tendremos que manejar tanto datos de usuarios como los propios productos. Por la naturalidad del concepto de tienda, se manejaran datos de productos como son el nombre, descripción del producto, precio, stock y el coste asociado al envío de todos estos productos al cliente.
+Sobre los datos de los usuarios trabajamos de acuerdo al principio SOLID, es decir tenemos descentralizados los datos de los usuarios en PODs. Cada usuario tiene su propio POD realizando todas las gestiones con ellos mediante
+el provedor de PODs Inrupt. Un usuario que no tenga un POD no podrá realizar una compra en nuestra tienda, lo único que podrá hacer es visualizar los productos.</p>
 </div>
 <div class="sect2">
 <h3 id="_contexto_empresarial">3.1. Contexto empresarial</h3>
@@ -791,13 +804,14 @@ el provedor de PODs Inrupt.</p>
 <div class="sect2">
 <h3 id="_contexto_tecnico">3.2. Contexto tecnico</h3>
 <div class="paragraph">
-<p>Nuestra tienda DeDe se debe adecuar a los principios SOLID de descentralizacion de datos personales mediante el almacenamiento de los mismos en PODs independientes para cada usuario, nuestro proovedor de PODs sera Inrupt.
-El front-end estara desarrollado mediante el framework React implementando componentes ya desarrolladas o bien creadas por nosotros mismos, ademas el lenguaje para el desarrollo de las diversas funcionalidades de las pantallas sera TypeScript.
-Por la parte del back-end, nuestro SGDB es Mongo.db y mediante Node.js express realizaremos todas las transacciones a la base de datos, en la misma almacenaremos los datos de los productos.
-La mayoria de peticiones se realizaran mediante el protocolo web HTTP.</p>
+<p>Nuestra tienda DeDe se adecua a los principios SOLID de descentralizacion de datos personales mediante el almacenamiento de los mismos en PODs independientes para cada usuario, nuestro proovedor de PODs es Inrupt.
+El front-end se encuentra desarrollado mediante el framework React implementando componentes ya desarrolladas, o bien, creados por nosotros mismos, ademas el lenguaje para el desarrollo de las diversas funcionalidades de las pantallas es TypeScript.
+Por la parte del back-end, nuestro SGDB es Mongo.db y mediante Node.js express realizamos todas las transacciones a la base de datos, donde almacenamos los datos de los productos.
+La mayoria de peticiones se realiza mediante el protocolo web HTTP.
+Para calcular los costes de los envíos hacemos uso de una API externa muy popular, Geocoding.</p>
 </div>
 <div class="paragraph">
-<p>Diagrama para ilustrar en los componentes de la aplicacion que estan afectados por cada tecnologia</p>
+<p>A continuación, se muestra un diagrama para ilustrar los componentes de la aplicación que se encuentran afectados por cada tecnología.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./images/Punto%203%20Diagrama%20tecnico.png" alt="Punto3:DT"></span></p>
@@ -843,16 +857,16 @@ La mayoria de peticiones se realizaran mediante el protocolo web HTTP.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Herramienta de control de versiones que mejora el trabajo en equipo</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Docker</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Proyecto de código abierto que automatiza el despliegue de la apliación</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SOLID</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Especificación que permite a las personas almacenar sus datos de forma segura en almacenes de datos descentralizados llamados Pods.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Heroku</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Utilizaremos Heroku para desplegar nuestra aplicación, de este modo no habrá preocupación por la infraestructura.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Geocoding</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consumiremos una API externa para calcular el precio de los envios.</p></td>
 </tr>
 </tbody>
 </table>
@@ -871,16 +885,16 @@ La mayoria de peticiones se realizaran mediante el protocolo web HTTP.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Privacidad:</strong> Para asegurar la mejor privacidad a los usuarios se usará los PODs de SOLID,los cuáles nos permitirá almacenar los datos de usuario en un formato interoperable, y brindar a los usuarios controles de autorización.</p>
+<p><strong>Privacidad:</strong> Para asegurar la mejor privacidad a los usuarios se usan los PODs de SOLID,los cuáles nos permiten almacenar los datos de usuario en un formato interoperable, y brindarles  controles de autorización.</p>
 </li>
 <li>
-<p><strong>Usabilidad:</strong> Para mejorar este objetivo nuestras interfaces son lo más fluidas, simples e intuitivas posibles.</p>
+<p><strong>Usabilidad:</strong> Para mejorar este objetivo nuestras interfaces son lo más fluidas, simples e intuitivas posibles, ayudandonos siempre de metáforas como por ejemplo el icono de la casa para marcar el inicio o el de un carro para el carrito del cliente.</p>
 </li>
 <li>
-<p><strong>Eficiencia:</strong> Como el uso de los Pods de SOLID ralentiza la aplicación, se usarán lo menos posible por eso se combinarán estos PODs con MongoDB.</p>
+<p><strong>Eficiencia:</strong> Como el uso de los Pods de SOLID ralentiza la aplicación, solo será necesario tener iniciado el POD de usuario en otra ventana e introducirlo en el login, la aplicación no lo pedirá nunca más.</p>
 </li>
 <li>
-<p><strong>Testeabilidad:</strong> Se han realizado diferentes tipos de test para comprobar la robustez del proyecto.</p>
+<p><strong>Testeabilidad:</strong> Se han realizado diferentes tipos de test para comprobar la robustez del proyecto, entre los que destacamos test unitarios, de usabilidad y test de carga.</p>
 </li>
 </ul>
 </div>
@@ -891,12 +905,12 @@ La mayoria de peticiones se realizaran mediante el protocolo web HTTP.</p>
 <ul>
 <li>
 <p><strong>Reuniones</strong>
-Durante la semana se planificará una reunión presencial, en la que se expondrán los puntos que hay que realizar antes de la siguiente, además se tratarán los problemas u obstaculos encontrados, todo esto quedará reflejado a través de actas.
-Si surge algún problema durante la realización del proyecto se podrán planificar reuniones online a través de Discord.</p>
+Durante la semana se ha planificado una reunión presencial, en la que se han expuesto los puntos ha realizar antes de la siguiente, además se han tratado los problemas u obstaculos encontrados, todo esto ha quedado reflejado a través de actas, disponibles en nuestra wiki, formando un total de más de 18 reuniones.
+Cuando ha surgido algun problema durante la realización del proyecto se ha podido planificar reuniones online a través de Discord.</p>
 </li>
 <li>
 <p><strong>Github</strong>
-Para poder realizar un buen control de versiones del proyecto se utilizará Github donde se crearán diferentes ramas:</p>
+Para poder realizar un buen control de versiones del proyecto se ha utilizado Github, donde se crearon diferentes ramas:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -909,13 +923,13 @@ Para poder realizar un buen control de versiones del proyecto se utilizará Gith
 <p>Nombre del miembro: dentro de develop cada miembro tiene una rama en la que pueden trabajar.</p>
 </li>
 <li>
-<p>Hotfix: rama para hacer cambios rápidos a la rama principal sin tener que pasar por otras de más bajo nivel.</p>
+<p>Hotfix: rama para hacer cambios rápidos a la rama principal sin tener que pasar por otras de más bajo nivel. Esta rama se ha dividido en hotfix a secas para cambios de proyecto, hotfixDocu para cambios en documentación y hotfixTest para solucionar problemas de testing.</p>
 </li>
 <li>
-<p>Backend: en esta rama se trabaja todo el código del Backend de manera conjunta.</p>
+<p>Backend: en esta rama se trabaja todo el código del Backend de manera conjunta. Añadiendo en la parte final del proyecto la rama backendFinal a partir de la release v1.0.0.</p>
 </li>
 <li>
-<p>Nombre/documentacion: aquí cada miembro del equipo subirá las partes de la documentación que vaya desarrollando.</p>
+<p>Nombre/documentacion: aquí cada miembro del equipo subió las partes de la documentación que fue desarrollando al principio, donde se planteo un esbozo de lo que finalmente sería la aplicación</p>
 </li>
 </ul>
 </div>
@@ -923,10 +937,10 @@ Para poder realizar un buen control de versiones del proyecto se utilizará Gith
 </ul>
 </div>
 <div class="paragraph">
-<p>Si los miembros del equipo tienen problemas en el desarrollo deben de crear un issue para que éstos le puedan ayudar a solucionarlo.</p>
+<p>Todo lo realizado en el proyecto, tanto problemas como distintas aportaciones se han recogido a modo de issues en el repositorio de github del proyecto. Cada issue ha sido asignada a distintos miembros del equipo y cerrada por otros. Añadiendo distintas etiquetas que hacen referencia a la parte del proyecto correspondiente.</p>
 </div>
 <div class="paragraph">
-<p>Los miembros del equipo deben de realizar pull request antes de mergear con otra rama.</p>
+<p>Por otro lado, los miembros del equipo han realizado pull request antes de mergear con otra rama, estos han sido aceptados por compañeros revisando el código antes de que realizar el merge. Salvo para casos en los que la rama a mergear era una simple actualización.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -1004,7 +1018,7 @@ La tienda DeDe ofrecera varios servicios al cliente algunos de los cuales implic
 </div>
 <div class="paragraph">
 <div class="title">Motivacion</div>
-<p>Descomponer las dos partes principales vistas en el nivel anterior con detalle respecto a operaciones concretas de los usuarios y las acciones de acceso  datos que estas conllevan tanto a POD como a la BBDD.</p>
+<p>La principal motivación perseguida es la de, descomponer las dos partes principales vistas en el nivel anterior con detalle respecto a operaciones concretas de los usuarios y las acciones de acceso  datos que estas conllevan, tanto a POD como a la BBDD.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 3. Contenedores</caption>
@@ -1018,24 +1032,16 @@ La tienda DeDe ofrecera varios servicios al cliente algunos de los cuales implic
 <td class="tableblock halign-left valign-top"><p class="tableblock">Responsabilidad</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vender</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Desde la tienda el administrador podra poner productos a la venta.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Catalogo</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mostrar el catalogo de productos a los usuarios</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ver perfil</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mostrar informacion del usuario segun su tipo (cliente o admin)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lista de pedidos</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mostrar los pedidos, tanto de ventas al Administrador como de compras al cliente</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mostrar informacion del usuario relativa a su historico de pedidos.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Comprar</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Los clientes podran comprar juego</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Los clientes podran comprar juegos</p></td>
 </tr>
 </tbody>
 </table>
@@ -1066,18 +1072,34 @@ La tienda DeDe ofrecera varios servicios al cliente algunos de los cuales implic
 </div>
 </div>
 <div class="sect2">
-<h3 id="_añadir_un_producto_al_carro_usuario_identificado">6.3. Añadir un producto al carro usuario identificado</h3>
+<h3 id="_vista_del_carrito_con_productos_del_usuario_no_identificado">6.3. Vista del carrito con productos del usuario no identificado</h3>
 <div class="imageblock">
 <div class="content">
-<img src="./images/AñadirCarro_diagrama.png" alt="AñadirCarro diagrama" width="509" height="313">
+<img src="./images/AñadirCarrru_diagrama.png" alt="AñadirCarrru diagrama" width="535" height="339">
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_compra_de_los_productos">6.4. Compra de los productos</h3>
+<h3 id="_vista_del_carrito_con_productos_del_usuario_con_datos_pod_correctos">6.4. Vista del carrito con productos del usuario con datos POD correctos</h3>
 <div class="imageblock">
 <div class="content">
-<img src="./images/Compra_diagrama.png" alt="Compra diagrama" width="538" height="435">
+<img src="./images/AñadirCarrro_diagrama.png" alt="AñadirCarrro diagrama" width="517" height="400">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vista_del_carrito_con_productos_del_usuario_con_datos_pod_incorrectos">6.5. Vista del carrito con productos del usuario con datos POD incorrectos</h3>
+<div class="imageblock">
+<div class="content">
+<img src="./images/AñadirCarro_diagrama.png" alt="AñadirCarro diagrama" width="436" height="339">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_compra_de_los_productos">6.6. Compra de los productos</h3>
+<div class="imageblock">
+<div class="content">
+<img src="./images/Compra_diagrama.png" alt="Compra diagrama" width="603" height="534">
 </div>
 </div>
 <div style="page-break-after: always;"></div>
@@ -1093,14 +1115,14 @@ La tienda DeDe ofrecera varios servicios al cliente algunos de los cuales implic
 <ul>
 <li>
 <p>Nuestra aplicación funcionará desde cualquier ordenador  a través del navegador. De esta forma los requisitos necesarios para ejecutarla
-se ven reducidos, haciendo la aplicación más accesible para personas con equipos menos potentes.</p>
+se ven reducidos, haciendo la aplicación más accesible para personas con equipos menos potentes. Se puede visualizar en el <em>ANEXO III</em>.</p>
 </li>
 <li>
 <p>Se recomienda el uso de los navegadores clásicos, como son Google Chrome y Firefox. Otros navegadores como Safari, Edge  u Opera, también pueden ser utilizados aunque en determinadas
 circustancias podrían dar algún tipo de problema debido a sus restricciones de seguridad.</p>
 </li>
 <li>
-<p>Es necesario  habilitar la ubicación en el navegador para que desde la tienda se acceda de manera más directa a la dirección donde se enviará el pedido del cliente y así poder calcular los gastos de envío asociados con mayor exactitud.</p>
+<p>La dirección de envío se obtiene desde el POD de cliente, por lo que no es necesario tener la ubicación del navegador activada.</p>
 </li>
 <li>
 <p>Los datos del cliente siempre se mantendrán por separado en un POD, siguiendo los principios SOLID. De esta forma, dejamos claro que los datos de clientes y productos se encuentran
@@ -1108,7 +1130,7 @@ separados y que no se tiene acceso a los datos de clientes.</p>
 </li>
 <li>
 <p>La aplicación se podrá visualizar también desde el navegador de un dispositivo móvil, para ello simplemente bastará con meter la dirección url donde se encuentre alojada la tienda. Se recomienda
-el uso de las aplicaciones de navegador móvil mencionadas anteriormente.</p>
+el uso de las aplicaciones de navegador móvil mencionadas anteriormente. Se puede ver en el <em>ANEXO II</em></p>
 </li>
 </ul>
 </div>
@@ -1177,12 +1199,12 @@ lo más accesible posible.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Representa un usuario de la aplicación, toda su información se guardará en un POD.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Posición actual del usuario</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">El objetivo es que se conozca la posición actual para,  en el caso de enviar un pedido, se pueda calcular el coste de envio.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Posición de envío para el usuario</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Se conoce la posición de envío para el usuario gracias al POD. Se puede calcular un precio diferente dependiendo de la distancia al centro de distribución.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Productos</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lista de productos disponibles con toda la información relevante.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lista de productos disponibles con toda la información relevante como precio, descripción y una imagen ilustrativa del producto.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1193,14 +1215,14 @@ lo más accesible posible.</p>
 si ya se encuentra familiarizado con plataformas de compra electrónica como Steam u Origin, siempre le será más sencillo.</p>
 </div>
 <div class="paragraph">
-<p>El usuario podrá identificarse haciendo clic en la parte derecha del panel introduciendo su POD, o bien acceder a crear un POD en la página de SOLID, se le pone a disposición el enlace al usuario.
-La única forma de compra y acceso a la aplicación es la de usuario registrado en un POD, nos tomamos muy enserio la privacidad y creemos que esta es la mejor manera de interacción con nuestro sistema.</p>
+<p>El usuario podrá identificarse haciendo clic en la parte derecha del panel introduciendo su POD, o bien acceder a crear un POD en la página de inrupt donde se le redirige si su POD no es válido o no se encuentra con inrupt iniciado.
+La única forma de compra y acceso a la aplicación es la de usuario propietario de un POD con inrupt iniciado, nos tomamos muy enserio la privacidad y creemos que esta es la mejor manera de interacción con nuestro sistema.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_conceptos_de_seguridad_y_protección">8.1.2. Conceptos de seguridad y protección</h4>
 <div class="paragraph">
-<p>En líneas generales, nuestra aplicación es segura. Hemos utilizado los principios SOLID, esto es que los datos de los usuarios serán almacenados de forma segura en almacenes de datos llamados PODS.
+<p>En líneas generales, nuestra aplicación es segura. Hemos utilizado los principios SOLID, esto es que, los datos de los usuarios serán almacenados de forma segura en almacenes de datos llamados PODS.
 Los PODS (Personal online data stores) pueden contener cualquier tipo de información, en nuestro caso contiene email que será el usuario, password, nombre, apellido, teléfono, país, provincia, ciudad, código postal, calle, número, piso y letra del piso.
 El acceso a los datos de los PODS se puede restringir y controlar de manera segura, eligiendo las reglas de acceso determinadas.</p>
 </div>
@@ -1243,7 +1265,7 @@ Como ya se menciono anteriormente, los datos de usuario son guardados en un POD,
 <div class="sect3">
 <h4 id="_conceptos_operativos">8.1.5. Conceptos operativos</h4>
 <div class="paragraph">
-<p>Las operaciones básicas que se pueden realizar desde la aplicación desde el rol de usuario son:</p>
+<p>Las operaciones básicas que se pueden realizar desde la aplicación con el rol de usuario son:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1265,6 +1287,9 @@ Como ya se menciono anteriormente, los datos de usuario son guardados en un POD,
 </ul>
 </div>
 <div class="paragraph">
+<p>Es importante destacar que el filtro por nombre funciona sobre el filtro de las categorías, es decir, si en primer lugar filtramos por ejemplo por la categoría aventura y luego aplicamos el filtro por nombre. La aplicación nos devolverá los resultados para ese nombre dentro de la categoría del filtro.</p>
+</div>
+<div class="paragraph">
 <p>En el siguiente diagrama se puede apreciar de forma gráfica las operaciones que puede realizar el usuario explicadas anteriormente:</p>
 </div>
 <div class="imageblock">
@@ -1281,8 +1306,11 @@ Como ya se menciono anteriormente, los datos de usuario son guardados en un POD,
 <h2 id="section-design-decisions">9. Decisiones de diseño</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>En este documento se recogerán de manera continuada las distintas decisiones de diseño que se vayan tomando en el desarrollo del proyecto.
-Se recoge a modo de tabla formada por cuatro columnas:</p>
+<p>En este documento se recoge de manera continuada las distintas decisiones de diseño que se han tomando en el desarrollo del proyecto.
+Se describe a modo de tabla formada por cinco columnas:</p>
+</div>
+<div class="paragraph">
+<p>-<strong>Orden</strong>: se trata del orden de aplicación.</p>
 </div>
 <div class="paragraph">
 <p>-<strong>Sección</strong>: Se explicará a la sección que pertenece la decisión. P.e: Base de datos.</p>
@@ -1324,12 +1352,12 @@ Se recoge a modo de tabla formada por cuatro columnas:</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lenguaje de programación</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Utilizar TypeScript como lenguaje principal en el desarrollo de la aplicación</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Escalabilidad del código, fácil testeo</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Desconocimiento técnico sobre el lenguaje</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Desconocimiento técnico sobre el lenguaje, lol que podría hacer que se generase deuda de código y deuda de diseño.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Librerias</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Utilizar React para las interfaces de usuario</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Utilizar React y Material UI para las interfaces de usuario</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Es de código abierto, mucha documentación en la web</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No cuenta con documentación oficial ni con estandar de desarrollo.</p></td>
 </tr>
@@ -1339,6 +1367,41 @@ Se recoge a modo de tabla formada por cuatro columnas:</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Utilizar Heroku para el despliegue</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No hay que preocuparse por la infraestructura, soporte de muchos lenguajes de programación</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Desconocimiento técnico, nadie del grupo lo ha utilizado nunca.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Utilizar test para probar Backend y Frontend</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Probar el código de manera automatizada</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Si se diseñan mal puede dar lugar a deuda de prueba.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Utilizar Codecov para comprobar porcentaje de test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Obtendremos el porcentaje exacto de partes del código que se encuentran testadas</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Puede llevar tiempo aprender a implementarlo en el proyecto.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Documentación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Utilizar Arc42 para la documentación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Es un estandár ya probado</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Su complejidad puede provocar deuda de documentación.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consumir Geocoding como API externa para calcular el precio de envío de los productos.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Poder calcular costes de envío</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hay que aprender a consumir la API.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Utilizar Gatling par test de carga</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comprobamos con distintos niveles de carga de usuario el funcionamiento de la aplicación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nadie sabe usar previamente Gatling.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1379,37 +1442,37 @@ Se recoge a modo de tabla formada por cuatro columnas:</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Usabilidad</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación debería de poder ser usada por cualquier tipo de usuario independientemente de su nivel.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación debería de poder ser usada por cualquier tipo de usuario independientemente de su nivel, para probar esto utilizaremos test con personas ajenas al proyecto. Los resultado obtenidos se pueden visualizar en <em>ANEXO I</em>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alta</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alta</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Privacidad</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La gestión de información es descentralizada. El usuario no se debe de preocupar acerca de sus datos ya que solo se le pedirá la necesaria.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La gestión de información es descentralizada. El usuario no se debe de preocupar acerca de sus datos ya que solo se le pedirá su email y contraseña, el resto de datos van almacenados en un POD externo y seguro. Sin un POD correcto es imposible comprar en la aplicación.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alta</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Media</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Seguridad</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación debe de ser extremadamente segura para que nada referido a la información personal de los usarios pueda ser filtrada.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación debe de ser extremadamente segura para que nada referido a la información personal de los usarios pueda ser filtrada. Para ello, todos los datos de usuarios será metidos en un POD en lugar de en la propia aplicación, complementando al objetivo de privacidad.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alta</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alta</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Portabilidad</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Que la aplicación pueda adaptarse de forma correcta a distintos dispositivos.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Que la aplicación pueda adaptarse de forma correcta a distintos dispositivos, la aplicación se verá de manera correcta en el navegador de un pc y de un smartphone. Ver <em>ANEXOS II Y III</em>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Media</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Media</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Testeabilidad</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Que la aplicación haya sido probada y se sepa de forma segura que no va a romper por ningún sitio.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Que la aplicación haya sido probada y se sepa de forma segura que no va a romper por ningún sitio. Para ello se alcanzará más de un 80% de cobertura de test unitarios, además de test de usabilidad y de carga sobre el despliegue.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alta</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Media</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Modificabilidad</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">En caso de tener que añadir algún mejora no nos debería de llaver tiempo (más que su implementación)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">En caso de tener que añadir algún mejora, es facil de modificar y no influye en el resto de partes del proyecto gracias al bajo acoplamiento con el que se encuentra programada.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Baja</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alta</p></td>
 </tr>
@@ -1443,7 +1506,7 @@ Se recoge a modo de tabla formada por cuatro columnas:</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SOLID</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Nadie del equipo ha utilizado alguna vez SOLID, por lo que todos carecemos de conocimiento sobre este framework.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nadie del equipo ha utilizado SOLID, por lo que todos carecemos de conocimiento sobre este framework.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Leer más artículos relacionados con este tema o verse alguna guía.</p></td>
 </tr>
 <tr>
@@ -1454,18 +1517,12 @@ Se recoge a modo de tabla formada por cuatro columnas:</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Docker</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No nos hemos centrado todavía en esto (más haya de su instalación), sin embargo también carecemos de conocimiento de como se usa.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Comprender como funciona aunque sea de forma básica.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MongoDB</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Nunca hemos trabajado con esta base de datos en concreto pero todos los miembros ya han utilizado una no relacional.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Comprender su funcionamiento mirando documentación al respecto</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GitHub</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Aunque todo el equipo trabaja bien con GitHub falta soltura a la hora de realizar ciertas acciones.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Esto no supone un gran inconveniente, se resolverá a medida que nos vayan saliendo los problemas.</p></td>
@@ -1474,7 +1531,7 @@ Se recoge a modo de tabla formada por cuatro columnas:</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Heroku</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Nunca nadie del equipo ha realizado ningún despliegue con Heroku.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Los miembros del equipo se apoyarán en la documentación oficial donde se encuentra explicado..</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Los miembros del equipo se apoyarán en la documentación oficial donde se encuentra explicado.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1504,6 +1561,16 @@ Se recoge a modo de tabla formada por cuatro columnas:</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Robustez</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Al tener poca experencia en trabajar en este tipo de proyectos en grupo puede darse la situación de que el código no quede robusto</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Tener mucha comunicación</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retardo al hacer login</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Al cargar los datos del POD de inrupt.net se provoca cierto retardo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tener una buena conexión cableada</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retardo al cargar imágenes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Al cargar los datos de imagenes del drive del proyecto se provoca cierto retardo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tener una buena conexión cableada</p></td>
 </tr>
 </tbody>
 </table>
@@ -1547,10 +1614,6 @@ Se recoge a modo de tabla formada por cuatro columnas:</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sistema de base de datos NoSQL, orientado a documentos y de código abierto</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Docker</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">REACT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Biblioteca Javascript de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página</p></td>
 </tr>
@@ -1582,6 +1645,10 @@ Se recoge a modo de tabla formada por cuatro columnas:</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Heroku</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Es un Paas(Platform as a Service) que nos permite desplegar nuestras aplicaciones sin preocupaciones por la infraestructura.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Geocoding</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Es una API muy utilizada para dar servicios de direcciones físicas.</p></td>
+</tr>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
@@ -1609,7 +1676,7 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-04-05 09:01:02 +0200
+Last updated 2022-03-04 17:12:10 +0100
 </div>
 </div>
 </body>
