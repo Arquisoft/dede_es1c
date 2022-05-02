@@ -25,11 +25,11 @@
  
  - [Documentación](https://arquisoft.github.io/dede_es1c/)
  
- - [Presentación]()
+ - [Presentación](https://prezi.com/view/E08iWtXhjlvqvguv1lul/)
  
- - [Demo]()
+ - [Demo](https://www.youtube.com/watch?v=JKiTZTN_Pt0)
  
- - [Catálogo]()
+ - [Catálogo](https://prezi.com/i/cwqk5gvpjow5/)
  
  - [Despliegue](https://secure-oasis-78684.herokuapp.com/)
  
